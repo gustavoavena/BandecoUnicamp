@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fuzi
+
 
 class ViewController: UIViewController {
 
