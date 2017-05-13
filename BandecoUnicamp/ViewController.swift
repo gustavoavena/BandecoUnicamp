@@ -65,6 +65,14 @@ class ViewController: UIViewController {
 //			}
 			
 			// XPath queries
+			
+			let cardapio = doc.css(".fundo_cardapio")
+			print(cardapio.count)
+			
+			for meal in cardapio {
+				print("meal: ", meal)
+			}
+			
 			if let firstAnchor = doc.firstChild(xpath: "//table/tr/td/table") {
 //				print(firstAnchor.attributes)
 				let meals = firstAnchor.children(tag: "tr")[3].children(tag: "td")
