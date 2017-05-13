@@ -13,6 +13,7 @@
 		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
 		4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */; };
+		4D9529171EC7950C00219F48 /* cardapio.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529161EC7950C00219F48 /* cardapio.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4D9529091EC78D2E00219F48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D95290C1EC78D2E00219F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D95290E1EC78D2E00219F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D9529161EC7950C00219F48 /* cardapio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = cardapio.html; sourceTree = "<group>"; };
 		53A31847CE7F32A0117DA004 /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		555503330C38923B2B4E2099 /* Pods_BandecoUnicamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BandecoUnicamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8649C5F97ED1068D711AD2 /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4D9529061EC78D2E00219F48 /* Main.storyboard */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
+				4D9529161EC7950C00219F48 /* cardapio.html */,
 				4D95290E1EC78D2E00219F48 /* Info.plist */,
 			);
 			path = BandecoUnicamp;
@@ -154,6 +157,7 @@
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
 				4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */,
+				4D9529171EC7950C00219F48 /* cardapio.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +385,7 @@
 				4D9529131EC78D2E00219F48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
