@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Fuzi
 
 
 class ViewController: UIViewController {
@@ -16,7 +15,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		parseHTML()
+		parseJSON()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -28,9 +27,9 @@ class ViewController: UIViewController {
 	{
 		var res = ""
 		
-		if let path = Bundle.main.path(forResource: file, ofType: "html") {
+		if let path = Bundle.main.path(forResource: file, ofType: "") {
 			do {
-				let string =  try String(contentsOfFile: path, encoding: .iso2022JP)
+				let string =  try String(contentsOfFile: path, encoding: .utf8)
 				res = string
 //				print("res", res)
 			} catch let error {
@@ -42,81 +41,46 @@ class ViewController: UIViewController {
 		return res
 	}
 	
-	
-	func parseHTML() {
-
-//		let filePath = Bundle.main.path(forResource: "cardapio", ofType: "html")
-		var text: String
-		
-		text = readBundle(file: "cardapio")
-//		print("cardapio text:", text)
-		
-		do {
-			// if encoding is omitted, it defaults to NSUTF8StringEncoding
-			let doc = try HTMLDocument(string: text, encoding: String.Encoding.utf8)
-			
-			// CSS queries
-			if let elementById = doc.firstChild(css: "#id") {
-				print(elementById.stringValue)
+	func convertToDictionary(text: String) -> [String: Any]? {
+		if let data = text.data(using: .utf8) {
+			print(data)
+			do {
+				return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+			} catch {
+				print("Error reading JSON")
+				print(error.localizedDescription)
 			}
-//			for link in doc.css("a, link") {
-//				print(link.rawXML)
-//				print(link["href"])
-//			}
-			
-			// XPath queries
-			
-			let cardapio = doc.css(".fundo_cardapio")
-			print(cardapio.count)
-			
-			for meal in cardapio {
-				print("meal: ", meal)
-			}
-			
-			if let firstAnchor = doc.firstChild(xpath: "//table/tr/td/table") {
-//				print(firstAnchor.attributes)
-				let meals = firstAnchor.children(tag: "tr")[3].children(tag: "td")
-				print(meals)
-				
-			}
-			
-			
-			/*
-			//table/tr/td/table/tr[3]/td[0] -> almoco
-			//table/tr/td/table/tr[3]/td[1] -> almoco vegetariano
-			//table/tr/td/table/tr[3]/td[2] -> jantar
-			//table/tr/td/table/tr[3]/td[3] -> jantar vegetariano
-			
-			
-			*/
-//			for script in doc.xpath("//head/script") {
-//				print(script["src"])
-//			}
-//			
-//			// Evaluate XPath functions
-//			if let result = doc.eval(xpath: "count(/*/a)") {
-//				print("anchor count : \(result.doubleValue)")
-//			}
-			
-			// Convenient HTML methods
-			print(doc.title) // gets <title>'s innerHTML in <head>
-//			print(doc.head)  // gets <head> element
-//			print(doc.body)  // gets <body> element
-					// you can also use CSS selector against XMLDocument when you feels it makes sense
-		} catch let error as XMLError {
-			switch error {
-				case .noError: print("wth this should not appear")
-				case .parserFailure, .invalidData: print(error)
-				case .libXMLError(let code, let message):
-				print("libxml error code: \(code), message: \(message)")
-			
-			}
-		
-		} catch {
-			print("Unknown error!")
 		}
+		
+		print("couldn't extract data from text")
+		return nil
 	}
-
+	
+	
+	func parseJSON() {
+		
+		let url = URL(string: "http://127.0.0.1:5000/date/2017-05-23")
+		URLSession.shared.dataTask(with: url!, completionHandler: {
+			(data, response, error) in
+			if(error != nil){
+				print("error")
+			}else{
+				do{
+					let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
+					
+					print(json)
+					
+					print((json["Almoço"] as! Dictionary)["arroz_feijao"]!)
+					
+					
+				}catch let error as NSError{
+					print(error)
+				}
+			}
+		}).resume()
+	}
+	
+	
 
 }
 

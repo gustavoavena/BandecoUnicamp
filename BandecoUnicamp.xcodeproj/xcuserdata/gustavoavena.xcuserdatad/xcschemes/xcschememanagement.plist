@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WidgetCardapio.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4D5C6D531ED1E45D009CC3E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D9528FE1EC78D2D00219F48</key>
 		<dict>
 			<key>primary</key>
