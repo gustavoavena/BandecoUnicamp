@@ -28,7 +28,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 				return
 			}
 			
-			print("Cardapio Almoço: ", cardapio["Almoço"])
+			print("Cardapio Almoço: ", cardapio["Almoço"]!)
 			
 //			CGRect(origin: self.view.frame.origin, size: self.view.frame.size)
 			
@@ -48,6 +48,10 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 				// Calcula um novo frame para a página deslocando em X o tamanho de uma página
 				// para colocar as views lado a lado
 				page?.frame = (page?.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))!
+				
+				page?.frame = CGRect(x:page!.frame.origin.x, y:0, width:self.scrollView.frame.width,height: self.scrollView.frame.height)
+				
+				// FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
 				
 				// adiciona a página na scrollview
 				self.scrollView.addSubview(page!)

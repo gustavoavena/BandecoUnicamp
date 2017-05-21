@@ -13,12 +13,14 @@ class RefeicaoView: UIView {
 	
 	/// view that is loaded from xib file
 	fileprivate var contentView: UIView!
+
 	@IBOutlet var pratos: [UILabel]!
 	@IBOutlet weak var salada: UILabel!
 	@IBOutlet weak var suco: UILabel!
 	@IBOutlet weak var data: UILabel!
 	@IBOutlet weak var refeicao: UILabel!
 	@IBOutlet weak var arrozFeijao: UILabel!
+	@IBOutlet weak var sobremesa: UILabel!
 
 	//MARK: Initialization
 	
@@ -49,7 +51,13 @@ class RefeicaoView: UIView {
 		self.arrozFeijao.text = cardapio["arroz_feijao"] as! String
 		self.salada.text = cardapio["salada"] as! String
 		self.suco.text = cardapio["suco"] as! String
+		self.sobremesa.text = cardapio["sobremesa"] as! String
 		
+		let pratos = cardapio["prato_principal"]  as! [String]
+		for i in 0..<pratos.count {
+			
+			self.pratos[i].text = pratos[i]
+		}
 	}
 	
 	

@@ -16,9 +16,11 @@
                 <outlet property="data" destination="pal-Yk-u7o" id="DKz-L4-ab5"/>
                 <outlet property="refeicao" destination="IC3-RE-w2F" id="eRz-aq-TVy"/>
                 <outlet property="salada" destination="J0b-4w-g32" id="kUO-T2-QG8"/>
+                <outlet property="sobremesa" destination="Ko2-6T-Gri" id="dMN-hp-LOW"/>
                 <outlet property="suco" destination="p8i-a9-tKd" id="DWa-gV-MjY"/>
-                <outletCollection property="Pratos" destination="91A-I3-IdV" collectionClass="NSMutableArray" id="as6-v8-gDS"/>
-                <outletCollection property="pratos" destination="91A-I3-IdV" collectionClass="NSMutableArray" id="5Eq-w8-joA"/>
+                <outletCollection property="pratos" destination="Az9-r7-BOU" collectionClass="NSMutableArray" id="s87-Pd-HR8"/>
+                <outletCollection property="pratos" destination="Lfv-cG-6gs" collectionClass="NSMutableArray" id="wi3-wP-cKj"/>
+                <outletCollection property="pratos" destination="91A-I3-IdV" collectionClass="NSMutableArray" id="UoD-sZ-pwE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -44,98 +46,100 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kYB-Aq-GBT" userLabel="Prato Principal">
-                    <rect key="frame" x="121" y="135" width="133" height="79.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Prato Principal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-2C-nRc">
-                            <rect key="frame" x="10" y="0.0" width="113" height="18"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Steak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-r7-BOU" userLabel="prato1">
-                            <rect key="frame" x="45" y="18" width="43.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Chuchu refogado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-cG-6gs" userLabel="prato2">
-                            <rect key="frame" x="0.0" y="38.5" width="133" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PTS com Batata" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91A-I3-IdV" userLabel="prato3">
-                            <rect key="frame" x="5" y="59" width="123" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fMR-GV-eOQ" userLabel="Salada">
-                    <rect key="frame" x="160.5" y="246" width="73.5" height="38.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Salada:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8b-is-AoX">
-                            <rect key="frame" x="0.0" y="0.0" width="73.5" height="18"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Vinagrete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-4w-g32" userLabel="salada">
-                            <rect key="frame" x="0.0" y="18" width="73.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fXg-Ji-D7P" userLabel="Sobremesa">
-                    <rect key="frame" x="125" y="315" width="125" height="38.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sobremesa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-Nw-bEN">
-                            <rect key="frame" x="18.5" y="0.0" width="88" height="18"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Doce de banana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko2-6T-Gri" userLabel="sobremesa">
-                            <rect key="frame" x="0.0" y="18" width="125" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0yE-Qy-MwF" userLabel="Suco">
-                    <rect key="frame" x="166.5" y="384" width="46.5" height="38.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Suco:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMX-Io-Lbs">
-                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="18"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Limão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8i-a9-tKd" userLabel="suco">
-                            <rect key="frame" x="0.0" y="18" width="46.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prato Principal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-2C-nRc">
+                    <rect key="frame" x="131" y="135" width="113" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-r7-BOU" userLabel="prato1">
+                    <rect key="frame" x="38" y="153" width="300" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuchu refogado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-cG-6gs" userLabel="prato2">
+                    <rect key="frame" x="37.5" y="173.5" width="300" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PTS com Batata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91A-I3-IdV" userLabel="prato3">
+                    <rect key="frame" x="37.5" y="194" width="300" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salada:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8b-is-AoX">
+                    <rect key="frame" x="160.5" y="244.5" width="55" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobremesa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-Nw-bEN">
+                    <rect key="frame" x="143.5" y="315" width="88" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doce de banana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko2-6T-Gri" userLabel="sobremesa">
+                    <rect key="frame" x="38" y="333" width="300" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Suco:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMX-Io-Lbs">
+                    <rect key="frame" x="166.5" y="384" width="46.5" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limão" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8i-a9-tKd" userLabel="suco">
+                    <rect key="frame" x="37.5" y="402" width="300" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vinagrete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-4w-g32" userLabel="salada">
+                    <rect key="frame" x="37.5" y="262.5" width="300" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="p8i-a9-tKd" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="40i-3s-Kve"/>
                 <constraint firstItem="IC3-RE-w2F" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="5GX-cE-18a"/>
+                <constraint firstItem="jMX-Io-Lbs" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="5Ip-Tx-NQx"/>
+                <constraint firstItem="J0b-4w-g32" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="5xk-i5-Lpd"/>
+                <constraint firstItem="Lfv-cG-6gs" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="65a-ia-5nN"/>
+                <constraint firstItem="91A-I3-IdV" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="D5j-Tb-AWg"/>
                 <constraint firstItem="pal-Yk-u7o" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="EXI-3c-qBS"/>
+                <constraint firstItem="Lfv-cG-6gs" firstAttribute="top" secondItem="Az9-r7-BOU" secondAttribute="bottom" id="GZB-H9-uAI"/>
+                <constraint firstItem="Ko2-6T-Gri" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="R9r-8i-ctk"/>
+                <constraint firstItem="91A-I3-IdV" firstAttribute="width" secondItem="Lfv-cG-6gs" secondAttribute="width" id="TvU-ky-72k"/>
+                <constraint firstItem="iXR-2C-nRc" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="WAn-5M-4Az"/>
+                <constraint firstItem="Az9-r7-BOU" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="WSM-mc-CtJ"/>
+                <constraint firstItem="91A-I3-IdV" firstAttribute="top" secondItem="Lfv-cG-6gs" secondAttribute="bottom" id="YvC-cD-C3y"/>
+                <constraint firstItem="iXR-2C-nRc" firstAttribute="top" secondItem="ebB-9f-w3f" secondAttribute="top" constant="135" id="ZhV-rj-505"/>
+                <constraint firstItem="MSo-Nw-bEN" firstAttribute="top" secondItem="J0b-4w-g32" secondAttribute="bottom" constant="31.5" id="aue-wu-Qpe"/>
+                <constraint firstItem="Az9-r7-BOU" firstAttribute="top" secondItem="iXR-2C-nRc" secondAttribute="bottom" id="eAe-sw-kKK"/>
+                <constraint firstItem="jMX-Io-Lbs" firstAttribute="top" secondItem="Ko2-6T-Gri" secondAttribute="bottom" constant="30.5" id="hAn-N1-cbG"/>
                 <constraint firstItem="qbV-xJ-eUd" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="i8g-oa-dSa"/>
+                <constraint firstItem="Ko2-6T-Gri" firstAttribute="top" secondItem="MSo-Nw-bEN" secondAttribute="bottom" id="iQO-N1-vze"/>
+                <constraint firstItem="p8i-a9-tKd" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="jeK-6p-5YP"/>
+                <constraint firstItem="Az9-r7-BOU" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="jy7-RS-z2n"/>
+                <constraint firstItem="MSo-Nw-bEN" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="kMx-vP-8ut"/>
+                <constraint firstItem="G8b-is-AoX" firstAttribute="top" secondItem="91A-I3-IdV" secondAttribute="bottom" constant="30" id="mav-9D-PC6"/>
+                <constraint firstItem="Ko2-6T-Gri" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="muW-uW-khE"/>
+                <constraint firstItem="G8b-is-AoX" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="nS5-vv-DEp"/>
                 <constraint firstItem="qbV-xJ-eUd" firstAttribute="top" secondItem="IC3-RE-w2F" secondAttribute="bottom" constant="10" id="ndc-Z3-ZOw"/>
+                <constraint firstItem="p8i-a9-tKd" firstAttribute="top" secondItem="jMX-Io-Lbs" secondAttribute="bottom" id="niT-z6-dCz"/>
                 <constraint firstItem="IC3-RE-w2F" firstAttribute="top" secondItem="ebB-9f-w3f" secondAttribute="bottom" multiplier="0.1" id="pFh-QC-Uz3"/>
+                <constraint firstItem="J0b-4w-g32" firstAttribute="top" secondItem="G8b-is-AoX" secondAttribute="bottom" id="vA0-0Q-hOd"/>
+                <constraint firstItem="Lfv-cG-6gs" firstAttribute="width" secondItem="Az9-r7-BOU" secondAttribute="width" id="yfP-am-osr"/>
+                <constraint firstItem="J0b-4w-g32" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="zGC-aa-pfc"/>
             </constraints>
             <point key="canvasLocation" x="-22.5" y="-79.5"/>
         </view>
