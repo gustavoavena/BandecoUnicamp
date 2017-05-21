@@ -17,6 +17,10 @@
 		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
 		4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */; };
+		4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */; };
+		4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */; };
+		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
+		4DD99A121ED20A97007D0038 /* CardapioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioHandler.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,10 @@
 		4D9529091EC78D2E00219F48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D95290C1EC78D2E00219F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D95290E1EC78D2E00219F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefeicaoView.xib; sourceTree = "<group>"; };
+		4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoView.swift; sourceTree = "<group>"; };
+		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
+		4DD99A111ED20A97007D0038 /* CardapioHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioHandler.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +131,11 @@
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
 				4D9529041EC78D2D00219F48 /* ViewController.swift */,
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
+				4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */,
 				4D9529061EC78D2E00219F48 /* Main.storyboard */,
+				4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */,
+				4DD99A111ED20A97007D0038 /* CardapioHandler.swift */,
+				4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
@@ -225,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
 				4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */,
@@ -247,8 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */,
+				4DD99A121ED20A97007D0038 /* CardapioHandler.swift in Sources */,
 				4D9529051EC78D2D00219F48 /* ViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
+				4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +466,7 @@
 				4D5C6D641ED1E45D009CC3E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D9528FA1EC78D2D00219F48 /* Build configuration list for PBXProject "BandecoUnicamp" */ = {
 			isa = XCConfigurationList;

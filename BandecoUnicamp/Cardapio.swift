@@ -8,22 +8,18 @@
 
 import UIKit
 
-enum Refeicao {
+enum Refeicao: String {
 //	case cafeDaManha
-	case almoco
-	case almocoVegetariano
-	case jantar
-	case jantarVegetariano
+	case almoco = "Almoço"
+	case almocoVegetariano = "Almoço Vegetariano"
+	case jantar = "Jantar"
+	case jantarVegetariano = "Jantar Vegetariano"
 }
 
-enum Arroz {
-	case normal
-	case integral
-}
 
 struct Cardapio {
 	let refeicao: Refeicao
-	let arroz: Arroz
+	let arrozFeijao: String
 	let pratoPrincipal: String
 	let salada: String
 	let sobremesa: String
@@ -31,9 +27,9 @@ struct Cardapio {
 	let guarnicao: String
 	let observacoes: String
 	
-	init(refeicao: Refeicao, arroz: Arroz, pratoPrincipal: String, salada: String, sobremesa: String, suco: String, guarnicao: String, observacoes: String, arrozFeijao: String?) {
+	init(refeicao: Refeicao, arrozFeijao: String, pratoPrincipal: String, salada: String, sobremesa: String, suco: String, guarnicao: String, observacoes: String) {
 		self.refeicao = refeicao
-		self.arroz = arroz
+		self.arrozFeijao = arrozFeijao
 		self.pratoPrincipal = pratoPrincipal
 		self.salada = salada
 		self.sobremesa = sobremesa
