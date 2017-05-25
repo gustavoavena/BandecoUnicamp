@@ -10,17 +10,20 @@ import UIKit
 
 class CardapioViewController: UIViewController, UIScrollViewDelegate {
 	
-//	@IBOutlet weak var scrollView: UIScrollView!
-//	@IBOutlet weak var pageControl: UIPageControl!
+
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
+	
+	// TODO: metodo que pega os cardapios somente da semana atual.
+	// TODO: metodo que retorna cardapio só dos normais ou só dos vegetarianos.
+	// TODO: talvez seja melhor fazer pedido de cardapio normal ou vegetariano separado??
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		print("carregou CardapioViewController!")
 		// Inicialmente, vou pegar somente um dia (22/05/2017).
-		CardapioHandler.getCardapio(date: "2017-05-22") {
+		CardapioRequest.getCardapio(date: "2017-05-22") {
 			(cardapio) in
 			
 			guard let cardapio = cardapio else {
@@ -30,7 +33,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 			
 			print("Cardapio Almoço: ", cardapio["Almoço"]!)
 			
-//			CGRect(origin: self.view.frame.origin, size: self.view.frame.size)
 			
 			let refeicao1 = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
 			
@@ -66,7 +68,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 		
 		
 
-        // Do any additional setup after loading the view.
     }
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {

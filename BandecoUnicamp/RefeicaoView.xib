@@ -106,6 +106,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="O CARDÁPIO CONTÉM GLÚTEN NO PÃO E NO CREME DE ESPINAFRE. CONTÉM LACTOSE NO CREME DE ESPINAFRE. NÃO CONTÉM OVOS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adi-RD-FQM" userLabel="observacoes">
+                    <rect key="frame" x="38" y="456" width="300" height="98"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -117,6 +123,7 @@
                 <constraint firstItem="91A-I3-IdV" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="D5j-Tb-AWg"/>
                 <constraint firstItem="pal-Yk-u7o" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="EXI-3c-qBS"/>
                 <constraint firstItem="Lfv-cG-6gs" firstAttribute="top" secondItem="Az9-r7-BOU" secondAttribute="bottom" id="GZB-H9-uAI"/>
+                <constraint firstAttribute="bottom" secondItem="adi-RD-FQM" secondAttribute="bottom" constant="191" id="OuB-Vr-wU0"/>
                 <constraint firstItem="Ko2-6T-Gri" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="R9r-8i-ctk"/>
                 <constraint firstItem="91A-I3-IdV" firstAttribute="width" secondItem="Lfv-cG-6gs" secondAttribute="width" id="TvU-ky-72k"/>
                 <constraint firstItem="iXR-2C-nRc" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="WAn-5M-4Az"/>
@@ -136,7 +143,9 @@
                 <constraint firstItem="G8b-is-AoX" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="nS5-vv-DEp"/>
                 <constraint firstItem="qbV-xJ-eUd" firstAttribute="top" secondItem="IC3-RE-w2F" secondAttribute="bottom" constant="10" id="ndc-Z3-ZOw"/>
                 <constraint firstItem="p8i-a9-tKd" firstAttribute="top" secondItem="jMX-Io-Lbs" secondAttribute="bottom" id="niT-z6-dCz"/>
+                <constraint firstItem="adi-RD-FQM" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="nnf-LN-Cgz"/>
                 <constraint firstItem="IC3-RE-w2F" firstAttribute="top" secondItem="ebB-9f-w3f" secondAttribute="bottom" multiplier="0.1" id="pFh-QC-Uz3"/>
+                <constraint firstItem="adi-RD-FQM" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="qOa-aO-jnb"/>
                 <constraint firstItem="J0b-4w-g32" firstAttribute="top" secondItem="G8b-is-AoX" secondAttribute="bottom" id="vA0-0Q-hOd"/>
                 <constraint firstItem="Lfv-cG-6gs" firstAttribute="width" secondItem="Az9-r7-BOU" secondAttribute="width" id="yfP-am-osr"/>
                 <constraint firstItem="J0b-4w-g32" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="zGC-aa-pfc"/>

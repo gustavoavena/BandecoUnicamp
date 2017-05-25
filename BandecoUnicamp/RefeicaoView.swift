@@ -8,12 +8,22 @@
 
 import UIKit
 
+enum JSONKeys: String {
+	case arrozFeijao = "arroz_feijao"
+	case salada = "salada"
+	case suco = "suco"
+	case pratoPrincipal = "prato_principal"
+	case sobremesa = "sobremesa"
+	case observacoes = "observacoes"
+}
+
 @IBDesignable
 class RefeicaoView: UIView {
 	
 	/// view that is loaded from xib file
 	fileprivate var contentView: UIView!
 
+	// TODO: colocar valores default em cada um. (e.g. "-" case ele esteja vazio).
 	@IBOutlet var pratos: [UILabel]!
 	@IBOutlet weak var salada: UILabel!
 	@IBOutlet weak var suco: UILabel!
@@ -22,16 +32,11 @@ class RefeicaoView: UIView {
 	@IBOutlet weak var arrozFeijao: UILabel!
 	@IBOutlet weak var sobremesa: UILabel!
 
-	//MARK: Initialization
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		setupXib()
 	}
-	
-	//MARK: IBDesignable
-	
-	//## 3 - UNCOMMENT: Solution
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -43,21 +48,23 @@ class RefeicaoView: UIView {
 		setupXib()
 	}
 	
+	// Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
 	public init(frame: CGRect, cardapio: [String: Any]) {
 		super.init(frame: frame)
 		setupXib()
 		
 		
-		self.arrozFeijao.text = cardapio["arroz_feijao"] as! String
-		self.salada.text = cardapio["salada"] as! String
-		self.suco.text = cardapio["suco"] as! String
-		self.sobremesa.text = cardapio["sobremesa"] as! String
+		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
+		self.salada.text = (cardapio[JSONKeys.salada.rawValue] as! String)
+		self.suco.text = (cardapio[JSONKeys.suco.rawValue] as! String)
+		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
 		
-		let pratos = cardapio["prato_principal"]  as! [String]
+		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
 		for i in 0..<pratos.count {
 			
 			self.pratos[i].text = pratos[i]
 		}
+		
 	}
 	
 	
