@@ -13,10 +13,15 @@ class CardapioRequest: NSObject {
 	static let urlTemplateDevelopment = "http://127.0.0.1:5000/date/"
 	static let urlTemplateProduction = "" // TODO
 	
-	public static func getCardapio(date: String, completionHandler: @escaping ([String: Any]?) -> Void) {
-		// Note: mandar a variavel date como String ou Date??
-		
-		let url = URL(string: urlTemplateDevelopment + date)
+	public static func getCardapio(date: Date, completionHandler: @escaping ([String: Any]?) -> Void) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: Date())
+        
+        print(dateString)
+
+		let url = URL(string: urlTemplateDevelopment + dateString)
 		URLSession.shared.dataTask(with: url!, completionHandler: {
 			(data, response, error) in
 			
@@ -49,7 +54,7 @@ class CardapioRequest: NSObject {
 		}).resume()
 	}
     
-    static func getDates() -> [Date] {
+    public static func getDates() -> [Date] {
         let dayInSeconds:Int = 60 * 60 * 24
         
         print(Calendar.current.component(.weekday, from: Date()))

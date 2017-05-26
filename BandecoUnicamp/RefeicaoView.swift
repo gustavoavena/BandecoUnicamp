@@ -60,8 +60,10 @@ class RefeicaoView: UIView {
 		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
 		
 		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
-		for i in 0..<pratos.count {
-			
+        // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
+        print("pratos.count = \(pratos.count)")
+		for i in 0..<3 {
+			print(i)
 			self.pratos[i].text = pratos[i]
 		}
 		

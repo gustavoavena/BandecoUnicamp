@@ -22,48 +22,78 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 		
 		print("carregou CardapioViewController!")
+        var pages: [UIView?] = [UIView?]()
+        
+        
+        // Inicializa o page control
+        self.pageControl.currentPage = 0
+        self.pageControl.numberOfPages = pages.count
+        
+        // Adicionar as páginas no scrollview
+        
+
 		// Inicialmente, vou pegar somente um dia (22/05/2017).
-		CardapioRequest.getCardapio(date: "2017-05-25") {
-			(cardapio) in
-			
-			guard let cardapio = cardapio else {
-				print("problema com o cardapio!")
-				return
-			}
-			
-			print("Cardapio Almoço: ", cardapio["Almoço"]!)
-			
-			
-			let refeicao1 = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
-			
-			let refeicao2 = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Jantar"]! as! [String: Any]) as UIView
-			
-			let pages: [UIView?] = [refeicao1, refeicao2]
-			
-			// Inicializa o page control
-			self.pageControl.currentPage = 0
-			self.pageControl.numberOfPages = pages.count
-			
-			// Adicionar as páginas no scrollview
-			for page in pages {
-				
-				// Calcula um novo frame para a página deslocando em X o tamanho de uma página
-				// para colocar as views lado a lado
-				page?.frame = (page?.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))!
-				
-				page?.frame = CGRect(x:page!.frame.origin.x, y:0, width:self.scrollView.frame.width,height: self.scrollView.frame.height)
-				
-				// FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
-				
-				// adiciona a página na scrollview
-				self.scrollView.addSubview(page!)
-				
-				// calcula o tamanho do conteúdo da scrollview
-				self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: (page?.frame.height)!)
-			}
-			
-		}
-		
+        let dates = CardapioRequest.getDates()
+        
+        for d in dates {
+            CardapioRequest.getCardapio(date: d) {
+                (cardapio) in
+                
+                guard let cardapio = cardapio else {
+                    print("problema com o cardapio!")
+                    return
+                }
+                
+    //			print("Cardapio Almoço: ", cardapio["Almoço"]!)
+    //            print("Cardapio Jantar: ", cardapio["Jantar"]!)
+                
+                
+                let almoco = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
+                
+                let jantar = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Jantar"]! as! [String: Any]) as UIView
+                
+                let pages = [almoco, jantar]
+                
+                for page in pages{
+                    
+                    // Calcula um novo frame para a página deslocando em X o tamanho de uma página
+                    // para colocar as views lado a lado
+                    page.frame = (page.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
+                    
+                    page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: self.scrollView.frame.height)
+                    
+                    // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
+                    
+                    // adiciona a página na scrollview
+                    self.scrollView.addSubview(page)
+                    
+                    // calcula o tamanho do conteúdo da scrollview
+                    self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: (page.frame.height))
+                }
+                
+            }
+        }
+        
+        // FIXME: make me async?
+        
+        
+//        for page in pages {
+//            
+//            // Calcula um novo frame para a página deslocando em X o tamanho de uma página
+//            // para colocar as views lado a lado
+//            page?.frame = (page?.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))!
+//            
+//            page?.frame = CGRect(x:page!.frame.origin.x, y:0, width:self.scrollView.frame.width,height: self.scrollView.frame.height)
+//            
+//            // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
+//            
+//            // adiciona a página na scrollview
+//            self.scrollView.addSubview(page!)
+//            
+//            // calcula o tamanho do conteúdo da scrollview
+//            self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: (page?.frame.height)!)
+//        }
+//		
 		
 		
 		
