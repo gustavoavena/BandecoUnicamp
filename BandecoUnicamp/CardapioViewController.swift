@@ -23,7 +23,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 		
 		print("carregou CardapioViewController!")
 		// Inicialmente, vou pegar somente um dia (22/05/2017).
-		CardapioRequest.getCardapio(date: "2017-05-22") {
+		CardapioRequest.getCardapio(date: "2017-05-25") {
 			(cardapio) in
 			
 			guard let cardapio = cardapio else {

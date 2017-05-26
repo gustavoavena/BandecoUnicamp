@@ -48,6 +48,29 @@ class CardapioRequest: NSObject {
 			
 		}).resume()
 	}
+    
+    static func getDates() -> [Date] {
+        let dayInSeconds:Int = 60 * 60 * 24
+        
+        print(Calendar.current.component(.weekday, from: Date()))
+        //print(Mirror(reflecting: Calendar.current.component(.weekday, from: Date())))
+        
+        
+        var days:[Date] = [Date]()
+        
+        var counter = 0
+        
+        while(days.count < 7) {
+            let day = Date(timeIntervalSinceNow: TimeInterval(counter * dayInSeconds))
+            if((2...6).contains(Calendar.current.component(.weekday, from: day))) {
+                print("day \(day)")
+                days.append(day)
+            }
+            counter += 1
+        }
+        
+        return days
+    }
 
 
 }
