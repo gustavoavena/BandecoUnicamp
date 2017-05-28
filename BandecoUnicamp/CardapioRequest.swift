@@ -17,29 +17,35 @@ class CardapioRequest: NSObject {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: Date())
+        let dateString = dateFormatter.string(from: date)
         
         print(dateString)
 
 		let url = URL(string: urlTemplateDevelopment + dateString)
+//        print(url!.absoluteString)
+        
 		URLSession.shared.dataTask(with: url!, completionHandler: {
 			(data, response, error) in
 			
+            
 			
-			guard error == nil else {
-				print("error")
+			guard error == nil, let data = data else {
+				print("Erro no request.")
+                print("error: \(String(describing: error))\n\n")
 				OperationQueue.main.addOperation {
 					completionHandler(nil)
 				}
 				return
 			}
-			
+            
+
+            
 			do{
-				let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
+				let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
 				
-//					print(json)
+//                print(json)
 				
-				print((json["Almoço"] as! Dictionary)["arroz_feijao"]!) // Debugging
+//				print((json["Almoço"] as! Dictionary)["arroz_feijao"]!) // Debugging
 				OperationQueue.main.addOperation {
 					completionHandler(json)
 				}
@@ -66,9 +72,11 @@ class CardapioRequest: NSObject {
         var counter = 0
         
         while(days.count < 7) {
+            
             let day = Date(timeIntervalSinceNow: TimeInterval(counter * dayInSeconds))
+            
             if((2...6).contains(Calendar.current.component(.weekday, from: day))) {
-                print("day \(day)")
+
                 days.append(day)
             }
             counter += 1

@@ -53,6 +53,11 @@ class RefeicaoView: UIView {
 		super.init(frame: frame)
 		setupXib()
 		
+        
+        // TODO: alterar a label da refeicao.
+        
+        // TODO: exibir data e dia da semana.
+        
 		
 		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
 		self.salada.text = (cardapio[JSONKeys.salada.rawValue] as! String)
@@ -61,11 +66,12 @@ class RefeicaoView: UIView {
 		
 		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
         // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
-        print("pratos.count = \(pratos.count)")
+//        print("pratos.count = \(pratos.count)")
 		for i in 0..<3 {
-			print(i)
-			self.pratos[i].text = pratos[i]
+            self.pratos[i].text = pratos[i]
 		}
+        
+        // TODO: imprimir observacoes.
 		
 	}
 	
