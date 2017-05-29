@@ -18,15 +18,12 @@ class CardapioRequest: NSObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
-        
 
 		let url = URL(string: urlTemplateDevelopment + dateString)
-//        print(url!.absoluteString)
+
         
 		URLSession.shared.dataTask(with: url!, completionHandler: {
 			(data, response, error) in
-			
-            
 			
 			guard error == nil, let data = data else {
 				print("Erro no request.")
@@ -37,14 +34,11 @@ class CardapioRequest: NSObject {
 				return
 			}
             
-
-            
 			do{
 				let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
 				
 //                print(json)
 				
-//				print((json["Almoço"] as! Dictionary)["arroz_feijao"]!) // Debugging
 				OperationQueue.main.addOperation {
 					completionHandler(json)
 				}
@@ -61,7 +55,6 @@ class CardapioRequest: NSObject {
     
     public static func getDates(next: Int) -> [Date] {
         let DAY_IN_SECONDS:Int = 60 * 60 * 24
-        
         
         var days:[Date] = [Date]()
         

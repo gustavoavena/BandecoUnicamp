@@ -20,10 +20,17 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
 		
+        scrollView.isPagingEnabled = true
+        scrollView.isDirectionalLockEnabled = true
+        
+        // FIXME: acho que o pageControl nao aparece porque nos colocamos subviews em cima dele... Entao acho que ele fica escondido no eixo z.
+        // OBS: coloquei o pageControl todo vermelho para facilitar a solucao disso (fica mais facil de ver ele)... depois eu mudo a cor.
         
         // FIXME: make me async?
-        loadNextDays()
+        loadNextDays(vegetariano: false)
         
 
 		
@@ -45,20 +52,12 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    
-    func loadNextDays() {
+    func loadNextDays(vegetariano: Bool = false) {
         let pages: [UIView?] = [UIView?]()
+        
+        let SCROLL_VIEW_HEIGHT = self.scrollView.frame.height
+        
         
         
         // Inicializa o page control
@@ -68,10 +67,8 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // Adicionar as páginas no scrollview
         
         
-        // Inicialmente, vou pegar somente um dia (22/05/2017).
         let dates = CardapioRequest.getDates(next: 7)
         
-//        print("dates: \(dates)")
         
         for d in dates {
             CardapioRequest.getCardapio(date: d) {
@@ -82,15 +79,17 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                     return
                 }
                 
+//                print(cardapio)
                 
-                // FIXME: lidar com situacao em que o cardapio e um dicionario vazio.
+                let almoco: Refeicao = vegetariano ? .almocoVegetariano : .almoco
+                let jantar: Refeicao = vegetariano ? .jantarVegetariano : .jantar
                 
+                let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
+                let almocoView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: almoco, cardapio: cardapio[almoco.rawValue]! as! [String: Any]) as UIView
                 
-                let almoco = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), refeicao: .almoco, cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
-                
-                let jantar = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), refeicao: .jantar, cardapio: cardapio["Jantar"]! as! [String: Any]) as UIView
+                let jantarView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: jantar, cardapio: cardapio[jantar.rawValue]! as! [String: Any]) as UIView
 
-                let pages = [almoco, jantar]
+                let pages = [almocoView, jantarView]
                 
                 for page in pages{
                     
@@ -98,7 +97,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                     // para colocar as views lado a lado
                     page.frame = (page.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
                     
-                    page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: self.scrollView.frame.height)
+                    page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: SCROLL_VIEW_HEIGHT)
                     
                     // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
                     
@@ -106,7 +105,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                     self.scrollView.addSubview(page)
                     
                     // calcula o tamanho do conteúdo da scrollview
-                    self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: (page.frame.height))
+                    self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
                 }
                 
             }

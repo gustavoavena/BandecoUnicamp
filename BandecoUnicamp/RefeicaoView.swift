@@ -55,14 +55,14 @@ class RefeicaoView: UIView {
 		super.init(coder: aDecoder)
 		setupXib()
 	}
-	
+//    testando o teclado foda do novo macbook
 	// Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
     public init(frame: CGRect, refeicao: Refeicao, cardapio: [String: Any]) {
 		super.init(frame: frame)
 		setupXib()
 		
         
-        
+        // TODO: consertar capitalize do cardapio no CardapioParser
         // TODO: exibir data e dia da semana.
         self.refeicao.text = refeicao.rawValue
         
