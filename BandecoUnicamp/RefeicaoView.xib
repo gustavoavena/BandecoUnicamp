@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="arrozFeijao" destination="qbV-xJ-eUd" id="zqa-Mq-yR6"/>
                 <outlet property="data" destination="pal-Yk-u7o" id="DKz-L4-ab5"/>
+                <outlet property="observacoes" destination="adi-RD-FQM" id="TQW-vP-CoV"/>
                 <outlet property="refeicao" destination="IC3-RE-w2F" id="eRz-aq-TVy"/>
                 <outlet property="salada" destination="J0b-4w-g32" id="kUO-T2-QG8"/>
                 <outlet property="sobremesa" destination="Ko2-6T-Gri" id="dMN-hp-LOW"/>
@@ -106,8 +107,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="O CARDÁPIO CONTÉM GLÚTEN NO PÃO E NO CREME DE ESPINAFRE. CONTÉM LACTOSE NO CREME DE ESPINAFRE. NÃO CONTÉM OVOS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adi-RD-FQM" userLabel="observacoes">
-                    <rect key="frame" x="38" y="456" width="300" height="98"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O CARDÁPIO CONTÉM GLÚTEN NO PÃO E NO CREME DE ESPINAFRE. CONTÉM LACTOSE NO CREME DE ESPINAFRE. NÃO CONTÉM OVOS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adi-RD-FQM" userLabel="observacoes">
+                    <rect key="frame" x="38" y="456" width="300" height="67"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -123,7 +124,6 @@
                 <constraint firstItem="91A-I3-IdV" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="D5j-Tb-AWg"/>
                 <constraint firstItem="pal-Yk-u7o" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="EXI-3c-qBS"/>
                 <constraint firstItem="Lfv-cG-6gs" firstAttribute="top" secondItem="Az9-r7-BOU" secondAttribute="bottom" id="GZB-H9-uAI"/>
-                <constraint firstAttribute="bottom" secondItem="adi-RD-FQM" secondAttribute="bottom" constant="191" id="OuB-Vr-wU0"/>
                 <constraint firstItem="Ko2-6T-Gri" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="R9r-8i-ctk"/>
                 <constraint firstItem="91A-I3-IdV" firstAttribute="width" secondItem="Lfv-cG-6gs" secondAttribute="width" id="TvU-ky-72k"/>
                 <constraint firstItem="iXR-2C-nRc" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="WAn-5M-4Az"/>
@@ -144,6 +144,7 @@
                 <constraint firstItem="qbV-xJ-eUd" firstAttribute="top" secondItem="IC3-RE-w2F" secondAttribute="bottom" constant="10" id="ndc-Z3-ZOw"/>
                 <constraint firstItem="p8i-a9-tKd" firstAttribute="top" secondItem="jMX-Io-Lbs" secondAttribute="bottom" id="niT-z6-dCz"/>
                 <constraint firstItem="adi-RD-FQM" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="nnf-LN-Cgz"/>
+                <constraint firstItem="adi-RD-FQM" firstAttribute="top" secondItem="p8i-a9-tKd" secondAttribute="bottom" constant="33" id="p28-Fy-Wc7"/>
                 <constraint firstItem="IC3-RE-w2F" firstAttribute="top" secondItem="ebB-9f-w3f" secondAttribute="bottom" multiplier="0.1" id="pFh-QC-Uz3"/>
                 <constraint firstItem="adi-RD-FQM" firstAttribute="width" secondItem="ebB-9f-w3f" secondAttribute="width" multiplier="0.8" id="qOa-aO-jnb"/>
                 <constraint firstItem="J0b-4w-g32" firstAttribute="top" secondItem="G8b-is-AoX" secondAttribute="bottom" id="vA0-0Q-hOd"/>

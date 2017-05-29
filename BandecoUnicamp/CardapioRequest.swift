@@ -19,7 +19,6 @@ class CardapioRequest: NSObject {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
         
-        print(dateString)
 
 		let url = URL(string: urlTemplateDevelopment + dateString)
 //        print(url!.absoluteString)
@@ -60,20 +59,17 @@ class CardapioRequest: NSObject {
 		}).resume()
 	}
     
-    public static func getDates() -> [Date] {
-        let dayInSeconds:Int = 60 * 60 * 24
-        
-        print(Calendar.current.component(.weekday, from: Date()))
-        //print(Mirror(reflecting: Calendar.current.component(.weekday, from: Date())))
+    public static func getDates(next: Int) -> [Date] {
+        let DAY_IN_SECONDS:Int = 60 * 60 * 24
         
         
         var days:[Date] = [Date]()
         
         var counter = 0
         
-        while(days.count < 7) {
+        while(days.count < next) {
             
-            let day = Date(timeIntervalSinceNow: TimeInterval(counter * dayInSeconds))
+            let day = Date(timeIntervalSinceNow: TimeInterval(counter * DAY_IN_SECONDS))
             
             if((2...6).contains(Calendar.current.component(.weekday, from: day))) {
 

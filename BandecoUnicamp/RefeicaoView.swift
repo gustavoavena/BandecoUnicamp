@@ -17,6 +17,13 @@ enum JSONKeys: String {
 	case observacoes = "observacoes"
 }
 
+enum Refeicoes: String {
+    case almoco = "Almoço"
+    case almocoVegetariano = "Almoço Vegetariano"
+    case jantar = "Jantar"
+    case jantarVegetariano = "Jantar Vegetariano"
+}
+
 @IBDesignable
 class RefeicaoView: UIView {
 	
@@ -31,6 +38,7 @@ class RefeicaoView: UIView {
 	@IBOutlet weak var refeicao: UILabel!
 	@IBOutlet weak var arrozFeijao: UILabel!
 	@IBOutlet weak var sobremesa: UILabel!
+    @IBOutlet weak var observacoes: UILabel!
 
 	
 	override func awakeFromNib() {
@@ -49,14 +57,14 @@ class RefeicaoView: UIView {
 	}
 	
 	// Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
-	public init(frame: CGRect, cardapio: [String: Any]) {
+    public init(frame: CGRect, refeicao: Refeicao, cardapio: [String: Any]) {
 		super.init(frame: frame)
 		setupXib()
 		
         
-        // TODO: alterar a label da refeicao.
         
         // TODO: exibir data e dia da semana.
+        self.refeicao.text = refeicao.rawValue
         
 		
 		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
@@ -72,6 +80,7 @@ class RefeicaoView: UIView {
 		}
         
         // TODO: imprimir observacoes.
+        self.observacoes.text = (cardapio[JSONKeys.observacoes.rawValue] as! String)
 		
 	}
 	

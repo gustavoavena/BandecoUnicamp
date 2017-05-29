@@ -58,7 +58,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     
     
     func loadNextDays() {
-        print("carregou CardapioViewController!")
         let pages: [UIView?] = [UIView?]()
         
         
@@ -70,7 +69,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         
         
         // Inicialmente, vou pegar somente um dia (22/05/2017).
-        let dates = CardapioRequest.getDates()
+        let dates = CardapioRequest.getDates(next: 7)
         
 //        print("dates: \(dates)")
         
@@ -78,7 +77,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             CardapioRequest.getCardapio(date: d) {
                 (cardapioData) in
                 
-                guard let cardapio = cardapioData, cardapio.keys.count > 0 else {
+                guard let cardapio = cardapioData, cardapio.keys.count == 4 else { // confere se tem as 4 refeicoes
                     print("CardapioRequest nao retornou dados pro dia \(d)!")
                     return
                 }
@@ -87,11 +86,10 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 // FIXME: lidar com situacao em que o cardapio e um dicionario vazio.
                 
                 
-                let almoco = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
+                let almoco = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), refeicao: .almoco, cardapio: cardapio["Almoço"]! as! [String: Any]) as UIView
                 
-                let jantar = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), cardapio: cardapio["Jantar"]! as! [String: Any]) as UIView
+                let jantar = RefeicaoView(frame: CGRect(origin: self.view.frame.origin, size: self.view.frame.size), refeicao: .jantar, cardapio: cardapio["Jantar"]! as! [String: Any]) as UIView
 
-                (jantar as! RefeicaoView).refeicao.text = "Jantar"
                 let pages = [almoco, jantar]
                 
                 for page in pages{
