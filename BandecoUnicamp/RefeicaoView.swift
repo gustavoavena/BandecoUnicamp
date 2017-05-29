@@ -32,6 +32,7 @@ class RefeicaoView: UIView {
 
 	// TODO: colocar valores default em cada um. (e.g. "-" case ele esteja vazio).
 	@IBOutlet var pratos: [UILabel]!
+    public static let NUM_PRATOS_PRINCIPAIS = 3
 	@IBOutlet weak var salada: UILabel!
 	@IBOutlet weak var suco: UILabel!
 	@IBOutlet weak var data: UILabel!
@@ -73,9 +74,10 @@ class RefeicaoView: UIView {
 		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
 		
 		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
+        
         // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
-//        print("pratos.count = \(pratos.count)")
-		for i in 0..<3 {
+        
+		for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, pratos.count)) {
             self.pratos[i].text = pratos[i]
 		}
         

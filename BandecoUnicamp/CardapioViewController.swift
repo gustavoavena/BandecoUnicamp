@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct TipoCardapio {
+    static let normal: [Refeicao] = [.almoco, .jantar]
+    static let vegetariano: [Refeicao] = [.almocoVegetariano, .jantarVegetariano]
+    static let todos: [Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+}
+
 class CardapioViewController: UIViewController, UIScrollViewDelegate {
 	
 
@@ -30,7 +36,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // OBS: coloquei o pageControl todo vermelho para facilitar a solucao disso (fica mais facil de ver ele)... depois eu mudo a cor.
         
         // FIXME: make me async?
-        loadNextDays(vegetariano: false)
+        loadNextDays(refeicoes: TipoCardapio.todos)
         
 
 		
@@ -53,7 +59,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    func loadNextDays(vegetariano: Bool = false) {
+    func loadNextDays(refeicoes: [Refeicao]) {
         let pages: [UIView?] = [UIView?]()
         
         let SCROLL_VIEW_HEIGHT = self.scrollView.frame.height
@@ -81,15 +87,15 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 
 //                print(cardapio)
                 
-                let almoco: Refeicao = vegetariano ? .almocoVegetariano : .almoco
-                let jantar: Refeicao = vegetariano ? .jantarVegetariano : .jantar
-                
                 let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                let almocoView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: almoco, cardapio: cardapio[almoco.rawValue]! as! [String: Any]) as UIView
-                
-                let jantarView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: jantar, cardapio: cardapio[jantar.rawValue]! as! [String: Any]) as UIView
 
-                let pages = [almocoView, jantarView]
+                
+                var pages = [UIView]()
+                
+                for r in refeicoes {
+                    let refeicaoView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: r, cardapio: cardapio[r.rawValue]! as! [String: Any]) as UIView
+                    pages.append(refeicaoView)
+                }
                 
                 for page in pages{
                     
