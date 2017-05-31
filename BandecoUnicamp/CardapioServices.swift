@@ -1,5 +1,5 @@
 //
-//  CardapioHandler.swift
+//  CardapioServices.swift
 //  BandecoUnicamp
 //
 //  Created by Gustavo Avena on 215//17.
@@ -24,7 +24,7 @@ enum Refeicoes: String {
     case jantarVegetariano = "Jantar Vegetariano"
 }
 
-public class CardapioRequest: NSObject {
+public class CardapioServices: NSObject {
 	
 	static let urlTemplateDevelopment = "http://127.0.0.1:5000/date/"
 	static let urlTemplateProduction = "" // TODO

@@ -73,15 +73,15 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // Adicionar as páginas no scrollview
         
         
-        let dates = CardapioRequest.getDates(next: 7)
+        let dates = CardapioServices.getDates(next: 7)
         
         
         for d in dates {
-            CardapioRequest.getCardapio(date: d) {
+            CardapioServices.getCardapio(date: d) {
                 (cardapioData) in
                 
                 guard let cardapio = cardapioData, cardapio.keys.count == 4 else { // confere se tem as 4 refeicoes
-                    print("CardapioRequest nao retornou dados pro dia \(d)!")
+                    print("CardapioServices nao retornou dados pro dia \(d)!")
                     return
                 }
                 

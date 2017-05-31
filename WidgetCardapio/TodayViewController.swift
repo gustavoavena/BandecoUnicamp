@@ -14,6 +14,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var refeicao: UILabel!
     @IBOutlet weak var pratoPrincipal: UILabel!
+    @IBOutlet weak var sobremesa: UILabel!
+    @IBOutlet weak var suco: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        CardapioRequest.getCardapio(date: Date()) {
+        CardapioServices.getCardapio(date: Date()) {
             (cardapioResponse) in
             
             guard let cardapio = cardapioResponse else {
@@ -43,6 +46,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
                     self.pratoPrincipal.text = pratos[0]
                 }
+                self.sobremesa.text = (almoco[JSONKeys.sobremesa.rawValue] as? String) ?? self.sobremesa.text
+                self.suco.text = (almoco[JSONKeys.suco.rawValue] as? String) ?? self.suco.text
+                
             }
         }
         
