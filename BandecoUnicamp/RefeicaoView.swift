@@ -8,21 +8,7 @@
 
 import UIKit
 
-enum JSONKeys: String {
-	case arrozFeijao = "arroz_feijao"
-	case salada = "salada"
-	case suco = "suco"
-	case pratoPrincipal = "prato_principal"
-	case sobremesa = "sobremesa"
-	case observacoes = "observacoes"
-}
 
-enum Refeicoes: String {
-    case almoco = "Almoço"
-    case almocoVegetariano = "Almoço Vegetariano"
-    case jantar = "Jantar"
-    case jantarVegetariano = "Jantar Vegetariano"
-}
 
 @IBDesignable
 class RefeicaoView: UIView {

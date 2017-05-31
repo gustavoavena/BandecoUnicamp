@@ -22,6 +22,7 @@
 		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
 		4DD99A121ED20A97007D0038 /* CardapioRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioRequest.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
+		4DF1D2301EDEFE0E006A016E /* CardapioRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF1D2301EDEFE0E006A016E /* CardapioRequest.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

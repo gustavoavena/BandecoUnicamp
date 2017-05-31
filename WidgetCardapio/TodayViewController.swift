@@ -9,8 +9,12 @@
 import UIKit
 import NotificationCenter
 
+
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet weak var refeicao: UILabel!
+    @IBOutlet weak var pratoPrincipal: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
@@ -27,8 +31,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
+        CardapioRequest.getCardapio(date: Date()) {
+            (cardapioResponse) in
+            
+            guard let cardapio = cardapioResponse else {
+                return
+            }
+            
+            if let almoco = (cardapio[Refeicoes.almoco.rawValue] as? [String:Any]) {
+                self.refeicao.text = Refeicoes.almoco.rawValue
+                if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
+                    self.pratoPrincipal.text = pratos[0]
+                }
+            }
+        }
         
-        completionHandler(NCUpdateResult.newData)
+//        completionHandler(NCUpdateResult.newData)
     }
     
 }

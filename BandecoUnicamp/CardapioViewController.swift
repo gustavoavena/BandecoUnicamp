@@ -59,7 +59,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    func loadNextDays(refeicoes: [Refeicao]) {
+    fileprivate func loadNextDays(refeicoes: [Refeicao]) {
         let pages: [UIView?] = [UIView?]()
         
         let SCROLL_VIEW_HEIGHT = self.scrollView.frame.height

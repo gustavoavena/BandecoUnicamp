@@ -8,7 +8,23 @@
 
 import UIKit
 
-class CardapioRequest: NSObject {
+enum JSONKeys: String {
+    case arrozFeijao = "arroz_feijao"
+    case salada = "salada"
+    case suco = "suco"
+    case pratoPrincipal = "prato_principal"
+    case sobremesa = "sobremesa"
+    case observacoes = "observacoes"
+}
+
+enum Refeicoes: String {
+    case almoco = "Almoço"
+    case almocoVegetariano = "Almoço Vegetariano"
+    case jantar = "Jantar"
+    case jantarVegetariano = "Jantar Vegetariano"
+}
+
+public class CardapioRequest: NSObject {
 	
 	static let urlTemplateDevelopment = "http://127.0.0.1:5000/date/"
 	static let urlTemplateProduction = "" // TODO
