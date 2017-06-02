@@ -6,6 +6,16 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
+
+
+
+
+/*
+    Essa classe contem a logica do app.
+ Ela pega o conteudo do UnicampServer já em formato de objeto (Cardapio)
+ 
+ */
+
 import UIKit
 
 enum JSONKeys: String {
@@ -17,7 +27,7 @@ enum JSONKeys: String {
     case observacoes = "observacoes"
 }
 
-enum Refeicoes: String {
+public enum Refeicao: String {
     case almoco = "Almoço"
     case almocoVegetariano = "Almoço Vegetariano"
     case jantar = "Jantar"
@@ -26,48 +36,6 @@ enum Refeicoes: String {
 
 public class CardapioServices: NSObject {
 	
-	static let urlTemplateDevelopment = "http://127.0.0.1:5000/date/"
-	static let urlTemplateProduction = "" // TODO
-	
-	public static func getCardapio(date: Date, completionHandler: @escaping ([String: Any]?) -> Void) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: date)
-
-		let url = URL(string: urlTemplateDevelopment + dateString)
-
-        
-		URLSession.shared.dataTask(with: url!, completionHandler: {
-			(data, response, error) in
-			
-			guard error == nil, let data = data else {
-				print("Erro no request.")
-                print("error: \(String(describing: error))\n\n")
-				OperationQueue.main.addOperation {
-					completionHandler(nil)
-				}
-				return
-			}
-            
-			do{
-				let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
-				
-//                print(json)
-				
-				OperationQueue.main.addOperation {
-					completionHandler(json)
-				}
-				
-			} catch let error as NSError{
-				print(error)
-				OperationQueue.main.addOperation {
-					completionHandler(nil)
-				}
-			}
-			
-		}).resume()
-	}
     
     public static func getDates(next: Int) -> [Date] {
         let DAY_IN_SECONDS:Int = 60 * 60 * 24
@@ -89,6 +57,16 @@ public class CardapioServices: NSObject {
         
         return days
     }
+    
+  
+    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([Cardapio]?) -> Void) {
+        
+        
+        // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
+    
+    }
+    
 
+    
 
 }

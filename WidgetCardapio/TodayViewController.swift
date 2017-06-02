@@ -22,6 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,8 +42,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 return
             }
             
-            if let almoco = (cardapio[Refeicoes.almoco.rawValue] as? [String:Any]) {
-                self.refeicao.text = Refeicoes.almoco.rawValue
+            if let almoco = (cardapio[Refeicao.almoco.rawValue] as? [String:Any]) {
+                self.refeicao.text = Refeicao.almoco.rawValue
                 if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
                     self.pratoPrincipal.text = pratos[0]
                 }

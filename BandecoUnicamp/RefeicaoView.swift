@@ -44,14 +44,23 @@ class RefeicaoView: UIView {
 	}
 //    testando o teclado foda do novo macbook
 	// Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
-    public init(frame: CGRect, refeicao: Refeicao, cardapio: [String: Any]) {
-		super.init(frame: frame)
+    public convenience init(frame: CGRect, refeicao: Refeicao, date: Date, cardapio: [String: Any]) {
+		self.init(frame: frame)
+        
 		setupXib()
 		
         
         // TODO: consertar capitalize do cardapio no CardapioParser
         // TODO: exibir data e dia da semana.
         self.refeicao.text = refeicao.rawValue
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateString = dateFormatter.string(from: date)
+        
+        self.data.text = dateString
+        
+        
         
 		
 		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
@@ -71,6 +80,31 @@ class RefeicaoView: UIView {
         self.observacoes.text = (cardapio[JSONKeys.observacoes.rawValue] as! String)
 		
 	}
+    
+    public convenience init(frame: CGRect, cardapio: Cardapio) {
+        self.init(frame: frame)
+        
+        setupXib()
+        
+        self.refeicao.text = cardapio.refeicao.rawValue
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateString = dateFormatter.string(from: cardapio.date)
+        
+        self.data.text = dateString
+        
+        self.arrozFeijao.text = cardapio.arrozFeijao
+        self.salada.text = cardapio.salada
+        self.sobremesa.text = cardapio.sobremesa
+        
+        self.observacoes.text = cardapio.observacoes
+        
+        for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, cardapio.pratoPrincipal.count)) {
+            self.pratos[i].text = cardapio.pratoPrincipal[i]
+        }
+        
+    }
 	
 	
 	//## 1 - UNCOMMENT: XIB Appears

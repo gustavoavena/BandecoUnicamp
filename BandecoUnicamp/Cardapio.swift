@@ -8,34 +8,30 @@
 
 import UIKit
 
-enum Refeicao: String {
-//	case cafeDaManha
-	case almoco = "Almoço"
-	case almocoVegetariano = "Almoço Vegetariano"
-	case jantar = "Jantar"
-	case jantarVegetariano = "Jantar Vegetariano"
-}
 
 
-struct Cardapio {
+
+public struct Cardapio {
 	let refeicao: Refeicao
 	let arrozFeijao: String
-	let pratoPrincipal: String
+	let pratoPrincipal: [String]
 	let salada: String
 	let sobremesa: String
 	let suco: String
-	let guarnicao: String
+//	let guarnicao: String
 	let observacoes: String
+    let date: Date
 	
-	init(refeicao: Refeicao, arrozFeijao: String, pratoPrincipal: String, salada: String, sobremesa: String, suco: String, guarnicao: String, observacoes: String) {
+    init(refeicao: Refeicao, arrozFeijao: String, pratoPrincipal: [String], salada: String, sobremesa: String, suco: String, observacoes: String, date: Date) {
 		self.refeicao = refeicao
 		self.arrozFeijao = arrozFeijao
 		self.pratoPrincipal = pratoPrincipal
 		self.salada = salada
 		self.sobremesa = sobremesa
 		self.suco = suco
-		self.guarnicao = guarnicao
+//		self.guarnicao = guarnicao
 		self.observacoes = observacoes
+        self.date = date
 	}
 
 }
