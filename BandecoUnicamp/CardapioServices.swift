@@ -31,6 +31,11 @@ enum JSONKeys: String {
 public class CardapioServices: NSObject {
 	
     
+    
+    /// Dada uma data, ela retorna as proximas next datas de dias uteis (dias que o bandeco esta aberto) em um array.
+    ///
+    /// - Parameter next: quantidade de dias requisitados (e.g. os proximos 7 dias uteis).
+    /// - Returns: array de Date objects.
     public static func getDates(next: Int) -> [Date] {
         let DAY_IN_SECONDS:Int = 60 * 60 * 24
         
@@ -53,6 +58,13 @@ public class CardapioServices: NSObject {
     }
     
   
+    
+    /// Utiliza o metodo no UnicampServer para pegar os cardapios dos dias passados como parametro.
+    /// Depois sera modificado para fazer um request que pede varios de uma vez.
+    ///
+    /// - Parameters:
+    ///   - dates: datas para as quais voce quer o cardapio.
+    ///   - completionHandler: completionHandler que sera executado asincronamente na Main thread (no viewController). Ela recebe um array de objetos CardapioDia.
     public static func getCardapios(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
         var cardapios: [CardapioDia] = [CardapioDia]()
         for d in dates {

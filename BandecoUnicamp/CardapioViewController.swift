@@ -38,7 +38,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         
         // TODO: chamar metodo que recebera vetor de CardapioDia para todas as datas. Exibir as que o usuario quiser.
         
-//        loadNextDays(Refeicao: TipoCardapio.vegetariano)
         
         CardapioServices.getCardapios(for: CardapioServices.getDates(next: 7)) {
             (cardapios) in
@@ -105,91 +104,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-//    fileprivate func loadNextDays(Refeicao: [Refeicao]) {
-////        let pages: [UIView?] = [UIView?]()
-//        
-////        let semaphore = DispatchSemaphore(value: 1)
-//        
-//        
-//        
-//        let SCROLL_VIEW_HEIGHT = self.scrollView.frame.height
-//        
-//        // Adicionar as páginas no scrollview
-//        
-//        
-//        let dates = CardapioServices.getDates(next: 7)
-//        
-//        
-//        var pages = [UIView]()
-//        
-//        // Inicializa o page control
-//        self.pageControl.currentPage = 0
-//        self.pageControl.numberOfPages = pages.count
-//        
-////        print(dates)
-//        var count=0
-//        for d in dates {
-//            
-//            
-//            // FIXME: ordem dos cardapios está errada devido a asincronia.
-//            
-//            CardapioServices.getCardapio(date: d) {
-//                (cardapioData) in
-//                
-//                count += 1
-//                
-//                print("count = \(count)")
-//                
-//                guard let cardapio = cardapioData, cardapio.keys.count == 4 else { // confere se tem as 4 Refeicao
-//                    print("CardapioServices nao retornou dados pro dia \(d)!")
-//                    print("data=\(d) terminou!")
-//                    semaphoreReload.signal()
-//                    return
-//                }
-//                
-////                print(cardapio)
-//                
-//                let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-//
-//                
-//                
-//                
-//                for r in Refeicao {
-//                    let refeicaoView = RefeicaoView(frame: CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize), refeicao: r, date: d, cardapio: cardapio[r.rawValue]! as! [String: Any]) as UIView
-//                    pages.append(refeicaoView)
-//                }
-//                
-//                print("data=\(d) terminou!")
-////                self.reloadPages(pages: pages)
-//                
-//            }
-//            
-//            
-//        }
-//        
-//        
-//        
-//        for page in pages{
-//            
-//            // Calcula um novo frame para a página deslocando em X o tamanho de uma página
-//            // para colocar as views lado a lado
-//            page.frame = (page.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
-//            
-//            page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: SCROLL_VIEW_HEIGHT)
-//            
-//            // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
-//
-//            // adiciona a página na scrollview
-//            self.scrollView.addSubview(page)
-//            
-//            // calcula o tamanho do conteúdo da scrollview
-//            self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
-//            
-//        }
-//
-//        
-//
-//    }
-    
+
     
 }
