@@ -27,12 +27,6 @@ enum JSONKeys: String {
     case observacoes = "observacoes"
 }
 
-public enum Refeicao: String {
-    case almoco = "Almoço"
-    case almocoVegetariano = "Almoço Vegetariano"
-    case jantar = "Jantar"
-    case jantarVegetariano = "Jantar Vegetariano"
-}
 
 public class CardapioServices: NSObject {
 	
@@ -59,10 +53,17 @@ public class CardapioServices: NSObject {
     }
     
   
-    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([Cardapio]?) -> Void) {
-        
-        
+    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
+        var cardapios: [CardapioDia] = [CardapioDia]()
+        for d in dates {
+            let c = UnicampServer.getCardapioDia(date: d)
+            cardapios.append(c)
+        }
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
+        
+        OperationQueue.main.addOperation {
+            completionHandler(cardapios)
+        }
     
     }
     

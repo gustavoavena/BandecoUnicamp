@@ -42,66 +42,67 @@ class RefeicaoView: UIView {
 		super.init(coder: aDecoder)
 		setupXib()
 	}
-//    testando o teclado foda do novo macbook
-	// Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
-    public convenience init(frame: CGRect, refeicao: Refeicao, date: Date, cardapio: [String: Any]) {
-		self.init(frame: frame)
-        
-		setupXib()
-		
-        
-        // TODO: consertar capitalize do cardapio no CardapioParser
-        // TODO: exibir data e dia da semana.
-        self.refeicao.text = refeicao.rawValue
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let dateString = dateFormatter.string(from: date)
-        
-        self.data.text = dateString
-        
-        
-        
-		
-		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
-		self.salada.text = (cardapio[JSONKeys.salada.rawValue] as! String)
-		self.suco.text = (cardapio[JSONKeys.suco.rawValue] as! String)
-		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
-		
-		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
-        
-        // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
-        
-		for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, pratos.count)) {
-            self.pratos[i].text = pratos[i]
-		}
-        
-        // TODO: imprimir observacoes.
-        self.observacoes.text = (cardapio[JSONKeys.observacoes.rawValue] as! String)
-		
-	}
+
     
-    public convenience init(frame: CGRect, cardapio: Cardapio) {
+//    // Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
+//    public convenience init(frame: CGRect, refeicao: Refeicao, date: Date, cardapio: [String: Any]) {
+//		self.init(frame: frame)
+//        
+//		setupXib()
+//		
+//        
+//        // TODO: consertar capitalize do cardapio no CardapioParser
+//        // TODO: exibir data e dia da semana.
+//        self.refeicao.text = refeicao.rawValue
+//        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd/MM/yyyy"
+//        let dateString = dateFormatter.string(from: date)
+//        
+//        self.data.text = dateString
+//        
+//        
+//        
+//		
+//		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
+//		self.salada.text = (cardapio[JSONKeys.salada.rawValue] as! String)
+//		self.suco.text = (cardapio[JSONKeys.suco.rawValue] as! String)
+//		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
+//		
+//		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
+//        
+//        // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
+//        
+//		for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, pratos.count)) {
+//            self.pratos[i].text = pratos[i]
+//		}
+//        
+//        // TODO: imprimir observacoes.
+//        self.observacoes.text = (cardapio[JSONKeys.observacoes.rawValue] as! String)
+//		
+//	}
+    
+    public convenience init(frame: CGRect, data: Date, refeicao: Refeicao, cardapioDia: CardapioDia) {
         self.init(frame: frame)
         
         setupXib()
         
-        self.refeicao.text = cardapio.refeicao.rawValue
+        self.refeicao.text = refeicao.rawValue
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        let dateString = dateFormatter.string(from: cardapio.date)
+        let dateString = dateFormatter.string(from: data)
         
         self.data.text = dateString
         
-        self.arrozFeijao.text = cardapio.arrozFeijao
-        self.salada.text = cardapio.salada
-        self.sobremesa.text = cardapio.sobremesa
+        self.arrozFeijao.text = cardapioDia[refeicao].arrozFeijao
+        self.salada.text = cardapioDia[refeicao].salada
+        self.sobremesa.text = cardapioDia[refeicao].sobremesa
         
-        self.observacoes.text = cardapio.observacoes
+        self.observacoes.text = cardapioDia[refeicao].observacoes
         
-        for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, cardapio.pratoPrincipal.count)) {
-            self.pratos[i].text = cardapio.pratoPrincipal[i]
+        for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, cardapioDia[refeicao].pratoPrincipal.count)) {
+            self.pratos[i].text = cardapioDia[refeicao].pratoPrincipal[i]
         }
         
     }

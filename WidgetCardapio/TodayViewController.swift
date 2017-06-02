@@ -35,23 +35,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        CardapioServices.getCardapio(date: Date()) {
-            (cardapioResponse) in
-            
-            guard let cardapio = cardapioResponse else {
-                return
-            }
-            
-            if let almoco = (cardapio[Refeicao.almoco.rawValue] as? [String:Any]) {
-                self.refeicao.text = Refeicao.almoco.rawValue
-                if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
-                    self.pratoPrincipal.text = pratos[0]
-                }
-                self.sobremesa.text = (almoco[JSONKeys.sobremesa.rawValue] as? String) ?? self.sobremesa.text
-                self.suco.text = (almoco[JSONKeys.suco.rawValue] as? String) ?? self.suco.text
-                
-            }
-        }
+//        CardapioServices.getCardapio(date: Date()) {
+//            (cardapioResponse) in
+//            
+//            guard let cardapio = cardapioResponse else {
+//                return
+//            }
+//            
+//            if let almoco = (cardapio[Refeicao.almoco.rawValue] as? [String:Any]) {
+//                self.refeicao.text = Refeicao.almoco.rawValue
+//                if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
+//                    self.pratoPrincipal.text = pratos[0]
+//                }
+//                self.sobremesa.text = (almoco[JSONKeys.sobremesa.rawValue] as? String) ?? self.sobremesa.text
+//                self.suco.text = (almoco[JSONKeys.suco.rawValue] as? String) ?? self.suco.text
+//                
+//            }
+//        }
         
 //        completionHandler(NCUpdateResult.newData)
     }

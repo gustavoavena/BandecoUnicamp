@@ -24,7 +24,6 @@ class UnicampServer {
 //    private static let urlTemplateProduction = "" // TODO
     
     
-    
     /// Retorna a string para uma data no formato desejado para o request para o app em Python
     ///
     /// - Parameter date: data que sera utilizada no URL para o request
@@ -35,8 +34,7 @@ class UnicampServer {
         return dateFormatter.string(from: date)
     }
     
-    
-    
+
     /// Responsavel por fazer o request sincrono para o app em Python e retornar o JSON em formato de dicionario
     ///
     /// - Parameter date: data do cardapio que deve ser buscado
@@ -44,14 +42,11 @@ class UnicampServer {
     private static func getCardapioJSON(date: Date) -> [String: Any] {
         
         let dateString = UnicampServer.urlDateString(date: date)
-        
         let url = URL(string: urlTemplateDevelopment + dateString)
-        
         var json: [String: Any] = [String: Any]()
         
         URLSession.shared.sendSynchronousRequest(request: url!) {
             (data, response, error) in
-            
             
             guard error == nil, let data = data else {
                 print("Erro no request.")
@@ -66,33 +61,26 @@ class UnicampServer {
                 print(error)
                 
             }
-            
         }
         
         return json
     }
     
-    
-    /// Retorna o cardapio **do dia todo** (todas as refeicoes) para uma dada data.
+    /// Retorna o cardapio ** do dia todo ** (todas as refeicoes) para uma dada data.
     ///
     /// - Parameter date: data do cardapio desejado
-    /// - Returns: Dicionario que guarda o cardapio de cada refeicao para aquele dia.
-    public static func getCardapio(date: Date) -> [Refeicao: Cardapio] {
+    /// - Returns: Objeto do tipo CardapioDia que contem todos os cardapios daquele dia.
+    public static func getCardapioDia(date: Date) -> CardapioDia {
         
         let json = getCardapioJSON(date: date)
         
-        
-        // TODO: transformar JSON em objeto Cardapio
-        
-        var cardapioDoDia: [Refeicao: Cardapio] = [Refeicao: Cardapio]()
-        
-        
         let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+        var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
         
         for r in refeicoes {
             if let cardapio = json[r.rawValue] as? [String: Any] {
-                if let c = jsonToCardapio(refeicao: r, date: date, json: cardapio) {
-                    cardapioDoDia[r] = c
+                if let c = jsonToCardapio(json: cardapio) {
+                    cardapioRefeicoes[r] = c
                 } else {
                     print("problema mapeando JSON para objeto cardapio")
                 }
@@ -101,7 +89,7 @@ class UnicampServer {
             }
         }
         
-        return cardapioDoDia
+        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
     }
     
     
@@ -110,11 +98,9 @@ class UnicampServer {
     /// e retorna o objeto Cardapio correspondente.
     ///
     /// - Parameters:
-    ///   - refeicao: refeicao a qual esse cardapio pertence (e.g. almoco, jantar, almoco vegetariano). Tipo enum Refeicao.
-    ///   - date: data desse cardapio.
     ///   - json: Dicionario com o cardapio dessa refeicao para esta data no formato [String: Any].
     /// - Returns: Optional de um objeto cardapio.
-    static func jsonToCardapio(refeicao: Refeicao, date: Date, json: [String: Any]) -> Cardapio? {
+    static func jsonToCardapio(json: [String: Any]) -> Cardapio? {
         
         guard let arrozFeijao = json[JSONKeys.arrozFeijao.rawValue] as? String,
             let sobremesa = json[JSONKeys.sobremesa.rawValue] as? String,
@@ -123,7 +109,6 @@ class UnicampServer {
             let observacoes = json[JSONKeys.observacoes.rawValue] as? String else {
                 print("problema com o arroz e feijao")
                 return nil
-    
         }
 
         guard let pratos = json[JSONKeys.pratoPrincipal.rawValue] as? [String] else {
@@ -131,12 +116,11 @@ class UnicampServer {
             return nil
         }
         
-        return Cardapio(refeicao: refeicao, arrozFeijao: arrozFeijao, pratoPrincipal: pratos,
-                        salada: salada, sobremesa: sobremesa, suco: suco, observacoes: observacoes, date: date)
+        return Cardapio(arrozFeijao: arrozFeijao, pratoPrincipal: pratos,
+                        salada: salada, sobremesa: sobremesa, suco: suco, observacoes: observacoes)
     }
     
     // TODO: metodo que faz um POST request do cardapio de multiplas datas.
-
 }
 
 
