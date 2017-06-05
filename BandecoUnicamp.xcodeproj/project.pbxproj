@@ -201,7 +201,7 @@
 					};
 					4D9528FE1EC78D2D00219F48 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = GJ5VL7QF9C;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -435,8 +435,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,8 +450,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
