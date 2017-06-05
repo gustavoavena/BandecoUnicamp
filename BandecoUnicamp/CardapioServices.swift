@@ -68,8 +68,9 @@ public class CardapioServices: NSObject {
     public static func getCardapios(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
         var cardapios: [CardapioDia] = [CardapioDia]()
         for d in dates {
-            let c = UnicampServer.getCardapioDia(date: d)
-            cardapios.append(c)
+            if let c = UnicampServer.getCardapioDia(date: d) {
+                cardapios.append(c)
+            }
         }
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
         
@@ -78,6 +79,16 @@ public class CardapioServices: NSObject {
         }
     
     }
+    
+//    public static func getCardapiosBulk(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
+//        let cardapios = UnicampServer.getCardapiosBulk(dates: dates)
+//        // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
+//        
+//        OperationQueue.main.addOperation {
+//            completionHandler(cardapios)
+//        }
+//        
+//    }
     
 
     
