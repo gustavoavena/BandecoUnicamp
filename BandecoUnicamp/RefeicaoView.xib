@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="22/05/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pal-Yk-u7o" userLabel="Data">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22/05/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pal-Yk-u7o" userLabel="Data">
                     <rect key="frame" x="138" y="34" width="89" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -121,6 +121,7 @@
                 <constraint firstItem="jMX-Io-Lbs" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="5Ip-Tx-NQx"/>
                 <constraint firstItem="J0b-4w-g32" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="5xk-i5-Lpd"/>
                 <constraint firstItem="Lfv-cG-6gs" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="65a-ia-5nN"/>
+                <constraint firstItem="IC3-RE-w2F" firstAttribute="top" secondItem="pal-Yk-u7o" secondAttribute="bottom" constant="11" id="D1S-UA-2Vg"/>
                 <constraint firstItem="91A-I3-IdV" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="D5j-Tb-AWg"/>
                 <constraint firstItem="pal-Yk-u7o" firstAttribute="centerX" secondItem="ebB-9f-w3f" secondAttribute="centerX" id="EXI-3c-qBS"/>
                 <constraint firstItem="Lfv-cG-6gs" firstAttribute="top" secondItem="Az9-r7-BOU" secondAttribute="bottom" id="GZB-H9-uAI"/>

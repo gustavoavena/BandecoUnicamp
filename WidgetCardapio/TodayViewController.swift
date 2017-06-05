@@ -22,11 +22,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
@@ -34,22 +36,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        CardapioServices.getCardapio(date: Date()) {
-            (cardapioResponse) in
+        CardapioServices.getCardapios(for: [Date()]){
+            (cardapios) in
             
-            guard let cardapio = cardapioResponse else {
+            guard cardapios.count == 1 else {
                 return
             }
+            let cardapioDia = cardapios[0]
             
-            if let almoco = (cardapio[Refeicoes.almoco.rawValue] as? [String:Any]) {
-                self.refeicao.text = Refeicoes.almoco.rawValue
-                if let pratos = (almoco[JSONKeys.pratoPrincipal.rawValue] as? [String]) {
-                    self.pratoPrincipal.text = pratos[0]
-                }
-                self.sobremesa.text = (almoco[JSONKeys.sobremesa.rawValue] as? String) ?? self.sobremesa.text
-                self.suco.text = (almoco[JSONKeys.suco.rawValue] as? String) ?? self.suco.text
+            print(cardapioDia)
+            
+            self.refeicao.text = Refeicao.almoco.rawValue
+            self.pratoPrincipal.text = cardapioDia.almoco.pratoPrincipal[0]
+            self.sobremesa.text = cardapioDia.almoco.sobremesa
+            self.suco.text = cardapioDia.almoco.suco
                 
-            }
+            
         }
         
 //        completionHandler(NCUpdateResult.newData)

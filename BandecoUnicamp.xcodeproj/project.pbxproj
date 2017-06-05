@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D4E1ED1D371009CC3E1 /* cardapio */; };
 		4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */; };
 		4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6D591ED1E45D009CC3E1 /* TodayViewController.swift */; };
 		4D5C6D5D1ED1E45D009CC3E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */; };
 		4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4D6F72421EE0666300BD0C97 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
+		4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529021EC78D2D00219F48 /* AppDelegate.swift */; };
 		4D9529051EC78D2D00219F48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529041EC78D2D00219F48 /* ViewController.swift */; };
 		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
@@ -50,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
 		4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetCardapio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,7 @@
 				4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */,
+				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
@@ -254,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
+				4D6F72421EE0666300BD0C97 /* Cardapio.swift in Sources */,
+				4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +275,7 @@
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
+				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
