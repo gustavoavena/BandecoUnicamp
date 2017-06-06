@@ -48,7 +48,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             
             // Inicializa o page control
             self.pageControl.currentPage = 0
-            self.pageControl.numberOfPages = pages.count
+
             
             for cardapioDia in cardapios {
                 
@@ -61,6 +61,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 
                 
             }
+            
             
             for page in pages{
                 
@@ -79,7 +80,12 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 // calcula o tamanho do conteúdo da scrollview
                 self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
                 
+                
+                
             }
+            
+            self.pageControl.numberOfPages = pages.count
+           
             
             print("terminou getCardapios")
             
@@ -88,6 +94,15 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         
 
     }
+    
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+         self.view.bringSubview(toFront: self.pageControl)
+    }
+    
+    
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		// calcula o numero da página baseado no quanto o scrollview está deslocado em X
