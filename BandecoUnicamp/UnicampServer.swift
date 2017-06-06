@@ -148,7 +148,7 @@ class UnicampServer {
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) {
             
             
-            print("jsonData = \(String(data: jsonData, encoding: .utf8) ?? "afff")")
+//            print("jsonData = \(String(data: jsonData, encoding: .utf8) ?? "afff")")
             
             guard let url = URL(string: postRequestURLDevelopment) else {
                 print("erro criando URL para POST request")
@@ -170,7 +170,8 @@ class UnicampServer {
                 do{
                     json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
                     
-                    print(json)
+                    print(json.sorted(by: {(a,b) in a.key < b.key})) // Ordena o dicionario pelas datas
+                    print("\n\n\n\n")
                 } catch let error as NSError{
                     print("problema convertendo JSON para [String: Any]")
                     print(error)
@@ -199,14 +200,17 @@ class UnicampServer {
             var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
             
             for r in refeicoes {
-                if let cardapioDia = (json[dia] as? [String: Any]), let cardapio = cardapioDia[r.rawValue] as? [String: Any] {
-                    if let c = jsonToCardapio(json: cardapio) {
-                        cardapioRefeicoes[r] = c
+                if let cardapioDia = (json[dia] as? [String: Any]){
+                    print(cardapioDia)
+                    if let cardapio = cardapioDia[r.rawValue] as? [String: Any] {
+                        if let c = jsonToCardapio(json: cardapio) {
+                            cardapioRefeicoes[r] = c
+                        } else {
+                            print("problema mapeando JSON para objeto cardapio")
+                        }
                     } else {
-                        print("problema mapeando JSON para objeto cardapio")
+                        print("refeicao faltando no cardapio!)")
                     }
-                } else {
-                    print("refeicao faltando no cardapio!)")
                 }
             }
             
