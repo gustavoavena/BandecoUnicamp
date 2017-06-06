@@ -132,6 +132,7 @@ class UnicampServer {
     }
     
     
+    // Em construcao.
     public static func getCardapiosBulk(dates: [Date]) -> [CardapioDia]? {
         var json: [String: Any] = [String: Any]()
         var datasString:[String] = [String]()
@@ -146,13 +147,16 @@ class UnicampServer {
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) {
             
+            
+            print("jsonData = \(String(data: jsonData, encoding: .utf8) ?? "afff")")
+            
             guard let url = URL(string: postRequestURLDevelopment) else {
                 print("erro criando URL para POST request")
                 return nil
             }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
             
@@ -166,14 +170,12 @@ class UnicampServer {
                 do{
                     json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
                     
+                    print(json)
                 } catch let error as NSError{
                     print("problema convertendo JSON para [String: Any]")
                     print(error)
                 }
-            
-            
             })
-            
             
         } else {
             print("problema serializando o JSON para o request.")
