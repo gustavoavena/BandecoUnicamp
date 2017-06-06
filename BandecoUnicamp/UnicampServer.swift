@@ -213,7 +213,7 @@ class UnicampServer {
                 return nil
             }
             
-            if let date = dateFromString(dia) {
+            if let date = date(from: dia) {
                 cardapioDias.append(CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes))
             } else {
                 print("problema formatando chave do json para data")
