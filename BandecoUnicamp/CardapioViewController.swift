@@ -39,7 +39,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // TODO: chamar metodo que recebera vetor de CardapioDia para todas as datas. Exibir as que o usuario quiser.
         
         
-        CardapioServices.getCardapios(for: CardapioServices.getDates(next: 7)) {
+        CardapioServices.getCardapiosBulk(for: CardapioServices.getDates(next: 7)) {
             (cardapios) in
             
             let SCROLL_VIEW_HEIGHT = self.scrollView.frame.height

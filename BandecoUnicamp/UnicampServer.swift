@@ -134,18 +134,19 @@ class UnicampServer {
     
     // Em construcao.
     public static func getCardapiosBulk(dates: [Date]) -> [CardapioDia]? {
-        var json: [String: Any] = [String: Any]()
+        var json = [Any]()
         var datasString:[String] = [String]()
+        var requestJson: [String: Any] = [String: Any]()
         
         for d in dates {
             datasString.append(urlDateString(date: d))
         }
         
-        json["datas"] = datasString
+        requestJson["datas"] = datasString
         
         // TODO: serializar isso no body do JSON.
         
-        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: requestJson, options: []) {
             
             
 //            print("jsonData = \(String(data: jsonData, encoding: .utf8) ?? "afff")")
@@ -166,12 +167,13 @@ class UnicampServer {
                     print("error=\(error!)")
                     return
                 }
-                
+//                print(String(data: data, encoding: .utf8)!, "\n\n")
+
                 do{
-                    json = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
+                    json = try JSONSerialization.jsonObject(with: data, options: []) as! [[Any]]
                     
-                    print(json.sorted(by: {(a,b) in a.key < b.key})) // Ordena o dicionario pelas datas
-                    print("\n\n\n\n")
+//                    print(json)
+//                    print("\n\n\n\n")
                 } catch let error as NSError{
                     print("problema convertendo JSON para [String: Any]")
                     print(error)
@@ -195,37 +197,46 @@ class UnicampServer {
         
         // TODO: abstrair codigo desse metodo com o do getCardapio em um soh metodo.
         
-        for dia in json.keys {
+
+        
+        for tuple in json {
+            guard let tuple = (tuple as? [Any]), let dia = tuple[0] as? String, let cardapioJson = (tuple[1] as? [String: Any]) else {
+                print("tupla não esta correta.")
+                return nil
+            }
             
             var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
             
             for r in refeicoes {
-                if let cardapioDia = (json[dia] as? [String: Any]){
-                    print(cardapioDia)
-                    if let cardapio = cardapioDia[r.rawValue] as? [String: Any] {
-                        if let c = jsonToCardapio(json: cardapio) {
-                            cardapioRefeicoes[r] = c
-                        } else {
-                            print("problema mapeando JSON para objeto cardapio")
-                        }
+
+                if let cardapio = cardapioJson[r.rawValue] as? [String: Any] {
+
+                    if let c = jsonToCardapio(json: cardapio) {
+
+                        cardapioRefeicoes[r] = c
                     } else {
-                        print("refeicao faltando no cardapio!)")
+                        print("problema mapeando JSON para objeto cardapio")
                     }
+                } else {
+                    print("refeicao faltando no cardapio!)")
                 }
+                
             }
             
-            guard cardapioRefeicoes.keys.count == 4 else {
-                print("Problema com refeicao no getCardapioBulk")
-                return nil
-            }
-            
-            if let date = date(from: dia) {
-                cardapioDias.append(CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes))
+            if cardapioRefeicoes.keys.count == 4  { // Garante que tem as 4 refeicoes nele.
+                if let date = date(from: dia) {
+                    cardapioDias.append(CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes))
+                } else {
+                    print("problema formatando chave do json para data")
+                }
             } else {
-                print("problema formatando chave do json para data")
+                print("Problema com refeicao no getCardapioBulk")
             }
+            
+            
         }
         
+        print("cardapioDias = \(cardapioDias)")
         return cardapioDias
         
     }
