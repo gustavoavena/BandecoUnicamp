@@ -101,27 +101,29 @@ class UnicampServer {
         
         let json = getCardapioJSON(date: date)
         
-        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
-        var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
+        return jsonToCardapioDia(date: date, json: json)
         
-        for r in refeicoes {
-            if let cardapio = json[r.rawValue] as? [String: Any] {
-                if let c = jsonToCardapio(json: cardapio) {
-                    cardapioRefeicoes[r] = c
-                } else {
-                    print("problema mapeando JSON para objeto cardapio")
-                }
-            } else {
-                print("refeicao faltando no cardapio! data=\(date)")
-            }
-        }
-        
-        guard cardapioRefeicoes.keys.count == 4 else {
-            print("Problema com refeicao da data \(date)")
-            return nil
-        }
-        
-        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
+//        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+//        var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
+//        
+//        for r in refeicoes {
+//            if let cardapio = json[r.rawValue] as? [String: Any] {
+//                if let c = jsonToCardapio(json: cardapio) {
+//                    cardapioRefeicoes[r] = c
+//                } else {
+//                    print("problema mapeando JSON para objeto cardapio")
+//                }
+//            } else {
+//                print("refeicao faltando no cardapio! data=\(date)")
+//            }
+//        }
+//        
+//        guard cardapioRefeicoes.keys.count == 4 else {
+//            print("Problema com refeicao da data \(date)")
+//            return nil
+//        }
+//        
+//        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
     }
     
     private static func date(from str: String) -> Date? {
@@ -191,7 +193,7 @@ class UnicampServer {
         // TODO: error handling, conferir se o cardapio ta ai.
         // DONE: retornar o array no final.
         
-        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+//        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
         var cardapioDias:[CardapioDia] = [CardapioDia]()
         
         
@@ -205,33 +207,39 @@ class UnicampServer {
                 return nil
             }
             
-            var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
             
-            for r in refeicoes {
-
-                if let cardapio = cardapioJson[r.rawValue] as? [String: Any] {
-
-                    if let c = jsonToCardapio(json: cardapio) {
-
-                        cardapioRefeicoes[r] = c
-                    } else {
-                        print("problema mapeando JSON para objeto cardapio")
-                    }
-                } else {
-                    print("refeicao faltando no cardapio!)")
-                }
-                
+            
+            if let data = date(from: dia), let c = jsonToCardapioDia(date: data, json: cardapioJson) {
+                cardapioDias.append(c)
             }
             
-            if cardapioRefeicoes.keys.count == 4  { // Garante que tem as 4 refeicoes nele.
-                if let date = date(from: dia) {
-                    cardapioDias.append(CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes))
-                } else {
-                    print("problema formatando chave do json para data")
-                }
-            } else {
-                print("Problema com refeicao no getCardapioBulk")
-            }
+//            var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
+//            
+//            for r in refeicoes {
+//
+//                if let cardapio = cardapioJson[r.rawValue] as? [String: Any] {
+//
+//                    if let c = jsonToCardapio(json: cardapio) {
+//
+//                        cardapioRefeicoes[r] = c
+//                    } else {
+//                        print("problema mapeando JSON para objeto cardapio")
+//                    }
+//                } else {
+//                    print("refeicao faltando no cardapio!)")
+//                }
+//                
+//            }
+//            
+//            if cardapioRefeicoes.keys.count == 4  { // Garante que tem as 4 refeicoes nele.
+//                if let date = date(from: dia) {
+//                    cardapioDias.append(CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes))
+//                } else {
+//                    print("problema formatando chave do json para data")
+//                }
+//            } else {
+//                print("Problema com refeicao no getCardapioBulk")
+//            }
             
             
         }
@@ -241,6 +249,37 @@ class UnicampServer {
         
     }
     
+    
+    private static func jsonToCardapioDia(date: Date, json: [String: Any]) -> CardapioDia? {
+        
+        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+        
+        var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
+        
+        for r in refeicoes {
+            
+            if let cardapio = json[r.rawValue] as? [String: Any] {
+                
+                if let c = jsonToCardapio(json: cardapio) {
+                    
+                    cardapioRefeicoes[r] = c
+                } else {
+                    print("problema mapeando JSON para objeto cardapio")
+                }
+            } else {
+                print("refeicao faltando no cardapio!)")
+            }
+            
+        }
+        
+        guard cardapioRefeicoes.keys.count == 4 else {
+            print("Problema com refeicao da data \(date)")
+            return nil
+        }
+        
+        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
+        
+    }
     
     
     // TODO: metodo que faz um POST request do cardapio de multiplas datas.
