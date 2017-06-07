@@ -237,6 +237,8 @@ class UnicampServer {
 }
 
 
+// TODO: alterar o back-end todo e deixar ele RESTful.
+// Criar classes la no servidor e usar o "Gloss"? para mapear os VOs para as classes correspondentes aqui.
 
 
 

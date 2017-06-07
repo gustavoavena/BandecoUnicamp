@@ -81,15 +81,14 @@ public class CardapioServices: NSObject {
     }
     
     public static func getCardapiosBulk(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
-        let cardapios = UnicampServer.getCardapiosBulk(dates: dates)
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
         
-        if let cardapios = cardapios {
+        if let cardapios = UnicampServer.getCardapiosBulk(dates: dates) {
             OperationQueue.main.addOperation {
                 completionHandler(cardapios)
             }
         } else {
-            print("cardapios = nil")
+            print("nao conseguiu pegar cardapios em batch.")
         }
         
     }
