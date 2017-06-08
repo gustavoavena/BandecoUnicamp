@@ -17,15 +17,16 @@ class RefeicaoView: UIView {
 	fileprivate var contentView: UIView!
 
 	// TODO: colocar valores default em cada um. (e.g. "-" case ele esteja vazio).
-	@IBOutlet var pratos: [UILabel]!
-    public static let NUM_PRATOS_PRINCIPAIS = 3
-	@IBOutlet weak var salada: UILabel!
+
+
+    @IBOutlet weak var pratoPrincipal: UILabel!
+    @IBOutlet weak var guarnicao: UILabel!
+    @IBOutlet weak var pts: UILabel!
+    @IBOutlet weak var salada: UILabel!
 	@IBOutlet weak var suco: UILabel!
-	@IBOutlet weak var data: UILabel!
 	@IBOutlet weak var refeicao: UILabel!
-	@IBOutlet weak var arrozFeijao: UILabel!
+//	@IBOutlet weak var arrozFeijao: UILabel! // TODO: colocar arroz e feijao
 	@IBOutlet weak var sobremesa: UILabel!
-    @IBOutlet weak var observacoes: UILabel!
 
 	
 	override func awakeFromNib() {
@@ -44,67 +45,20 @@ class RefeicaoView: UIView {
 	}
 
     
-//    // Initializer utilizado para instanciar uma RefeicaoView programaticamente e usar no Scroll View.
-//    public convenience init(frame: CGRect, refeicao: Refeicao, date: Date, cardapio: [String: Any]) {
-//		self.init(frame: frame)
-//        
-//		setupXib()
-//		
-//        
-//        // TODO: consertar capitalize do cardapio no CardapioParser
-//        // TODO: exibir data e dia da semana.
-//        self.refeicao.text = refeicao.rawValue
-//        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd/MM/yyyy"
-//        let dateString = dateFormatter.string(from: date)
-//        
-//        self.data.text = dateString
-//        
-//        
-//        
-//		
-//		self.arrozFeijao.text = (cardapio[JSONKeys.arrozFeijao.rawValue] as! String)
-//		self.salada.text = (cardapio[JSONKeys.salada.rawValue] as! String)
-//		self.suco.text = (cardapio[JSONKeys.suco.rawValue] as! String)
-//		self.sobremesa.text = (cardapio[JSONKeys.sobremesa.rawValue] as! String)
-//		
-//		let pratos = cardapio[JSONKeys.pratoPrincipal.rawValue]  as! [String]
-//        
-//        // FIXME: problema com o tamanho do vetor pratos. Ele parece ter mais que 3 elementos as vezes.
-//        
-//		for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, pratos.count)) {
-//            self.pratos[i].text = pratos[i]
-//		}
-//        
-//        // TODO: imprimir observacoes.
-//        self.observacoes.text = (cardapio[JSONKeys.observacoes.rawValue] as! String)
-//		
-//	}
-    
-    public convenience init(frame: CGRect, data: Date, refeicao: Refeicao, cardapioDia: CardapioDia) {
+
+    public convenience init(frame: CGRect, refeicao: Refeicao) {
         self.init(frame: frame)
         
         setupXib()
         
-        self.refeicao.text = refeicao.rawValue
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let dateString = dateFormatter.string(from: data)
-        
-        self.data.text = dateString
-        
-        self.arrozFeijao.text = cardapioDia[refeicao].arrozFeijao
-        self.salada.text = cardapioDia[refeicao].salada
-        self.sobremesa.text = cardapioDia[refeicao].sobremesa
-        
-        self.observacoes.text = cardapioDia[refeicao].observacoes
-        
-        for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, cardapioDia[refeicao].pratoPrincipal.count)) {
-            self.pratos[i].text = cardapioDia[refeicao].pratoPrincipal[i]
-        }
-        
+        self.refeicao.text = refeicao.tipo.rawValue
+        self.salada.text = refeicao.salada
+        self.sobremesa.text = refeicao.sobremesa
+        self.pratoPrincipal.text = refeicao.pratoPrincipal
+        self.guarnicao.text = refeicao.guarnicao
+        self.pts.text = refeicao.pts
+        self.suco.text = refeicao.suco
+
     }
 	
 	
