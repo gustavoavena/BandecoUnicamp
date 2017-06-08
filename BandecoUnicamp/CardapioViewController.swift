@@ -55,8 +55,9 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 for r in TipoCardapio.todos {
                     let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
                     let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let refeicaoView = RefeicaoView(frame: pageFrame, data: cardapioDia.data, refeicao: r, cardapioDia: cardapioDia)
-                    pages.append(refeicaoView)
+                    // TODO: criar cardapioview e colcoar no array.
+//                    let refeicaoView = RefeicaoView(frame: pageFrame, data: cardapioDia.data, refeicao: r, cardapioDia: cardapioDia)
+//                    pages.append(refeicaoView)
                 }
                 
                 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Hp8-Fi-L0m">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-lW-uuW" userLabel="almoco" customClass="RefeicaoView" customModule="BandecoUnicamp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="66.5" width="375" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTR-ky-Vlv" userLabel="jantar" customClass="RefeicaoView" customModule="BandecoUnicamp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="320" width="375" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quarta, 7 de Junho" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McQ-Jk-fBF" userLabel="Data">
+                    <rect key="frame" x="114" y="19" width="147" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obs: O cardápio contém glutém no pão. Não contém ovos e lactose." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZg-nF-zE2">
+                    <rect key="frame" x="7" y="271.5" width="375" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obs: O cardápio contém glutém no pão. Não contém ovos e lactose." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1i-An-Mrn">
+                    <rect key="frame" x="7" y="525" width="375" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7EI-lW-uuW" firstAttribute="centerX" secondItem="Hp8-Fi-L0m" secondAttribute="centerX" id="1b1-Ia-Gvp" userLabel="Almoco Center Horizontal"/>
+                <constraint firstItem="pTR-ky-Vlv" firstAttribute="top" secondItem="7EI-lW-uuW" secondAttribute="bottom" multiplier="1.2" id="5hX-pu-zYt" userLabel="Almoco-Jantar Vertical Spacing"/>
+                <constraint firstItem="pTR-ky-Vlv" firstAttribute="centerX" secondItem="7EI-lW-uuW" secondAttribute="centerX" id="Dc4-RB-5aY" userLabel="Equal Center Jantar Almoco"/>
+                <constraint firstItem="X1i-An-Mrn" firstAttribute="top" secondItem="pTR-ky-Vlv" secondAttribute="bottom" constant="5" id="Fg5-cR-OZD" userLabel="Top Observacoes Jantar"/>
+                <constraint firstItem="McQ-Jk-fBF" firstAttribute="bottom" secondItem="Hp8-Fi-L0m" secondAttribute="bottom" multiplier="0.06" id="Hxz-fR-efL" userLabel="Data Proportional Y"/>
+                <constraint firstItem="pTR-ky-Vlv" firstAttribute="width" secondItem="7EI-lW-uuW" secondAttribute="width" id="KKY-GL-eMt" userLabel="Equal Width Jantar-Almoco"/>
+                <constraint firstItem="AZg-nF-zE2" firstAttribute="width" secondItem="Hp8-Fi-L0m" secondAttribute="width" id="Lwd-Kq-tLa" userLabel="Width Observacoes Almoco"/>
+                <constraint firstItem="McQ-Jk-fBF" firstAttribute="centerX" secondItem="Hp8-Fi-L0m" secondAttribute="centerX" id="NFT-Rg-ZM7" userLabel="Horizontal Center Data"/>
+                <constraint firstItem="7EI-lW-uuW" firstAttribute="width" secondItem="Hp8-Fi-L0m" secondAttribute="width" id="PTM-2b-uJj" userLabel="Width Almoco"/>
+                <constraint firstItem="7EI-lW-uuW" firstAttribute="height" secondItem="Hp8-Fi-L0m" secondAttribute="height" multiplier="0.3" id="axl-Ig-HLN" userLabel="Almoco Proportional Height"/>
+                <constraint firstItem="7EI-lW-uuW" firstAttribute="top" secondItem="Hp8-Fi-L0m" secondAttribute="bottom" multiplier="0.1" id="he1-Zt-eGU"/>
+                <constraint firstItem="X1i-An-Mrn" firstAttribute="width" secondItem="AZg-nF-zE2" secondAttribute="width" id="ro2-Zt-0us" userLabel="Width Observacoes Jantar"/>
+                <constraint firstItem="AZg-nF-zE2" firstAttribute="top" secondItem="7EI-lW-uuW" secondAttribute="bottom" constant="5" id="sTh-6u-HK1" userLabel="Top Observacoes Almoco"/>
+                <constraint firstItem="X1i-An-Mrn" firstAttribute="leading" secondItem="AZg-nF-zE2" secondAttribute="leading" id="t0r-VL-zoi" userLabel="Leading Observacoes Jantar"/>
+                <constraint firstItem="pTR-ky-Vlv" firstAttribute="height" secondItem="7EI-lW-uuW" secondAttribute="height" id="thY-2I-QxA" userLabel="Equal Height Jantar-Almoco"/>
+                <constraint firstItem="AZg-nF-zE2" firstAttribute="leading" secondItem="Hp8-Fi-L0m" secondAttribute="leading" constant="7" id="yBL-BQ-yhJ" userLabel="Leading Observacoes Almoco"/>
+            </constraints>
+            <point key="canvasLocation" x="159" y="35"/>
+        </view>
+    </objects>
+</document>

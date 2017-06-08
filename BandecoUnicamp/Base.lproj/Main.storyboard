@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wr9-b3-vOG" id="mNV-wj-25a">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -88,7 +88,21 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-gV-oMs" customClass="CardapioView" customModule="BandecoUnicamp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ECg-gV-oMs" firstAttribute="top" secondItem="ufV-uX-dUB" secondAttribute="top" id="Krs-q9-yXK"/>
+                                    <constraint firstItem="ECg-gV-oMs" firstAttribute="height" secondItem="ufV-uX-dUB" secondAttribute="height" id="OQr-a4-PrP"/>
+                                    <constraint firstItem="ECg-gV-oMs" firstAttribute="leading" secondItem="ufV-uX-dUB" secondAttribute="leading" id="QR2-fY-Eso"/>
+                                    <constraint firstItem="ECg-gV-oMs" firstAttribute="width" secondItem="ufV-uX-dUB" secondAttribute="width" id="eY6-Yw-HDq"/>
+                                    <constraint firstAttribute="bottom" secondItem="ECg-gV-oMs" secondAttribute="bottom" id="fGq-J9-yId"/>
+                                    <constraint firstAttribute="trailing" secondItem="ECg-gV-oMs" secondAttribute="trailing" id="lsh-wM-nf7"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="oVc-DV-09R" id="4vh-cE-JmZ"/>
                                 </connections>

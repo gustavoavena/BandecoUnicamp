@@ -219,9 +219,9 @@ class UnicampServer {
         for tuple in json {
             if let tuple = (tuple as? [Any]), let dia = tuple[0] as? String, let cardapioJson = (tuple[1] as? [String: Any])  {
                 
-                if let data = date(from: dia), let c = jsonToCardapioDia(date: data, json: cardapioJson) {
-                    cardapioDias.append(c)
-                }
+//                if let data = date(from: dia), let c = jsonToCardapioDia(date: data, json: cardapioJson) {
+//                    cardapioDias.append(c)
+//                }
                 
             } else {
                 print("tupla não esta correta.")
