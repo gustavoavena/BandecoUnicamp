@@ -59,26 +59,25 @@ class UnicampServer {
     /// - Parameters:
     ///   - json: Dicionario com o cardapio dessa refeicao para esta data no formato [String: Any].
     /// - Returns: Optional de um objeto cardapio.
-    static func jsonRefeicaoToCardapio(refeicaoJson json: [String: Any]) -> Cardapio? {
-        
-        guard let arrozFeijao = json[JSONKeys.arrozFeijao.rawValue] as? String,
-            let sobremesa = json[JSONKeys.sobremesa.rawValue] as? String,
-            let salada = json[JSONKeys.salada.rawValue] as? String,
-            let suco = json[JSONKeys.suco.rawValue] as? String,
-            let observacoes = json[JSONKeys.observacoes.rawValue] as? String else {
-                print("problema com o arroz e feijao")
-                return nil
-        }
-        
-        guard let pratos = json[JSONKeys.pratoPrincipal.rawValue] as? [String] else {
-            print("problema com o prato principal no JSON")
-            return nil
-        }
-        
-        return Cardapio(arrozFeijao: arrozFeijao, pratoPrincipal: pratos,
-                        salada: salada, sobremesa: sobremesa, suco: suco, observacoes: observacoes)
-    }
-    
+//    static func jsonRefeicaoToCardapio(refeicaoJson json: [String: Any]) -> Refeicao? {
+//        
+//        guard let arrozFeijao = json[JSONKeys.arrozFeijao.rawValue] as? String,
+//            let sobremesa = json[JSONKeys.sobremesa.rawValue] as? String,
+//            let salada = json[JSONKeys.salada.rawValue] as? String,
+//            let suco = json[JSONKeys.suco.rawValue] as? String,
+//            let observacoes = json[JSONKeys.observacoes.rawValue] as? String else {
+//                print("problema com o arroz e feijao")
+//                return nil
+//        }
+//        
+//        guard let pratos = json[JSONKeys.pratoPrincipal.rawValue] as? [String] else {
+//            print("problema com o prato principal no JSON")
+//            return nil
+//        }
+//        
+//        return Refeicao(tipo: arrozFeijao, pratoPrincipal: pratos, guarnicao: "Não informado", pts: "teste", salada: salada, sobremesa: sobremesa, suco: suco, observacoes: observacoes)
+//    }
+//    
     
     
     /// Dado um cardapio de um dia inteiro (4 refeicoes), no formato [String: Any], ele retorna o objeto CardapioDia correspondente.
@@ -87,35 +86,35 @@ class UnicampServer {
     ///   - date: data do cardapio inteiro.
     ///   - json: json com o cardapio do dia, contendo o cardapio das 4 refeicoes.
     /// - Returns: retorna o objeto CardapioDia correspondente, se for possivel. Caso contrario, retorna nil.
-    private static func jsonToCardapioDia(date: Date, json: [String: Any]) -> CardapioDia? {
-        
-        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
-        
-        var cardapioRefeicoes: [Refeicao:Cardapio] = [Refeicao: Cardapio]()
-        
-        for r in refeicoes {
-            
-            if let cardapio = json[r.rawValue] as? [String: Any] {
-                
-                if let c = jsonRefeicaoToCardapio(refeicaoJson: cardapio) {
-                    
-                    cardapioRefeicoes[r] = c
-                } else {
-                    print("problema mapeando JSON para objeto cardapio")
-                }
-            } else {
-                print("refeicao faltando no cardapio!)")
-            }
-            
-        }
-        
-        guard cardapioRefeicoes.keys.count == 4 else {
-            print("Problema com refeicao da data \(date)")
-            return nil
-        }
-        
-        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
-    }
+//    private static func jsonToCardapioDia(date: Date, json: [String: Any]) -> CardapioDia? {
+//        
+//        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+//        
+//        var cardapioRefeicoes: [TipoRefeicao:Refeicao] = [TipoRefeicao: Refeicao]()
+//        
+//        for r in refeicoes {
+//            
+//            if let cardapio = json[r.rawValue] as? [String: Any] {
+//                
+//                if let c = jsonRefeicaoToCardapio(refeicaoJson: cardapio) {
+//                    
+//                    cardapioRefeicoes[r] = c
+//                } else {
+//                    print("problema mapeando JSON para objeto cardapio")
+//                }
+//            } else {
+//                print("refeicao faltando no cardapio!)")
+//            }
+//            
+//        }
+//        
+//        guard cardapioRefeicoes.keys.count == 4 else {
+//            print("Problema com refeicao da data \(date)")
+//            return nil
+//        }
+//        
+//        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
+//    }
 
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com o cardapio da data fornecida.
@@ -157,9 +156,10 @@ class UnicampServer {
     /// - Returns: Objeto do tipo CardapioDia que contem todos os cardapios daquele dia.
     public static func getCardapioDia(date: Date) -> CardapioDia? {
         
-        let json = getCardapioJSON(date: date)
+//        let json = getCardapioJSON(date: date)
         
-        return jsonToCardapioDia(date: date, json: json)
+//        return jsonToCardapioDia(date: date, json: json)
+        return nil // TODO
     }
 
     

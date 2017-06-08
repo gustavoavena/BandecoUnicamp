@@ -10,9 +10,9 @@ import UIKit
 import Dispatch
 
 struct TipoCardapio {
-    static let normal: [Refeicao] = [.almoco, .jantar]
-    static let vegetariano: [Refeicao] = [.almocoVegetariano, .jantarVegetariano]
-    static let todos: [Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
+    static let normal: [TipoRefeicao] = [.almoco, .jantar]
+    static let vegetariano: [TipoRefeicao] = [.almocoVegetariano, .jantarVegetariano]
+    static let todos: [TipoRefeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
 }
 
 class CardapioViewController: UIViewController, UIScrollViewDelegate {

@@ -46,8 +46,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             
             print(cardapioDia)
             
-            self.refeicao.text = Refeicao.almoco.rawValue
-            self.pratoPrincipal.text = cardapioDia.almoco.pratoPrincipal[0]
+            self.refeicao.text = TipoRefeicao.almoco.rawValue
+            self.pratoPrincipal.text = cardapioDia.almoco.pratoPrincipal
             self.sobremesa.text = cardapioDia.almoco.sobremesa
             self.suco.text = cardapioDia.almoco.suco
                 
