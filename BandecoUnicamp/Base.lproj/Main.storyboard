@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdi-Is-lAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="639" y="963"/>
+            <point key="canvasLocation" x="638" y="657"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rE7-Vv-A7V">
@@ -60,7 +61,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="-205"/>
+            <point key="canvasLocation" x="638" y="-206"/>
         </scene>
         <!--Cardapio View Controller-->
         <scene sceneID="aBu-oz-ZWz">
@@ -75,23 +76,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="496"/>
                                 <connections>
                                     <outlet property="delegate" destination="oVc-DV-09R" id="4vh-cE-JmZ"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2HX-zh-rgb">
-                                <rect key="frame" x="168" y="571" width="39" height="37"/>
+                                <rect key="frame" x="168" y="583" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FEG-Vb-uSs">
+                                <rect key="frame" x="16" y="81" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Tradicional"/>
+                                    <segment title="Vegetariano"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSegmentedControl:" destination="oVc-DV-09R" eventType="valueChanged" id="8S4-yc-4sJ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ufV-uX-dUB" firstAttribute="top" secondItem="SRR-FN-52x" secondAttribute="bottom" id="4PP-KP-TdG"/>
                             <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="ufV-uX-dUB" secondAttribute="bottom" id="4dm-tF-Mgj"/>
+                            <constraint firstItem="FEG-Vb-uSs" firstAttribute="leading" secondItem="WGJ-vI-Ibz" secondAttribute="leadingMargin" id="QXz-tB-vy0"/>
                             <constraint firstItem="ufV-uX-dUB" firstAttribute="leading" secondItem="WGJ-vI-Ibz" secondAttribute="leading" id="TTf-xc-K3M"/>
-                            <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="2HX-zh-rgb" secondAttribute="bottom" constant="10" id="XR8-9K-ZDY"/>
+                            <constraint firstItem="FEG-Vb-uSs" firstAttribute="centerX" secondItem="2HX-zh-rgb" secondAttribute="centerX" id="VVW-WZ-2ri"/>
+                            <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="2HX-zh-rgb" secondAttribute="bottom" constant="-2" id="XiN-kb-K1g"/>
+                            <constraint firstItem="FEG-Vb-uSs" firstAttribute="top" secondItem="SRR-FN-52x" secondAttribute="bottom" constant="17" id="cFX-WX-9hL"/>
                             <constraint firstAttribute="trailing" secondItem="ufV-uX-dUB" secondAttribute="trailing" id="dOf-1U-4wd"/>
+                            <constraint firstItem="ufV-uX-dUB" firstAttribute="top" secondItem="FEG-Vb-uSs" secondAttribute="bottom" constant="13" id="efD-Ad-bZ0"/>
                             <constraint firstItem="2HX-zh-rgb" firstAttribute="centerX" secondItem="WGJ-vI-Ibz" secondAttribute="centerX" id="wjF-FL-MJ8"/>
                         </constraints>
                     </view>
@@ -99,11 +113,12 @@
                     <connections>
                         <outlet property="pageControl" destination="2HX-zh-rgb" id="fqM-1h-Evv"/>
                         <outlet property="scrollView" destination="ufV-uX-dUB" id="Vbv-eb-Ngt"/>
+                        <outlet property="typeSegmentedControl" destination="FEG-Vb-uSs" id="bIH-cS-9U2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uK8-7z-vnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3375" y="-204"/>
+            <point key="canvasLocation" x="1599" y="-206"/>
         </scene>
     </scenes>
 </document>

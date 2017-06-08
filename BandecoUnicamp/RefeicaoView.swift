@@ -26,7 +26,7 @@ class RefeicaoView: UIView {
 	@IBOutlet weak var arrozFeijao: UILabel!
 	@IBOutlet weak var sobremesa: UILabel!
     @IBOutlet weak var observacoes: UILabel!
-
+    public var type = "Tradicional"
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -82,7 +82,7 @@ class RefeicaoView: UIView {
 //		
 //	}
     
-    public convenience init(frame: CGRect, data: Date, refeicao: Refeicao, cardapioDia: CardapioDia) {
+    public convenience init(frame: CGRect, data: Date, refeicao: Refeicao, cardapioDia: CardapioDia, type: String) {
         self.init(frame: frame)
         
         setupXib()
@@ -100,6 +100,8 @@ class RefeicaoView: UIView {
         self.sobremesa.text = cardapioDia[refeicao].sobremesa
         
         self.observacoes.text = cardapioDia[refeicao].observacoes
+        
+        self.type = type;
         
         for i in 0..<(min(RefeicaoView.NUM_PRATOS_PRINCIPAIS, cardapioDia[refeicao].pratoPrincipal.count)) {
             self.pratos[i].text = cardapioDia[refeicao].pratoPrincipal[i]
