@@ -49,7 +49,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         
 
         
-        CardapioServices.getCardapiosBulk(for: CardapioServices.getDates(next: 3)) {
+        CardapioServices.getCardapios(for: CardapioServices.getDates(next: 3)) {
             (cardapios) in
             
             // Inicializa o page control
