@@ -80,49 +80,56 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func changeSegmentedControl(_ sender: Any) {
+        let pageNumber = self.pageControl.currentPage
+        // scrollView.contentOffset.x / self.view.frame.width
+        let offsetX = scrollView.contentOffset.x
+//        let width = self.view.frame.width
         reloadScrollView()
+        self.pageControl.currentPage = pageNumber
+        scrollView.contentOffset.x = offsetX
+        
     }
     
     func reloadScrollView(){
         let SCROLL_VIEW_HEIGHT = scrollView.frame.height
 
         for view in scrollView.subviews{
-            view.removeFromSuperview()
+            if let refView = view as? RefeicaoView {
+                refView.removeFromSuperview()
+            }
         }
         
-        if(self.typeSegmentedControl.selectedSegmentIndex == 0){
-            for page in self.pagesNormal{
-                // Calcula um novo frame para a página deslocando em X o tamanho de uma página
-                // para colocar as views lado a lado
-                page.frame = (page.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
-                
-                page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: SCROLL_VIEW_HEIGHT)
-                
-                // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
-                
-                
-                // adiciona a página na scrollview
-                self.scrollView.addSubview(page)
-                
-                // calcula o tamanho do conteúdo da scrollview
-                self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
-            }
-        }else if(self.typeSegmentedControl.selectedSegmentIndex == 1){
-            for page in self.pagesVegetariano{
-                // Calcula um novo frame para a página deslocando em X o tamanho de uma página
-                // para colocar as views lado a lado
-                page.frame = (page.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
-                
-                page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.scrollView.frame.width,height: SCROLL_VIEW_HEIGHT)
-                
-                // adiciona a página na scrollview
-                self.scrollView.addSubview(page)
-                
-                // calcula o tamanho do conteúdo da scrollview
-                self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
-            }
+        
+        self.scrollView.contentSize = CGSize(width:0,height:0)
+        
+        var pages: [UIView] = [UIView]()
+        
+        if(self.typeSegmentedControl.selectedSegmentIndex == 0) {
+            pages = self.pagesNormal
+        } else {
+            pages = self.pagesVegetariano
+        }
+        
+        
+        
+        for page in pages{
+            // Calcula um novo frame para a página deslocando em X o tamanho de uma página
+            // para colocar as views lado a lado
+            page.frame = (scrollView.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
+            
+            page.frame = CGRect(x:page.frame.origin.x, y:0, width:self.view.frame.width,height: SCROLL_VIEW_HEIGHT)
+            
+            // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
+            
+            
+            // adiciona a página na scrollview
+            self.scrollView.addSubview(page)
+            
+            // calcula o tamanho do conteúdo da scrollview
+            self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
         }
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
