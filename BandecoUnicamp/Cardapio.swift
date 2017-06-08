@@ -70,6 +70,7 @@ public struct Refeicao {
 	let salada: String
 	let sobremesa: String
 	let suco: String
+    let observacoes: String
 	
     init(tipo: TipoRefeicao, pratoPrincipal: String, guarnicao: String, pts: String, salada: String, sobremesa: String, suco: String, observacoes: String) {
 		self.tipo = tipo
@@ -80,6 +81,7 @@ public struct Refeicao {
 		self.salada = salada
 		self.sobremesa = sobremesa
 		self.suco = suco
+        self.observacoes = observacoes
 	}
 
 }

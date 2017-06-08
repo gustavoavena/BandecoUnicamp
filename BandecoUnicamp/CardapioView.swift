@@ -14,6 +14,11 @@ class CardapioView: UIView {
 
     fileprivate var contentView: UIView!
     
+    @IBOutlet weak var data: UILabel!
+    @IBOutlet weak var almoco: RefeicaoView!
+    @IBOutlet weak var jantar: RefeicaoView!
+    @IBOutlet weak var obsAlmoco: UILabel!
+    @IBOutlet weak var obsJantar: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +43,25 @@ class CardapioView: UIView {
         super.prepareForInterfaceBuilder()
         setupXib()
     }
+    
+    public convenience init(frame: CGRect, data: Date, almoco: Refeicao, jantar: Refeicao) {
+        self.init(frame: frame)
+        
+        setupXib()
+        
+        self.data.text = data.description // TODO: formatar.
+        
+        
+        self.almoco = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: almoco)
+        
+        self.jantar = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: jantar)
+        
+        self.obsAlmoco.text = almoco.observacoes
+        self.obsJantar.text = jantar.observacoes
+
+    }
+    
+
 
 }
 
