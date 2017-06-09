@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardapioView" customModule="BandecoUnicamp" customModuleProvider="target">
             <connections>
-                <outlet property="almoco" destination="7EI-lW-uuW" id="dff-sc-uQb"/>
+                <outlet property="almoco" destination="7EI-lW-uuW" id="dP9-VG-1gj"/>
                 <outlet property="data" destination="McQ-Jk-fBF" id="pVM-CX-0WZ"/>
-                <outlet property="jantar" destination="pTR-ky-Vlv" id="AP0-ut-3jg"/>
-                <outlet property="obsAlmoco" destination="AZg-nF-zE2" id="hTv-2N-5Rj"/>
-                <outlet property="obsJantar" destination="X1i-An-Mrn" id="WIF-7e-u7K"/>
+                <outlet property="jantar" destination="pTR-ky-Vlv" id="lQG-TU-Cqq"/>
+                <outlet property="obsAlmoco" destination="AZg-nF-zE2" id="0Eh-GU-8CN"/>
+                <outlet property="obsJantar" destination="X1i-An-Mrn" id="oIi-CG-bxO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

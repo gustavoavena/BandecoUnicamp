@@ -43,7 +43,6 @@ class RefeicaoView: UIView {
 		super.init(coder: aDecoder)
 		setupXib()
 	}
-
     
 
     public convenience init(frame: CGRect, refeicao: Refeicao) {
@@ -69,6 +68,16 @@ class RefeicaoView: UIView {
 		super.prepareForInterfaceBuilder()
 		setupXib()
 	}
+    
+    public func setupRefeicaoView(refeicao: Refeicao) {
+        self.refeicao.text = refeicao.tipo.rawValue
+        self.salada.text = refeicao.salada
+        self.sobremesa.text = refeicao.sobremesa
+        self.pratoPrincipal.text = refeicao.pratoPrincipal
+        self.guarnicao.text = refeicao.guarnicao
+        self.pts.text = refeicao.pts
+        self.suco.text = refeicao.suco
+    }
 
 
 }

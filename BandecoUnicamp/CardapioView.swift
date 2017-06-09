@@ -65,13 +65,20 @@ class CardapioView: UIView {
         
         self.data.text = formatDateString(data: data)
 
+        let almocoFrame = CGRect(origin: self.almoco.frame.origin, size: self.almoco.frame.size)
         
+    
+//        print(RefeicaoView(frame: self.almoco.frame, refeicao: almoco))
         
-        self.almoco = RefeicaoView(frame: self.almoco.frame, refeicao: almoco)
-        
+//        self.almoco = RefeicaoView(frame: almocoFrame, refeicao: almoco)
+        self.almoco.setupRefeicaoView(refeicao: almoco)
         print(self.almoco)
         
-        self.jantar = RefeicaoView(frame: self.jantar.frame, refeicao: jantar)
+        
+        let jantarFrame = CGRect(origin: self.jantar.frame.origin, size: self.jantar.frame.size)
+        
+//        self.jantar = RefeicaoView(frame: jantarFrame, refeicao: jantar)
+        self.jantar.setupRefeicaoView(refeicao: jantar)
         
         
         self.obsAlmoco.text = almoco.observacoes
