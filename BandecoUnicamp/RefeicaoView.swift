@@ -19,6 +19,7 @@ class RefeicaoView: UIView {
 	// TODO: colocar valores default em cada um. (e.g. "-" case ele esteja vazio).
 
 
+    // TODO: precisa ter o label "Prato Principal: " antes de mostrar ele??
     @IBOutlet weak var pratoPrincipal: UILabel!
     @IBOutlet weak var guarnicao: UILabel!
     @IBOutlet weak var pts: UILabel!

@@ -122,7 +122,6 @@ class UnicampServer {
                 return
             }
             
-            print("completou request sem erro.")
             
             do{
                 json = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
@@ -135,9 +134,7 @@ class UnicampServer {
 
         var cardapios = [Cardapio]()
         for value in json {
-//            print(type(of: value))
             if let cardapioJSON = value as? [String: Any] {
-//                print(cardapioJSON)
                 if let c = Cardapio(json: cardapioJSON) {
 //                    print(c)
                     cardapios.append(c)

@@ -49,7 +49,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         
 
         
-        CardapioServices.getCardapiosBatch(for: CardapioServices.getDates(next: 3)) {
+        CardapioServices.getCardapiosBatch(for: CardapioServices.getDates(next: 5)) {
             (cardapios) in
             
             // Inicializa o page control
@@ -57,27 +57,23 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             
             
             for cardapioDia in cardapios {
-                for r in TipoCardapio.normal {
-                    let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                    let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let cardapioView = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
-                    self.pagesNormal.append(cardapioView)
-                }
+                let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
                 
-                for r in TipoCardapio.vegetariano {
-                    let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                    let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let cardapioView = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
-                    self.pagesVegetariano.append(cardapioView)
-                }
+                var pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
+                let cardapioViewNormal = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
+                self.pagesNormal.append(cardapioViewNormal)
+            
+            
+                pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
+                let cardapioViewVegetariano = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
+                self.pagesVegetariano.append(cardapioViewVegetariano)
+                
             }
             
             self.reloadScrollView()
             
             //Tanto faz se será do tamanho de pagesNormal ou pagesVegetariano
             self.pageControl.numberOfPages = self.pagesNormal.count
-            
-            print("terminou getCardapios")
         }
     }
     
