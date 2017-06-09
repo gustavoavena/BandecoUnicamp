@@ -18,14 +18,7 @@
 
 import UIKit
 
-enum JSONKeys: String {
-    case arrozFeijao = "arroz_feijao"
-    case salada = "salada"
-    case suco = "suco"
-    case pratoPrincipal = "prato_principal"
-    case sobremesa = "sobremesa"
-    case observacoes = "observacoes"
-}
+
 
 
 public class CardapioServices: NSObject {
@@ -64,11 +57,11 @@ public class CardapioServices: NSObject {
     ///
     /// - Parameters:
     ///   - dates: datas para as quais voce quer o cardapio.
-    ///   - completionHandler: completionHandler que sera executado asincronamente na Main thread (no viewController). Ela recebe um array de objetos CardapioDia.
-    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
-        var cardapios: [CardapioDia] = [CardapioDia]()
+    ///   - completionHandler: completionHandler que sera executado asincronamente na Main thread (no viewController). Ela recebe um array de objetos Cardapio.
+    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([Cardapio]) -> Void) {
+        var cardapios: [Cardapio] = [Cardapio]()
         for d in dates {
-            if let c = UnicampServer.getCardapioDia(date: d) {
+            if let c = UnicampServer.getCardapio(date: d) {
                 cardapios.append(c)
             }
         }
@@ -80,10 +73,10 @@ public class CardapioServices: NSObject {
     
     }
     
-    public static func getCardapiosBulk(for dates: [Date], completionHandler: @escaping ([CardapioDia]) -> Void) {
+    public static func getCardapiosBatch(for dates: [Date], completionHandler: @escaping ([Cardapio]) -> Void) {
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
         
-        if let cardapios = UnicampServer.getCardapiosBulk(dates: dates) {
+        if let cardapios = UnicampServer.getCardapiosBatch(date: Date(), next: 3){
             OperationQueue.main.addOperation {
                 completionHandler(cardapios)
             }

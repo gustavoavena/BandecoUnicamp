@@ -20,7 +20,7 @@ import Foundation
 
 
 class UnicampServer {
-    private static let urlTemplateDevelopment = "http://127.0.0.1:5000/date/"
+    private static let urlCardapioDevelopment = "http://127.0.0.1:5000/cardapios/date/"
 //    private static let urlTemplateProduction = "" // TODO
     private static let postRequestURLDevelopment = "http://127.0.0.1:5000/dates"
     
@@ -52,70 +52,6 @@ class UnicampServer {
     // - MARK: metodos principais
     
 
-
-    
-    /// Recebe o cardapio de **uma refeicao** no formato [String: Any] (que veio do JSON e retorna o objeto Cardapio correspondente.
-    ///
-    /// - Parameters:
-    ///   - json: Dicionario com o cardapio dessa refeicao para esta data no formato [String: Any].
-    /// - Returns: Optional de um objeto cardapio.
-//    static func jsonRefeicaoToCardapio(refeicaoJson json: [String: Any]) -> Refeicao? {
-//        
-//        guard let arrozFeijao = json[JSONKeys.arrozFeijao.rawValue] as? String,
-//            let sobremesa = json[JSONKeys.sobremesa.rawValue] as? String,
-//            let salada = json[JSONKeys.salada.rawValue] as? String,
-//            let suco = json[JSONKeys.suco.rawValue] as? String,
-//            let observacoes = json[JSONKeys.observacoes.rawValue] as? String else {
-//                print("problema com o arroz e feijao")
-//                return nil
-//        }
-//        
-//        guard let pratos = json[JSONKeys.pratoPrincipal.rawValue] as? [String] else {
-//            print("problema com o prato principal no JSON")
-//            return nil
-//        }
-//        
-//        return Refeicao(tipo: arrozFeijao, pratoPrincipal: pratos, guarnicao: "Não informado", pts: "teste", salada: salada, sobremesa: sobremesa, suco: suco, observacoes: observacoes)
-//    }
-//    
-    
-    
-    /// Dado um cardapio de um dia inteiro (4 refeicoes), no formato [String: Any], ele retorna o objeto CardapioDia correspondente.
-    ///
-    /// - Parameters:
-    ///   - date: data do cardapio inteiro.
-    ///   - json: json com o cardapio do dia, contendo o cardapio das 4 refeicoes.
-    /// - Returns: retorna o objeto CardapioDia correspondente, se for possivel. Caso contrario, retorna nil.
-//    private static func jsonToCardapioDia(date: Date, json: [String: Any]) -> CardapioDia? {
-//        
-//        let refeicoes:[Refeicao] = [.almoco, .almocoVegetariano, .jantar, .jantarVegetariano]
-//        
-//        var cardapioRefeicoes: [TipoRefeicao:Refeicao] = [TipoRefeicao: Refeicao]()
-//        
-//        for r in refeicoes {
-//            
-//            if let cardapio = json[r.rawValue] as? [String: Any] {
-//                
-//                if let c = jsonRefeicaoToCardapio(refeicaoJson: cardapio) {
-//                    
-//                    cardapioRefeicoes[r] = c
-//                } else {
-//                    print("problema mapeando JSON para objeto cardapio")
-//                }
-//            } else {
-//                print("refeicao faltando no cardapio!)")
-//            }
-//            
-//        }
-//        
-//        guard cardapioRefeicoes.keys.count == 4 else {
-//            print("Problema com refeicao da data \(date)")
-//            return nil
-//        }
-//        
-//        return CardapioDia(data: date, cardapioRefeicoes: cardapioRefeicoes)
-//    }
-
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com o cardapio da data fornecida.
     /// Esse metodo faz o request para o cardapio de **um dia***.
@@ -124,7 +60,7 @@ class UnicampServer {
     private static func getCardapioJSON(date: Date) -> [String: Any] {
         
         let dateString = UnicampServer.urlDateString(date: date)
-        let url = URL(string: urlTemplateDevelopment + dateString)
+        let url = URL(string: urlCardapioDevelopment + dateString)
         var json: [String: Any] = [String: Any]()
         
         URLSession.shared.sendSynchronousRequest(request: url!) {
@@ -153,86 +89,59 @@ class UnicampServer {
     /// Retorna o cardapio ** do dia todo ** (todas as refeicoes) para uma dada data.
     ///
     /// - Parameter date: data do cardapio desejado
-    /// - Returns: Objeto do tipo CardapioDia que contem todos os cardapios daquele dia.
-    public static func getCardapioDia(date: Date) -> CardapioDia? {
+    /// - Returns: Objeto do tipo Cardapio que contem todos os cardapios daquele dia.
+    public static func getCardapio(date: Date) -> Cardapio? {
         
-//        let json = getCardapioJSON(date: date)
+        let json = getCardapioJSON(date: date)
         
-//        return jsonToCardapioDia(date: date, json: json)
-        return nil // TODO
+//        return jsonToCardapio(date: date, json: json)
+        return Cardapio(json: json)
     }
 
     
     
-    /// Esse eh o metodo mais importante. Ele recebe um array de datas e retorna um array com os objetos CardapioDia dessas datas.
+    /// Esse eh o metodo mais importante. Ele recebe um array de datas e retorna um array com os objetos Cardapio dessas datas.
     /// Para isto, ele executa um POST request para o app em Flask, que processa as datas e retorna um JSON com todos os cardapios de uma vez.
     ///
     /// - Parameter dates: array de objetos Date, com as datas dos cardapios a serem consultados.
-    /// - Returns: array de objetos CardapioDia com os cardapios ou nil.
-    public static func getCardapiosBulk(dates: [Date]) -> [CardapioDia]? {
+    /// - Returns: array de objetos Cardapio com os cardapios ou nil.
+    public static func getCardapiosBatch(date: Date, next: Int) -> [Cardapio]? {
+        
+        let dateString = UnicampServer.urlDateString(date: date)
+        let url = URL(string: urlCardapioDevelopment + "\(dateString)/next/\(next)")
         var json = [Any]()
-        var datasString:[String] = [String]()
-
         
-        for d in dates {
-            datasString.append(urlDateString(date: d))
-        }
         
-        if let jsonData = try? JSONSerialization.data(withJSONObject: ["datas": datasString], options: []) {
+        // TODO: criar outro metodo e reutilizar esse codigo do getCardapioJSON
+        URLSession.shared.sendSynchronousRequest(request: url!) {
+            (data, response, error) in
             
-            guard let url = URL(string: postRequestURLDevelopment) else {
-                print("erro criando URL para POST request")
-                return nil
+            guard error == nil, let data = data else {
+                print("Erro no request.")
+                print("error: \(String(describing: error))\n\n")
+                return
             }
             
-            // prepara request object
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData
+            print("completou request sem erro.")
             
-            
-            // faz um POST request sincronamente para o servidor, mandando as datas dos cardapios desejados.
-            URLSession.shared.sendSynchronousURLRequest(request: request, completionHandler: { (data, response, error) in
+            do{
+                json = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
                 
-                guard let data = data, error == nil else {
-                    print("error=\(error!)")
-                    return
-                }
-
-                do{
-                    json = try JSONSerialization.jsonObject(with: data, options: []) as! [[Any]]
-                    
-                } catch let error as NSError{
-                    print("problema convertendo JSON para [String: Any]")
-                    print(error)
-                }
-            })
-            
-        } else {
-            print("problema serializando o JSON para o request.")
+                print("json = \(json)")
+            } catch let error as NSError{
+                print(error)
+            }
         }
-        
-        
-        var cardapioDias:[CardapioDia] = [CardapioDia]()
 
-        for tuple in json {
-            if let tuple = (tuple as? [Any]), let dia = tuple[0] as? String, let cardapioJson = (tuple[1] as? [String: Any])  {
-                
-//                if let data = date(from: dia), let c = jsonToCardapioDia(date: data, json: cardapioJson) {
-//                    cardapioDias.append(c)
-//                }
-                
-            } else {
-                print("tupla não esta correta.")
-                return nil
+        var cardapios = [Cardapio]()
+        for value in json {
+            if let cardapioJSON = value as? [String: Any], let c = Cardapio(json: cardapioJSON) {
+                cardapios.append(c)
             }
         }
         
-//        print("cardapioDias = \(cardapioDias)")
-        return cardapioDias
+        return cardapios
     }
-
     
 }
 

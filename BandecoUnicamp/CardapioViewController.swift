@@ -45,11 +45,11 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         // FIXME: acho que o pageControl nao aparece porque nos colocamos subviews em cima dele... Entao acho que ele fica escondido no eixo z.
         // OBS: coloquei o pageControl todo vermelho para facilitar a solucao disso (fica mais facil de ver ele)... depois eu mudo a cor.
         
-        // TODO: chamar metodo que recebera vetor de CardapioDia para todas as datas. Exibir as que o usuario quiser.
+        // TODO: chamar metodo que recebera vetor de Cardapio para todas as datas. Exibir as que o usuario quiser.
         
 
         
-        CardapioServices.getCardapios(for: CardapioServices.getDates(next: 3)) {
+        CardapioServices.getCardapiosBatch(for: CardapioServices.getDates(next: 3)) {
             (cardapios) in
             
             // Inicializa o page control

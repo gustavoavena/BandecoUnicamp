@@ -13,7 +13,6 @@
 		4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6D591ED1E45D009CC3E1 /* TodayViewController.swift */; };
 		4D5C6D5D1ED1E45D009CC3E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */; };
 		4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529021EC78D2D00219F48 /* AppDelegate.swift */; };
 		4D9529051EC78D2D00219F48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529041EC78D2D00219F48 /* ViewController.swift */; };
 		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
@@ -22,6 +21,8 @@
 		4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
+		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
+		4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */; };
 		4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */; };
 		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
@@ -60,6 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +294,7 @@
 			files = (
 				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
-				4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */,
+				4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
