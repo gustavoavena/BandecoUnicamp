@@ -60,15 +60,15 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 for r in TipoCardapio.normal {
                     let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
                     let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let refeicaoView = RefeicaoView(frame: pageFrame, refeicao: cardapioDia[r])
-                    self.pagesNormal.append(refeicaoView)
+                    let cardapioView = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
+                    self.pagesNormal.append(cardapioView)
                 }
                 
                 for r in TipoCardapio.vegetariano {
                     let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
                     let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let refeicaoView = RefeicaoView(frame: pageFrame, refeicao: cardapioDia[r])
-                    self.pagesVegetariano.append(refeicaoView)
+                    let cardapioView = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
+                    self.pagesVegetariano.append(cardapioView)
                 }
             }
             

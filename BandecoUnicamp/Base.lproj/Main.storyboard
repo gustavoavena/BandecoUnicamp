@@ -122,6 +122,11 @@
                                     <constraint firstAttribute="bottom" secondItem="ECg-gV-oMs" secondAttribute="bottom" id="fGq-J9-yId"/>
                                     <constraint firstAttribute="trailing" secondItem="ECg-gV-oMs" secondAttribute="trailing" id="lsh-wM-nf7"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="ECg-gV-oMs"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="oVc-DV-09R" id="4vh-cE-JmZ"/>
                                 </connections>

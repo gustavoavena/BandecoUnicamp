@@ -137,7 +137,7 @@ class UnicampServer {
         for value in json {
 //            print(type(of: value))
             if let cardapioJSON = value as? [String: Any] {
-                print(cardapioJSON)
+//                print(cardapioJSON)
                 if let c = Cardapio(json: cardapioJSON) {
                     print(c)
                     cardapios.append(c)

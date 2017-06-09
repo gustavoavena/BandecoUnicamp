@@ -29,6 +29,11 @@ enum JSONKeys: String {
     case guarnicao = "guarnicao"
     case pts = "pts"
     case tipo = "tipo"
+    case almoco = "almoco"
+    case almocoVegetariano = "almoco_vegetariano"
+    case jantar = "jantar"
+    case jantarVegetariano = "jantar_vegetariano"
+    
     
 }
 
@@ -59,10 +64,10 @@ public class Cardapio: Decodable {
     public required init?(json: JSON) {
         
         guard let dataString: String = "data" <~~ json,
-            let almoco: Refeicao = TipoRefeicao.almoco.rawValue <~~ json,
-            let almocoVegetariano: Refeicao = TipoRefeicao.almocoVegetariano.rawValue <~~ json,
-            let jantar: Refeicao = TipoRefeicao.jantar.rawValue <~~ json,
-            let jantarVegetariano: Refeicao = TipoRefeicao.jantarVegetariano.rawValue <~~ json else {
+            let almoco: Refeicao = JSONKeys.almoco.rawValue <~~ json,
+            let almocoVegetariano: Refeicao = JSONKeys.almocoVegetariano.rawValue <~~ json,
+            let jantar: Refeicao = JSONKeys.jantar.rawValue <~~ json,
+            let jantarVegetariano: Refeicao = JSONKeys.jantarVegetariano.rawValue <~~ json else {
             print("problema deserializando o JSON cardapio")
             return nil
         }
@@ -109,7 +114,7 @@ public class Cardapio: Decodable {
 
 public struct Refeicao: Decodable {
 	let tipo: TipoRefeicao
-//	let arrozFeijao: String
+	let arrozFeijao: String
 	let pratoPrincipal: String
     let guarnicao: String
     let pts: String
@@ -118,9 +123,9 @@ public struct Refeicao: Decodable {
 	let suco: String
     let observacoes: String
 	
-    init(tipo: TipoRefeicao, pratoPrincipal: String, guarnicao: String, pts: String, salada: String, sobremesa: String, suco: String, observacoes: String) {
+    init(tipo: TipoRefeicao, arrozFeijao: String, pratoPrincipal: String, guarnicao: String, pts: String, salada: String, sobremesa: String, suco: String, observacoes: String) {
 		self.tipo = tipo
-//		self.arrozFeijao = arrozFeijao
+		self.arrozFeijao = arrozFeijao
 		self.pratoPrincipal = pratoPrincipal
         self.guarnicao = guarnicao
         self.pts = pts
@@ -132,6 +137,7 @@ public struct Refeicao: Decodable {
     
     public init?(json: JSON) {
         guard let pratoPrincipal: String = JSONKeys.pratoPrincipal.rawValue <~~ json,
+            let arrozFeijao: String = JSONKeys.arrozFeijao.rawValue <~~ json,
             let guarnicao: String = JSONKeys.guarnicao.rawValue <~~ json,
             let pts: String = JSONKeys.pts.rawValue <~~ json,
             let salada: String = JSONKeys.salada.rawValue <~~ json,
@@ -150,6 +156,8 @@ public struct Refeicao: Decodable {
         self.sobremesa = sobremesa
         self.suco = suco
         self.observacoes = observacoes
+        self.arrozFeijao = arrozFeijao
+        
         
         switch tipo {
         case TipoRefeicao.almoco.rawValue:

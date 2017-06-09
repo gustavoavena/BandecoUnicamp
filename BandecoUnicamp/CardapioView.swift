@@ -49,12 +49,15 @@ class CardapioView: UIView {
         
         setupXib()
         
-        self.data.text = data.description // TODO: formatar.
+        // TODO: formatar data corretamente: "Quarta, 7 de Junho"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        self.data.text = dateFormatter.string(from: data)
         
         
-        self.almoco = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: almoco)
+        self.almoco = RefeicaoView(frame: self.almoco.frame, refeicao: almoco)
         
-        self.jantar = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: jantar)
+        self.jantar = RefeicaoView(frame: self.jantar.frame, refeicao: jantar)
         
         self.obsAlmoco.text = almoco.observacoes
         self.obsJantar.text = jantar.observacoes
