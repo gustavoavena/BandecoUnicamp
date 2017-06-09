@@ -47,7 +47,6 @@ class RefeicaoView: UIView {
 
     public convenience init(frame: CGRect, refeicao: Refeicao) {
         self.init(frame: frame)
-        
         setupXib()
         
         self.refeicao.text = refeicao.tipo.rawValue
@@ -57,19 +56,21 @@ class RefeicaoView: UIView {
         self.guarnicao.text = refeicao.guarnicao
         self.pts.text = refeicao.pts
         self.suco.text = refeicao.suco
-
-//        print("self.refeicao.pratoPrincipal = \(self.pratoPrincipal.text)")
     }
 	
 	
 	//## 1 - UNCOMMENT: XIB Appears
-	
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		setupXib()
 	}
     
+    
+    /// Altera os atributos de uma RefeicaoView para corresponder com os valores da refeicao passada como argumento.
+    ///
+    /// - Parameter refeicao: refeicao que deve ser exibida na RefeicaoView.
     public func setupRefeicaoView(refeicao: Refeicao) {
+        
         self.refeicao.text = refeicao.tipo.rawValue
         self.salada.text = refeicao.salada
         self.sobremesa.text = refeicao.sobremesa
@@ -78,8 +79,6 @@ class RefeicaoView: UIView {
         self.pts.text = refeicao.pts
         self.suco.text = refeicao.suco
     }
-
-
 }
 
 

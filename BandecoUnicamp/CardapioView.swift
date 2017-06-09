@@ -35,8 +35,6 @@ class CardapioView: UIView {
         setupXib()
     }
 
-    
-    
     //## 1 - UNCOMMENT: XIB Appears
     
     override func prepareForInterfaceBuilder() {
@@ -57,33 +55,19 @@ class CardapioView: UIView {
         return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
     
+    
+    /// Inicializa um CardapioView a partir de dois objetos da classe Refeicao.
     public convenience init(frame: CGRect, data: Date, almoco: Refeicao, jantar: Refeicao) {
         self.init(frame: frame)
-        
         setupXib()
 
-        
         self.data.text = formatDateString(data: data)
 
-        let almocoFrame = CGRect(origin: self.almoco.frame.origin, size: self.almoco.frame.size)
-        
-    
-//        print(RefeicaoView(frame: self.almoco.frame, refeicao: almoco))
-        
-//        self.almoco = RefeicaoView(frame: almocoFrame, refeicao: almoco)
         self.almoco.setupRefeicaoView(refeicao: almoco)
-        print(self.almoco)
-        
-        
-        let jantarFrame = CGRect(origin: self.jantar.frame.origin, size: self.jantar.frame.size)
-        
-//        self.jantar = RefeicaoView(frame: jantarFrame, refeicao: jantar)
         self.jantar.setupRefeicaoView(refeicao: jantar)
-        
         
         self.obsAlmoco.text = almoco.observacoes
         self.obsJantar.text = jantar.observacoes
-
     }
     
 
