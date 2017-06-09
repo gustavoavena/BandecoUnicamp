@@ -72,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="-205"/>
+            <point key="canvasLocation" x="638" y="-206"/>
         </scene>
         <!--Cardapio View Controller-->
         <scene sceneID="aBu-oz-ZWz">
@@ -86,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-gV-oMs" customClass="CardapioView" customModule="BandecoUnicamp" customModuleProvider="target">
@@ -114,23 +114,37 @@
                             </pageControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ufV-uX-dUB" firstAttribute="top" secondItem="SRR-FN-52x" secondAttribute="bottom" id="4PP-KP-TdG"/>
                             <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="ufV-uX-dUB" secondAttribute="bottom" id="4dm-tF-Mgj"/>
                             <constraint firstItem="ufV-uX-dUB" firstAttribute="leading" secondItem="WGJ-vI-Ibz" secondAttribute="leading" id="TTf-xc-K3M"/>
                             <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="2HX-zh-rgb" secondAttribute="bottom" constant="5" id="XR8-9K-ZDY"/>
                             <constraint firstAttribute="trailing" secondItem="ufV-uX-dUB" secondAttribute="trailing" id="dOf-1U-4wd"/>
+                            <constraint firstItem="ufV-uX-dUB" firstAttribute="top" secondItem="SRR-FN-52x" secondAttribute="bottom" id="gr5-9z-bCY"/>
                             <constraint firstItem="2HX-zh-rgb" firstAttribute="centerX" secondItem="WGJ-vI-Ibz" secondAttribute="centerX" id="wjF-FL-MJ8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="agM-pl-hWj"/>
+                    <navigationItem key="navigationItem" id="agM-pl-hWj">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="FEG-Vb-uSs">
+                            <rect key="frame" x="16" y="7.5" width="343" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Tradicional"/>
+                                <segment title="Vegetariano"/>
+                            </segments>
+                            <connections>
+                                <action selector="changeSegmentedControl:" destination="oVc-DV-09R" eventType="valueChanged" id="8S4-yc-4sJ"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="pageControl" destination="2HX-zh-rgb" id="fqM-1h-Evv"/>
                         <outlet property="scrollView" destination="ufV-uX-dUB" id="Vbv-eb-Ngt"/>
+                        <outlet property="typeSegmentedControl" destination="FEG-Vb-uSs" id="bIH-cS-9U2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uK8-7z-vnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3375" y="-204"/>
+            <point key="canvasLocation" x="1599" y="-206"/>
         </scene>
     </scenes>
 </document>
