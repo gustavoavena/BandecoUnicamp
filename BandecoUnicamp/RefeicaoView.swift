@@ -59,6 +59,7 @@ class RefeicaoView: UIView {
         self.pts.text = refeicao.pts
         self.suco.text = refeicao.suco
 
+//        print("self.refeicao.pratoPrincipal = \(self.pratoPrincipal.text)")
     }
 	
 	

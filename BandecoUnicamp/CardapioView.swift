@@ -44,20 +44,35 @@ class CardapioView: UIView {
         setupXib()
     }
     
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
+    
     public convenience init(frame: CGRect, data: Date, almoco: Refeicao, jantar: Refeicao) {
         self.init(frame: frame)
         
         setupXib()
+
         
-        // TODO: formatar data corretamente: "Quarta, 7 de Junho"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        self.data.text = dateFormatter.string(from: data)
+        self.data.text = formatDateString(data: data)
+
         
         
         self.almoco = RefeicaoView(frame: self.almoco.frame, refeicao: almoco)
         
+        print(self.almoco)
+        
         self.jantar = RefeicaoView(frame: self.jantar.frame, refeicao: jantar)
+        
         
         self.obsAlmoco.text = almoco.observacoes
         self.obsJantar.text = jantar.observacoes

@@ -139,7 +139,7 @@ class UnicampServer {
             if let cardapioJSON = value as? [String: Any] {
 //                print(cardapioJSON)
                 if let c = Cardapio(json: cardapioJSON) {
-                    print(c)
+//                    print(c)
                     cardapios.append(c)
                 } else {
                     print("nao conseguiu mapear o objeto")
