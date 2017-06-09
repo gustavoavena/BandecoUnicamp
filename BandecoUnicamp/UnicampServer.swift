@@ -127,7 +127,7 @@ class UnicampServer {
             do{
                 json = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
                 
-                print("json = \(json)")
+//                print("json = \(json)")
             } catch let error as NSError{
                 print(error)
             }
@@ -135,8 +135,17 @@ class UnicampServer {
 
         var cardapios = [Cardapio]()
         for value in json {
-            if let cardapioJSON = value as? [String: Any], let c = Cardapio(json: cardapioJSON) {
-                cardapios.append(c)
+//            print(type(of: value))
+            if let cardapioJSON = value as? [String: Any] {
+                print(cardapioJSON)
+                if let c = Cardapio(json: cardapioJSON) {
+                    print(c)
+                    cardapios.append(c)
+                } else {
+                    print("nao conseguiu mapear o objeto")
+                }
+            } else {
+                print("Nao conseguiu fazer cast do cardapioJSON para [String: Any]")
             }
         }
         
