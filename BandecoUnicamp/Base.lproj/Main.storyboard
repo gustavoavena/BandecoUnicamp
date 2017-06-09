@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdi-Is-lAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="657"/>
+            <point key="canvasLocation" x="-52" y="1043"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rE7-Vv-A7V">
@@ -36,6 +36,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="1Vk-aY-YJE" kind="relationship" relationship="viewControllers" id="2Em-b6-IHa"/>
@@ -59,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wr9-b3-vOG" id="mNV-wj-25a">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -69,17 +70,17 @@
                             <outlet property="delegate" destination="zlT-tC-ops" id="Osy-SG-Qji"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Configurações" id="aiX-Qg-m7G"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" id="aiX-Qg-m7G"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fqr-du-TBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666" y="776"/>
+            <point key="canvasLocation" x="638" y="581"/>
         </scene>
         <!--Cardápio-->
         <scene sceneID="QNy-Pl-pnb">
             <objects>
                 <navigationController title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cardápio" id="Yrh-n2-EPe"/>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" id="Yrh-n2-EPe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHA-Wa-lzy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,7 +92,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="-206"/>
+            <point key="canvasLocation" x="638" y="-121"/>
         </scene>
         <!--Cardapio View Controller-->
         <scene sceneID="aBu-oz-ZWz">
@@ -164,7 +165,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uK8-7z-vnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="-206"/>
+            <point key="canvasLocation" x="1599" y="-164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cardapio" width="37" height="37"/>
+        <image name="configuracoes" width="37" height="37"/>
+    </resources>
 </document>
