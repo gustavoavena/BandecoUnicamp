@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Gloss
+
 
 
 /// Utilizado ** bastante ** durante o codigo. Tem valores string padrao para facilitar a exibicao na view e padronizar as chaves do JSON que recebemos.

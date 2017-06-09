@@ -13,13 +13,15 @@
 		4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6D591ED1E45D009CC3E1 /* TodayViewController.swift */; };
 		4D5C6D5D1ED1E45D009CC3E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */; };
 		4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4D6F72421EE0666300BD0C97 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529021EC78D2D00219F48 /* AppDelegate.swift */; };
 		4D9529051EC78D2D00219F48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529041EC78D2D00219F48 /* ViewController.swift */; };
 		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
 		4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */; };
+		4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
+		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
+		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */; };
 		4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */; };
 		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
@@ -52,6 +54,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DB41A191EEAD7EE00255628 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +81,7 @@
 		4D9529091EC78D2E00219F48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D95290C1EC78D2E00219F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D95290E1EC78D2E00219F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DB41A1B1EEAD8C400255628 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefeicaoView.xib; sourceTree = "<group>"; };
 		4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoView.swift; sourceTree = "<group>"; };
 		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */,
+				4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +115,7 @@
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
 				4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -192,6 +208,7 @@
 				4D9528FC1EC78D2D00219F48 /* Frameworks */,
 				4D9528FD1EC78D2D00219F48 /* Resources */,
 				4D5C6D651ED1E45D009CC3E1 /* Embed App Extensions */,
+				4DB41A191EEAD7EE00255628 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,8 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
-				4D6F72421EE0666300BD0C97 /* Cardapio.swift in Sources */,
 				4D6F72431EE0CD0100BD0C97 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
 			);
@@ -337,6 +354,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
@@ -350,6 +372,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
@@ -362,7 +389,7 @@
 		4D95290F1EC78D2E00219F48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherit)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -413,7 +440,7 @@
 		4D9529101EC78D2E00219F48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherit)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -460,6 +487,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -475,6 +506,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
