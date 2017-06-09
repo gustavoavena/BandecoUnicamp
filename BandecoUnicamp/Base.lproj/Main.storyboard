@@ -73,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fqr-du-TBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="974"/>
+            <point key="canvasLocation" x="1666" y="776"/>
         </scene>
         <!--Cardápio-->
         <scene sceneID="QNy-Pl-pnb">
@@ -150,6 +150,7 @@
                                 <segment title="Tradicional"/>
                                 <segment title="Vegetariano"/>
                             </segments>
+                            <color key="tintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="changeSegmentedControl:" destination="oVc-DV-09R" eventType="valueChanged" id="8S4-yc-4sJ"/>
                             </connections>
