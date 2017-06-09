@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item 2-->
+        <scene sceneID="324-kR-mZd">
+            <objects>
+                <viewController id="a0j-We-wna" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ejy-6H-qAY"/>
+                        <viewControllerLayoutGuide type="bottom" id="YbZ-ll-WR6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FnK-5Y-UqP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="0ZD-MT-1IX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hdi-Is-lAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="657"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rE7-Vv-A7V">
             <objects>
