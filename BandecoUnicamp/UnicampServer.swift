@@ -21,8 +21,8 @@ import Foundation
 
 class UnicampServer {
     private static let urlCardapioDevelopment = "http://127.0.0.1:5000/cardapios/date/"
+    private static let urlCardapioProduction = "https://bandex.herokuapp.com/cardapios/date/"
 //    private static let urlTemplateProduction = "" // TODO
-    private static let postRequestURLDevelopment = "http://127.0.0.1:5000/dates"
     
     
     // - MARK: metodos auxiliares
@@ -60,7 +60,7 @@ class UnicampServer {
     private static func getCardapioJSON(date: Date) -> [String: Any] {
         
         let dateString = UnicampServer.urlDateString(date: date)
-        let url = URL(string: urlCardapioDevelopment + dateString)
+        let url = URL(string: urlCardapioProduction + dateString)
         var json: [String: Any] = [String: Any]()
         
         URLSession.shared.sendSynchronousRequest(request: url!) {
@@ -108,7 +108,7 @@ class UnicampServer {
     public static func getCardapiosBatch(date: Date, next: Int) -> [Cardapio]? {
         
         let dateString = UnicampServer.urlDateString(date: date)
-        let url = URL(string: urlCardapioDevelopment + "\(dateString)/next/\(next)")
+        let url = URL(string: urlCardapioProduction + "\(dateString)/next/\(next)")
         var json = [Any]()
         
         
