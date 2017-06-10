@@ -19,6 +19,8 @@
 import UIKit
 
 
+// TODO: setar default do user como normal, nao vegetariano.
+
 
 
 public class CardapioServices: NSObject {
@@ -73,10 +75,10 @@ public class CardapioServices: NSObject {
     
     }
     
-    public static func getCardapiosBatch(for dates: [Date], completionHandler: @escaping ([Cardapio]) -> Void) {
+    public static func getCardapiosBatch(startDate date: Date = Date(), next: Int = 5, completionHandler: @escaping ([Cardapio]) -> Void) {
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
         
-        if let cardapios = UnicampServer.getCardapiosBatch(date: Date(), next: 3){
+        if let cardapios = UnicampServer.getCardapiosBatch(date: date, next: next){
             OperationQueue.main.addOperation {
                 completionHandler(cardapios)
             }
