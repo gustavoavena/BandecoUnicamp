@@ -21,20 +21,24 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
     
-    /* 0 -> Tradicional
-     1 -> Vegetariano */
+    /* 
+     typeSegmentedControl:
+     0 -> Tradicional
+     1 -> Vegetariano 
+     */
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
 	
     var pagesNormal = [UIView]()
     var pagesVegetariano = [UIView]()
 
 
-	// TODO: metodo que pega os cardapios somente da semana atual.
-	// TODO: metodo que retorna cardapio só dos normais ou só dos vegetarianos.
-	// TODO: talvez seja melhor fazer pedido de cardapio normal ou vegetariano separado??
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        
+        
         
         scrollView.delegate = self
 		
@@ -42,11 +46,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         scrollView.isDirectionalLockEnabled = true
         let SCROLL_VIEW_HEIGHT = scrollView.frame.height
 
-        // FIXME: acho que o pageControl nao aparece porque nos colocamos subviews em cima dele... Entao acho que ele fica escondido no eixo z.
-        // OBS: coloquei o pageControl todo vermelho para facilitar a solucao disso (fica mais facil de ver ele)... depois eu mudo a cor.
-        
-        // TODO: chamar metodo que recebera vetor de Cardapio para todas as datas. Exibir as que o usuario quiser.
-        
 
         
         CardapioServices.getCardapiosBatch(startDate: Date(), next: 5) {
@@ -79,13 +78,12 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func changeSegmentedControl(_ sender: Any) {
         let pageNumber = self.pageControl.currentPage
-        // scrollView.contentOffset.x / self.view.frame.width
         let offsetX = scrollView.contentOffset.x
-//        let width = self.view.frame.width
+        
         reloadScrollView()
+        
         self.pageControl.currentPage = pageNumber
         scrollView.contentOffset.x = offsetX
-        
     }
     
     func reloadScrollView(){

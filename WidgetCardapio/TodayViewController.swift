@@ -30,17 +30,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func getTipoRefeicaoParaExibir(dataCardapio: Date) -> TipoRefeicao {
         let horaAtual = Calendar.current.component(.hour, from: Date())
-        
         let diaDaSemanaAtual = Calendar.current.component(.weekday, from: Date())
+        
+        let (almoco, jantar): (TipoRefeicao,TipoRefeicao) = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? (.almocoVegetariano, .jantarVegetariano) : (.almoco, .jantar)
         
         if (2...6).contains(diaDaSemanaAtual) {
             if (14...20).contains(horaAtual) {
-                return .jantar
+                return jantar
             } else {
-                return .almoco
+                return almoco
             }
         } else {
-            return .almoco
+            return almoco
         }
     }
     

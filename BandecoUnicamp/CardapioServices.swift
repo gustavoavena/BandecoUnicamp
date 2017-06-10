@@ -19,62 +19,15 @@
 import UIKit
 
 
-// TODO: setar default do user como normal, nao vegetariano.
-
-
-
 public class CardapioServices: NSObject {
-	
-    
-    
-    /// Dada uma data, ela retorna as proximas next datas de dias uteis (dias que o bandeco esta aberto) em um array.
-    ///
-    /// - Parameter next: quantidade de dias requisitados (e.g. os proximos 7 dias uteis).
-    /// - Returns: array de Date objects.
-    public static func getDates(next: Int) -> [Date] {
-        let DAY_IN_SECONDS:Int = 60 * 60 * 24
-        
-        var days:[Date] = [Date]()
-        
-        var counter = 0
-        
-        while(days.count < next) {
-            
-            let day = Date(timeIntervalSinceNow: TimeInterval(counter * DAY_IN_SECONDS))
-            
-            if((2...6).contains(Calendar.current.component(.weekday, from: day))) {
 
-                days.append(day)
-            }
-            counter += 1
-        }
-        
-        return days
-    }
     
-  
-    
-    /// Utiliza o metodo no UnicampServer para pegar os cardapios dos dias passados como parametro.
-    /// Depois sera modificado para fazer um request que pede varios de uma vez.
+    /// Fornece um array com os **next** cardapios a partir da data **startDate**.
     ///
     /// - Parameters:
-    ///   - dates: datas para as quais voce quer o cardapio.
-    ///   - completionHandler: completionHandler que sera executado asincronamente na Main thread (no viewController). Ela recebe um array de objetos Cardapio.
-    public static func getCardapios(for dates: [Date], completionHandler: @escaping ([Cardapio]) -> Void) {
-        var cardapios: [Cardapio] = [Cardapio]()
-        for d in dates {
-            if let c = UnicampServer.getCardapio(date: d) {
-                cardapios.append(c)
-            }
-        }
-        // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
-        
-        OperationQueue.main.addOperation {
-            completionHandler(cardapios)
-        }
-    
-    }
-    
+    ///   - date: data inicial.
+    ///   - next: quantidade de cardapios desejados a partir da data inicial.
+    ///   - completionHandler: completionHandler para acessar o retorno assincronamente.
     public static func getCardapiosBatch(startDate date: Date = Date(), next: Int = 5, completionHandler: @escaping ([Cardapio]) -> Void) {
         // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
         
