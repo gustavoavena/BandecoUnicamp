@@ -22,6 +22,7 @@ import Foundation
 class UnicampServer {
     private static let urlCardapioDevelopment = "http://127.0.0.1:5000/cardapios/date/"
     private static let urlCardapioProduction = "https://bandex.herokuapp.com/cardapios/date/"
+    private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
 //    private static let urlTemplateProduction = "" // TODO
     
     
@@ -137,6 +138,53 @@ class UnicampServer {
             if let cardapioJSON = value as? [String: Any] {
                 if let c = Cardapio(json: cardapioJSON) {
 //                    print(c)
+                    cardapios.append(c)
+                } else {
+                    print("nao conseguiu mapear o objeto")
+                }
+            } else {
+                print("Nao conseguiu fazer cast do cardapioJSON para [String: Any]")
+            }
+        }
+        
+        return cardapios
+    }
+    
+    /// Esse eh o metodo mais importante. Ele recebe um array de datas e retorna um array com os objetos Cardapio dessas datas.
+    /// Para isto, ele executa um POST request para o app em Flask, que processa as datas e retorna um JSON com todos os cardapios de uma vez.
+    ///
+    /// - Parameter dates: array de objetos Date, com as datas dos cardapios a serem consultados.
+    /// - Returns: array de objetos Cardapio com os cardapios ou nil.
+    public static func getAllCardapios() -> [Cardapio]? {
+        let url = URL(string: urlAllCardapiosProduction)
+        var json = [Any]()
+        
+        
+        // TODO: criar outro metodo e reutilizar esse codigo do getCardapioJSON
+        URLSession.shared.sendSynchronousRequest(request: url!) {
+            (data, response, error) in
+            
+            guard error == nil, let data = data else {
+                print("Erro no request.")
+                print("error: \(String(describing: error))\n\n")
+                return
+            }
+            
+            
+            do{
+                json = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
+                
+                //                print("json = \(json)")
+            } catch let error as NSError{
+                print(error)
+            }
+        }
+        
+        var cardapios = [Cardapio]()
+        for value in json {
+            if let cardapioJSON = value as? [String: Any] {
+                if let c = Cardapio(json: cardapioJSON) {
+                    //                    print(c)
                     cardapios.append(c)
                 } else {
                     print("nao conseguiu mapear o objeto")

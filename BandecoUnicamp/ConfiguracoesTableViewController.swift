@@ -12,6 +12,9 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBOutlet weak var dietaSwitch: UISwitch!
+    
+    
+    // TODO: melhorar posicionamento de labels nas configuracoes. Precisa alinhar...
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,6 @@ class ConfiguracoesTableViewController: UITableViewController {
 
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
         UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: "vegetariano")
-        
     }
 
     /*
