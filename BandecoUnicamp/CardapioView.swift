@@ -35,8 +35,6 @@ class CardapioView: UIView {
         setupXib()
     }
 
-    
-    
     //## 1 - UNCOMMENT: XIB Appears
     
     override func prepareForInterfaceBuilder() {
@@ -44,21 +42,32 @@ class CardapioView: UIView {
         setupXib()
     }
     
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
+    
+    
+    /// Inicializa um CardapioView a partir de dois objetos da classe Refeicao.
     public convenience init(frame: CGRect, data: Date, almoco: Refeicao, jantar: Refeicao) {
         self.init(frame: frame)
-        
         setupXib()
-        
-        self.data.text = data.description // TODO: formatar.
-        
-        
-        self.almoco = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: almoco)
-        
-        self.jantar = RefeicaoView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), refeicao: jantar)
+
+        self.data.text = formatDateString(data: data)
+
+        self.almoco.setupRefeicaoView(refeicao: almoco)
+        self.jantar.setupRefeicaoView(refeicao: jantar)
         
         self.obsAlmoco.text = almoco.observacoes
         self.obsJantar.text = jantar.observacoes
-
     }
     
 

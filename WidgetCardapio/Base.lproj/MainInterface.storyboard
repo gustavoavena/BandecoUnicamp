@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,47 +20,44 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-wa-dp6">
-                                <rect key="frame" x="11" y="5" width="71" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <rect key="frame" x="11" y="5" width="59.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-e4-npX" userLabel="linha">
+                                <rect key="frame" x="11" y="24" width="288" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4sb-7J-sa8"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHD-X3-A9B">
-                                <rect key="frame" x="11" y="30.5" width="288" height="18"/>
+                                <rect key="frame" x="11" y="33" width="288" height="20.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prato Principal: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cF-zb-IXC" userLabel="Prato Principal">
-                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Steak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-lg-k5z" userLabel="pratoPrincipal">
-                                        <rect key="frame" x="113.5" y="0.0" width="174.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Steak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-lg-k5z" userLabel="pratoPrincipal">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="m4b-lg-k5z" firstAttribute="centerY" secondItem="5cF-zb-IXC" secondAttribute="centerY" id="Fkr-ea-wnB"/>
-                                    <constraint firstItem="5cF-zb-IXC" firstAttribute="centerY" secondItem="RHD-X3-A9B" secondAttribute="centerY" id="ogz-7j-avA"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-ot-IAD">
-                                <rect key="frame" x="11" y="48.5" width="140.5" height="18"/>
+                                <rect key="frame" x="11" y="58.5" width="137" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobremesa: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-Gv-Ef2" userLabel="Sobremesa">
-                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Banana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-S2-PgG" userLabel="sobremesa">
-                                        <rect key="frame" x="89.5" y="0.0" width="51" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Banana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-S2-PgG" userLabel="sobremesa">
+                                        <rect key="frame" x="86" y="0.0" width="51" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,16 +69,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-ga-bzQ">
-                                <rect key="frame" x="11" y="66.5" width="94.5" height="18"/>
+                                <rect key="frame" x="11" y="76.5" width="93" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suco: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-jy-pWV" userLabel="Suco">
-                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Laranja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-RZ-0Z4" userLabel="suco">
-                                        <rect key="frame" x="44.5" y="0.0" width="50" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Laranja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-RZ-0Z4" userLabel="suco">
+                                        <rect key="frame" x="43" y="0.0" width="50" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,14 +92,17 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="Ch5-ot-IAD" firstAttribute="leading" secondItem="RHD-X3-A9B" secondAttribute="leading" id="1ga-bk-dWE"/>
+                            <constraint firstItem="4rf-wa-dp6" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-5" id="Nlg-8E-Tii"/>
+                            <constraint firstItem="Isg-e4-npX" firstAttribute="leading" secondItem="4rf-wa-dp6" secondAttribute="leading" id="Omd-lf-c7a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RHD-X3-A9B" secondAttribute="trailing" constant="5" id="U9l-yE-2WH"/>
                             <constraint firstItem="RHD-X3-A9B" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-5" id="UCR-zi-FIz"/>
-                            <constraint firstItem="RHD-X3-A9B" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="5" id="Wh3-Z8-tA6"/>
-                            <constraint firstItem="4rf-wa-dp6" firstAttribute="leading" secondItem="5cF-zb-IXC" secondAttribute="leading" id="YvM-R2-Dg1"/>
+                            <constraint firstItem="RHD-X3-A9B" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="10" id="Wh3-Z8-tA6"/>
                             <constraint firstItem="Esp-ga-bzQ" firstAttribute="leading" secondItem="Ch5-ot-IAD" secondAttribute="leading" id="dru-Vs-luU"/>
+                            <constraint firstItem="Isg-e4-npX" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="1" id="gh4-b0-cZw"/>
                             <constraint firstItem="Ch5-ot-IAD" firstAttribute="bottom" secondItem="Esp-ga-bzQ" secondAttribute="top" id="iA9-58-x9c"/>
                             <constraint firstItem="4rf-wa-dp6" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="5" id="m8B-ZR-iIW"/>
-                            <constraint firstItem="Ch5-ot-IAD" firstAttribute="top" secondItem="RHD-X3-A9B" secondAttribute="bottom" id="xOa-80-04c"/>
+                            <constraint firstItem="Isg-e4-npX" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" multiplier="0.9" id="sy1-3p-iLy"/>
+                            <constraint firstItem="Ch5-ot-IAD" firstAttribute="top" secondItem="RHD-X3-A9B" secondAttribute="bottom" constant="5" id="xOa-80-04c"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -109,7 +110,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="100"/>
+                    <size key="freeformSize" width="320" height="140"/>
                     <connections>
                         <outlet property="pratoPrincipal" destination="m4b-lg-k5z" id="DEB-sM-Aql"/>
                         <outlet property="refeicao" destination="4rf-wa-dp6" id="qk1-Ux-oco"/>

@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Configurações-->
+        <!--Configurações Table View-->
         <scene sceneID="YC4-Dt-8IC">
             <objects>
-                <tableViewController id="LTB-97-MNb" sceneMemberID="viewController">
+                <tableViewController title="Configurações Table View" id="LTB-97-MNb" customClass="ConfiguracoesTableViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="eKV-ds-Nzi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -34,10 +34,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-oX-tuT" userLabel="switchVegetariano">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-oX-tuT" userLabel="switchVegetariano">
                                                     <rect key="frame" x="318" y="6" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="0.97254901960784312" green="0.50588235294117645" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="dietaValueChanged:" destination="LTB-97-MNb" eventType="valueChanged" id="h9d-mD-Vfg"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -96,10 +98,29 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" id="pRv-YT-drb"/>
+                    <navigationItem key="navigationItem" id="xWc-hC-V39"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDV-Gy-8xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="568"/>
+            <point key="canvasLocation" x="1825" y="1063"/>
+        </scene>
+        <!--Configurações-->
+        <scene sceneID="1pn-9O-ASG">
+            <objects>
+                <navigationController id="Bbu-s4-Gua" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Configurações" selectedImage="configuracoes" id="Jhq-Nf-0gl"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pKM-sp-Yvg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LTB-97-MNb" kind="relationship" relationship="rootViewController" id="FTZ-Yb-v08"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QI6-su-qrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="514" y="1064"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="S3s-QB-S7k">
@@ -154,15 +175,21 @@
         <scene sceneID="rE7-Vv-A7V">
             <objects>
                 <tabBarController id="hAb-1t-0UI" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="2E0-Ms-Kd5">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="2E0-Ms-Kd5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="1Vk-aY-YJE" kind="relationship" relationship="viewControllers" id="2Em-b6-IHa"/>
-                        <segue destination="LTB-97-MNb" kind="relationship" relationship="viewControllers" id="Jv1-Ec-hvo"/>
+                        <segue destination="Bbu-s4-Gua" kind="relationship" relationship="viewControllers" id="Jvs-g4-krm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYE-dx-azs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,10 +201,10 @@
             <objects>
                 <navigationController title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" id="Yrh-n2-EPe"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yHA-Wa-lzy">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="oVc-DV-09R" kind="relationship" relationship="rootViewController" id="R6e-51-gQH"/>
@@ -196,11 +223,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aPQ-Bj-dYY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WGJ-vI-Ibz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-gV-oMs" customClass="CardapioView" customModule="BandecoUnicamp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
@@ -216,12 +243,17 @@
                                     <constraint firstAttribute="bottom" secondItem="ECg-gV-oMs" secondAttribute="bottom" id="fGq-J9-yId"/>
                                     <constraint firstAttribute="trailing" secondItem="ECg-gV-oMs" secondAttribute="trailing" id="lsh-wM-nf7"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="ECg-gV-oMs"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="oVc-DV-09R" id="4vh-cE-JmZ"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2HX-zh-rgb">
-                                <rect key="frame" x="168" y="576" width="39" height="37"/>
+                                <rect key="frame" x="168" y="515" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
@@ -229,7 +261,7 @@
                         <constraints>
                             <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="ufV-uX-dUB" secondAttribute="bottom" id="4dm-tF-Mgj"/>
                             <constraint firstItem="ufV-uX-dUB" firstAttribute="leading" secondItem="WGJ-vI-Ibz" secondAttribute="leading" id="TTf-xc-K3M"/>
-                            <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="2HX-zh-rgb" secondAttribute="bottom" constant="5" id="XR8-9K-ZDY"/>
+                            <constraint firstItem="aPQ-Bj-dYY" firstAttribute="top" secondItem="2HX-zh-rgb" secondAttribute="bottom" constant="2" id="XR8-9K-ZDY"/>
                             <constraint firstAttribute="trailing" secondItem="ufV-uX-dUB" secondAttribute="trailing" id="dOf-1U-4wd"/>
                             <constraint firstItem="ufV-uX-dUB" firstAttribute="top" secondItem="SRR-FN-52x" secondAttribute="bottom" id="gr5-9z-bCY"/>
                             <constraint firstItem="2HX-zh-rgb" firstAttribute="centerX" secondItem="WGJ-vI-Ibz" secondAttribute="centerX" id="wjF-FL-MJ8"/>
@@ -250,6 +282,7 @@
                             </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="pageControl" destination="2HX-zh-rgb" id="fqM-1h-Evv"/>
                         <outlet property="scrollView" destination="ufV-uX-dUB" id="Vbv-eb-Ngt"/>

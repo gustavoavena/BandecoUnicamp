@@ -19,6 +19,7 @@ class RefeicaoView: UIView {
 	// TODO: colocar valores default em cada um. (e.g. "-" case ele esteja vazio).
 
 
+    // TODO: precisa ter o label "Prato Principal: " antes de mostrar ele??
     @IBOutlet weak var pratoPrincipal: UILabel!
     @IBOutlet weak var guarnicao: UILabel!
     @IBOutlet weak var pts: UILabel!
@@ -43,12 +44,10 @@ class RefeicaoView: UIView {
 		super.init(coder: aDecoder)
 		setupXib()
 	}
-
     
 
     public convenience init(frame: CGRect, refeicao: Refeicao) {
         self.init(frame: frame)
-        
         setupXib()
         
         self.refeicao.text = refeicao.tipo.rawValue
@@ -58,18 +57,29 @@ class RefeicaoView: UIView {
         self.guarnicao.text = refeicao.guarnicao
         self.pts.text = refeicao.pts
         self.suco.text = refeicao.suco
-
     }
 	
 	
 	//## 1 - UNCOMMENT: XIB Appears
-	
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 		setupXib()
 	}
-
-
+    
+    
+    /// Altera os atributos de uma RefeicaoView para corresponder com os valores da refeicao passada como argumento.
+    ///
+    /// - Parameter refeicao: refeicao que deve ser exibida na RefeicaoView.
+    public func setupRefeicaoView(refeicao: Refeicao) {
+        
+        self.refeicao.text = refeicao.tipo.rawValue
+        self.salada.text = refeicao.salada
+        self.sobremesa.text = refeicao.sobremesa
+        self.pratoPrincipal.text = refeicao.pratoPrincipal
+        self.guarnicao.text = refeicao.guarnicao
+        self.pts.text = refeicao.pts
+        self.suco.text = refeicao.suco
+    }
 }
 
 

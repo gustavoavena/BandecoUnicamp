@@ -21,20 +21,24 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
     
-    /* 0 -> Tradicional
-     1 -> Vegetariano */
+    /* 
+     typeSegmentedControl:
+     0 -> Tradicional
+     1 -> Vegetariano 
+     */
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
 	
     var pagesNormal = [UIView]()
     var pagesVegetariano = [UIView]()
 
 
-	// TODO: metodo que pega os cardapios somente da semana atual.
-	// TODO: metodo que retorna cardapio só dos normais ou só dos vegetarianos.
-	// TODO: talvez seja melhor fazer pedido de cardapio normal ou vegetariano separado??
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        
+        
         
         scrollView.delegate = self
 		
@@ -42,14 +46,9 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         scrollView.isDirectionalLockEnabled = true
         let SCROLL_VIEW_HEIGHT = scrollView.frame.height
 
-        // FIXME: acho que o pageControl nao aparece porque nos colocamos subviews em cima dele... Entao acho que ele fica escondido no eixo z.
-        // OBS: coloquei o pageControl todo vermelho para facilitar a solucao disso (fica mais facil de ver ele)... depois eu mudo a cor.
-        
-        // TODO: chamar metodo que recebera vetor de CardapioDia para todas as datas. Exibir as que o usuario quiser.
-        
 
         
-        CardapioServices.getCardapios(for: CardapioServices.getDates(next: 3)) {
+        CardapioServices.getCardapiosBatch(startDate: Date(), next: 5) {
             (cardapios) in
             
             // Inicializa o page control
@@ -57,39 +56,34 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             
             
             for cardapioDia in cardapios {
-                for r in TipoCardapio.normal {
-                    let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                    let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let refeicaoView = RefeicaoView(frame: pageFrame, refeicao: cardapioDia[r])
-                    self.pagesNormal.append(refeicaoView)
-                }
+                let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
                 
-                for r in TipoCardapio.vegetariano {
-                    let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                    let pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                    let refeicaoView = RefeicaoView(frame: pageFrame, refeicao: cardapioDia[r])
-                    self.pagesVegetariano.append(refeicaoView)
-                }
+                var pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
+                let cardapioViewNormal = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
+                self.pagesNormal.append(cardapioViewNormal)
+            
+            
+                pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
+                let cardapioViewVegetariano = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
+                self.pagesVegetariano.append(cardapioViewVegetariano)
+                
             }
             
             self.reloadScrollView()
             
             //Tanto faz se será do tamanho de pagesNormal ou pagesVegetariano
             self.pageControl.numberOfPages = self.pagesNormal.count
-            
-            print("terminou getCardapios")
         }
     }
     
     @IBAction func changeSegmentedControl(_ sender: Any) {
         let pageNumber = self.pageControl.currentPage
-        // scrollView.contentOffset.x / self.view.frame.width
         let offsetX = scrollView.contentOffset.x
-//        let width = self.view.frame.width
+        
         reloadScrollView()
+        
         self.pageControl.currentPage = pageNumber
         scrollView.contentOffset.x = offsetX
-        
     }
     
     func reloadScrollView(){
