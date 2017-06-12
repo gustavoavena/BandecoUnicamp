@@ -11,10 +11,13 @@ import UIKit
 class ConfiguracoesTableViewController: UITableViewController {
     
     
+    @IBOutlet weak var dietaSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
