@@ -21,7 +21,7 @@
                             <tableViewSection headerTitle="PREFERÊNCIA" footerTitle="Sua preferência de cardápio será exibida no Widget do Bandex e aparecerá diretamente no app." id="e0Q-zl-dzx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Ap-nO-W3l">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ap-nO-W3l" id="hrO-wr-yIm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -47,7 +47,7 @@
                             <tableViewSection id="ASf-z0-aoF" userLabel="SOBRE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="DHs-5W-TP5">
-                                        <rect key="frame" x="0.0" y="164" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHs-5W-TP5" id="8na-Cv-08E">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -62,13 +62,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Pfa-j1-ffT" kind="show" id="jwu-Bp-Eav"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="11d-3b-HxL" userLabel="FEEDBACK E SUGESTÕES">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="7oP-p6-rL4">
-                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7oP-p6-rL4" id="FdQ-w2-6Y6">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -97,6 +100,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDV-Gy-8xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="568"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="S3s-QB-S7k">
+            <objects>
+                <viewController id="Pfa-j1-ffT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1gA-tM-gG0"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfL-V4-UAc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NVQ-AL-Doi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HmC-3C-wGW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Sobre" id="HWr-bd-ccj">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FK8-hy-Q6a"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-cS-L9d">
+                                <rect key="frame" x="0.0" y="64" width="912" height="304"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-E7-FZf">
+                                        <rect key="frame" x="0.0" y="0.0" width="912" height="304"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bianca" translatesAutoresizingMaskIntoConstraints="NO" id="rly-6o-vvp">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="304"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="guga" translatesAutoresizingMaskIntoConstraints="NO" id="f5g-gH-I8x">
+                                                <rect key="frame" x="304" y="0.0" width="304" height="304"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ju" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-Qs-pRj">
+                                                <rect key="frame" x="608" y="0.0" width="304" height="304"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eT7-A8-E0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="566.26686656671666"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rE7-Vv-A7V">
@@ -210,7 +262,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bianca" width="304" height="304"/>
         <image name="cardapio" width="37" height="37"/>
         <image name="configuracoes" width="37" height="37"/>
+        <image name="guga" width="304" height="304"/>
+        <image name="ju" width="304" height="304"/>
     </resources>
 </document>
