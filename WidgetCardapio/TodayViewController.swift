@@ -45,23 +45,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
+    override func viewWillAppear(_ animated: Bool) {
+        updateWidget() {
+            (success) in
+            
+            if success {
+                print("widget updated")
+            } else {
+                print("error updating widget before appearing")
+            }
+        }
+    }
     
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        CardapioServices.getCardapiosBatch(startDate: Date(), next: 1){
+    // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
+    fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
+       
+        CardapioServices.getAllCardapios(){
             (cardapios) in
             
-            guard cardapios.count == 1 else {
-                print("veio mais cardapios")
+            guard cardapios.count > 0 else {
+                print("nao veio nenhum cardapio.")
+                completionHandler(false)
                 return
             }
             let cardapioDia = cardapios[0]
-            
+    
             print(cardapioDia)
             
             let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
@@ -70,9 +78,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.pratoPrincipal.text = cardapioDia[tipo].pratoPrincipal
             self.sobremesa.text = cardapioDia[tipo].sobremesa
             self.suco.text = cardapioDia[tipo].suco
+            completionHandler(true)
         }
         
-//        completionHandler(NCUpdateResult.newData)
+    }
+
+    
+    // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        // Perform any setup necessary in order to update the view.
+        
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+        updateWidget() {
+            (success) in
+            
+            if success {
+                completionHandler(.newData)
+            } else {
+                    completionHandler(.failed)
+            }
+            
+        }
+        
     }
     
 }
