@@ -36,19 +36,16 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
-        
-        
         
         scrollView.delegate = self
 		
         scrollView.isPagingEnabled = true
         scrollView.isDirectionalLockEnabled = true
-        let SCROLL_VIEW_HEIGHT = scrollView.frame.height
-
 
         
-        CardapioServices.getCardapiosBatch(startDate: Date(), next: 5) {
+        CardapioServices.getAllCardapios() {
             (cardapios) in
             
             // Inicializa o page control
@@ -56,17 +53,13 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             
             
             for cardapioDia in cardapios {
-                let pageFrameSize = CGSize(width: self.scrollView.frame.width, height: SCROLL_VIEW_HEIGHT)
-                
-                var pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                let cardapioViewNormal = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
+                let cardapioViewNormal = CardapioView(frame: CGRect.zero, data: cardapioDia.data, almoco: cardapioDia.almoco, jantar: cardapioDia.jantar)
                 self.pagesNormal.append(cardapioViewNormal)
             
+                // Inicializa todas as CardapioViews com frames iguais a CGRect.zero, porque os frames delas serao atribuidos corretamente no metodo loadScrollView.
             
-                pageFrame = CGRect(origin: self.scrollView.frame.origin, size: pageFrameSize)
-                let cardapioViewVegetariano = CardapioView(frame: pageFrame, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
+                let cardapioViewVegetariano = CardapioView(frame: CGRect.zero, data: cardapioDia.data, almoco: cardapioDia.almocoVegetariano, jantar: cardapioDia.jantarVegetariano)
                 self.pagesVegetariano.append(cardapioViewVegetariano)
-                
             }
             
             self.loadScrollView()
@@ -76,7 +69,9 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    /// Atualize o segmented control e chama o reloadScrollView para atualizar qual cardapio sera exibido (normal ou vegetariano).
     @IBAction func changeSegmentedControl(_ sender: Any) {
+        // guardamos o pageNumber e offsetX para exibirmos o cardapio da outra dieta na mesma data, sem jogar o usuario para o inicio da scroll view.
         let pageNumber = self.pageControl.currentPage
         let offsetX = scrollView.contentOffset.x
         
@@ -86,6 +81,12 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentOffset.x = offsetX
     }
     
+    
+    
+    /// Carrega a view pela primeira vez.
+    /// 
+    /// Esse metodo so e executado uma vez.
+    /// Carrega todas as CardapioViews e posiciona elas corretamente. Seta o atributo isHidden para das views, para exibir soh um dos cardapios por vez (normal ou vegetariano).
     private func loadScrollView(){
         let SCROLL_VIEW_HEIGHT = scrollView.frame.height
 
@@ -94,39 +95,35 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 refView.removeFromSuperview()
             }
         }
+
+        self.scrollView.contentSize = CGSize(width:0,height:0)
         
-        
-        self.scrollView.contentSize = CGSize(width:0,height:0)        
-        
-        let dietaNormal = self.typeSegmentedControl.selectedSegmentIndex == 0
-        
+        let dietaNormal = self.typeSegmentedControl.selectedSegmentIndex == 0 // Guarda um bool para relacionado a dieta do usuario, para decidir qual pagina exibir.
         
         for (pNormal, pVeg) in zip(self.pagesNormal, self.pagesVegetariano) {
-            // Calcula um novo frame para a página deslocando em X o tamanho de uma página
-            // para colocar as views lado a lado
-//            page.frame = (scrollView.frame.offsetBy(dx: self.scrollView.contentSize.width, dy: 0))
             
+            // Posiciona o cardapio normal e vegetariano de um dia no mesmo lugar. Mas soh exibe um deles.
             pNormal.frame = CGRect(x:self.scrollView.contentSize.width, y:0, width:self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
             pVeg.frame = CGRect(x:self.scrollView.contentSize.width, y:0, width:self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
             
+            
+            // Decide qual dos cardapios mostrar.
             pNormal.isHidden = !dietaNormal
             pVeg.isHidden = dietaNormal
             
-            // FIXME: bug relacionado a altura de cada view que mostra uma faixa preta em cima.
-            
-            
-            // adiciona a página na scrollview
+            // adiciona as duas CardapioViews na scrollview.
             self.scrollView.addSubview(pNormal)
             self.scrollView.addSubview(pVeg)
             
             
-            // calcula o tamanho do conteúdo da scrollview
+            // atualiza o tamanho do conteúdo da scrollview
             self.scrollView.contentSize = CGSize(width: self.scrollView.contentSize.width + self.view.frame.width, height: SCROLL_VIEW_HEIGHT)
         }
-        
- 
     }
     
+    /// Chamado quando o usuario toca no segmented control.
+    ///
+    /// Inverte os atributos isHidden das CardapioViews.
     private func reloadScrollView() {
         let dietaNormal = self.typeSegmentedControl.selectedSegmentIndex == 0
         
@@ -135,9 +132,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             pVeg.isHidden = dietaNormal
         }
     }
-    
-    
-    
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -157,8 +152,4 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
-    
 }

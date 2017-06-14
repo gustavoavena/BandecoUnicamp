@@ -41,6 +41,18 @@ public class CardapioServices: NSObject {
         
     }
     
+    public static func getAllCardapios(completionHandler: @escaping ([Cardapio]) -> Void) {
+        if let cardapios = UnicampServer.getAllCardapios(){
+            OperationQueue.main.addOperation {
+                completionHandler(cardapios)
+            }
+        } else {
+            print("nao conseguiu pegar cardapios em batch.")
+        }
+    }
+    
+    
+    
 
     
 
