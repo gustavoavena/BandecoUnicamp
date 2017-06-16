@@ -69,16 +69,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-ga-bzQ">
-                                <rect key="frame" x="11" y="76.5" width="93" height="18"/>
+                                <rect key="frame" x="11" y="76.5" width="136" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suco: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-jy-pWV" userLabel="Suco">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Laranja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-RZ-0Z4" userLabel="suco">
-                                        <rect key="frame" x="43" y="0.0" width="50" height="18"/>
+                                        <rect key="frame" x="86" y="0.0" width="50" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -97,6 +97,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RHD-X3-A9B" secondAttribute="trailing" constant="5" id="U9l-yE-2WH"/>
                             <constraint firstItem="RHD-X3-A9B" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-5" id="UCR-zi-FIz"/>
                             <constraint firstItem="RHD-X3-A9B" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="10" id="Wh3-Z8-tA6"/>
+                            <constraint firstItem="ChM-RZ-0Z4" firstAttribute="leading" secondItem="wGa-S2-PgG" secondAttribute="leading" id="adv-ty-YW7"/>
                             <constraint firstItem="Esp-ga-bzQ" firstAttribute="leading" secondItem="Ch5-ot-IAD" secondAttribute="leading" id="dru-Vs-luU"/>
                             <constraint firstItem="Isg-e4-npX" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="1" id="gh4-b0-cZw"/>
                             <constraint firstItem="Ch5-ot-IAD" firstAttribute="bottom" secondItem="Esp-ga-bzQ" secondAttribute="top" id="iA9-58-x9c"/>
