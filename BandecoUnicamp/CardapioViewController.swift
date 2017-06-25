@@ -69,6 +69,14 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        for subview in self.view.subviews {
+            if let cardapio = subview as? CardapioView {
+                print(cardapio.almoco.refeicao.font)
+            }
+        }
+    }
+    
     /// Atualize o segmented control e chama o reloadScrollView para atualizar qual cardapio sera exibido (normal ou vegetariano).
     @IBAction func changeSegmentedControl(_ sender: Any) {
         // guardamos o pageNumber e offsetX para exibirmos o cardapio da outra dieta na mesma data, sem jogar o usuario para o inicio da scroll view.
