@@ -14,9 +14,9 @@ import Gloss
 /// Utilizado ** bastante ** durante o codigo. Tem valores string padrao para facilitar a exibicao na view e padronizar as chaves do JSON que recebemos.
 public enum TipoRefeicao: String {
     case almoco = "Almoço"
-    case almocoVegetariano = "Almoço Vegetariano"
+    case almocoVegetariano = "Almoço vegetariano"
     case jantar = "Jantar"
-    case jantarVegetariano = "Jantar Vegetariano"
+    case jantarVegetariano = "Jantar vegetariano"
 }
 
 enum JSONKeys: String {
