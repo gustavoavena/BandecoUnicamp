@@ -98,7 +98,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             if success {
                 completionHandler(.newData)
             } else {
-                    completionHandler(.failed)
+                completionHandler(.failed)
             }
             
         }
