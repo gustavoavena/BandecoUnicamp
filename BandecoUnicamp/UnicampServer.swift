@@ -20,7 +20,7 @@ import Foundation
 
 
 class UnicampServer {
-    private static let urlCardapioDevelopment = "http://127.0.0.1:5000/cardapios/date/"
+    private static let urlAllCardapiosDevelopment = "http://127.0.0.1:8000/cardapios"
     private static let urlCardapioProduction = "https://bandex.herokuapp.com/cardapios/date/"
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
 //    private static let urlTemplateProduction = "" // TODO
@@ -157,6 +157,7 @@ class UnicampServer {
     /// - Returns: array de objetos Cardapio com os cardapios ou nil.
     public static func getAllCardapios() -> [Cardapio]? {
         let url = URL(string: urlAllCardapiosProduction)
+//        let url = URL(string: urlAllCardapiosDevelopment)
         var json = [Any]()
         
         
@@ -164,9 +165,14 @@ class UnicampServer {
         URLSession.shared.sendSynchronousRequest(request: url!) {
             (data, response, error) in
             
-            guard error == nil, let data = data else {
+            guard error == nil, let res = response as? HTTPURLResponse, let data = data else {
                 print("Erro no request.")
                 print("error: \(String(describing: error))\n\n")
+                return
+            }
+            
+            guard res.statusCode == 200 else {
+                print("Response status code diferente de 200! status code = \(res.statusCode)")
                 return
             }
             

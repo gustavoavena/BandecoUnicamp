@@ -57,6 +57,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    fileprivate func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String) {
+        self.refeicao.text = refeicao
+        self.pratoPrincipal.text = pratoPrincipal
+        self.sobremesa.text = sobremesa
+        self.suco.text = suco
+    }
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
        
@@ -65,6 +71,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             
             guard cardapios.count > 0 else {
                 print("nao veio nenhum cardapio.")
+                let errorString = "Desculpa, estamos com problemas técnicos!"
+                self.pratoPrincipal.adjustsFontSizeToFitWidth = true
+                self.pratoPrincipal.textColor = UIColor.red
+                self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "")
                 completionHandler(false)
                 return
             }
@@ -74,10 +84,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             
             let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
             
-            self.refeicao.text = tipo.rawValue
-            self.pratoPrincipal.text = cardapioDia[tipo].pratoPrincipal
-            self.sobremesa.text = cardapioDia[tipo].sobremesa
-            self.suco.text = cardapioDia[tipo].suco
+            self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco)
+           
             completionHandler(true)
         }
         
