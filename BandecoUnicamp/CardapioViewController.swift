@@ -20,7 +20,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
-    
+    @IBOutlet weak var errorLabel: UILabel!
     /* 
      typeSegmentedControl:
      0 -> Tradicional
@@ -30,6 +30,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 	
     var pagesNormal = [UIView]()
     var pagesVegetariano = [UIView]()
+    let errorString = "Desculpa, estamos com problemas técnicos!"
 
 
 
@@ -66,6 +67,13 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
             
             //Tanto faz se será do tamanho de pagesNormal ou pagesVegetariano
             self.pageControl.numberOfPages = self.pagesNormal.count
+            
+            if(cardapios.count == 0) {
+                self.errorLabel.isHidden = false
+                self.errorLabel.text = self.errorString
+                self.errorLabel.adjustsFontSizeToFitWidth = true
+            }
+            
         }
     }
     

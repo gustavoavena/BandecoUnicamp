@@ -332,19 +332,31 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-uX-dUB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-gV-oMs" customClass="CardapioView" customModule="BandecoUnicamp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3i-tk-dte" userLabel="Erro">
+                                        <rect key="frame" x="139" y="217" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="lge-ef-wU7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="V3i-tk-dte" firstAttribute="width" relation="lessThanOrEqual" secondItem="ufV-uX-dUB" secondAttribute="width" id="887-6p-ZLb"/>
                                     <constraint firstItem="ECg-gV-oMs" firstAttribute="top" secondItem="ufV-uX-dUB" secondAttribute="top" id="Krs-q9-yXK"/>
                                     <constraint firstItem="ECg-gV-oMs" firstAttribute="height" secondItem="ufV-uX-dUB" secondAttribute="height" id="OQr-a4-PrP"/>
                                     <constraint firstItem="ECg-gV-oMs" firstAttribute="leading" secondItem="ufV-uX-dUB" secondAttribute="leading" id="QR2-fY-Eso"/>
+                                    <constraint firstItem="V3i-tk-dte" firstAttribute="centerX" secondItem="ufV-uX-dUB" secondAttribute="centerX" id="UUZ-Cd-p24"/>
+                                    <constraint firstItem="V3i-tk-dte" firstAttribute="centerY" secondItem="ufV-uX-dUB" secondAttribute="centerY" id="ZOH-kl-MhP"/>
                                     <constraint firstItem="ECg-gV-oMs" firstAttribute="width" secondItem="ufV-uX-dUB" secondAttribute="width" id="eY6-Yw-HDq"/>
                                     <constraint firstAttribute="bottom" secondItem="ECg-gV-oMs" secondAttribute="bottom" id="fGq-J9-yId"/>
                                     <constraint firstAttribute="trailing" secondItem="ECg-gV-oMs" secondAttribute="trailing" id="lsh-wM-nf7"/>
@@ -390,6 +402,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="errorLabel" destination="V3i-tk-dte" id="Q2g-KO-qE0"/>
                         <outlet property="pageControl" destination="2HX-zh-rgb" id="fqM-1h-Evv"/>
                         <outlet property="scrollView" destination="ufV-uX-dUB" id="Vbv-eb-Ngt"/>
                         <outlet property="typeSegmentedControl" destination="FEG-Vb-uSs" id="bIH-cS-9U2"/>
