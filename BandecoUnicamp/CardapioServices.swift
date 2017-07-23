@@ -31,7 +31,7 @@ public class CardapioServices: NSObject {
                 completionHandler(cardapios)
             }
         } else {
-            print("nao conseguiu pegar cardapios em batch.")
+            print("nao conseguiu pegar cardapios.")
         }
     }
 

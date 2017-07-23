@@ -41,7 +41,6 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
         scrollView.delegate = self
-		
         scrollView.isPagingEnabled = true
         scrollView.isDirectionalLockEnabled = true
 
@@ -79,6 +78,8 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         for subview in self.view.subviews {
             if let cardapio = subview as? CardapioView {
@@ -89,6 +90,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     
     /// Atualize o segmented control e chama o reloadScrollView para atualizar qual cardapio sera exibido (normal ou vegetariano).
     @IBAction func changeSegmentedControl(_ sender: Any) {
+        
         // guardamos o pageNumber e offsetX para exibirmos o cardapio da outra dieta na mesma data, sem jogar o usuario para o inicio da scroll view.
         let pageNumber = self.pageControl.currentPage
         let offsetX = scrollView.contentOffset.x
@@ -116,7 +118,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
 
         self.scrollView.contentSize = CGSize(width:0,height:0)
         
-        let dietaNormal = self.typeSegmentedControl.selectedSegmentIndex == 0 // Guarda um bool para relacionado a dieta do usuario, para decidir qual pagina exibir.
+        let dietaNormal = (self.typeSegmentedControl.selectedSegmentIndex == 0) // Guarda um bool relacionado a dieta do usuario, para decidir qual pagina exibir.
         
         for (pNormal, pVeg) in zip(self.pagesNormal, self.pagesVegetariano) {
             
@@ -143,7 +145,7 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
     ///
     /// Inverte os atributos isHidden das CardapioViews.
     private func reloadScrollView() {
-        let dietaNormal = self.typeSegmentedControl.selectedSegmentIndex == 0
+        let dietaNormal = (self.typeSegmentedControl.selectedSegmentIndex == 0)
         
         for (pNormal, pVeg) in zip(self.pagesNormal, self.pagesVegetariano) {
             pNormal.isHidden = !dietaNormal
