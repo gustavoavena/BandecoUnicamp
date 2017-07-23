@@ -286,7 +286,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -339,8 +339,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3i-tk-dte" userLabel="Erro">
-                                        <rect key="frame" x="139" y="217" width="42" height="21"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3i-tk-dte" userLabel="Erro">
+                                        <rect key="frame" x="160" y="217" width="0.0" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="lge-ef-wU7"/>
                                         </constraints>
@@ -394,7 +394,7 @@
                                 <segment title="Tradicional"/>
                                 <segment title="Vegetariano"/>
                             </segments>
-                            <color key="tintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="changeSegmentedControl:" destination="oVc-DV-09R" eventType="valueChanged" id="8S4-yc-4sJ"/>
                             </connections>

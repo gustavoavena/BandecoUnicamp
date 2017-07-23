@@ -72,6 +72,8 @@ class CardapioViewController: UIViewController, UIScrollViewDelegate {
                 self.errorLabel.isHidden = false
                 self.errorLabel.text = self.errorString
                 self.errorLabel.adjustsFontSizeToFitWidth = true
+            } else {
+                self.errorLabel.isHidden = true
             }
             
         }
