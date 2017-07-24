@@ -10,7 +10,9 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
+    let cardapio: Cardapio!
     
+    var currentCardapio: Int = 0
     
     
     override func viewDidLoad() {
@@ -36,6 +38,47 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return nil
         }
     }
+    
+    private func indexOfDataItem(forViewController viewController: UIViewController) -> Int {
+        guard let viewController = viewController as? CardapioTableViewController else {
+            fatalError("Unexpected view controller type in page view controller.")
+        }
+        
+        guard let viewControllerIndex = Cache.shared().cardapios.index(of: viewController.page) else { fatalError("View controller's data item not found.")
+        }
+        
+        return viewControllerIndex
+    }
+
+    
+    private func dataItemViewController(forCardapio pageIndex: Int) -> CardapioTableViewController {
+        
+        var cardapio: Cardapio! = nil
+        
+        // Instantiate and configure a `DataItemViewController` for the `DataItem`.
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: CardapioTableViewController.storyboardIdentifier) as? CardapioTableViewController else {
+            fatalError("Unable to instantiate a CardapioTableViewController.")
+        }
+        
+        if currentCardapio < Cache.shared().cardapios.count
+        {
+            cardapio = Cache.shared().cardapios[currentCardapio]
+        }
+        
+        if cardapio != nil {
+            
+           
+            let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+            
+            
+            controller.setCardapio(almoco: vegetariano ? cardapio.almocoVegetariano : cardapio.almoco, jantar: vegetariano ? cardapio.jantarVegetariano : cardapio.jantar)
+            
+            
+        }
+        
+        return controller
+    }
+
     
 
     /*

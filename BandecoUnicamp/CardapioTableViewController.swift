@@ -28,7 +28,9 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     
+    static let storyboardIdentifier = "CardapioTableViewController"
     
+    var cardapio: Cardapio!
     
     func setCardapio(almoco: Refeicao, jantar: Refeicao) {
         
