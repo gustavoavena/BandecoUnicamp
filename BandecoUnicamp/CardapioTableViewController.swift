@@ -10,7 +10,45 @@ import UIKit
 
 class CardapioTableViewController: UITableViewController {
 
-    @IBOutlet var tableView: UITableView!
+    // - MARK: outlets almoco
+    @IBOutlet weak var pratoPrincipalAlmoco: UILabel!
+    @IBOutlet weak var sobremesaAlmoco: UILabel!
+    @IBOutlet weak var sucoAlmoco: UILabel!
+    @IBOutlet weak var guarnicaoAlmoco: UILabel!
+    @IBOutlet weak var ptsAlmoco: UILabel!
+    @IBOutlet weak var saladaAlmoco: UILabel!
+    
+    
+    // - MARK: outlets jantar
+    @IBOutlet weak var pratoPrincipalJantar: UILabel!
+    @IBOutlet weak var sobremesaJantar: UILabel!
+    @IBOutlet weak var sucoJantar: UILabel!
+    @IBOutlet weak var guarnicaoJantar: UILabel!
+    @IBOutlet weak var ptsJantar: UILabel!
+    @IBOutlet weak var saladaJantar: UILabel!
+    
+    
+    
+    
+    func setCardapio(almoco: Refeicao, jantar: Refeicao) {
+        
+        pratoPrincipalAlmoco.text = almoco.pratoPrincipal
+        sobremesaAlmoco.text = almoco.sobremesa
+        sucoAlmoco.text = almoco.suco
+        guarnicaoAlmoco.text = almoco.guarnicao
+        ptsAlmoco.text = almoco.pts
+        saladaAlmoco.text = almoco.salada
+        
+        
+        pratoPrincipalJantar.text = jantar.pratoPrincipal
+        sobremesaJantar.text = jantar.sobremesa
+        sucoJantar.text = jantar.suco
+        guarnicaoJantar.text = jantar.guarnicao
+        ptsJantar.text = jantar.pts
+        saladaJantar.text = jantar.salada
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +57,12 @@ class CardapioTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,12 +74,12 @@ class CardapioTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 6
     }
 
     /*
