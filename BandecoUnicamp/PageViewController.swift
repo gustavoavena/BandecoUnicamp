@@ -28,13 +28,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
 //        self.cardapios = UnicampServer.getAllCardapios()
         
-        if let _ = cardapios.first {
-            let vc = cardapioItemViewController(forCardapio: 0)
-            setViewControllers([vc], direction: .forward, animated: false, completion: nil)
-        } else {
-            print("Sem cardapios no page view controller")
-        }
-//        reloadData()
+        reloadData()
 //        // Do any additional setup after loading the view.
     }
 
@@ -43,16 +37,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-//    func reloadData() {
-//        
-//        if let _ = cardapios.first {
-//            let vc = cardapioItemViewController(forCardapio: 0)
-//            self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
-//        } else {
-//            print("Sem cardapios no page view controller")
-//        }
-//        
-//    }
+    func reloadData() {
+        
+        if let _ = cardapios.first {
+            let vc = cardapioItemViewController(forCardapio: 0)
+            self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+        } else {
+            print("Sem cardapios no page view controller")
+        }
+        
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
