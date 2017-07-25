@@ -27,14 +27,14 @@ class MainViewController: UIViewController {
       
         
         
-        CardapioServices.getAllCardapios() {
-            (cardapios) in
-            
-            // TODO: error label
-            
-            self.pageViewController.cardapios = cardapios
-//            self.pageViewController.reloadData()
-        }
+//        self.pageViewController.cardapios = CardapioServices.getAllCardapios() {
+//            (cardapios) in
+//            
+//            // TODO: error label
+//            
+//            
+////            self.pageViewController.reloadData()
+//        }
 
     }
     

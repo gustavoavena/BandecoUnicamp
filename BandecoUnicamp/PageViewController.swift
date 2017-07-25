@@ -10,9 +10,9 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    var cardapios: [Cardapio]! = [Cardapio]()
+    var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
     
-    var viewControllerList: [UIViewController] = [UIViewController]()
+//    var viewControllerList: [UIViewController] = [UIViewController]()
     
     
     override func viewDidLoad() {
@@ -26,7 +26,15 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 //        
 //        self.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
 
-        reloadData()
+//        self.cardapios = UnicampServer.getAllCardapios()
+        
+        if let _ = cardapios.first {
+            let vc = cardapioItemViewController(forCardapio: 0)
+            setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+        } else {
+            print("Sem cardapios no page view controller")
+        }
+//        reloadData()
 //        // Do any additional setup after loading the view.
     }
 
@@ -35,16 +43,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    func reloadData() {
-        
-        if let _ = cardapios.first {
-            let vc = cardapioItemViewController(forCardapio: 0)
-            self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
-        } else {
-            print("Sem cardapios no page view controller")
-        }
-        
-    }
+//    func reloadData() {
+//        
+//        if let _ = cardapios.first {
+//            let vc = cardapioItemViewController(forCardapio: 0)
+//            self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+//        } else {
+//            print("Sem cardapios no page view controller")
+//        }
+//        
+//    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -56,14 +64,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard previousIndex >= 0 else {return nil}
         
-        guard viewControllerList.count > previousIndex else {return nil}
+        guard cardapios.count > previousIndex else {return nil}
         
         return cardapioItemViewController(forCardapio: previousIndex)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let vcIndex = viewControllerList.index(of: viewController) else {return nil}
+        let vcIndex = indexOfDataItem(forViewController: viewController)
         
         let nextIndex = vcIndex + 1
         
@@ -71,8 +79,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard  cardapios.count > nextIndex else { return nil }
         
-        return viewControllerList[nextIndex]
-        
+        return cardapioItemViewController(forCardapio: nextIndex)
     }
     
     func indexOfCardapio(cardapio: Cardapio) -> Int? {

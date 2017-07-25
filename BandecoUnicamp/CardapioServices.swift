@@ -26,17 +26,18 @@ public class CardapioServices: NSObject {
     /// Fornece um array com todos os cardapios, já em objetos da classe Cardapio, fornecidos pelo servidor.
     ///
     /// - Parameter completionHandler: completion handler que irá ser executado e irá utilizar os objetos dos cardapios após eles serem obtidos.
-    public static func getAllCardapios(completionHandler: @escaping ([Cardapio]) -> Void) {
-        if let cardapios = UnicampServer.getAllCardapios(){
-            
-            Cache.shared().cardapios = cardapios
-            
-            OperationQueue.main.addOperation {
-                completionHandler(cardapios)
-            }
-        } else {
-            print("nao conseguiu pegar cardapios.")
-        }
+    public static func getAllCardapios(completionHandler: @escaping ([Cardapio]) -> Void) -> [Cardapio] {
+        return UnicampServer.getAllCardapios()
+//        if let cardapios = UnicampServer.getAllCardapios(){
+//            
+//            Cache.shared().cardapios = cardapios
+//            
+//            OperationQueue.main.addOperation {
+//                completionHandler(cardapios)
+//            }
+//        } else {
+//            print("nao conseguiu pegar cardapios.")
+//        }
     }
 
 }

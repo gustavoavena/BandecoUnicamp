@@ -65,7 +65,7 @@ class UnicampServer {
     /// Apos isso, ele processa o JSON e utilza os construtores implementados com o Gloss para criar objetos Cardapio correspondentes aos dados obtidos no JSON.
     ///
     /// - Returns: array de objetos Cardapio com os cardapios ou nil em caso de erros.
-    public static func getAllCardapios() -> [Cardapio]? {
+    public static func getAllCardapios() -> [Cardapio] {
         var json = [Any]()
         
         
