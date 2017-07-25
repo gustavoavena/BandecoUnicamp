@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, DateDisplay {
+class MainViewController: UIViewController {
     
     let errorString = "Desculpa, estamos com problemas técnicos!"
 
@@ -28,14 +28,7 @@ class MainViewController: UIViewController, DateDisplay {
 
     }
     
-    func refreshDate(newDate: Date) {
-        let dateString = formatDateString(data: newDate)
-        
-        
-        print(dateString)
-        // Atribuir isso ao outlet
-        
-    }
+    
     
  
 
@@ -44,19 +37,7 @@ class MainViewController: UIViewController, DateDisplay {
         // Dispose of any resources that can be recreated.
     }
     
-    private func formatDateString(data: Date) -> String {
-        
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        
-        let dia = Calendar.current.component(.day, from: data)
-        let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
-        
-        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
-    }
-
+   
     
 
     
@@ -69,7 +50,6 @@ class MainViewController: UIViewController, DateDisplay {
             
             let controller = segue.destination as! PageViewController
             
-            controller.dateDisplay = self
             self.pageViewController = controller
         }
     }

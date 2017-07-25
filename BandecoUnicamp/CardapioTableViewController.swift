@@ -27,6 +27,7 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var ptsJantar: UILabel!
     @IBOutlet weak var saladaJantar: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     
     static let storyboardIdentifier = "CardapioTableView"
     
@@ -36,6 +37,7 @@ class CardapioTableViewController: UITableViewController {
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
+        self.dateLabel.text = formatDateString(data: cardapio.data)
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
@@ -73,6 +75,20 @@ class CardapioTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
     }
+    
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol DateDisplay {
-    func refreshDate(newDate: Date)
-}
+
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
-    var dateDisplay: DateDisplay?
     
     
     override func viewDidLoad() {
@@ -48,19 +45,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
-            updateDate()
         } else {
             print("Sem cardapios no page view controller")
         }
         
     }
     
-    func updateDate() {
-        if let vc = self.viewControllers?.first as? CardapioTableViewController,
-            let cardapio = vc.cardapio {
-            dateDisplay?.refreshDate(newDate: cardapio.data)
-        }
-    }
+  
+    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -73,7 +65,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard cardapios.count > previousIndex else {return nil}
         
-        updateDate()
         
         return cardapioItemViewController(forCardapio: previousIndex)
     }
@@ -88,7 +79,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard  cardapios.count > nextIndex else { return nil }
         
-        updateDate()
         return cardapioItemViewController(forCardapio: nextIndex)
     }
     
