@@ -18,14 +18,24 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     var dateDisplay: DateDisplay?
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dataSource = self
         
+        // Setting up the page indicator
+        // Uncomment later to enable the page indicator
+//        let appearance = UIPageControl.appearance()
+//        appearance.backgroundColor = UIColor.clear
+//        appearance.isOpaque = false
+//        appearance.pageIndicatorTintColor = UIColor.lightGray
+//        appearance.currentPageIndicatorTintColor = UIColor.gray
+        
+        
         reloadData()
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,6 +98,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         return indexOfDataItem(forViewController: currentViewController)
     }
+    
+    // Uncomment to enable the page indicator
+//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+//        
+//        return self.cardapios.count
+//    }
     
     func indexOfCardapio(cardapio: Cardapio) -> Int? {
         for i in 0..<cardapios.count {
