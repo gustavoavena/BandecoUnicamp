@@ -8,11 +8,15 @@
 
 import UIKit
 
+protocol DateDisplay {
+    func refreshDate(newIndex index: Int)
+}
+
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
+    var dateDisplay: DateDisplay?
     
-//    var viewControllerList: [UIViewController] = [UIViewController]()
     
     
     override func viewDidLoad() {
@@ -20,16 +24,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         self.dataSource = self
         
-//        guard let controller = storyboard?.instantiateViewController(withIdentifier: CardapioTableViewController.storyboardIdentifier) as? CardapioTableViewController else {
-//            fatalError("Unable to instantiate a CardapioTableViewController.")
-//        }
-//        
-//        self.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
-
-//        self.cardapios = UnicampServer.getAllCardapios()
-        
         reloadData()
-//        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +37,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+            if let display = self.dateDisplay {
+                display.refreshDate(newIndex: 0)
+            }
         } else {
             print("Sem cardapios no page view controller")
         }
@@ -51,14 +49,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let index = indexOfDataItem(forViewController: viewController)
-        
-//        guard let vcIndex = viewControllerList.index(of: viewController) else {return nil}
+ 
         
         let previousIndex = index - 1
         
         guard previousIndex >= 0 else {return nil}
         
         guard cardapios.count > previousIndex else {return nil}
+        
+        if let display = self.dateDisplay {
+            display.refreshDate(newIndex: previousIndex)
+        }
         
         return cardapioItemViewController(forCardapio: previousIndex)
     }
@@ -73,7 +74,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard  cardapios.count > nextIndex else { return nil }
         
+        if let display = self.dateDisplay {
+            display.refreshDate(newIndex: nextIndex)
+        }
+        
         return cardapioItemViewController(forCardapio: nextIndex)
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let currentViewController = pageViewController.viewControllers?.first else { fatalError("Unable to get the page controller's current view controller.") }
+        
+        return indexOfDataItem(forViewController: currentViewController)
     }
     
     func indexOfCardapio(cardapio: Cardapio) -> Int? {

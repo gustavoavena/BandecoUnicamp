@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, DateDisplay {
     
     let errorString = "Desculpa, estamos com problemas técnicos!"
 
@@ -25,43 +25,52 @@ class MainViewController: UIViewController {
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
       
-        
-        
-//        self.pageViewController.cardapios = CardapioServices.getAllCardapios() {
-//            (cardapios) in
-//            
-//            // TODO: error label
-//            
-//            
-////            self.pageViewController.reloadData()
-//        }
 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func refreshDate(newIndex index: Int) {
+        let newDate = self.pageViewController.cardapios[index].data
+        let dateString = formatDateString(data: newDate)
         
-        if segue.identifier == "embedPage" {
-            
-            let controller = segue.destination as! PageViewController
-            
-            self.pageViewController = controller
-        }
+        // Atribuir isso ao outlet
+        
     }
+    
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
 
-    /*
+    
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "embedPage" {
+            
+            let controller = segue.destination as! PageViewController
+            
+            controller.dateDisplay = self
+            self.pageViewController = controller
+        }
     }
-    */
 
 }
