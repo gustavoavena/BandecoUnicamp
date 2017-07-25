@@ -28,10 +28,11 @@ class MainViewController: UIViewController, DateDisplay {
 
     }
     
-    func refreshDate(newIndex index: Int) {
-        let newDate = self.pageViewController.cardapios[index].data
+    func refreshDate(newDate: Date) {
         let dateString = formatDateString(data: newDate)
         
+        
+        print(dateString)
         // Atribuir isso ao outlet
         
     }

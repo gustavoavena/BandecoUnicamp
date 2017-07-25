@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DateDisplay {
-    func refreshDate(newIndex index: Int)
+    func refreshDate(newDate: Date)
 }
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
@@ -34,16 +34,22 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     func reloadData() {
         
+        
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
-            if let display = self.dateDisplay {
-                display.refreshDate(newIndex: 0)
-            }
+            updateDate()
         } else {
             print("Sem cardapios no page view controller")
         }
         
+    }
+    
+    func updateDate() {
+        if let vc = self.viewControllers?.first as? CardapioTableViewController,
+            let cardapio = vc.cardapio {
+            dateDisplay?.refreshDate(newDate: cardapio.data)
+        }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -57,9 +63,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard cardapios.count > previousIndex else {return nil}
         
-        if let display = self.dateDisplay {
-            display.refreshDate(newIndex: previousIndex)
-        }
+        updateDate()
         
         return cardapioItemViewController(forCardapio: previousIndex)
     }
@@ -74,12 +78,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         guard  cardapios.count > nextIndex else { return nil }
         
-        if let display = self.dateDisplay {
-            display.refreshDate(newIndex: nextIndex)
-        }
-        
+        updateDate()
         return cardapioItemViewController(forCardapio: nextIndex)
     }
+    
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let currentViewController = pageViewController.viewControllers?.first else { fatalError("Unable to get the page controller's current view controller.") }
