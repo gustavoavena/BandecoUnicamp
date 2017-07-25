@@ -28,11 +28,17 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     
-    static let storyboardIdentifier = "CardapioTableViewController"
+    static let storyboardIdentifier = "CardapioTableView"
     
     var cardapio: Cardapio!
+    var vegetariano: Bool!
     
-    func setCardapio(almoco: Refeicao, jantar: Refeicao) {
+    func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
+        
+        self.cardapio = cardapio
+        
+        let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
+        let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
         
         pratoPrincipalAlmoco.text = almoco.pratoPrincipal
         sobremesaAlmoco.text = almoco.sobremesa
@@ -53,18 +59,19 @@ class CardapioTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if cardapio != nil && vegetariano != nil {
+            setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
+        } else {
+            print("Problema carregado view controller!")
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        
-        
-        
-        
+
     }
 
     override func didReceiveMemoryWarning() {

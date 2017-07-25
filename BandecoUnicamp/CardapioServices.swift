@@ -19,6 +19,7 @@
 import UIKit
 
 
+
 public class CardapioServices: NSObject {
 
 
@@ -27,6 +28,9 @@ public class CardapioServices: NSObject {
     /// - Parameter completionHandler: completion handler que irá ser executado e irá utilizar os objetos dos cardapios após eles serem obtidos.
     public static func getAllCardapios(completionHandler: @escaping ([Cardapio]) -> Void) {
         if let cardapios = UnicampServer.getAllCardapios(){
+            
+            Cache.shared().cardapios = cardapios
+            
             OperationQueue.main.addOperation {
                 completionHandler(cardapios)
             }

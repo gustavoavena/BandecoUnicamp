@@ -37,6 +37,7 @@ enum JSONKeys: String {
     
 }
 
+// TODO: implementar equatable protocol.
 
 /// Mantem o cardapio de todas as refeicoes de um dia.
 public class Cardapio: Decodable {

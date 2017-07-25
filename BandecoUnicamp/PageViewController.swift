@@ -10,17 +10,24 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    let cardapio: Cardapio!
+    var cardapios: [Cardapio]! = [Cardapio]()
     
-    var currentCardapio: Int = 0
+    var viewControllerList: [UIViewController] = [UIViewController]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = self
+        self.dataSource = self
+        
+//        guard let controller = storyboard?.instantiateViewController(withIdentifier: CardapioTableViewController.storyboardIdentifier) as? CardapioTableViewController else {
+//            fatalError("Unable to instantiate a CardapioTableViewController.")
+//        }
+//        
+//        self.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
 
-        // Do any additional setup after loading the view.
+        reloadData()
+//        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,54 +35,89 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let index = indexOfDataItem(forViewController: viewController)
+    func reloadData() {
         
-        if index > 0 {
-            return dataItemViewController(forPage: index - 1)
+        if let _ = cardapios.first {
+            let vc = cardapioItemViewController(forCardapio: 0)
+            self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+        } else {
+            print("Sem cardapios no page view controller")
         }
-        else {
-            return nil
-        }
+        
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        let index = indexOfDataItem(forViewController: viewController)
+        
+//        guard let vcIndex = viewControllerList.index(of: viewController) else {return nil}
+        
+        let previousIndex = index - 1
+        
+        guard previousIndex >= 0 else {return nil}
+        
+        guard viewControllerList.count > previousIndex else {return nil}
+        
+        return cardapioItemViewController(forCardapio: previousIndex)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let vcIndex = viewControllerList.index(of: viewController) else {return nil}
+        
+        let nextIndex = vcIndex + 1
+        
+        guard cardapios.count != nextIndex else { return nil}
+        
+        guard  cardapios.count > nextIndex else { return nil }
+        
+        return viewControllerList[nextIndex]
+        
+    }
+    
+    func indexOfCardapio(cardapio: Cardapio) -> Int? {
+        for i in 0..<cardapios.count {
+            if cardapios[i].data == cardapio.data {
+                return i
+            }
+        }
+        
+        return nil
+    }
+    
+    // TODO: pega index do cardapio, dado um view controller.
     private func indexOfDataItem(forViewController viewController: UIViewController) -> Int {
         guard let viewController = viewController as? CardapioTableViewController else {
             fatalError("Unexpected view controller type in page view controller.")
         }
         
-        guard let viewControllerIndex = Cache.shared().cardapios.index(of: viewController.page) else { fatalError("View controller's data item not found.")
+        guard let cardapio = viewController.cardapio,
+            let viewControllerIndex = indexOfCardapio(cardapio: cardapio) else {
+                fatalError("View controller's data item not found.")
         }
         
         return viewControllerIndex
     }
 
     
-    private func dataItemViewController(forCardapio pageIndex: Int) -> CardapioTableViewController {
+    private func cardapioItemViewController(forCardapio pageIndex: Int) -> CardapioTableViewController {
         
-        var cardapio: Cardapio! = nil
+//        var cardapio: Cardapio! = nil
         
         // Instantiate and configure a `DataItemViewController` for the `DataItem`.
         guard let controller = storyboard?.instantiateViewController(withIdentifier: CardapioTableViewController.storyboardIdentifier) as? CardapioTableViewController else {
             fatalError("Unable to instantiate a CardapioTableViewController.")
         }
         
-        if currentCardapio < Cache.shared().cardapios.count
-        {
-            cardapio = Cache.shared().cardapios[currentCardapio]
+        guard pageIndex >= 0, pageIndex < self.cardapios.count else {
+            fatalError("Index out of range in cardapios.")
         }
         
-        if cardapio != nil {
-            
-           
-            let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
-            
-            
-            controller.setCardapio(almoco: vegetariano ? cardapio.almocoVegetariano : cardapio.almoco, jantar: vegetariano ? cardapio.jantarVegetariano : cardapio.jantar)
-            
-            
-        }
-        
+        let cardapio = self.cardapios[pageIndex]
+        let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        controller.cardapio = cardapio
+        controller.vegetariano = vegetariano
+
         return controller
     }
 

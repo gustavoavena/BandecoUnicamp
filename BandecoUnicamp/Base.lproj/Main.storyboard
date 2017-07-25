@@ -15,7 +15,7 @@
         <!--Main View Controller-->
         <scene sceneID="LLG-Ws-NOs">
             <objects>
-                <viewController id="vle-GY-btq" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="vle-GY-btq" customClass="MainViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kh3-QE-0Jn"/>
                         <viewControllerLayoutGuide type="bottom" id="nco-aN-sjL"/>
@@ -53,7 +53,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="typeSegmentedControl" destination="GeU-b1-omu" id="hhY-IT-o4d"/>
+                        <outlet property="typeSegmentedControl" destination="GeU-b1-omu" id="rUR-yK-AUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtG-Vi-9B6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,7 +380,7 @@
         <!--Page View Controller-->
         <scene sceneID="wIJ-Rh-gk5">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="HN3-Mo-3zH" customClass="PageViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="HN3-Mo-3zH" customClass="PageViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DjR-4X-wBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3275" y="347"/>
@@ -388,7 +388,7 @@
         <!--Cardapio Table View Controller-->
         <scene sceneID="lc9-OV-uub">
             <objects>
-                <tableViewController storyboardIdentifier="CardapioTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xfe-6k-Gw2" customClass="CardapioTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CardapioTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xfe-6k-Gw2" customClass="CardapioTableViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="O5g-Ln-vWI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bisteca ao molho de limão" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzT-4w-UfI" userLabel="pratoPrincipal">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bisteca ao molho de limão" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzT-4w-UfI" userLabel="pratoPrincipalAlmoco">
                                                     <rect key="frame" x="8" y="15" width="200" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -758,7 +758,7 @@
                     <connections>
                         <outlet property="guarnicaoAlmoco" destination="BXY-cy-b3f" id="TMr-EV-5YE"/>
                         <outlet property="guarnicaoJantar" destination="DMT-JM-Ock" id="nVJ-id-2II"/>
-                        <outlet property="pratoPrincipalAlmoco" destination="KzT-4w-UfI" id="kuO-JY-iMT"/>
+                        <outlet property="pratoPrincipalAlmoco" destination="KzT-4w-UfI" id="rFd-mh-VIX"/>
                         <outlet property="pratoPrincipalJantar" destination="OYw-to-i5E" id="SeP-q4-lbI"/>
                         <outlet property="ptsAlmoco" destination="Uyz-cF-NEc" id="gP4-jY-N0y"/>
                         <outlet property="ptsJantar" destination="Pge-wa-jk8" id="Qle-Ew-hds"/>

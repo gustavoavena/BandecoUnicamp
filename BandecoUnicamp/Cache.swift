@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CacheObserver {
+    func newData()
+    
+}
 
 class Cache: NSObject {
     
@@ -21,9 +25,12 @@ class Cache: NSObject {
     }
     
     public var cardapios: [Cardapio]
+    
+    public var observers: [CacheObserver]
    
     
     private override init() {
-       self.cardapios = [Cardapio]()
+        self.cardapios = [Cardapio]()
+        self.observers = [CacheObserver]()
     }
 }

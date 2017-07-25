@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
     
-    var currentPage: Int = 0
     
 
     override func viewDidLoad() {
@@ -32,26 +31,20 @@ class MainViewController: UIViewController {
             (cardapios) in
             
             // TODO: error label
+            
+            self.pageViewController.cardapios = cardapios
+//            self.pageViewController.reloadData()
         }
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "embedPage"
-        {
-            
-            
-            if cardapios.count > 0 {
-                
-            }
+        if segue.identifier == "embedPage" {
             
             let controller = segue.destination as! PageViewController
             
             self.pageViewController = controller
-            
-            self.pageViewController.book = book
-            
         }
     }
 
