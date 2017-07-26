@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hAb-1t-0UI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hAb-1t-0UI">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,10 +24,10 @@
                             <tableViewSection headerTitle="PREFERÊNCIA" footerTitle="Sua preferência de cardápio será exibida no Widget do Bandex e aparecerá diretamente no app." id="e0Q-zl-dzx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Ap-nO-W3l">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ap-nO-W3l" id="hrO-wr-yIm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegetariano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGx-zs-FeH">
@@ -59,10 +59,10 @@
                             <tableViewSection id="ASf-z0-aoF" userLabel="SOBRE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="DHs-5W-TP5">
-                                        <rect key="frame" x="0.0" y="180" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="179.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHs-5W-TP5" id="8na-Cv-08E">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyH-Qh-qxI">
@@ -107,7 +107,7 @@
         <scene sceneID="1pn-9O-ASG">
             <objects>
                 <navigationController id="Bbu-s4-Gua" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" selectedImage="configuracoes" id="Jhq-Nf-0gl"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" selectedImage="configuracoes-filled" id="Jhq-Nf-0gl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pKM-sp-Yvg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -134,22 +134,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-cS-L9d">
-                                <rect key="frame" x="67.5" y="27.5" width="240" height="500.5"/>
+                                <rect key="frame" x="56.5" y="2" width="207" height="451"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kgc-E7-FZf">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RQO-9G-cfr" userLabel="Bianca stack view">
-                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bianca" translatesAutoresizingMaskIntoConstraints="NO" id="rly-6o-vvp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="rly-6o-vvp" secondAttribute="height" multiplier="1:1" id="Fon-lP-QBx"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bianca Yoshie Itiroko" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-g6-K7j" userLabel="Bianca Yoshie Itiroko">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -157,16 +157,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fAy-sy-7kx" userLabel="Gio stack view">
-                                                <rect key="frame" x="127.5" y="0.0" width="112.5" height="123.5"/>
+                                                <rect key="frame" x="111" y="0.0" width="96" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gio" translatesAutoresizingMaskIntoConstraints="NO" id="f5g-gH-I8x">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="f5g-gH-I8x" secondAttribute="height" multiplier="1:1" id="NwK-dP-iYy"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giovani Nascimento Pereira" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-32-KiC" userLabel="Giovani Nascimento Pereira">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -179,19 +179,19 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pw8-z1-k2J">
-                                        <rect key="frame" x="0.0" y="138.5" width="240" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="122" width="207" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Mf-bm-XDX" userLabel="Guga stack view">
-                                                <rect key="frame" x="0.0" y="0.0" width="107.5" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guga" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-Qs-pRj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="107.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="aa3-Qs-pRj" secondAttribute="height" multiplier="1:1" id="vL4-pL-1cB"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gustavo Avena" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR3-To-Elh">
-                                                        <rect key="frame" x="0.0" y="107.5" width="107.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="91" width="91" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -199,16 +199,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-hQ-zLF" userLabel="Jessica stack view">
-                                                <rect key="frame" x="127.5" y="0.0" width="112.5" height="123.5"/>
+                                                <rect key="frame" x="111" y="0.0" width="96" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jessica" translatesAutoresizingMaskIntoConstraints="NO" id="OFI-j6-KPn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="OFI-j6-KPn" secondAttribute="height" multiplier="1:1" id="lpj-BW-H3T"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jéssica Barros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpz-cA-TUU">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -218,19 +218,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uj8-y9-B63">
-                                        <rect key="frame" x="0.0" y="277" width="240" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="244" width="207" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jxJ-qM-pBG" userLabel="Lari stack view">
-                                                <rect key="frame" x="0.0" y="0.0" width="107.5" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lari" translatesAutoresizingMaskIntoConstraints="NO" id="4X5-tp-bj4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="107.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="4X5-tp-bj4" secondAttribute="height" multiplier="1:1" id="fbL-y1-S6k"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Larissa Ganaha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-nR-PBD">
-                                                        <rect key="frame" x="0.0" y="107.5" width="107.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="91" width="91" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -238,7 +238,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-1r-p7I" userLabel="Ju stack view">
-                                                <rect key="frame" x="127.5" y="0.0" width="112.5" height="123.5"/>
+                                                <rect key="frame" x="111" y="0.0" width="96" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ju" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-Kv-B24">
                                                         <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -257,13 +257,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sua opinião é importante para nós! Envie sua sugestão ou comentário sobre o Bandex. Obrigado!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cr-sY-QwB" userLabel="Feedback's message">
-                                        <rect key="frame" x="0.0" y="415.5" width="240" height="43"/>
+                                        <rect key="frame" x="0.0" y="366" width="207" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ioc-Hy-l4v" userLabel="Button Feedback">
-                                        <rect key="frame" x="0.0" y="473.5" width="240" height="27"/>
+                                        <rect key="frame" x="0.0" y="424" width="207" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Enviar feedback"/>
                                         <connections>
@@ -300,7 +300,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0HU-OM-fg7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nep-ML-ahG">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -339,7 +339,7 @@
         <scene sceneID="QNy-Pl-pnb">
             <objects>
                 <navigationController title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" id="Yrh-n2-EPe"/>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" selectedImage="cardapio-filled" id="Yrh-n2-EPe"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -449,7 +449,9 @@
     <resources>
         <image name="bianca" width="304" height="304"/>
         <image name="cardapio" width="25" height="25"/>
+        <image name="cardapio-filled" width="25" height="25"/>
         <image name="configuracoes" width="25" height="25"/>
+        <image name="configuracoes-filled" width="25" height="25"/>
         <image name="gio" width="304" height="304"/>
         <image name="guga" width="304" height="304"/>
         <image name="jessica" width="304" height="304"/>
