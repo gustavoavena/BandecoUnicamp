@@ -36,6 +36,7 @@
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DFC83161EE9B9850063420C /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC83151EE9B9850063420C /* CardapioView.swift */; };
 		4DFC83181EE9B9920063420C /* CardapioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFC83171EE9B9920063420C /* CardapioView.xib */; };
+		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		4DFC83151EE9B9850063420C /* CardapioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioView.swift; sourceTree = "<group>"; };
 		4DFC83171EE9B9920063420C /* CardapioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardapioView.xib; sourceTree = "<group>"; };
+		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */,
 				4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */,
 				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
+				B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
 				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
+				B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
