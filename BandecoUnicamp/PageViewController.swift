@@ -62,8 +62,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
         } else {
-            alertarErro()
             print("Sem cardapios no page view controller")
+            alertarErro()
         }
     }
     
@@ -121,10 +121,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return nil
     }
     
-    // TODO: pega index do cardapio, dado um view controller.
     private func indexOfDataItem(forViewController viewController: UIViewController) -> Int {
         guard let viewController = viewController as? CardapioTableViewController else {
-            fatalError("Unexpected view controller type in page view controller.")
+            print("Unexpected view controller type in page view controller.")
+            return 0
         }
         
         guard let cardapio = viewController.cardapio,
