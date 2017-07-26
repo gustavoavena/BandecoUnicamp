@@ -110,7 +110,7 @@ class CardapioTableViewController: UITableViewController {
         if section == 0 {
             return 30.0
         } else {
-            return 40.0
+            return 45.0
         }
     }
 
