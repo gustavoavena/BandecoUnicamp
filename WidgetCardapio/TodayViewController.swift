@@ -22,6 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var guarnicaoLabel: UIStackView!
     @IBOutlet weak var saladaLabel: UILabel!
     @IBOutlet weak var ptsLabel: UILabel!
+    @IBOutlet weak var dataLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,34 +108,49 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.salada.text = salada
         self.pts.text = pts
     }
+    
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
+    
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
        
-        CardapioServices.getAllCardapios(){
-            (cardapios) in
-            
-            guard cardapios.count > 0 else {
-                print("nao veio nenhum cardapio.")
-                let errorString = "Desculpa, estamos com problemas técnicos!"
-                self.pratoPrincipal.adjustsFontSizeToFitWidth = true
-                self.pratoPrincipal.textColor = UIColor.red
-                self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
-                completionHandler(false)
-                return
-            }
-            let cardapioDia = cardapios[0]
-    
-            print(cardapioDia)
-            
-            let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
-            
-            self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
-           
-            completionHandler(true)
-            
-        }
+        let cardapios = CardapioServices.getAllCardapios(){(c) in }
         
+        guard cardapios.count > 0 else {
+            print("nao veio nenhum cardapio.")
+            let errorString = "Desculpa, estamos com problemas técnicos!"
+            self.pratoPrincipal.adjustsFontSizeToFitWidth = true
+            self.pratoPrincipal.textColor = UIColor.red
+            self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+            completionHandler(false)
+            return
+        }
+        let cardapioDia = cardapios[0]
+
+        print(cardapioDia)
+        
+        let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
+        
+        self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+       
+        self.dataLabel.text = formatDateString(data: cardapioDia.data)
+        
+        completionHandler(true)
+            
     }
+        
+    
 
     
     // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.

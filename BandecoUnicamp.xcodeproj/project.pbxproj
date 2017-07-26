@@ -14,10 +14,15 @@
 		4D5C6D5D1ED1E45D009CC3E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */; };
 		4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529021EC78D2D00219F48 /* AppDelegate.swift */; };
-		4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529061EC78D2E00219F48 /* Main.storyboard */; };
 		4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */; };
+		4D9724081F279E7900F588B8 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4871F268D0600C6F6A7 /* Cache.swift */; };
 		4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */; };
+		4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */; };
+		4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */; };
+		4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */; };
+		4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */; };
+		4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4871F268D0600C6F6A7 /* Cache.swift */; };
 		4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
@@ -79,11 +84,15 @@
 		4D5C6D5E1ED1E45D009CC3E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandecoUnicamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9529021EC78D2D00219F48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D9529071EC78D2E00219F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D9529091EC78D2E00219F48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D95290C1EC78D2E00219F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D95290E1EC78D2E00219F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguracoesTableViewController.swift; sourceTree = "<group>"; };
+		4DB3A47F1F265DBB00C6F6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioTableViewController.swift; sourceTree = "<group>"; };
+		4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4DB3A4871F268D0600C6F6A7 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		4DB41A1B1EEAD8C400255628 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
@@ -163,11 +172,12 @@
 				4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */,
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
+				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
 				4DFC83191EE9BC920063420C /* View */,
-				4D9529061EC78D2E00219F48 /* Main.storyboard */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
+				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
@@ -181,6 +191,9 @@
 			children = (
 				4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */,
 				4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */,
+				4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */,
+				4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */,
+				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
 				B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */,
 			);
 			name = "View Controllers";
@@ -249,7 +262,7 @@
 				TargetAttributes = {
 					4D5C6D531ED1E45D009CC3E1 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = GJ5VL7QF9C;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -259,7 +272,7 @@
 					};
 					4D9528FE1EC78D2D00219F48 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = GJ5VL7QF9C;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -304,8 +317,8 @@
 				4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
+				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
 				4DFC83181EE9B9920063420C /* CardapioView.xib in Resources */,
-				4D9529081EC78D2E00219F48 /* Main.storyboard in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
+				4D9724081F279E7900F588B8 /* Cache.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
 				4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
@@ -329,12 +343,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */,
+				4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */,
+				4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */,
 				4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */,
 				4DFC83161EE9B9850063420C /* CardapioView.swift in Sources */,
+				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
+				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
 				B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
@@ -359,20 +377,20 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		4D9529061EC78D2E00219F48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D9529071EC78D2E00219F48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4D95290C1EC78D2E00219F48 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DB3A47F1F265DBB00C6F6A7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -382,7 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -390,7 +408,7 @@
 				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp2.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -401,7 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -409,7 +427,7 @@
 				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp2.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -517,7 +535,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -525,7 +543,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -537,7 +555,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -545,7 +563,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

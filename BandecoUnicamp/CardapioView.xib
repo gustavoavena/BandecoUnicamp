@@ -73,7 +73,7 @@
                 <constraint firstItem="pTR-ky-Vlv" firstAttribute="height" secondItem="7EI-lW-uuW" secondAttribute="height" id="thY-2I-QxA" userLabel="Equal Height Jantar-Almoco"/>
                 <constraint firstItem="AZg-nF-zE2" firstAttribute="leading" secondItem="Hp8-Fi-L0m" secondAttribute="trailing" multiplier="0.04" id="yBL-BQ-yhJ" userLabel="Leading Observacoes Almoco"/>
             </constraints>
-            <point key="canvasLocation" x="158" y="34"/>
+            <point key="canvasLocation" x="488" y="-54"/>
         </view>
     </objects>
 </document>
