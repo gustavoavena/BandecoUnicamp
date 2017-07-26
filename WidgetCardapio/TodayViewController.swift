@@ -129,7 +129,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         guard cardapios.count > 0 else {
             print("nao veio nenhum cardapio.")
-            let errorString = "Desculpa, estamos com problemas técnicos!"
+            let errorString = "Desculpe, não foi possível carregar o cardápio."
             self.pratoPrincipal.adjustsFontSizeToFitWidth = true
             self.pratoPrincipal.textColor = UIColor.red
             self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")

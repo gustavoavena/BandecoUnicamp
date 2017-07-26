@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let errorString = "Desculpa, estamos com problemas técnicos!"
+    let errorString = "Desculpe, não foi possível carregar o cardápio."
 
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
