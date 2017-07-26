@@ -16,8 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+
+        self.setupGoogleAnalytics()
+        
 		return true
 	}
+    
+    func setupGoogleAnalytics() {
+        
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError? = nil
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
+
+        if let gai = GAI.sharedInstance() {
+            gai.tracker(withTrackingId: ("UA-103296687-1"))
+            gai.trackUncaughtExceptions = true  // report uncaught exceptions
+            gai.logger.logLevel = GAILogLevel.verbose  // remove before app release
+            gai.defaultTracker.allowIDFACollection = true
+            gai.defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "ui_action", action: "app_launched",label:"launch",value:nil).build() as! [AnyHashable : Any]!)
+        }
+    }
 
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

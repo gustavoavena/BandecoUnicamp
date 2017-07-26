@@ -115,7 +115,7 @@ class CardapioTableViewController: UITableViewController {
         return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
 
-    
+    //Sorry for the magical number :( 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 30.0
