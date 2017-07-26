@@ -1,0 +1,8 @@
+Bug do carthage que gera o seguinte erro:
+
+"error: Expected a single Swift ABI version ...""
+
+pode ser resolvindo buildando ele de novo com os comandos:
+
+carthage update
+carthage build --derived-data Carthage/Checkouts
