@@ -38,9 +38,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func alertarErro() {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "ErroViewController") else {
+            fatalError("Unable to instantiate a ErroViewController.")
+        }
+        
+        setViewControllers([controller], direction: .forward, animated: false, completion: nil)
     }
     
     func vegetarianoChanged() {
@@ -59,6 +62,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
         } else {
+            alertarErro()
             print("Sem cardapios no page view controller")
         }
     }
