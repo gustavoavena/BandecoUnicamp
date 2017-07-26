@@ -60,17 +60,7 @@ class CardapioTableViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return vegetariano! ? "Almoço Vegetariano" : "Almoço"
-        case 1:
-            return vegetariano! ? "Jantar Vegetariano" : "Jantar"
-        default:
-            print("Problema setando o header das sections na Table View.")
-            return "Almoço"
-        }
-    }
+  
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
