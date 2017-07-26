@@ -123,7 +123,6 @@ class CardapioTableViewController: UITableViewController {
             return 40.0
         }
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

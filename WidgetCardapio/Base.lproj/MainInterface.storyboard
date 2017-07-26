@@ -225,6 +225,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="170"/>
                     <connections>
+                        <outlet property="dataLabel" destination="24c-hC-whQ" id="3Rn-ao-Rhc"/>
                         <outlet property="guarnicao" destination="W9L-en-3jh" id="8LK-yg-v9f"/>
                         <outlet property="guarnicaoLabel" destination="FBV-mg-se8" id="tth-6j-y9B"/>
                         <outlet property="pratoPrincipal" destination="m4b-lg-k5z" id="DEB-sM-Aql"/>
