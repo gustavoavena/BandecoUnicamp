@@ -158,7 +158,7 @@
         <scene sceneID="1pn-9O-ASG">
             <objects>
                 <navigationController id="Bbu-s4-Gua" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" selectedImage="configuracoes" id="Jhq-Nf-0gl"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" selectedImage="configuracoes-filled" id="Jhq-Nf-0gl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pKM-sp-Yvg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -199,16 +199,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="245" height="123.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RQO-9G-cfr" userLabel="Bianca stack view">
-                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="107"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bianca" translatesAutoresizingMaskIntoConstraints="NO" id="rly-6o-vvp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="rly-6o-vvp" secondAttribute="height" multiplier="1:1" id="Fon-lP-QBx"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bianca Yoshie Itiroko" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-g6-K7j" userLabel="Bianca Yoshie Itiroko">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -219,13 +219,13 @@
                                                 <rect key="frame" x="132.5" y="0.0" width="112.5" height="123.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gio" translatesAutoresizingMaskIntoConstraints="NO" id="f5g-gH-I8x">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="f5g-gH-I8x" secondAttribute="height" multiplier="1:1" id="NwK-dP-iYy"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giovani Nascimento Pereira" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-32-KiC" userLabel="Giovani Nascimento Pereira">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -261,13 +261,13 @@
                                                 <rect key="frame" x="132.5" y="0.0" width="112.5" height="123.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jessica" translatesAutoresizingMaskIntoConstraints="NO" id="OFI-j6-KPn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="OFI-j6-KPn" secondAttribute="height" multiplier="1:1" id="lpj-BW-H3T"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jéssica Barros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpz-cA-TUU">
-                                                        <rect key="frame" x="0.0" y="112.5" width="112.5" height="11"/>
+                                                        <rect key="frame" x="0.0" y="96" width="96" height="11"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -359,7 +359,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0HU-OM-fg7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nep-ML-ahG">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -398,7 +398,7 @@
         <scene sceneID="QNy-Pl-pnb">
             <objects>
                 <navigationController title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" id="Yrh-n2-EPe"/>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" selectedImage="cardapio-filled" id="Yrh-n2-EPe"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -847,7 +847,9 @@
     <resources>
         <image name="bianca" width="304" height="304"/>
         <image name="cardapio" width="25" height="25"/>
+        <image name="cardapio-filled" width="25" height="25"/>
         <image name="configuracoes" width="25" height="25"/>
+        <image name="configuracoes-filled" width="25" height="25"/>
         <image name="gio" width="304" height="304"/>
         <image name="guarnicao" width="96" height="96"/>
         <image name="guga" width="304" height="304"/>
