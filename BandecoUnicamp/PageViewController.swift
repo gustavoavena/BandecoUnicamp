@@ -26,12 +26,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         // Setting up the page indicator
         // Uncomment later to enable the page indicator
-//        let appearance = UIPageControl.appearance()
-//        appearance.backgroundColor = UIColor.clear
-//        appearance.isOpaque = false
-//        appearance.pageIndicatorTintColor = UIColor.lightGray
-//        appearance.currentPageIndicatorTintColor = UIColor.gray
-//        
+        let appearance = UIPageControl.appearance()
+        appearance.backgroundColor = UIColor.groupTableViewBackground
+        appearance.isOpaque = false
+        appearance.pageIndicatorTintColor = UIColor.lightGray
+        appearance.currentPageIndicatorTintColor = UIColor.gray
+        
         
         loadData()
     }
@@ -102,10 +102,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     // Uncomment to enable the page indicator
-//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//        
-//        return self.cardapios.count
-//    }
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        
+        return self.cardapios.count
+    }
     
     func indexOfCardapio(cardapio: Cardapio) -> Int? {
         for i in 0..<cardapios.count {
