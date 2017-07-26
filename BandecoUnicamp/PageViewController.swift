@@ -15,11 +15,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
     var vegetariano: Bool = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") {
         didSet {
-            if let vc = viewControllers?.first as? CardapioTableViewController {
-                vc.setCardapio(cardapio: vc.cardapio, vegetariano: vegetariano)
-            } else {
-                print("Nenhum view controller exibido")
-            }
+            vegetarianoChanged()
         }
     }
     
@@ -35,9 +31,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 //        appearance.isOpaque = false
 //        appearance.pageIndicatorTintColor = UIColor.lightGray
 //        appearance.currentPageIndicatorTintColor = UIColor.gray
+//        
         
-        
-        reloadData()
+        loadData()
     }
     
     
@@ -47,8 +43,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    func reloadData() {
-        
+    func vegetarianoChanged() {
+        if let _ = viewControllers?.first as? CardapioTableViewController {
+            let index = presentationIndex(for: self)
+            let newVC = cardapioItemViewController(forCardapio: index)
+            setViewControllers([newVC], direction: .forward, animated: false, completion: nil)
+        } else {
+            print("Nenhum view controller exibido")
+        }
+    }
+    
+    func loadData() {
         
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
@@ -56,7 +61,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         } else {
             print("Sem cardapios no page view controller")
         }
-        
     }
     
   

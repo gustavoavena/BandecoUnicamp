@@ -58,10 +58,6 @@ class CardapioTableViewController: UITableViewController {
         ptsJantar.text = jantar.pts
         saladaJantar.text = jantar.salada
         
-//        tableView.reloadData()
-        
-        tableView.setNeedsDisplay() // Para mudancas de numero de linhas.
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
