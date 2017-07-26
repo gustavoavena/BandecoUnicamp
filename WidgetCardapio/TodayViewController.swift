@@ -110,31 +110,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
        
-        CardapioServices.getAllCardapios(){
-            (cardapios) in
-            
-            guard cardapios.count > 0 else {
-                print("nao veio nenhum cardapio.")
-                let errorString = "Desculpa, estamos com problemas técnicos!"
-                self.pratoPrincipal.adjustsFontSizeToFitWidth = true
-                self.pratoPrincipal.textColor = UIColor.red
-                self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
-                completionHandler(false)
-                return
-            }
-            let cardapioDia = cardapios[0]
-    
-            print(cardapioDia)
-            
-            let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
-            
-            self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
-           
-            completionHandler(true)
-            
-        }
+        let cardapios = CardapioServices.getAllCardapios(){(c) in }
         
+        guard cardapios.count > 0 else {
+            print("nao veio nenhum cardapio.")
+            let errorString = "Desculpa, estamos com problemas técnicos!"
+            self.pratoPrincipal.adjustsFontSizeToFitWidth = true
+            self.pratoPrincipal.textColor = UIColor.red
+            self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+            completionHandler(false)
+            return
+        }
+        let cardapioDia = cardapios[0]
+
+        print(cardapioDia)
+        
+        let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
+        
+        self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+       
+        completionHandler(true)
+            
     }
+        
+    
 
     
     // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
