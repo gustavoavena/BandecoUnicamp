@@ -12,7 +12,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBOutlet weak var dietaSwitch: UISwitch!
-    
+    @IBOutlet weak var veggieTableViewCell: UITableViewCell!
     
     // TODO: melhorar posicionamento de labels nas configuracoes. Precisa alinhar...
 
@@ -20,6 +20,12 @@ class ConfiguracoesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        
+        // back button color
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
+        
+        // disable highlight on veggie's cell. its only possible to click on switch
+        self.veggieTableViewCell.selectionStyle = .none;
         
 
         // Uncomment the following line to preserve selection between presentations

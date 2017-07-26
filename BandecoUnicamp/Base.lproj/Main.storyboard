@@ -172,6 +172,7 @@
                     <navigationItem key="navigationItem" title="Configurações" id="xWc-hC-V39"/>
                     <connections>
                         <outlet property="dietaSwitch" destination="VMb-oX-tuT" id="t6C-Cd-2tJ"/>
+                        <outlet property="veggieTableViewCell" destination="7Ap-nO-W3l" id="ayP-Kv-BrD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDV-Gy-8xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
