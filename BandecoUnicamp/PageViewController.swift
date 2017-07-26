@@ -13,7 +13,15 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
-    
+    var vegetariano: Bool = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") {
+        didSet {
+            if let vc = viewControllers?.first as? CardapioTableViewController {
+                vc.setCardapio(cardapio: vc.cardapio, vegetariano: vegetariano)
+            } else {
+                print("Nenhum view controller exibido")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,9 +142,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         
         let cardapio = self.cardapios[pageIndex]
-        let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         controller.cardapio = cardapio
-        controller.vegetariano = vegetariano
+        controller.vegetariano = self.vegetariano
 
         return controller
     }

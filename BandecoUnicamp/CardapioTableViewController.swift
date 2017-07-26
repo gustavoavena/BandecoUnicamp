@@ -28,11 +28,12 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+  
     
     static let storyboardIdentifier = "CardapioTableView"
     
     var cardapio: Cardapio!
-    var vegetariano: Bool!
+    var vegetariano: Bool! = false
     
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
@@ -56,6 +57,35 @@ class CardapioTableViewController: UITableViewController {
         guarnicaoJantar.text = jantar.guarnicao
         ptsJantar.text = jantar.pts
         saladaJantar.text = jantar.salada
+        
+//        tableView.reloadData()
+        
+        tableView.setNeedsDisplay() // Para mudancas de numero de linhas.
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return vegetariano! ? "Almoço Vegetariano" : "Almoço"
+        case 1:
+            return vegetariano! ? "Jantar Vegetariano" : "Jantar"
+        default:
+            print("Problema setando o header das sections na Table View.")
+            return "Almoço"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return cardapio!.almoco.observacoes
+        case 1:
+            return cardapio!.jantar.observacoes
+        default:
+            print("Problema setando o footer das sections na Table View.")
+            return "Obs: "
+        }
     }
     
     

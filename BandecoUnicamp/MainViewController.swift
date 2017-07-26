@@ -28,6 +28,9 @@ class MainViewController: UIViewController {
 
     }
     
+    @IBAction func segmentedValueChanged(_ sender: Any) {
+        self.pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
+    }
     
     
  
