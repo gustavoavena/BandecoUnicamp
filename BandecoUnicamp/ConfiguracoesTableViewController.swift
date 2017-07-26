@@ -14,7 +14,6 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var dietaSwitch: UISwitch!
     @IBOutlet weak var veggieTableViewCell: UITableViewCell!
     
-    // TODO: melhorar posicionamento de labels nas configuracoes. Precisa alinhar...
 
     override func viewDidLoad() {
         super.viewDidLoad()
