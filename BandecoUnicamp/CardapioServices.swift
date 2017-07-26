@@ -21,27 +21,18 @@ import UIKit
 
 public class CardapioServices: NSObject {
 
-    
-    /// Fornece um array com os **next** cardapios a partir da data **startDate**.
+
+    /// Fornece um array com todos os cardapios, já em objetos da classe Cardapio, fornecidos pelo servidor.
     ///
-    /// - Parameters:
-    ///   - date: data inicial.
-    ///   - next: quantidade de cardapios desejados a partir da data inicial.
-    ///   - completionHandler: completionHandler para acessar o retorno assincronamente.
-    public static func getCardapiosBatch(startDate date: Date = Date(), next: Int = 5, completionHandler: @escaping ([Cardapio]) -> Void) {
-        // TODO: chamar completion handler asincronamente com NSOperationAlgumaCoisa...
-        
-        if let cardapios = UnicampServer.getCardapiosBatch(date: date, next: next){
+    /// - Parameter completionHandler: completion handler que irá ser executado e irá utilizar os objetos dos cardapios após eles serem obtidos.
+    public static func getAllCardapios(completionHandler: @escaping ([Cardapio]) -> Void) {
+        if let cardapios = UnicampServer.getAllCardapios(){
             OperationQueue.main.addOperation {
                 completionHandler(cardapios)
             }
         } else {
-            print("nao conseguiu pegar cardapios em batch.")
+            print("nao conseguiu pegar cardapios.")
         }
-        
     }
-    
-
-    
 
 }

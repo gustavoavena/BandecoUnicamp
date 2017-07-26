@@ -16,10 +16,42 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var pratoPrincipal: UILabel!
     @IBOutlet weak var sobremesa: UILabel!
     @IBOutlet weak var suco: UILabel!
+    @IBOutlet weak var guarnicao: UILabel!
+    @IBOutlet weak var salada: UILabel!
+    @IBOutlet weak var pts: UILabel!
+    @IBOutlet weak var guarnicaoLabel: UIStackView!
+    @IBOutlet weak var saladaLabel: UILabel!
+    @IBOutlet weak var ptsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+    }
+    
+    
+    // mostra poucas infos caso esteja no modo compacto, e todas info no modo expandido
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        
+        let expanded = activeDisplayMode == .expanded
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 170) : maxSize
+        
+        if (activeDisplayMode == NCWidgetDisplayMode.compact){
+            guarnicaoLabel.isHidden = true
+            guarnicao.isHidden = true
+            saladaLabel.isHidden = true
+            salada.isHidden = true
+            ptsLabel.isHidden = true
+            pts.isHidden = true
+        }
+        else {
+            guarnicaoLabel.isHidden = false
+            guarnicao.isHidden = false
+            saladaLabel.isHidden = false
+            salada.isHidden = false
+            ptsLabel.isHidden = false
+            pts.isHidden = false
+        }
     }
     
     
@@ -28,6 +60,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
+    //abre o aplicativo ao clicar no widget
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        extensionContext?.open(URL(string: "Bandex://")!, completionHandler: { (success) in
+            if (!success) {
+                print("error")
+            }
+        })
+    }
+
     private func getTipoRefeicaoParaExibir(dataCardapio: Date) -> TipoRefeicao {
         let horaAtual = Calendar.current.component(.hour, from: Date())
         let diaDaSemanaAtual = Calendar.current.component(.weekday, from: Date())
@@ -45,34 +86,75 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
+    override func viewWillAppear(_ animated: Bool) {
+        updateWidget() {
+            (success) in
+            
+            if success {
+                print("widget updated")
+            } else {
+                print("error updating widget before appearing")
+            }
+        }
+    }
     
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        CardapioServices.getCardapiosBatch(startDate: Date(), next: 1){
+    fileprivate func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String) {
+        self.refeicao.text = refeicao
+        self.pratoPrincipal.text = pratoPrincipal
+        self.sobremesa.text = sobremesa
+        self.suco.text = suco
+        self.guarnicao.text = guarnicao
+        self.salada.text = salada
+        self.pts.text = pts
+    }
+    // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
+    fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
+       
+        CardapioServices.getAllCardapios(){
             (cardapios) in
             
-            guard cardapios.count == 1 else {
-                print("veio mais cardapios")
+            guard cardapios.count > 0 else {
+                print("nao veio nenhum cardapio.")
+                let errorString = "Desculpa, estamos com problemas técnicos!"
+                self.pratoPrincipal.adjustsFontSizeToFitWidth = true
+                self.pratoPrincipal.textColor = UIColor.red
+                self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+                completionHandler(false)
                 return
             }
             let cardapioDia = cardapios[0]
-            
+    
             print(cardapioDia)
             
             let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
             
-            self.refeicao.text = tipo.rawValue
-            self.pratoPrincipal.text = cardapioDia[tipo].pratoPrincipal
-            self.sobremesa.text = cardapioDia[tipo].sobremesa
-            self.suco.text = cardapioDia[tipo].suco
+            self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+           
+            completionHandler(true)
+            
         }
         
-//        completionHandler(NCUpdateResult.newData)
+    }
+
+    
+    // TODO: metodo que define qual refeicao sera mostrada no momento (almoco/jantar ou almoco/jantar vegetariano), dependendo da hora e da dieta do usuario.
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        // Perform any setup necessary in order to update the view.
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+        updateWidget() {
+            (success) in
+            
+            if success {
+                completionHandler(.newData)
+            } else {
+                completionHandler(.failed)
+            }
+            
+        }
+        
     }
     
 }

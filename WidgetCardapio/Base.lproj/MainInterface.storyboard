@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refeição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-wa-dp6">
@@ -41,68 +41,167 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Steak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-lg-k5z" userLabel="pratoPrincipal">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-ot-IAD">
-                                <rect key="frame" x="11" y="58.5" width="137" height="18"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-ga-bzQ">
+                                <rect key="frame" x="25" y="76" width="86" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobremesa: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-Gv-Ef2" userLabel="Sobremesa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-ot-IAD">
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Banana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-S2-PgG" userLabel="sobremesa">
-                                        <rect key="frame" x="86" y="0.0" width="51" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobremesa: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-Gv-Ef2" userLabel="Sobremesa">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="wGa-S2-PgG" firstAttribute="centerY" secondItem="dd6-Gv-Ef2" secondAttribute="centerY" id="AUj-XS-x6m"/>
-                                    <constraint firstItem="dd6-Gv-Ef2" firstAttribute="centerY" secondItem="Ch5-ot-IAD" secondAttribute="centerY" id="bQl-dU-b5W"/>
-                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-ga-bzQ">
-                                <rect key="frame" x="11" y="76.5" width="93" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suco: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-jy-pWV" userLabel="Suco">
+                                <rect key="frame" x="25" y="57" width="43" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Laranja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-RZ-0Z4" userLabel="suco">
+                                <rect key="frame" x="111" y="57" width="197" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRg-hp-c4F">
+                                <rect key="frame" x="25" y="96" width="74.5" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suco: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-jy-pWV" userLabel="Suco">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Laranja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-RZ-0Z4" userLabel="suco">
-                                        <rect key="frame" x="43" y="0.0" width="50" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-mg-se8">
+                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guarnição:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-3u-O3L" userLabel="Sobremesa">
+                                                <rect key="frame" x="0.0" y="0.0" width="74.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="y0c-3u-O3L" firstAttribute="centerY" secondItem="FBV-mg-se8" secondAttribute="centerY" id="2nY-EZ-GYB"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ChM-RZ-0Z4" firstAttribute="centerY" secondItem="9Uj-jy-pWV" secondAttribute="centerY" id="195-GU-gTJ"/>
-                                    <constraint firstItem="9Uj-jy-pWV" firstAttribute="centerY" secondItem="Esp-ga-bzQ" secondAttribute="centerY" id="y0j-Y2-W76"/>
-                                </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="Cuscuz de Legumes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9L-en-3jh" userLabel="sobremesa">
+                                <rect key="frame" x="111" y="96" width="139" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-Wj-8KE">
+                                <rect key="frame" x="26" y="117" width="50.5" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9N-Ee-6yR">
+                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salada:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW6-lD-mc4" userLabel="Sobremesa">
+                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fW6-lD-mc4" firstAttribute="centerY" secondItem="z9N-Ee-6yR" secondAttribute="centerY" id="G7e-IF-im2"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="Almeirão com beterraba" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXt-ZW-1mn" userLabel="sobremesa">
+                                <rect key="frame" x="111" y="117" width="165" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9QZ-iZ-5Ct">
+                                <rect key="frame" x="26" y="139" width="32.5" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrL-Kn-SNa">
+                                        <rect key="frame" x="0.0" y="0.0" width="32.5" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PTS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82K-Zh-Tji" userLabel="Sobremesa">
+                                                <rect key="frame" x="0.0" y="0.0" width="32.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="82K-Zh-Tji" firstAttribute="centerY" secondItem="PrL-Kn-SNa" secondAttribute="centerY" id="1CH-dz-XEz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="PTS com abobrinha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOr-zl-omh" userLabel="sobremesa">
+                                <rect key="frame" x="111" y="139" width="134.5" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="Banana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-S2-PgG" userLabel="sobremesa">
+                                <rect key="frame" x="111" y="76" width="51" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31 de dezembro, segunda feira" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24c-hC-whQ">
+                                <rect key="frame" x="82" y="4" width="217" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OrJ-pI-w9e" userLabel="linha">
+                                <rect key="frame" x="16" y="60" width="1" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Ch5-ot-IAD" firstAttribute="leading" secondItem="RHD-X3-A9B" secondAttribute="leading" id="1ga-bk-dWE"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="24c-hC-whQ" secondAttribute="bottom" constant="145" id="28b-ha-RNO"/>
+                            <constraint firstItem="ChM-RZ-0Z4" firstAttribute="top" secondItem="m4b-lg-k5z" secondAttribute="bottom" constant="3.5" id="3ng-wP-wHT"/>
+                            <constraint firstItem="y0c-3u-O3L" firstAttribute="top" secondItem="dd6-Gv-Ef2" secondAttribute="bottom" constant="2" id="GUP-HF-9dz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ChM-RZ-0Z4" secondAttribute="trailing" constant="-4" id="Kd7-n9-Xiv"/>
+                            <constraint firstItem="fW6-lD-mc4" firstAttribute="top" secondItem="y0c-3u-O3L" secondAttribute="bottom" constant="3" id="MvD-mY-lC7"/>
                             <constraint firstItem="4rf-wa-dp6" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-5" id="Nlg-8E-Tii"/>
+                            <constraint firstItem="24c-hC-whQ" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="4" id="NzR-j4-h93"/>
                             <constraint firstItem="Isg-e4-npX" firstAttribute="leading" secondItem="4rf-wa-dp6" secondAttribute="leading" id="Omd-lf-c7a"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9Uj-jy-pWV" secondAttribute="leading" constant="-9" id="RIJ-Zc-hoJ"/>
+                            <constraint firstItem="9Uj-jy-pWV" firstAttribute="top" secondItem="m4b-lg-k5z" secondAttribute="bottom" constant="3.5" id="TKO-Df-VPx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RHD-X3-A9B" secondAttribute="trailing" constant="5" id="U9l-yE-2WH"/>
                             <constraint firstItem="RHD-X3-A9B" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-5" id="UCR-zi-FIz"/>
+                            <constraint firstItem="fW6-lD-mc4" firstAttribute="leading" secondItem="82K-Zh-Tji" secondAttribute="trailing" constant="-32.5" id="VUl-rh-exe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="24c-hC-whQ" secondAttribute="trailing" constant="5" id="Vz8-iX-Bbh"/>
+                            <constraint firstItem="ChM-RZ-0Z4" firstAttribute="leading" secondItem="9Uj-jy-pWV" secondAttribute="trailing" constant="43" id="WHb-oX-el7"/>
                             <constraint firstItem="RHD-X3-A9B" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="10" id="Wh3-Z8-tA6"/>
-                            <constraint firstItem="Esp-ga-bzQ" firstAttribute="leading" secondItem="Ch5-ot-IAD" secondAttribute="leading" id="dru-Vs-luU"/>
+                            <constraint firstItem="dd6-Gv-Ef2" firstAttribute="top" secondItem="9Uj-jy-pWV" secondAttribute="bottom" constant="1" id="biw-ta-CLY"/>
+                            <constraint firstItem="82K-Zh-Tji" firstAttribute="top" secondItem="fW6-lD-mc4" secondAttribute="bottom" constant="4" id="fBG-f3-lk9"/>
                             <constraint firstItem="Isg-e4-npX" firstAttribute="top" secondItem="4rf-wa-dp6" secondAttribute="bottom" constant="1" id="gh4-b0-cZw"/>
-                            <constraint firstItem="Ch5-ot-IAD" firstAttribute="bottom" secondItem="Esp-ga-bzQ" secondAttribute="top" id="iA9-58-x9c"/>
+                            <constraint firstItem="dd6-Gv-Ef2" firstAttribute="leading" secondItem="9Uj-jy-pWV" secondAttribute="trailing" constant="-43" id="joD-mo-mXB"/>
                             <constraint firstItem="4rf-wa-dp6" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="5" id="m8B-ZR-iIW"/>
+                            <constraint firstItem="24c-hC-whQ" firstAttribute="leading" secondItem="4rf-wa-dp6" secondAttribute="trailing" constant="11.5" id="qcc-Zj-cR1"/>
                             <constraint firstItem="Isg-e4-npX" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" multiplier="0.9" id="sy1-3p-iLy"/>
-                            <constraint firstItem="Ch5-ot-IAD" firstAttribute="top" secondItem="RHD-X3-A9B" secondAttribute="bottom" constant="5" id="xOa-80-04c"/>
+                            <constraint firstItem="dd6-Gv-Ef2" firstAttribute="leading" secondItem="y0c-3u-O3L" secondAttribute="trailing" constant="-74.5" id="wr0-kv-6Kh"/>
+                            <constraint firstItem="y0c-3u-O3L" firstAttribute="leading" secondItem="fW6-lD-mc4" secondAttribute="trailing" constant="-51.5" id="x6M-Fx-QxV"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -110,16 +209,23 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="140"/>
+                    <size key="freeformSize" width="320" height="170"/>
                     <connections>
+                        <outlet property="guarnicao" destination="W9L-en-3jh" id="8LK-yg-v9f"/>
+                        <outlet property="guarnicaoLabel" destination="FBV-mg-se8" id="tth-6j-y9B"/>
                         <outlet property="pratoPrincipal" destination="m4b-lg-k5z" id="DEB-sM-Aql"/>
+                        <outlet property="pts" destination="UOr-zl-omh" id="POL-Qt-O4V"/>
+                        <outlet property="ptsLabel" destination="82K-Zh-Tji" id="YNh-Jp-bof"/>
                         <outlet property="refeicao" destination="4rf-wa-dp6" id="qk1-Ux-oco"/>
+                        <outlet property="salada" destination="kXt-ZW-1mn" id="Pmo-5p-xPM"/>
+                        <outlet property="saladaLabel" destination="fW6-lD-mc4" id="Wfy-3f-6bb"/>
                         <outlet property="sobremesa" destination="wGa-S2-PgG" id="4Ml-dx-OEc"/>
                         <outlet property="suco" destination="ChM-RZ-0Z4" id="XY7-Hz-Exn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
         </scene>
     </scenes>
 </document>
