@@ -79,31 +79,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
    
-    
-    private func formatDateString(data: Date) -> String {
+    func cardapioProxDia() -> Bool {
+        let hora = Calendar.current.component(.hour, from: Date())
         
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        
-        let dia = Calendar.current.component(.day, from: data)
-        let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
-        
-        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+        return hora > 19 ? true : false
     }
+    
+
     
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
        
-        let cardapios = CardapioServices.getAllCardapios(){(c) in }
+        let cardapios = CardapioServices.getAllCardapios()
         
-        guard cardapios.count > 0 else {
+        let numeroCardapio = cardapioProxDia() ? 1 : 0
+        
+        guard cardapios.count > numeroCardapio else {
             print("nao veio nenhum cardapio.")
-            let errorString = "Desculpe, não foi possível carregar o cardápio."
-            widgetTableViewController.pratoPrincipal.adjustsFontSizeToFitWidth = true
-            widgetTableViewController.pratoPrincipal.textColor = UIColor.red
-            widgetTableViewController.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+            widgetTableViewController.displayError()
             completionHandler(false)
             return
         }
@@ -114,15 +107,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
         
-        let cardapioDia = cardapios[0]
+        let cardapioDia = cardapios[numeroCardapio]
 
         print(cardapioDia)
         
         let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
         
-        widgetTableViewController.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+        widgetTableViewController.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts, data: cardapioDia.data)
        
-        widgetTableViewController.dataLabel.text = formatDateString(data: cardapioDia.data)
         
         completionHandler(true)
             

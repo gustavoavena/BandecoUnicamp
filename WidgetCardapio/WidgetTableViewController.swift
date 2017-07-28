@@ -42,7 +42,14 @@ class WidgetTableViewController: UITableViewController {
         pts.isHidden = !expanded
     }
     
-    func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String) {
+    func displayError() {
+        let errorString = "Desculpe, não foi possível carregar o cardápio."
+        pratoPrincipal.adjustsFontSizeToFitWidth = true
+        pratoPrincipal.textColor = UIColor.red
+        setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "", data: Date())
+    }
+    
+    func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String, data: Date) {
         self.refeicao.text = refeicao
         self.pratoPrincipal.text = pratoPrincipal
         self.sobremesa.text = sobremesa
@@ -50,8 +57,21 @@ class WidgetTableViewController: UITableViewController {
         self.guarnicao.text = guarnicao
         self.salada.text = salada
         self.pts.text = pts
+        self.dataLabel.text = formatDateString(data: data)
     }
     
+    private func formatDateString(data: Date) -> String {
+        
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        
+        let dia = Calendar.current.component(.day, from: data)
+        let mes = Calendar.current.component(.month, from: data)
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
+        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+    }
     
 
 }
