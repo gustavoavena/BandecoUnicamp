@@ -71,9 +71,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateWidget() {
             (success) in
             if success {
-                print("widget updated")
+                print("widget updated succesfully.")
             } else {
-                print("error updating widget before appearing")
+                print("error updating widget before appearing.")
             }
         }
     }
@@ -113,7 +113,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
         
-        widgetTableViewController.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts, data: cardapioDia.data)
+        widgetTableViewController.setCardapioValues(refeicao: cardapioDia[tipo], data: cardapioDia.data)
        
         
         completionHandler(true)

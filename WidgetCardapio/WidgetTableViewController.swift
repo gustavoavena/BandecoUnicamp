@@ -60,6 +60,17 @@ class WidgetTableViewController: UITableViewController {
         self.dataLabel.text = formatDateString(data: data)
     }
     
+    func setCardapioValues(refeicao: Refeicao, data: Date) {
+        self.refeicao.text = refeicao.tipo.rawValue
+        self.pratoPrincipal.text = refeicao.pratoPrincipal
+        self.sobremesa.text = refeicao.sobremesa
+        self.suco.text = refeicao.suco
+        self.guarnicao.text = refeicao.guarnicao
+        self.salada.text = refeicao.salada
+        self.pts.text = refeicao.pts
+        self.dataLabel.text = formatDateString(data: data)
+    }
+    
     private func formatDateString(data: Date) -> String {
         
         let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
