@@ -22,25 +22,48 @@ class WidgetTableViewController: UITableViewController {
     @IBOutlet weak var ptsCell: UITableViewCell!
     @IBOutlet weak var dataLabel: UILabel!
     
+    
+    @IBOutlet weak var pratoPrincipallCell: UITableViewCell!
+    @IBOutlet weak var sobremesaCell: UITableViewCell!
+    @IBOutlet weak var sucoCell: UITableViewCell!
+    
+    
+    var expanded: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     func widgetSizeChanged(expanded: Bool) {
-        guarnicaoCell.isHidden = !expanded
-        guarnicao.isHidden = !expanded
-        saladaCell.isHidden = !expanded
-        salada.isHidden = !expanded
-        ptsCell.isHidden = !expanded
-        pts.isHidden = !expanded
+        
+        
+        self.expanded = expanded
+        
+    
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+//        guarnicaoCell.isHidden = !expanded
+//        guarnicao.isHidden = !expanded
+//        saladaCell.isHidden = !expanded
+//        salada.isHidden = !expanded
+//        ptsCell.isHidden = !expanded
+//        pts.isHidden = !expanded
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        if indexPath.row == 1 {
+//            return self.expanded ? 38 : 26.0
+//        }
+////        else if (2...3).contains(indexPath.row) {
+////            return self.expanded ? 28.0 : 24.0
+////        }
+//        
+//        return 30.0
+//    }
+    
+    
     
     func displayError() {
         let errorString = "Desculpe, não foi possível carregar o cardápio."

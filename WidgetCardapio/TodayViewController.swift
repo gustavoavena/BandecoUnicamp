@@ -25,7 +25,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         
         let expanded = activeDisplayMode == .expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 226) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 184) : maxSize
         
         guard widgetTableViewController != nil else {
             print("widgetTableViewController is nil")
