@@ -28,8 +28,19 @@ class MainViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        
+        // Coloquei um if para ele so setar vegetariano se o valor for diferente, porque toda vez que ele eh 
+        // setado, ele da reload no pageviewcontroller. Nao quero fazer isso sem necessidade toda vez que a view 
+        // for aparecer.
+        if pageViewController.vegetariano != (typeSegmentedControl.selectedSegmentIndex == 1) {
+            pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
+        }
+    }
+    
     @IBAction func segmentedValueChanged(_ sender: Any) {
-        self.pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
+        pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
     
     
