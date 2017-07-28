@@ -12,17 +12,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    @IBOutlet weak var refeicao: UILabel!
-    @IBOutlet weak var pratoPrincipal: UILabel!
-    @IBOutlet weak var sobremesa: UILabel!
-    @IBOutlet weak var suco: UILabel!
-    @IBOutlet weak var guarnicao: UILabel!
-    @IBOutlet weak var salada: UILabel!
-    @IBOutlet weak var pts: UILabel!
-    @IBOutlet weak var guarnicaoLabel: UIStackView!
-    @IBOutlet weak var saladaLabel: UILabel!
-    @IBOutlet weak var ptsLabel: UILabel!
-    @IBOutlet weak var dataLabel: UILabel!
+    weak var widgetTableViewController: WidgetTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,24 +25,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         
         let expanded = activeDisplayMode == .expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 170) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 226) : maxSize
         
-        if (activeDisplayMode == NCWidgetDisplayMode.compact){
-            guarnicaoLabel.isHidden = true
-            guarnicao.isHidden = true
-            saladaLabel.isHidden = true
-            salada.isHidden = true
-            ptsLabel.isHidden = true
-            pts.isHidden = true
+        guard widgetTableViewController != nil else {
+            print("widgetTableViewController is nil")
+            return
         }
-        else {
-            guarnicaoLabel.isHidden = false
-            guarnicao.isHidden = false
-            saladaLabel.isHidden = false
-            salada.isHidden = false
-            ptsLabel.isHidden = false
-            pts.isHidden = false
-        }
+        
+        widgetTableViewController.widgetSizeChanged(expanded: expanded)
     }
     
     
@@ -90,7 +70,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(_ animated: Bool) {
         updateWidget() {
             (success) in
-            
             if success {
                 print("widget updated")
             } else {
@@ -99,15 +78,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    fileprivate func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String) {
-        self.refeicao.text = refeicao
-        self.pratoPrincipal.text = pratoPrincipal
-        self.sobremesa.text = sobremesa
-        self.suco.text = suco
-        self.guarnicao.text = guarnicao
-        self.salada.text = salada
-        self.pts.text = pts
-    }
+   
     
     private func formatDateString(data: Date) -> String {
         
@@ -130,21 +101,28 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         guard cardapios.count > 0 else {
             print("nao veio nenhum cardapio.")
             let errorString = "Desculpe, não foi possível carregar o cardápio."
-            self.pratoPrincipal.adjustsFontSizeToFitWidth = true
-            self.pratoPrincipal.textColor = UIColor.red
-            self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+            widgetTableViewController.pratoPrincipal.adjustsFontSizeToFitWidth = true
+            widgetTableViewController.pratoPrincipal.textColor = UIColor.red
+            widgetTableViewController.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
             completionHandler(false)
             return
         }
+        
+        guard widgetTableViewController != nil else {
+            print("widgetTableViewController is nil")
+            return
+        }
+        
+        
         let cardapioDia = cardapios[0]
 
         print(cardapioDia)
         
         let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
         
-        self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+        widgetTableViewController.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
        
-        self.dataLabel.text = formatDateString(data: cardapioDia.data)
+        widgetTableViewController.dataLabel.text = formatDateString(data: cardapioDia.data)
         
         completionHandler(true)
             
@@ -172,5 +150,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EmbedSegue" {
+            
+            let controller = segue.destination as! WidgetTableViewController
+            
+            self.widgetTableViewController = controller
+        }
+    }
+
     
 }
