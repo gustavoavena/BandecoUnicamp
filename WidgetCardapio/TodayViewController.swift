@@ -32,7 +32,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             return
         }
         
-        widgetTableViewController.widgetSizeChanged(expanded: expanded)
     }
     
     
