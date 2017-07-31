@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: GAITrackedViewController {
     
     let errorString = "Desculpe, não foi possível carregar o cardápio."
 
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
-    
+
     
     func displayAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -81,26 +81,38 @@ class MainViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
         dietaMayHaveChanged()
+        
+        self.screenName = "mainViewController"
+        let name = "mainViewController"
+        
+        // The UA-XXXXX-Y tracker ID is loaded automatically from the
+        // GoogleService-Info.plist by the `GGLContext` in the AppDelegate.
+        // If you're copying this to an app just using Analytics, you'll
+        // need to configure your tracking ID here.
+        // [START screen_view_hit_swift]
+        guard let tracker = GAI.sharedInstance().defaultTracker else { return }
+        tracker.set(kGAIScreenName, value: name)
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        // [END screen_view_hit_swift]
+
+        
     }
     
+   
     @IBAction func segmentedValueChanged(_ sender: Any) {
         pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
     
-    
- 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-   
-    
-
     
     // MARK: - Navigation
 
