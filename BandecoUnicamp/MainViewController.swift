@@ -21,7 +21,6 @@ class MainViewController: GAITrackedViewController {
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
         self.screenName = "mainViewController"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
