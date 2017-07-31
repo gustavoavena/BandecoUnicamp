@@ -14,11 +14,7 @@ class MainViewController: GAITrackedViewController {
 
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
-    
-<<<<<<< HEAD
-    override func viewDidLoad() {
-        super.viewDidLoad()
-=======
+
     
     func displayAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -70,7 +66,6 @@ class MainViewController: GAITrackedViewController {
             UserDefaults.standard.set(true, forKey: firstLaunchKeyString)
         }
 
->>>>>>> master
         // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
     }
@@ -86,18 +81,12 @@ class MainViewController: GAITrackedViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
-<<<<<<< HEAD
-        self.screenName = "mainViewController"
-=======
         dietaMayHaveChanged()
->>>>>>> master
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
+        self.screenName = "mainViewController"
         let name = "mainViewController"
         
         // The UA-XXXXX-Y tracker ID is loaded automatically from the
@@ -111,7 +100,11 @@ class MainViewController: GAITrackedViewController {
         guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
         tracker.send(builder.build() as [NSObject : AnyObject])
         // [END screen_view_hit_swift]
+
+        
     }
+    
+   
     @IBAction func segmentedValueChanged(_ sender: Any) {
         pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
