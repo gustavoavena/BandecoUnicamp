@@ -20,27 +20,27 @@ class MainViewController: UIViewController {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         
         // Change font of the title and message
-        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium) ]
-        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 16) ]
+        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium) ]
+        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 14) ]
         
         let attributedTitle = NSMutableAttributedString(string: "Bem vindo ao Bandex!", attributes: titleFont)
-        let attributedMessage = NSMutableAttributedString(string: "Você é vegetariano?", attributes: messageFont)
+        let attributedMessage = NSMutableAttributedString(string: "Qual a sua preferência de cardápio?", attributes: messageFont)
         
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         alert.setValue(attributedMessage, forKey: "attributedMessage")
         
-        // Vegetariano
-        let action1 = UIAlertAction(title: "Sim", style: .default, handler: { (action) -> Void in
+        // Tradicional
+        let action1 = UIAlertAction(title: "Tradicional", style: .default, handler: { (action) -> Void in
             
-            UserDefaults(suiteName: "group.bandex.shared")!.set(true, forKey: "vegetariano")
-            self.typeSegmentedControl.selectedSegmentIndex = 1
+            UserDefaults(suiteName: "group.bandex.shared")!.set(false, forKey: "vegetariano")
+            self.typeSegmentedControl.selectedSegmentIndex = 0
             self.dietaMayHaveChanged()
         })
         
-        // Tradicional
-        let action2 = UIAlertAction(title: "Não", style: .default, handler: { (action) -> Void in
-            UserDefaults(suiteName: "group.bandex.shared")!.set(false, forKey: "vegetariano")
-            self.typeSegmentedControl.selectedSegmentIndex = 0
+        // Vegetariano
+        let action2 = UIAlertAction(title: "Vegetariano", style: .default, handler: { (action) -> Void in
+            UserDefaults(suiteName: "group.bandex.shared")!.set(true, forKey: "vegetariano")
+            self.typeSegmentedControl.selectedSegmentIndex = 1
             self.dietaMayHaveChanged()
         })
         
@@ -58,6 +58,7 @@ class MainViewController: UIViewController {
 
        
         let firstLaunchKeyString = "FirstLaunchHappened"
+        
         
         if !UserDefaults.standard.bool(forKey: firstLaunchKeyString) {
             // TODO: Alerta com pergunta de dieta AQUI
