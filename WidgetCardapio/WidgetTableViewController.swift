@@ -76,5 +76,14 @@ class WidgetTableViewController: UITableViewController {
         return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        extensionContext?.open(URL(string: "Bandex://")!, completionHandler: { (success) in
+            if (!success) {
+                print("error")
+            }
+        })
+    }
+    
 
 }

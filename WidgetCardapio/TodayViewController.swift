@@ -103,6 +103,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         guard widgetTableViewController != nil else {
             print("widgetTableViewController is nil")
+            completionHandler(false)
             return
         }
         
