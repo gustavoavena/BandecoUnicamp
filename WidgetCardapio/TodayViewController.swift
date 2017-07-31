@@ -80,8 +80,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
    
     func cardapioProxDia() -> Bool {
         let hora = Calendar.current.component(.hour, from: Date())
+        let weekday = Calendar.current.component(.weekday, from: Date())
         
-        return hora > 19 ? true : false
+        return (hora > 19) && (2...6).contains(weekday) ? true : false
     }
     
 
