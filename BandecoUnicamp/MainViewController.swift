@@ -16,27 +16,73 @@ class MainViewController: UIViewController {
     weak var pageViewController: PageViewController!
     
     
+    func displayAlert() {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        // Change font of the title and message
+        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium) ]
+        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont.systemFont(ofSize: 16) ]
+        
+        let attributedTitle = NSMutableAttributedString(string: "Bem vindo ao Bandex!", attributes: titleFont)
+        let attributedMessage = NSMutableAttributedString(string: "Você é vegetariano?", attributes: messageFont)
+        
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        // Vegetariano
+        let action1 = UIAlertAction(title: "Sim", style: .default, handler: { (action) -> Void in
+            
+            UserDefaults(suiteName: "group.bandex.shared")!.set(true, forKey: "vegetariano")
+            self.typeSegmentedControl.selectedSegmentIndex = 1
+            self.dietaMayHaveChanged()
+        })
+        
+        // Tradicional
+        let action2 = UIAlertAction(title: "Não", style: .default, handler: { (action) -> Void in
+            UserDefaults(suiteName: "group.bandex.shared")!.set(false, forKey: "vegetariano")
+            self.typeSegmentedControl.selectedSegmentIndex = 0
+            self.dietaMayHaveChanged()
+        })
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+       
+        let firstLaunchKeyString = "FirstLaunchHappened"
+        
+        if !UserDefaults.standard.bool(forKey: firstLaunchKeyString) {
+            // TODO: Alerta com pergunta de dieta AQUI
+            displayAlert()
+            UserDefaults.standard.set(true, forKey: firstLaunchKeyString)
+        }
 
         // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
-        
-      
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
-        
-        // Coloquei um if para ele so setar vegetariano se o valor for diferente, porque toda vez que ele eh 
-        // setado, ele da reload no pageviewcontroller. Nao quero fazer isso sem necessidade toda vez que a view 
+    func dietaMayHaveChanged() {
+        // Coloquei um if para ele so setar vegetariano se o valor for diferente, porque toda vez que ele eh
+        // setado, ele da reload no pageviewcontroller. Nao quero fazer isso sem necessidade toda vez que a view
         // for aparecer.
         if pageViewController.vegetariano != (typeSegmentedControl.selectedSegmentIndex == 1) {
             pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
         }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        
+        dietaMayHaveChanged()
     }
     
     @IBAction func segmentedValueChanged(_ sender: Any) {
