@@ -31,14 +31,10 @@
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */; };
-		4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */; };
-		4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */; };
 		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
-		4DFC83161EE9B9850063420C /* CardapioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFC83151EE9B9850063420C /* CardapioView.swift */; };
-		4DFC83181EE9B9920063420C /* CardapioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFC83171EE9B9920063420C /* CardapioView.xib */; };
 		539B04135D73BE8EC6A41DE1 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */; };
 		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
 /* End PBXBuildFile section */
@@ -104,13 +100,9 @@
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
 		4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefeicaoView.xib; sourceTree = "<group>"; };
-		4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoView.swift; sourceTree = "<group>"; };
 		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
-		4DFC83151EE9B9850063420C /* CardapioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioView.swift; sourceTree = "<group>"; };
-		4DFC83171EE9B9920063420C /* CardapioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardapioView.xib; sourceTree = "<group>"; };
 		50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -199,7 +191,6 @@
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
 				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
-				4DFC83191EE9BC920063420C /* View */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
 				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
@@ -222,17 +213,6 @@
 				B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		4DFC83191EE9BC920063420C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4DFC83151EE9B9850063420C /* CardapioView.swift */,
-				4DFC83171EE9B9920063420C /* CardapioView.xib */,
-				4DD99A0D1ED201D4007D0038 /* RefeicaoView.swift */,
-				4DD99A0B1ED1FF86007D0038 /* RefeicaoView.xib */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,12 +324,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD99A0C1ED1FF86007D0038 /* RefeicaoView.xib in Resources */,
 				4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
 				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
-				4DFC83181EE9B9920063420C /* CardapioView.xib in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,10 +404,8 @@
 				4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */,
 				4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */,
 				4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */,
-				4DFC83161EE9B9850063420C /* CardapioView.swift in Sources */,
 				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
-				4DD99A0E1ED201D4007D0038 /* RefeicaoView.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
 				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
