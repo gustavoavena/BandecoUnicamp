@@ -12,17 +12,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    @IBOutlet weak var refeicao: UILabel!
-    @IBOutlet weak var pratoPrincipal: UILabel!
-    @IBOutlet weak var sobremesa: UILabel!
-    @IBOutlet weak var suco: UILabel!
-    @IBOutlet weak var guarnicao: UILabel!
-    @IBOutlet weak var salada: UILabel!
-    @IBOutlet weak var pts: UILabel!
-    @IBOutlet weak var guarnicaoLabel: UIStackView!
-    @IBOutlet weak var saladaLabel: UILabel!
-    @IBOutlet weak var ptsLabel: UILabel!
-    @IBOutlet weak var dataLabel: UILabel!
+    weak var widgetTableViewController: WidgetTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,24 +25,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         
         let expanded = activeDisplayMode == .expanded
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 170) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 184) : maxSize
         
-        if (activeDisplayMode == NCWidgetDisplayMode.compact){
-            guarnicaoLabel.isHidden = true
-            guarnicao.isHidden = true
-            saladaLabel.isHidden = true
-            salada.isHidden = true
-            ptsLabel.isHidden = true
-            pts.isHidden = true
+        guard widgetTableViewController != nil else {
+            print("widgetTableViewController is nil")
+            return
         }
-        else {
-            guarnicaoLabel.isHidden = false
-            guarnicao.isHidden = false
-            saladaLabel.isHidden = false
-            salada.isHidden = false
-            ptsLabel.isHidden = false
-            pts.isHidden = false
-        }
+        
     }
     
     
@@ -90,61 +69,53 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(_ animated: Bool) {
         updateWidget() {
             (success) in
-            
             if success {
-                print("widget updated")
+                print("widget updated succesfully.")
             } else {
-                print("error updating widget before appearing")
+                print("error updating widget before appearing.")
             }
         }
     }
     
-    fileprivate func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String) {
-        self.refeicao.text = refeicao
-        self.pratoPrincipal.text = pratoPrincipal
-        self.sobremesa.text = sobremesa
-        self.suco.text = suco
-        self.guarnicao.text = guarnicao
-        self.salada.text = salada
-        self.pts.text = pts
+   
+    func cardapioProxDia() -> Bool {
+        let hora = Calendar.current.component(.hour, from: Date())
+        let weekday = Calendar.current.component(.weekday, from: Date())
+        
+        return (hora > 19) && (2...6).contains(weekday) ? true : false
     }
     
-    private func formatDateString(data: Date) -> String {
-        
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        
-        let dia = Calendar.current.component(.day, from: data)
-        let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
-        
-        // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
-    }
+
     
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
        
-        let cardapios = CardapioServices.getAllCardapios(){(c) in }
+        let cardapios = CardapioServices.getAllCardapios()
         
-        guard cardapios.count > 0 else {
+        let numeroCardapio = cardapioProxDia() ? 1 : 0
+        
+        guard cardapios.count > numeroCardapio else {
             print("nao veio nenhum cardapio.")
-            let errorString = "Desculpa, estamos com problemas técnicos!"
-            self.pratoPrincipal.adjustsFontSizeToFitWidth = true
-            self.pratoPrincipal.textColor = UIColor.red
-            self.setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "")
+            widgetTableViewController.displayError()
             completionHandler(false)
             return
         }
-        let cardapioDia = cardapios[0]
+        
+        guard widgetTableViewController != nil else {
+            print("widgetTableViewController is nil")
+            completionHandler(false)
+            return
+        }
+        
+        
+        let cardapioDia = cardapios[numeroCardapio]
 
         print(cardapioDia)
         
         let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
         
-        self.setCardapioValues(refeicao: tipo.rawValue, pratoPrincipal: cardapioDia[tipo].pratoPrincipal, sobremesa: cardapioDia[tipo].sobremesa, suco: cardapioDia[tipo].suco, guarnicao: cardapioDia[tipo].guarnicao, salada: cardapioDia[tipo].salada, pts: cardapioDia[tipo].pts)
+        widgetTableViewController.setCardapioValues(refeicao: cardapioDia[tipo], data: cardapioDia.data)
        
-        self.dataLabel.text = formatDateString(data: cardapioDia.data)
         
         completionHandler(true)
             
@@ -172,5 +143,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EmbedSegue" {
+            
+            let controller = segue.destination as! WidgetTableViewController
+            
+            self.widgetTableViewController = controller
+        }
+    }
+
     
 }

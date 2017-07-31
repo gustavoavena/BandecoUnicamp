@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
+		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D4E1ED1D371009CC3E1 /* cardapio */; };
 		4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */; };
@@ -79,6 +81,7 @@
 /* Begin PBXFileReference section */
 		2155E212ACAF82A96A3A244B /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
+		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
 		4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetCardapio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +163,7 @@
 				4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */,
 				4D5C6D591ED1E45D009CC3E1 /* TodayViewController.swift */,
 				4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */,
+				4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */,
 				4D5C6D5E1ED1E45D009CC3E1 /* Info.plist */,
 			);
 			path = WidgetCardapio;
@@ -331,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */,
 				4D5C6D5D1ED1E45D009CC3E1 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +412,7 @@
 				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
 				4D9724081F279E7900F588B8 /* Cache.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
+				4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */,
 				4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
 			);

@@ -38,9 +38,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func alertarErro() {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "ErroViewController") else {
+            fatalError("Unable to instantiate a ErroViewController.")
+        }
+        
+        setViewControllers([controller], direction: .forward, animated: false, completion: nil)
     }
     
     func vegetarianoChanged() {
@@ -60,6 +63,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
         } else {
             print("Sem cardapios no page view controller")
+            alertarErro()
         }
     }
     
@@ -117,10 +121,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return nil
     }
     
-    // TODO: pega index do cardapio, dado um view controller.
     private func indexOfDataItem(forViewController viewController: UIViewController) -> Int {
         guard let viewController = viewController as? CardapioTableViewController else {
-            fatalError("Unexpected view controller type in page view controller.")
+            print("Unexpected view controller type in page view controller.")
+            return 0
         }
         
         guard let cardapio = viewController.cardapio,
