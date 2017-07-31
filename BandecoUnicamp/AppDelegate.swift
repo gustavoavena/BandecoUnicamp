@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
 
         if let gai = GAI.sharedInstance() {
-            gai.tracker(withTrackingId: ("UA-103296687-1"))
+            gai.tracker(withTrackingId: ("UA-103784746-1"))
             gai.trackUncaughtExceptions = true  // report uncaught exceptions
             gai.logger.logLevel = GAILogLevel.verbose  // remove before app release
             gai.defaultTracker.allowIDFACollection = true
