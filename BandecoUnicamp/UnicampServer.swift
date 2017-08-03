@@ -85,6 +85,14 @@ class UnicampServer {
             }
         }
         
+        // Filtra os cardapios antigos, caso por algum motivos eles venham do servidor.
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let nowString = formatter.string(from: Date())
+        
+        cardapios = cardapios.filter { formatter.string(from: $0.data) >= nowString }
+        
+        
         return cardapios
     }
     
