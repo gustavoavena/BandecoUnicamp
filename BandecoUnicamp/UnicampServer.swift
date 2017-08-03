@@ -17,20 +17,21 @@
 
 
 import Foundation
+import SwiftyJSON
 
 
 class UnicampServer {
     private static let urlAllCardapiosDevelopment = "http://127.0.0.1:8000/cardapios"
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
-
+    
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com os cardapios disponiveis.
     ///
     /// - Returns: json no formato [Any]
-    private static func getCardapiosJSON() -> [Any] {
-        let url = URL(string: urlAllCardapiosProduction)
-        //        let url = URL(string: urlAllCardapiosDevelopment)
-        var json = [Any]()
+    private static func getCardapiosJSON() -> JSON {
+        //        let url = URL(string: urlAllCardapiosProduction)
+        let url = URL(string: "https://bandex-c2f82.firebaseio.com/cardapios.json")
+        var json = JSON.null
         
         
         URLSession.shared.sendSynchronousRequest(request: url!) {
@@ -47,43 +48,49 @@ class UnicampServer {
                 return
             }
             
-            
-            do{
-                json = try JSONSerialization.jsonObject(with: data, options: []) as! [Any]
-                //                print("json = \(json)")
-            } catch let error as NSError{
-                print(error)
+            print("request ok")
+
+            json = JSON(data: data)
+            if let dataFromString = json.string?.data(using: .utf8, allowLossyConversion: false) {
+                json = JSON(data: dataFromString)
+            } else {
+                print("Nao conseguiu extrair dados da string do JSON.")
             }
+
         }
         
         return json
     }
     
-
+    
     /// Esse eh o metodo mais importante. Ele se comunica com o servidor (fazendo request diretamente pra ele) e obtem todos os cardapios disponiveis no API da UNICAMP.
     /// Para isto, ele executa um POST request para o app em Flask, que retorna um JSON com todos os cardapios de uma vez.
     /// Apos isso, ele processa o JSON e utilza os construtores implementados com o Gloss para criar objetos Cardapio correspondentes aos dados obtidos no JSON.
     ///
     /// - Returns: array de objetos Cardapio com os cardapios ou nil em caso de erros.
     public static func getAllCardapios() -> [Cardapio] {
-        var json = [Any]()
+        var json: JSON
         
         
         json = getCardapiosJSON()
         
+
         var cardapios = [Cardapio]()
-        for value in json {
-            if let cardapioJSON = value as? [String: Any] {
+        
+        if let list = json.rawValue as? [[String: Any]] {
+            for cardapioJSON in list {
+                
                 if let c = Cardapio(json: cardapioJSON) { // Utiliza o convenienve init do Gloss para instanciar objetos Cardapio.
-                    //                    print(c)
+//                    print(c)
                     cardapios.append(c)
                 } else {
                     print("nao conseguiu mapear o objeto")
                 }
-            } else {
-                print("Nao conseguiu fazer cast do cardapioJSON para [String: Any]")
             }
+        } else {
+            print("problema no casting do JSON para [[String: Any]].")
         }
+        
         
         return cardapios
     }
