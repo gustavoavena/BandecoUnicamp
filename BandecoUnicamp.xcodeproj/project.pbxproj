@@ -39,6 +39,7 @@
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
+		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
+		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			files = (
 				4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */,
 				4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */,
+				D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,7 @@
 				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
 				4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */,
+				6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
