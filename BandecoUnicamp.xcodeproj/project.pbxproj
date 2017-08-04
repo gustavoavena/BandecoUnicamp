@@ -152,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */,
+				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
 				4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */,
 				FB07AAAAB392B35E0236051C /* Pods_WidgetCardapio.framework */,
@@ -175,7 +176,6 @@
 		4D9528F61EC78D2D00219F48 = {
 			isa = PBXGroup;
 			children = (
-				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */,
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
