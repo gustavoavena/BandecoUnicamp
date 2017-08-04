@@ -48,7 +48,6 @@ class UnicampServer {
                 return
             }
             
-            print("request ok")
 
             json = JSON(data: data)
             if let dataFromString = json.string?.data(using: .utf8, allowLossyConversion: false) {
@@ -64,7 +63,7 @@ class UnicampServer {
     
     
     /// Esse eh o metodo mais importante. Ele se comunica com o servidor (fazendo request diretamente pra ele) e obtem todos os cardapios disponiveis no API da UNICAMP.
-    /// Para isto, ele executa um POST request para o app em Flask, que retorna um JSON com todos os cardapios de uma vez.
+    /// Para isto, ele faz um GET request para o servidor em Flask que retorna todos os cardapios disponiveis serializados em JSON.
     /// Apos isso, ele processa o JSON e utilza os construtores implementados com o Gloss para criar objetos Cardapio correspondentes aos dados obtidos no JSON.
     ///
     /// - Returns: array de objetos Cardapio com os cardapios ou nil em caso de erros.
