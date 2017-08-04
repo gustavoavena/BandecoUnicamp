@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
+		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
 		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
@@ -35,7 +38,6 @@
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
-		539B04135D73BE8EC6A41DE1 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */; };
 		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */,
 				4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -77,6 +80,8 @@
 /* Begin PBXFileReference section */
 		2155E212ACAF82A96A3A244B /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
+		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
@@ -103,7 +108,6 @@
 		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
-		50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +119,7 @@
 			files = (
 				4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */,
 				4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */,
+				4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */,
-				539B04135D73BE8EC6A41DE1 /* libPods-BandecoUnicamp.a in Frameworks */,
+				4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +147,10 @@
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */,
+				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
 				4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */,
-				50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -635,6 +642,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
