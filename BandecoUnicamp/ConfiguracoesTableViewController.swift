@@ -42,6 +42,16 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
         UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: "vegetariano")
     }
+    
+    
+    // Abre o feedback form no Safari
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 && indexPath.row == 0 {
+            UIApplication.shared.openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSekvO0HnnfGnk0-FLTX86mVxAOB5Uajq8MPmB0Sv1pXPuQiCg/viewform")!)
+        }
+    }
+    
 }
 
 //extension UIViewController {
