@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ConfiguracoesTableViewController: UITableViewController {
     
@@ -14,10 +15,10 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var dietaSwitch: UISwitch!
     @IBOutlet weak var veggieTableViewCell: UITableViewCell!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
         // back button color
@@ -26,10 +27,27 @@ class ConfiguracoesTableViewController: UITableViewController {
         // disable highlight on veggie's cell. its only possible to click on switch
         self.veggieTableViewCell.selectionStyle = .none;
         
-
+        
+        // TODO: REMOVE THIS
+        if #available(iOS 10.0, *) {
+            requestNotificationPermission()
+        } else {
+            // Fallback on earlier versions
+            requestNotificationPermissionForIOS9()
+        }
+        
+        if #available(iOS 10.0, *) {
+            requestNotification()
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        // TODO: REMOVE THIS
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -50,6 +68,64 @@ class ConfiguracoesTableViewController: UITableViewController {
         if indexPath.section == 1 && indexPath.row == 0 {
             UIApplication.shared.openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSekvO0HnnfGnk0-FLTX86mVxAOB5Uajq8MPmB0Sv1pXPuQiCg/viewform")!)
         }
+    }
+    
+    // - MARK: notifications
+    
+    @available(iOS 10.0, *)
+    func requestNotificationPermission() {
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Permissao para notificacoes negada!")
+            }
+        }
+        
+    }
+    
+    func requestNotificationPermissionForIOS9() {
+        // TODO
+    }
+    
+    
+    
+    @available(iOS 10.0, *)
+    func requestNotification() {
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        let cardapio: Cardapio? = Cache.shared().cardapios.count > 0 ? Cache.shared().cardapios[0] : nil
+        
+        
+        if let cardapio = cardapio {
+            content.title = "Cardapio do \("almoço:")"
+            content.body = cardapio.almoco.pratoPrincipal
+        } else {
+            content.title = "Don't forget"
+            content.body = "Buy some milk"
+        }
+        content.sound = UNNotificationSound.default()
+        
+        let date = Date()
+        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.second,], from: date)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: true)
+        
+        let identifier = "UYLLocalNotification"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        
+        center.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                // Something went wrong
+                print("Erro ao registrar a notificacao")
+            } else {
+                print("\n\n\n\nNotificacao registrada com sucesso\n\n\n\n")
+            }
+        })
+        
     }
     
 }

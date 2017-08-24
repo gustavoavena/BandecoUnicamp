@@ -96,6 +96,9 @@ class UnicampServer {
         let nowString = formatter.string(from: Date())
         
         cardapios = cardapios.filter { formatter.string(from: $0.data) >= nowString }
+        
+        // TODO: melhorar maneira de atualizar o Cache para acessar nas notificacoes.
+        Cache.shared().cardapios = cardapios
 
         
         return cardapios
