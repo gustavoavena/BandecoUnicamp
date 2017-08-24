@@ -17,11 +17,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
-        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        if #available(iOSApplicationExtension 10.0, *) {
+            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        } else {
+            preferredContentSize = CGSize(width: self.view.frame.width, height: 184)
+            widgetTableViewController.guarnicao.textColor = UIColor.lightGray
+            widgetTableViewController.pratoPrincipal.textColor = UIColor.lightGray
+            widgetTableViewController.suco.textColor = UIColor.lightGray
+            widgetTableViewController.sobremesa.textColor = UIColor.lightGray
+            widgetTableViewController.salada.textColor = UIColor.lightGray
+            widgetTableViewController.pts.textColor = UIColor.lightGray
+            // Fallback on earlier versions
+        }
     }
     
     
     // mostra poucas infos caso esteja no modo compacto, e todas info no modo expandido
+    @available(iOSApplicationExtension 10.0, *)
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         
         let expanded = activeDisplayMode == .expanded

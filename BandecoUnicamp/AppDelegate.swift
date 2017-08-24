@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let gai = GAI.sharedInstance() {
             gai.tracker(withTrackingId: ("UA-103784746-1"))
             gai.trackUncaughtExceptions = true  // report uncaught exceptions
-            gai.logger.logLevel = GAILogLevel.verbose  // remove before app release
+            gai.logger.logLevel = GAILogLevel.none  // TODO: definir isso aqui
             gai.defaultTracker.allowIDFACollection = true
             gai.defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "ui_action", action: "app_launched",label:"launch",value:nil).build() as! [AnyHashable : Any]!)
         }

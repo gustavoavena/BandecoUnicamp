@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
+		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
 		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
@@ -35,8 +38,8 @@
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
-		539B04135D73BE8EC6A41DE1 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */; };
 		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
+		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */,
 				4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -77,6 +81,8 @@
 /* Begin PBXFileReference section */
 		2155E212ACAF82A96A3A244B /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
+		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
@@ -103,7 +109,7 @@
 		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
-		50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +121,7 @@
 			files = (
 				4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */,
 				4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */,
+				4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */,
-				539B04135D73BE8EC6A41DE1 /* libPods-BandecoUnicamp.a in Frameworks */,
+				4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */,
+				D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +150,11 @@
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */,
+				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
 				4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */,
-				50A596F9DAB6BDECDCA96858 /* libPods-BandecoUnicamp.a */,
+				6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,6 +257,7 @@
 				4DB41A191EEAD7EE00255628 /* Embed Frameworks */,
 				58876C8EDA973846B23342D4 /* [CP] Embed Pods Frameworks */,
 				A5DE2172CA54F778139D7323 /* [CP] Copy Pods Resources */,
+				4D41771A1F30A471007CE9D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -335,6 +346,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D41771A1F30A471007CE9D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
 		58876C8EDA973846B23342D4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -463,6 +487,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +507,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -594,18 +620,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -618,17 +646,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
