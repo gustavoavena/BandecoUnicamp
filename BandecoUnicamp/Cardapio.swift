@@ -40,7 +40,7 @@ enum JSONKeys: String {
 // TODO: implementar equatable protocol.
 
 /// Mantem o cardapio de todas as refeicoes de um dia.
-public class Cardapio: Decodable {
+public class Cardapio: Gloss.Decodable {
     let data: Date
     let almoco: Refeicao
     let jantar: Refeicao
@@ -113,7 +113,7 @@ public class Cardapio: Decodable {
 }
 
 
-public struct Refeicao: Decodable {
+public struct Refeicao: Gloss.Decodable {
 	let tipo: TipoRefeicao
 	let arrozFeijao: String
 	let pratoPrincipal: String
