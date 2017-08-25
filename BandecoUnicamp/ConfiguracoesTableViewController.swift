@@ -28,21 +28,7 @@ class ConfiguracoesTableViewController: UITableViewController {
         self.veggieTableViewCell.selectionStyle = .none;
         
         
-        // TODO: REMOVE THIS
-        if #available(iOS 10.0, *) {
-            requestNotificationPermission()
-        } else {
-            // Fallback on earlier versions
-            requestNotificationPermissionForIOS9()
-        }
-        
-        if #available(iOS 10.0, *) {
-            requestNotification()
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        // TODO: REMOVE THIS
+       
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -72,6 +58,33 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     // - MARK: notifications
     
+    
+    @IBAction func notificationSwitchToggled(_ sender: UISwitch) {
+        if(sender.isOn) {
+            
+            // TODO: REMOVE THIS
+            if #available(iOS 10.0, *) {
+                requestNotificationPermission()
+            } else {
+                // Fallback on earlier versions
+                requestNotificationPermissionForIOS9()
+            }
+            
+            if #available(iOS 10.0, *) {
+                requestNotification()
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            // TODO: REMOVE THIS
+            
+        }
+    }
+    
+    
+    
+    
+    
     @available(iOS 10.0, *)
     func requestNotificationPermission() {
         let center = UNUserNotificationCenter.current()
@@ -90,7 +103,15 @@ class ConfiguracoesTableViewController: UITableViewController {
         // TODO
     }
     
-    
+    /*
+     TODO
+     
+     - Pegar o primeiro cardapio e ver se ele é o dia dia.
+     - Escolher entre tradicional e vegetariano.
+     - So mandar notificacao se tiver cardapio correto.
+     
+     
+     */
     
     @available(iOS 10.0, *)
     func requestNotification() {
@@ -109,9 +130,12 @@ class ConfiguracoesTableViewController: UITableViewController {
         content.sound = UNNotificationSound.default()
         
         let date = Date()
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.second,], from: date)
+        let componentes = DateComponents(calendar: Calendar.current, hour: 12, minute: 36, second: 0)
+//        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.second,], from: date)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: true)
+        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: componentes, repeats: true)
         
         let identifier = "UYLLocalNotification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
