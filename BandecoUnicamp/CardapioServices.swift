@@ -25,9 +25,7 @@ public class CardapioServices: NSObject {
     public static let shared: CardapioServices = CardapioServices()
     
 
-    private override init() {
-        
-    }
+    private override init() {}
 
     /// Fornece um array com todos os cardapios, já em objetos da classe Cardapio, fornecidos pelo servidor.
     ///
@@ -35,11 +33,10 @@ public class CardapioServices: NSObject {
     public func getAllCardapios() -> [Cardapio] {
         return UnicampServer.getAllCardapios()
     }
-    
-   
+
 }
 
-// Metodos para o Widget.
+// MARK: Metodos para o Widget.
 extension CardapioServices {
     
     
