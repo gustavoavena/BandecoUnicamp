@@ -82,7 +82,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
 
-        let (proxRefeicao, proxData) = CardapioServices.getWidgetRefeicaoData()
+        let (proxRefeicao, proxData) = CardapioServices.shared.getWidgetRefeicaoData()
         
         guard let refeicao = proxRefeicao, let data = proxData else {
             widgetTableViewController.displayError()
