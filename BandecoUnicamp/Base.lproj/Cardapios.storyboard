@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1Vk-aY-YJE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="LLG-Ws-NOs">
+            <objects>
+                <viewController id="vle-GY-btq" customClass="MainViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kh3-QE-0Jn"/>
+                        <viewControllerLayoutGuide type="bottom" id="nco-aN-sjL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3FU-jG-E5m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-JY-Eq3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="HN3-Mo-3zH" kind="embed" identifier="embedPage" id="DMJ-DV-GsZ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iPf-JY-Eq3" secondAttribute="trailing" id="20x-O9-VTi"/>
+                            <constraint firstItem="iPf-JY-Eq3" firstAttribute="top" secondItem="Kh3-QE-0Jn" secondAttribute="bottom" id="PI4-pP-mjJ"/>
+                            <constraint firstItem="nco-aN-sjL" firstAttribute="top" secondItem="iPf-JY-Eq3" secondAttribute="bottom" id="omL-p9-stw"/>
+                            <constraint firstItem="iPf-JY-Eq3" firstAttribute="leading" secondItem="3FU-jG-E5m" secondAttribute="leading" id="oxq-Js-3gP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ryT-7O-grL">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GeU-b1-omu">
+                            <rect key="frame" x="35.5" y="7.5" width="304" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Tradicional"/>
+                                <segment title="Vegetariano"/>
+                            </segments>
+                            <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="segmentedValueChanged:" destination="vle-GY-btq" eventType="valueChanged" id="9Gb-HK-GcU"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="typeSegmentedControl" destination="GeU-b1-omu" id="rUR-yK-AUB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LtG-Vi-9B6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="241"/>
+        </scene>
+        <!--Cardápio-->
+        <scene sceneID="QNy-Pl-pnb">
+            <objects>
+                <navigationController title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" selectedImage="cardapio-filled" id="Yrh-n2-EPe"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vle-GY-btq" kind="relationship" relationship="rootViewController" id="FNT-TT-4DK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="241"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="wIJ-Rh-gk5">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="HN3-Mo-3zH" customClass="PageViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DjR-4X-wBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3046" y="240"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cardapio" width="25" height="25"/>
+        <image name="cardapio-filled" width="25" height="25"/>
+    </resources>
+</document>

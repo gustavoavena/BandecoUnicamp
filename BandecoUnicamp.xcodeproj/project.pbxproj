@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
+		4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
+		4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */; };
 		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
 		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
@@ -34,11 +37,9 @@
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */; };
-		4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
-		B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4D5C6D531ED1E45D009CC3E1;
 			remoteInfo = WidgetCardapio;
+		};
+		9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD1694C1F50BA7700C85E95;
+			remoteInfo = Bandex;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,6 +89,8 @@
 /* Begin PBXFileReference section */
 		2155E212ACAF82A96A3A244B /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
+		4D02A3AE1F54A50B00E9357A /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
+		4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cardapios.storyboard; sourceTree = "<group>"; };
 		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
@@ -106,15 +116,20 @@
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
 		4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioViewController.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3546361D6EE5A7CE5299E882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D511ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,6 +162,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4D02A3B11F54A54800E9357A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
+				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
+				4D02A3AE1F54A50B00E9357A /* Refeicao.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D02A3B21F54A56100E9357A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */,
+				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
+				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +212,7 @@
 				4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */,
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
+				9BD1694E1F50BA7700C85E95 /* Bandex */,
 				4D5C6D551ED1E45D009CC3E1 /* Frameworks */,
 				4D9529001EC78D2D00219F48 /* Products */,
 				4C10C09CB4B0180809A99E3C /* Pods */,
@@ -198,15 +234,13 @@
 			children = (
 				4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */,
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
-				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
-				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
+				4D02A3B11F54A54800E9357A /* Model */,
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
-				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
+				4D02A3B21F54A56100E9357A /* View */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
-				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
 				4D95290E1EC78D2E00219F48 /* Info.plist */,
 			);
 			path = BandecoUnicamp;
@@ -216,13 +250,18 @@
 			isa = PBXGroup;
 			children = (
 				4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */,
-				4DD99A0F1ED20A31007D0038 /* CardapioViewController.swift */,
 				4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */,
 				4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */,
 				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
-				B163FDD61F2640A6003F4870 /* FeedbackViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9BD1694E1F50BA7700C85E95 /* Bandex */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bandex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,11 +302,27 @@
 			);
 			dependencies = (
 				4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */,
+				9BD169531F50BA7700C85E95 /* PBXTargetDependency */,
 			);
 			name = BandecoUnicamp;
 			productName = BandecoUnicamp;
 			productReference = 4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9BD1694C1F50BA7700C85E95 /* Bandex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */;
+			buildPhases = (
+				9BD1694B1F50BA7700C85E95 /* Resources */,
+				3546361D6EE5A7CE5299E882 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bandex;
+			productName = Bandex;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
 
@@ -300,6 +355,11 @@
 							};
 						};
 					};
+					9BD1694C1F50BA7700C85E95 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2ECVV26Q6C;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 4D9528FA1EC78D2D00219F48 /* Build configuration list for PBXProject "BandecoUnicamp" */;
@@ -317,6 +377,7 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
+				9BD1694C1F50BA7700C85E95 /* Bandex */,
 			);
 		};
 /* End PBXProject section */
@@ -338,8 +399,16 @@
 				4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
+				4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */,
 				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD1694B1F50BA7700C85E95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,9 +464,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BandecoUnicamp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,6 +486,7 @@
 				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
 				4D9724081F279E7900F588B8 /* Cache.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
+				4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */,
 				4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */,
 				4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
@@ -424,8 +497,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD99A101ED20A31007D0038 /* CardapioViewController.swift in Sources */,
 				4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */,
+				4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */,
 				4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */,
 				4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */,
 				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
@@ -433,7 +506,6 @@
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
 				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
-				B163FDD71F2640A6003F4870 /* FeedbackViewController.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +517,11 @@
 			isa = PBXTargetDependency;
 			target = 4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */;
 			targetProxy = 4D5C6D5F1ED1E45D009CC3E1 /* PBXContainerItemProxy */;
+		};
+		9BD169531F50BA7700C85E95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD1694C1F50BA7700C85E95 /* Bandex */;
+			targetProxy = 9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -489,7 +566,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -509,7 +586,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -628,7 +705,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -654,11 +731,37 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		9BD169551F50BA7700C85E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				INFOPLIST_FILE = Bandex/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.Bandex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9BD169561F50BA7700C85E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				INFOPLIST_FILE = Bandex/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.Bandex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -688,6 +791,15 @@
 			buildConfigurations = (
 				4D9529121EC78D2E00219F48 /* Debug */,
 				4D9529131EC78D2E00219F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD169551F50BA7700C85E95 /* Debug */,
+				9BD169561F50BA7700C85E95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
