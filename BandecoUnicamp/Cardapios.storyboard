@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-JY-Eq3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <connections>
                                     <segue destination="HN3-Mo-3zH" kind="embed" identifier="embedPage" id="DMJ-DV-GsZ"/>
                                 </connections>
@@ -65,9 +65,10 @@
         <!--Cardápio-->
         <scene sceneID="QNy-Pl-pnb">
             <objects>
-                <navigationController storyboardIdentifier="CardapiosNavigationController" title="Cardápio" toolbarHidden="NO" id="1Vk-aY-YJE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CardapiosNavigationController" title="Cardápio" id="1Vk-aY-YJE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cardápio" image="tabBarItem:Yrh-n2-EPe:image" selectedImage="cardapio" id="Yrh-n2-EPe"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
