@@ -152,7 +152,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3am-1F-Xrs" userLabel="AlmocoPicker">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3am-1F-Xrs" userLabel="AlmocoPicker">
                                                     <rect key="frame" x="305" y="12.5" width="60" height="17"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -184,10 +184,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Csb-8f-VKn" userLabel="AlmocoPicker">
+                                                    <rect key="frame" x="305" y="13" width="60" height="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="aho-6s-Wje"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Vh0-QP-UIM" firstAttribute="leading" secondItem="3x5-mD-snb" secondAttribute="leading" constant="15" id="0c9-YH-dAT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Csb-8f-VKn" secondAttribute="trailing" constant="10" id="E1V-gw-04R"/>
                                                 <constraint firstItem="Vh0-QP-UIM" firstAttribute="centerY" secondItem="3x5-mD-snb" secondAttribute="centerY" id="ZAW-RD-JIf"/>
+                                                <constraint firstItem="Csb-8f-VKn" firstAttribute="centerY" secondItem="3x5-mD-snb" secondAttribute="centerY" id="hJg-yS-aM3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -253,6 +265,7 @@
                     <connections>
                         <outlet property="almocoPickerTextField" destination="3am-1F-Xrs" id="o3L-G8-1Gk"/>
                         <outlet property="dietaSwitch" destination="VMb-oX-tuT" id="t6C-Cd-2tJ"/>
+                        <outlet property="jantarPickerTextField" destination="Csb-8f-VKn" id="Rbl-Jo-WUN"/>
                         <outlet property="notificationSwitch" destination="39V-HG-wmE" id="rsl-rQ-yHZ"/>
                         <outlet property="veggieTableViewCell" destination="7Ap-nO-W3l" id="ayP-Kv-BrD"/>
                     </connections>
