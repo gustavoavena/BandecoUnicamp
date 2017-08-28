@@ -18,10 +18,16 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     @IBOutlet weak var almocoPickerTextField: UITextField!
     let almocoPickerView = UIPickerView()
-    let almocoPickerOptions = [9, 10, 11, 12, 13]
+    let almocoDatePickerView = UIDatePicker()
+    let almocoPickerHourOptions = ["09", "10", "11", "12", "13"]
+    let almocoPickerMinuteOptions = ["00" ,"30"]
+    
     
     
     let notificationsUserDefaultsString = "notificationsEnabled"
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -35,11 +41,22 @@ class ConfiguracoesTableViewController: UITableViewController {
         // disable highlight on veggie's cell. its only possible to click on switch
         self.veggieTableViewCell.selectionStyle = .none;
         
-        
-        
         almocoPickerView.delegate = self
         
+        almocoPickerView.selectRow(3, inComponent: 0, animated: true)
+        almocoPickerView.selectRow(0, inComponent: 1, animated: true)
+        
+        
         almocoPickerTextField.inputView = almocoPickerView
+        almocoPickerTextField.text = "12:00"
+        
+        
+        
+        
+        
+        
+        
+        
         
        
         tableView.reloadData()
@@ -187,31 +204,43 @@ class ConfiguracoesTableViewController: UITableViewController {
         
     }
     
+   
+  
 }
+
 
 extension ConfiguracoesTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return almocoPickerOptions.count
+        return component == 0 ? almocoPickerHourOptions.count : almocoPickerMinuteOptions.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(almocoPickerOptions[row])
+        return component == 0 ? almocoPickerHourOptions[row] : almocoPickerMinuteOptions[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        almocoPickerTextField.text = String(almocoPickerOptions[row])
-        almocoPickerView.isHidden = true
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let hour = almocoPickerHourOptions[almocoPickerView.selectedRow(inComponent: 0)]
+        let minute = almocoPickerMinuteOptions[almocoPickerView.selectedRow(inComponent: 1)]
+        almocoPickerTextField.text = "\(hour):\(minute)"
+        almocoPickerTextField.resignFirstResponder()
     }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        almocoPickerView.isHidden = false
-        return false
-    }
+    
+    
+    
+    
+    
+    
+//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+//        almocoPickerView.isHidden = false
+//        return false
+//    }
     
 }
 
