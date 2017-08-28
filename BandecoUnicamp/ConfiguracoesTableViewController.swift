@@ -16,12 +16,19 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var veggieTableViewCell: UITableViewCell!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
+    @IBOutlet weak var almocoPickerTextField: UITextField!
+    let almocoPickerView = UIPickerView()
+    let almocoPickerOptions = [9, 10, 11, 12, 13]
+    
+    
+    let notificationsUserDefaultsString = "notificationsEnabled"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
-        
+        notificationSwitch.isOn = UserDefaults.standard.bool(forKey: notificationsUserDefaultsString)
         // back button color
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
         
@@ -29,8 +36,13 @@ class ConfiguracoesTableViewController: UITableViewController {
         self.veggieTableViewCell.selectionStyle = .none;
         
         
-       
         
+        almocoPickerView.delegate = self
+        
+        almocoPickerTextField.inputView = almocoPickerView
+        
+       
+        tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -75,15 +87,12 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBAction func notificationSwitchToggled(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: notificationsUserDefaultsString)
+        
         if(sender.isOn) {
             
-            // TODO: REMOVE THIS
-            if #available(iOS 10.0, *) {
-                requestNotificationPermission()
-            } else {
-                // Fallback on earlier versions
-                requestNotificationPermissionForIOS9()
-            }
+            requestNotificationPermission()
+            
             
             if #available(iOS 10.0, *) {
                 requestNotification()
@@ -110,23 +119,25 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     
-    @available(iOS 10.0, *)
     func requestNotificationPermission() {
-        let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .sound]
         
-        center.requestAuthorization(options: options) {
-            (granted, error) in
-            if !granted {
-                print("Permissao para notificacoes negada!")
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            let options: UNAuthorizationOptions = [.alert, .sound]
+            
+            center.requestAuthorization(options: options) {
+                (granted, error) in
+                if !granted {
+                    print("Permissao para notificacoes negada!")
+                }
             }
+        } else {
+            // TODO: iOS 9
         }
         
     }
     
-    func requestNotificationPermissionForIOS9() {
-        // TODO
-    }
+  
     
     /*
      TODO
@@ -154,7 +165,6 @@ class ConfiguracoesTableViewController: UITableViewController {
         }
         content.sound = UNNotificationSound.default()
         
-        let date = Date()
         let componentes = DateComponents(calendar: Calendar.current, hour: 12, minute: 36, second: 0)
 //        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.second,], from: date)
         
@@ -169,12 +179,38 @@ class ConfiguracoesTableViewController: UITableViewController {
         center.add(request, withCompletionHandler: { (error) in
             if let error = error {
                 // Something went wrong
-                print("Erro ao registrar a notificacao")
+                print("Erro ao registrar a notificacao: ", error)
             } else {
                 print("\n\n\n\nNotificacao registrada com sucesso\n\n\n\n")
             }
         })
         
+    }
+    
+}
+
+extension ConfiguracoesTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return almocoPickerOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(almocoPickerOptions[row])
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        almocoPickerTextField.text = String(almocoPickerOptions[row])
+        almocoPickerView.isHidden = true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        almocoPickerView.isHidden = false
+        return false
     }
     
 }

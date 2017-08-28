@@ -152,8 +152,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="12" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3am-1F-Xrs" userLabel="AlmocoPicker">
+                                                    <rect key="frame" x="315" y="6" width="50" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="74C-Sa-vfc"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3am-1F-Xrs" firstAttribute="centerY" secondItem="aY1-3o-pFS" secondAttribute="centerY" id="Fw4-hW-wxV"/>
+                                                <constraint firstAttribute="trailing" secondItem="3am-1F-Xrs" secondAttribute="trailing" constant="10" id="J9B-05-TsO"/>
                                                 <constraint firstItem="Ue8-TS-Rnc" firstAttribute="centerY" secondItem="aY1-3o-pFS" secondAttribute="centerY" id="LHj-93-Znn"/>
                                                 <constraint firstItem="Ue8-TS-Rnc" firstAttribute="leading" secondItem="aY1-3o-pFS" secondAttribute="leading" constant="15" id="TNk-kj-uJn"/>
                                             </constraints>
@@ -239,6 +250,7 @@
                     <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" id="pRv-YT-drb"/>
                     <navigationItem key="navigationItem" title="Configurações" id="xWc-hC-V39"/>
                     <connections>
+                        <outlet property="almocoPickerTextField" destination="3am-1F-Xrs" id="o3L-G8-1Gk"/>
                         <outlet property="dietaSwitch" destination="VMb-oX-tuT" id="t6C-Cd-2tJ"/>
                         <outlet property="notificationSwitch" destination="39V-HG-wmE" id="rsl-rQ-yHZ"/>
                         <outlet property="veggieTableViewCell" destination="7Ap-nO-W3l" id="ayP-Kv-BrD"/>
