@@ -150,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
+				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4D02A3AE1F54A50B00E9357A /* Refeicao.swift */,
 			);
 			name = Model;
@@ -216,7 +217,6 @@
 				4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */,
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
 				4D02A3B11F54A54800E9357A /* Model */,
-				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
