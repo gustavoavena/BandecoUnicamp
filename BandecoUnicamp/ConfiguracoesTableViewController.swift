@@ -14,6 +14,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     @IBOutlet weak var dietaSwitch: UISwitch!
     @IBOutlet weak var veggieTableViewCell: UITableViewCell!
+    @IBOutlet weak var notificationSwitch: UISwitch!
     
     
     override func viewDidLoad() {
@@ -56,6 +57,20 @@ class ConfiguracoesTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return notificationSwitch.isOn ? 3 : 1
+        case 2:
+            return 2
+        default:
+            return 0
+        }
+        
+    }
+    
     // - MARK: notifications
     
     
@@ -75,10 +90,20 @@ class ConfiguracoesTableViewController: UITableViewController {
             } else {
                 // Fallback on earlier versions
             }
-            
+
             // TODO: REMOVE THIS
             
+        } else { // Desabilitar notificacao
+            
+            if #available(iOS 10.0, *) {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                print("Notificações removidas")
+            } else {
+                // Fallback on earlier versions
+            }
         }
+        
+        tableView.reloadData()
     }
     
     
