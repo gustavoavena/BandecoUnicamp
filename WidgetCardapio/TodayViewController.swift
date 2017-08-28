@@ -61,22 +61,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         })
     }
 
-    private func getTipoRefeicaoParaExibir(dataCardapio: Date) -> TipoRefeicao {
-        let horaAtual = Calendar.current.component(.hour, from: Date())
-        let diaDaSemanaAtual = Calendar.current.component(.weekday, from: Date())
-        
-        let (almoco, jantar): (TipoRefeicao,TipoRefeicao) = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? (.almocoVegetariano, .jantarVegetariano) : (.almoco, .jantar)
-        
-        if (2...6).contains(diaDaSemanaAtual) {
-            if (14...20).contains(horaAtual) {
-                return jantar
-            } else {
-                return almoco
-            }
-        } else {
-            return almoco
-        }
-    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         updateWidget() {
@@ -90,24 +75,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
    
-    func cardapioProxDia() -> Bool {
-        let hora = Calendar.current.component(.hour, from: Date())
-        let weekday = Calendar.current.component(.weekday, from: Date())
-        
-        return (hora > 19) && (2...6).contains(weekday) ? true : false
-    }
+    
     
 
     
     // FIXME: widget nao atualiza logo no Today Menu apos alterar dieta... Ele atualiza na hora no Force Touch do icone.
     fileprivate func updateWidget(completionHandler: (@escaping (Bool) -> Void)) {
-       
-        let cardapios = CardapioServices.getAllCardapios()
+
+        let (proxRefeicao, proxData) = CardapioServices.getWidgetRefeicaoData()
         
-        let numeroCardapio = cardapioProxDia() ? 1 : 0
-        
-        guard cardapios.count > numeroCardapio else {
-            print("nao veio nenhum cardapio.")
+        guard let refeicao = proxRefeicao, let data = proxData else {
             widgetTableViewController.displayError()
             completionHandler(false)
             return
@@ -118,19 +95,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             completionHandler(false)
             return
         }
-        
-        
-        let cardapioDia = cardapios[numeroCardapio]
 
-        print(cardapioDia)
-        
-        let tipo = self.getTipoRefeicaoParaExibir(dataCardapio: cardapioDia.data)
-        
-        widgetTableViewController.setCardapioValues(refeicao: cardapioDia[tipo], data: cardapioDia.data)
+        widgetTableViewController.setCardapioValues(refeicao: refeicao, data: data)
        
         
         completionHandler(true)
-            
     }
         
     
