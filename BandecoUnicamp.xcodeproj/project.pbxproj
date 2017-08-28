@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
 		4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
+		4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */; };
 		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
 		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
@@ -89,6 +90,7 @@
 		2155E212ACAF82A96A3A244B /* Pods-BandecoUnicamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.debug.xcconfig"; sourceTree = "<group>"; };
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
 		4D02A3AE1F54A50B00E9357A /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
+		4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cardapios.storyboard; sourceTree = "<group>"; };
 		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		4D02A3B21F54A56100E9357A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */,
 				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
 			);
@@ -396,6 +399,7 @@
 				4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
+				4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */,
 				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
 			);
