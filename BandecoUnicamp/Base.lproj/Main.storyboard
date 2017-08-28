@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="-369" y="241"/>
         </scene>
-        <!--UINavigationController-1Vk-aY-YJE-->
+        <!--CardapiosNavigationController-->
         <scene sceneID="pz5-Dr-YVu">
             <objects>
-                <viewControllerPlaceholder storyboardName="Cardapios" referencedIdentifier="UINavigationController-1Vk-aY-YJE" id="Cmo-Fz-PrU" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Cardapios" referencedIdentifier="CardapiosNavigationController" id="Cmo-Fz-PrU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="sej-RH-g9f"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n99-rD-bg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
