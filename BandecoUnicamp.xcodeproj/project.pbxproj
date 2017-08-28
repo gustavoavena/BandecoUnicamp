@@ -50,6 +50,13 @@
 			remoteGlobalIDString = 4D5C6D531ED1E45D009CC3E1;
 			remoteInfo = WidgetCardapio;
 		};
+		9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD1694C1F50BA7700C85E95;
+			remoteInfo = Bandex;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +66,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				9BD169541F50BA7700C85E95 /* Bandex.appex in Embed App Extensions */,
 				4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -114,6 +122,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3546361D6EE5A7CE5299E882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D511ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +210,7 @@
 				4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */,
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
+				9BD1694E1F50BA7700C85E95 /* Bandex */,
 				4D5C6D551ED1E45D009CC3E1 /* Frameworks */,
 				4D9529001EC78D2D00219F48 /* Products */,
 				4C10C09CB4B0180809A99E3C /* Pods */,
@@ -207,6 +223,7 @@
 			children = (
 				4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */,
 				4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */,
+				9BD1694D1F50BA7700C85E95 /* Bandex.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +254,15 @@
 				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9BD1694E1F50BA7700C85E95 /* Bandex */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1694F1F50BA7700C85E95 /* Stickers.xcassets */,
+				9BD169511F50BA7700C85E95 /* Info.plist */,
+			);
+			path = Bandex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +303,28 @@
 			);
 			dependencies = (
 				4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */,
+				9BD169531F50BA7700C85E95 /* PBXTargetDependency */,
 			);
 			name = BandecoUnicamp;
 			productName = BandecoUnicamp;
 			productReference = 4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9BD1694C1F50BA7700C85E95 /* Bandex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */;
+			buildPhases = (
+				9BD1694B1F50BA7700C85E95 /* Resources */,
+				3546361D6EE5A7CE5299E882 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bandex;
+			productName = Bandex;
+			productReference = 9BD1694D1F50BA7700C85E95 /* Bandex.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
 
@@ -295,7 +338,7 @@
 				TargetAttributes = {
 					4D5C6D531ED1E45D009CC3E1 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 2ECVV26Q6C;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -305,7 +348,7 @@
 					};
 					4D9528FE1EC78D2D00219F48 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 2ECVV26Q6C;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -313,6 +356,11 @@
 								enabled = 1;
 							};
 						};
+					};
+					9BD1694C1F50BA7700C85E95 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2ECVV26Q6C;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -331,6 +379,7 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
+				9BD1694C1F50BA7700C85E95 /* Bandex */,
 			);
 		};
 /* End PBXProject section */
@@ -354,6 +403,14 @@
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
 				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD1694B1F50BA7700C85E95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD169501F50BA7700C85E95 /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,13 +466,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BandecoUnicamp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -460,6 +520,11 @@
 			target = 4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */;
 			targetProxy = 4D5C6D5F1ED1E45D009CC3E1 /* PBXContainerItemProxy */;
 		};
+		9BD169531F50BA7700C85E95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD1694C1F50BA7700C85E95 /* Bandex */;
+			targetProxy = 9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -494,7 +559,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -503,7 +568,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -514,7 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -523,7 +588,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.WidgetCardapio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.WidgetCardapio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -633,7 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -642,7 +707,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -659,7 +724,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BandecoUnicamp/BandecoUnicamp.entitlements;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,11 +733,37 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		9BD169551F50BA7700C85E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				INFOPLIST_FILE = Bandex/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.Bandex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9BD169561F50BA7700C85E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				INFOPLIST_FILE = Bandex/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gio.BandecoUnicamp.Bandex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -705,6 +796,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD169551F50BA7700C85E95 /* Debug */,
+				9BD169561F50BA7700C85E95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
