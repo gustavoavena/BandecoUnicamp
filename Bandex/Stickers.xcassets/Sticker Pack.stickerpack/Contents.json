@@ -1,4 +1,51 @@
 {
+  "stickers" : [
+    {
+      "filename" : "Trazcaneca.sticker"
+    },
+    {
+      "filename" : "Estrogonove.sticker"
+    },
+    {
+      "filename" : "GO-Vegan.sticker"
+    },
+    {
+      "filename" : "Coxinha.sticker"
+    },
+    {
+      "filename" : "Esse bolinho é bem 10.sticker"
+    },
+    {
+      "filename" : "Divido Melancia.sticker"
+    },
+    {
+      "filename" : "Cozido Misto.sticker"
+    },
+    {
+      "filename" : "Hoje tem feijoada.sticker"
+    },
+    {
+      "filename" : "Cozido Místico.sticker"
+    },
+    {
+      "filename" : "Suco Radioativo.sticker"
+    },
+    {
+      "filename" : "Sou um chuchuzinho.sticker"
+    },
+    {
+      "filename" : "Bife à Jardineira.sticker"
+    },
+    {
+      "filename" : "Cadê a metade da minha laranja.sticker"
+    },
+    {
+      "filename" : "Batata e Palha.sticker"
+    },
+    {
+      "filename" : "Peixe não tem fila.sticker"
+    }
+  ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
