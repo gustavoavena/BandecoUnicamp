@@ -149,6 +149,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		81CB16712F9FCA26AB53C94A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -316,6 +323,7 @@
 			buildConfigurationList = 9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Bandex" */;
 			buildPhases = (
 				9B67CAEF1F56FE6A00B85D7B /* Resources */,
+				81CB16712F9FCA26AB53C94A /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,7 +367,7 @@
 					};
 					9B67CAF01F56FE6A00B85D7B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2ECVV26Q6C;
+						DevelopmentTeam = X5G89Y4L38;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -476,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -749,11 +757,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				INFOPLIST_FILE = Bandex/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.Bandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -762,11 +771,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = 2ECVV26Q6C;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				INFOPLIST_FILE = Bandex/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.Bandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -807,6 +817,7 @@
 				9B67CAFB1F56FE6A00B85D7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
