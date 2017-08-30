@@ -13,8 +13,6 @@
 		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
 		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
-		4D272CF71F56FB8600B77832 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D272CF51F56FB8600B77832 /* Stickers.xcassets */; };
-		4D272CF81F56FB8600B77832 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D272CF61F56FB8600B77832 /* Info.plist */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
 		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
@@ -42,6 +40,8 @@
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
+		9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */; };
+		9B67CAF81F56FE6A00B85D7B /* Bandex.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B67CAF11F56FE6A00B85D7B /* Bandex.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -53,11 +53,11 @@
 			remoteGlobalIDString = 4D5C6D531ED1E45D009CC3E1;
 			remoteInfo = WidgetCardapio;
 		};
-		9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */ = {
+		9B67CAF61F56FE6A00B85D7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9BD1694C1F50BA7700C85E95;
+			remoteGlobalIDString = 9B67CAF01F56FE6A00B85D7B;
 			remoteInfo = Bandex;
 		};
 /* End PBXContainerItemProxy section */
@@ -69,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				9B67CAF81F56FE6A00B85D7B /* Bandex.appex in Embed App Extensions */,
 				4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -95,8 +96,6 @@
 		4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cardapios.storyboard; sourceTree = "<group>"; };
 		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
-		4D272CF51F56FB8600B77832 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
-		4D272CF61F56FB8600B77832 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
@@ -123,17 +122,13 @@
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B67CAF11F56FE6A00B85D7B /* Bandex.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Bandex.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		9B67CAF51F56FE6A00B85D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3546361D6EE5A7CE5299E882 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4D5C6D511ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,7 +211,7 @@
 				4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */,
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
-				9BD1694E1F50BA7700C85E95 /* Bandex */,
+				9B67CAF21F56FE6A00B85D7B /* Bandex */,
 				4D5C6D551ED1E45D009CC3E1 /* Frameworks */,
 				4D9529001EC78D2D00219F48 /* Products */,
 				4C10C09CB4B0180809A99E3C /* Pods */,
@@ -229,6 +224,7 @@
 			children = (
 				4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */,
 				4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */,
+				9B67CAF11F56FE6A00B85D7B /* Bandex.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,11 +257,11 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		9BD1694E1F50BA7700C85E95 /* Bandex */ = {
+		9B67CAF21F56FE6A00B85D7B /* Bandex */ = {
 			isa = PBXGroup;
 			children = (
-				4D272CF61F56FB8600B77832 /* Info.plist */,
-				4D272CF51F56FB8600B77832 /* Stickers.xcassets */,
+				9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */,
+				9B67CAF51F56FE6A00B85D7B /* Info.plist */,
 			);
 			path = Bandex;
 			sourceTree = "<group>";
@@ -308,19 +304,18 @@
 			);
 			dependencies = (
 				4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */,
-				9BD169531F50BA7700C85E95 /* PBXTargetDependency */,
+				9B67CAF71F56FE6A00B85D7B /* PBXTargetDependency */,
 			);
 			name = BandecoUnicamp;
 			productName = BandecoUnicamp;
 			productReference = 4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9BD1694C1F50BA7700C85E95 /* Bandex */ = {
+		9B67CAF01F56FE6A00B85D7B /* Bandex */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */;
+			buildConfigurationList = 9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Bandex" */;
 			buildPhases = (
-				9BD1694B1F50BA7700C85E95 /* Resources */,
-				3546361D6EE5A7CE5299E882 /* Frameworks */,
+				9B67CAEF1F56FE6A00B85D7B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -328,6 +323,7 @@
 			);
 			name = Bandex;
 			productName = Bandex;
+			productReference = 9B67CAF11F56FE6A00B85D7B /* Bandex.appex */;
 			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
@@ -361,9 +357,9 @@
 							};
 						};
 					};
-					9BD1694C1F50BA7700C85E95 = {
+					9B67CAF01F56FE6A00B85D7B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 2ECVV26Q6C;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -383,7 +379,7 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
-				9BD1694C1F50BA7700C85E95 /* Bandex */,
+				9B67CAF01F56FE6A00B85D7B /* Bandex */,
 			);
 		};
 /* End PBXProject section */
@@ -411,12 +407,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BD1694B1F50BA7700C85E95 /* Resources */ = {
+		9B67CAEF1F56FE6A00B85D7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D272CF81F56FB8600B77832 /* Info.plist in Resources */,
-				4D272CF71F56FB8600B77832 /* Stickers.xcassets in Resources */,
+				9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -526,10 +521,10 @@
 			target = 4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */;
 			targetProxy = 4D5C6D5F1ED1E45D009CC3E1 /* PBXContainerItemProxy */;
 		};
-		9BD169531F50BA7700C85E95 /* PBXTargetDependency */ = {
+		9B67CAF71F56FE6A00B85D7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9BD1694C1F50BA7700C85E95 /* Bandex */;
-			targetProxy = 9BD169521F50BA7700C85E95 /* PBXContainerItemProxy */;
+			target = 9B67CAF01F56FE6A00B85D7B /* Bandex */;
+			targetProxy = 9B67CAF61F56FE6A00B85D7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -749,31 +744,29 @@
 			};
 			name = Release;
 		};
-		9BD169551F50BA7700C85E95 /* Debug */ = {
+		9B67CAFA1F56FE6A00B85D7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				INFOPLIST_FILE = Bandex/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.Bandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		9BD169561F50BA7700C85E95 /* Release */ = {
+		9B67CAFB1F56FE6A00B85D7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 2ECVV26Q6C;
 				INFOPLIST_FILE = Bandex/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp.Bandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -807,14 +800,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BD169571F50BA7700C85E95 /* Build configuration list for PBXNativeTarget "Bandex" */ = {
+		9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Bandex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9BD169551F50BA7700C85E95 /* Debug */,
-				9BD169561F50BA7700C85E95 /* Release */,
+				9B67CAFA1F56FE6A00B85D7B /* Debug */,
+				9B67CAFB1F56FE6A00B85D7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
