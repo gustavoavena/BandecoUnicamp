@@ -57,10 +57,107 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Notificações" footerTitle="Você receberá o cardápio do almoço às 11h e do jantar às 17h." id="LES-gj-TOe" userLabel="FEEDBACK E SUGESTÕES">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="752-eB-i5M">
+                                        <rect key="frame" x="0.0" y="191" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="752-eB-i5M" id="lc5-aa-gx2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ixU-WF-H9E">
+                                                    <rect key="frame" x="316" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="notificationSwitchToggled:" destination="LTB-97-MNb" eventType="valueChanged" id="k2i-lj-Qh2"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-t0-2Lj">
+                                                    <rect key="frame" x="15" y="11" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C5N-t0-2Lj" firstAttribute="leading" secondItem="lc5-aa-gx2" secondAttribute="leading" constant="15" id="TSW-Ow-c3Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="ixU-WF-H9E" secondAttribute="bottom" constant="6" id="YQa-wU-rRV"/>
+                                                <constraint firstAttribute="trailing" secondItem="ixU-WF-H9E" secondAttribute="trailing" constant="10" id="kyT-4i-8RH"/>
+                                                <constraint firstItem="ixU-WF-H9E" firstAttribute="top" secondItem="lc5-aa-gx2" secondAttribute="top" constant="6" id="nh9-tL-Bd4"/>
+                                                <constraint firstItem="C5N-t0-2Lj" firstAttribute="centerY" secondItem="lc5-aa-gx2" secondAttribute="centerY" id="vBB-Nh-CUT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mhn-AR-hYi">
+                                        <rect key="frame" x="0.0" y="235" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mhn-AR-hYi" id="gjU-EZ-nsY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almoço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lR-zv-NPf">
+                                                    <rect key="frame" x="15" y="11" width="58" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihT-mF-3bu" userLabel="AlmocoPicker">
+                                                    <rect key="frame" x="305" y="12.5" width="60" height="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="dOu-wO-Evj"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3lR-zv-NPf" firstAttribute="leading" secondItem="gjU-EZ-nsY" secondAttribute="leading" constant="15" id="3HQ-uN-Pgv"/>
+                                                <constraint firstItem="3lR-zv-NPf" firstAttribute="centerY" secondItem="gjU-EZ-nsY" secondAttribute="centerY" id="K8y-md-d8m"/>
+                                                <constraint firstAttribute="trailing" secondItem="ihT-mF-3bu" secondAttribute="trailing" constant="10" id="oH2-hc-VO5"/>
+                                                <constraint firstItem="ihT-mF-3bu" firstAttribute="centerY" secondItem="gjU-EZ-nsY" secondAttribute="centerY" id="yFH-Xd-eh1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Hz4-wZ-8pu">
+                                        <rect key="frame" x="0.0" y="279" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hz4-wZ-8pu" id="wk3-th-DRo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jantar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEv-IR-cz1">
+                                                    <rect key="frame" x="15" y="11" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jU2-Or-UMD" userLabel="AlmocoPicker">
+                                                    <rect key="frame" x="305" y="13" width="60" height="17"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="68w-r2-MNr"/>
+                                                    </constraints>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lEv-IR-cz1" firstAttribute="centerY" secondItem="wk3-th-DRo" secondAttribute="centerY" id="9oM-n0-A2g"/>
+                                                <constraint firstAttribute="trailing" secondItem="jU2-Or-UMD" secondAttribute="trailing" constant="10" id="IvK-YJ-kjl"/>
+                                                <constraint firstItem="jU2-Or-UMD" firstAttribute="centerY" secondItem="wk3-th-DRo" secondAttribute="centerY" id="VEX-tX-Gcj"/>
+                                                <constraint firstItem="lEv-IR-cz1" firstAttribute="leading" secondItem="wk3-th-DRo" secondAttribute="leading" constant="15" id="VFN-yL-kwc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="ASf-z0-aoF" userLabel="SOBRE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dz8-mW-8Ag" userLabel="Feedback">
-                                        <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="387" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dz8-mW-8Ag" id="xJc-V2-itI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -81,7 +178,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="DHs-5W-TP5" userLabel="Sobre">
-                                        <rect key="frame" x="0.0" y="207.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="431" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHs-5W-TP5" id="8na-Cv-08E">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -106,9 +203,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="11d-3b-HxL" userLabel="FEEDBACK E SUGESTÕES">
-                                <cells/>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="LTB-97-MNb" id="88X-Fm-iK5"/>
@@ -118,7 +212,10 @@
                     <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" id="pRv-YT-drb"/>
                     <navigationItem key="navigationItem" title="Configurações" id="xWc-hC-V39"/>
                     <connections>
+                        <outlet property="almocoPickerTextField" destination="ihT-mF-3bu" id="kxq-iG-SoQ"/>
                         <outlet property="dietaSwitch" destination="VMb-oX-tuT" id="t6C-Cd-2tJ"/>
+                        <outlet property="jantarPickerTextField" destination="jU2-Or-UMD" id="0ec-Cb-pRF"/>
+                        <outlet property="notificationSwitch" destination="ixU-WF-H9E" id="rhk-7s-oNV"/>
                         <outlet property="veggieTableViewCell" destination="7Ap-nO-W3l" id="ayP-Kv-BrD"/>
                     </connections>
                 </tableViewController>
