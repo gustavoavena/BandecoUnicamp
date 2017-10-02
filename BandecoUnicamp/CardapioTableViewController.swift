@@ -35,6 +35,8 @@ class CardapioTableViewController: UITableViewController {
     var cardapio: Cardapio!
     var vegetariano: Bool! = false
     
+    var screenshotAlmoco: Bool = true
+    
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
@@ -42,6 +44,7 @@ class CardapioTableViewController: UITableViewController {
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
+        
         
         pratoPrincipalAlmoco.text = almoco.pratoPrincipal
         sobremesaAlmoco.text = almoco.sobremesa
@@ -96,7 +99,7 @@ class CardapioTableViewController: UITableViewController {
         trackScreenView()
     }
     
-    private func formatDateString(data: Date) -> String {
+    func formatDateString(data: Date) -> String {
         
         let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
         let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
@@ -130,5 +133,77 @@ extension UIViewController {
             tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)))
             tracker.send(GAIDictionaryBuilder.createScreenView().build() as! [AnyHashable : Any]!)
         }
+    }
+}
+
+extension CardapioTableViewController: ScreenshotDelegate {
+    func screenshot() -> UIImage{
+        var image = UIImage();
+        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
+        
+        // save initial values
+        let savedContentOffset = self.tableView.contentOffset;
+        let savedFrame = self.tableView.frame;
+        let savedBackgroundColor = self.tableView.backgroundColor
+        
+        // reset offset to top left point
+        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
+        // set frame to content size
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
+        // remove background
+        self.tableView.backgroundColor = UIColor.clear
+        
+        // make temp view with scroll view content size
+        // a workaround for issue when image on ipad was drawn incorrectly
+        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
+        
+        let cardapioStoryBoard = UIStoryboard.init(name: "Share", bundle: nil)
+        
+        // instancia a view de Share
+        let shareView = cardapioStoryBoard.instantiateViewController(withIdentifier: "ShareViewController") as? ShareTableViewController
+        
+        
+        shareView?.cardapio = cardapio
+        shareView?.screenshotAlmoco = self.screenshotAlmoco
+        
+        // save superview
+        let tempSuperView = self.tableView.superview
+        // remove scrollView from old superview
+        self.tableView.removeFromSuperview()
+        // and add to tempView
+        //tempView.addSubview(self.tableView)
+        tempView.addSubview((shareView?.view)!)
+        
+        // render view
+        // drawViewHierarchyInRect not working correctly
+        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        // and get image
+        image = UIGraphicsGetImageFromCurrentImageContext()!;
+        
+        // and return everything back
+        tempView.subviews[0].removeFromSuperview()
+        tempSuperView?.addSubview(self.tableView)
+        
+        // restore saved settings
+        self.tableView.contentOffset = savedContentOffset;
+        self.tableView.frame = savedFrame;
+        self.tableView.backgroundColor = savedBackgroundColor
+        
+        var sizeToCrop = CGSize.zero
+
+        if let footer = shareView!.footer
+        {
+            sizeToCrop = CGSize(width: footer.frame.width, height: footer.frame.origin.y)
+        }
+        
+        
+        UIGraphicsEndImageContext();
+        
+        let scale = UIScreen.main.scale
+        
+        /// PROTEGER O CÓDIGO. SEM FORCE UNWRAP
+        image = UIImage(cgImage:(image.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: sizeToCrop.width * scale , height: sizeToCrop.height * scale))!)!)
+        
+        return image
     }
 }
