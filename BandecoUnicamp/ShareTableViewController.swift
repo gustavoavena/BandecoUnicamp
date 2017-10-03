@@ -28,6 +28,13 @@ class ShareTableViewController: CardapioTableViewController {
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
         
         let ref = self.screenshotAlmoco ? almoco : jantar
+        
+        if (!self.screenshotAlmoco) {
+            self.tableView.headerView(forSection: 0)?.textLabel?.text = "JANTAR"
+            
+                print("Não quero mudar!!!")
+            print(self.tableView.headerView(forSection: 0)?.textLabel?.text)
+        }
 
         pratoPrincipalAlmoco.text = ref.pratoPrincipal
         sobremesaAlmoco.text = ref.sobremesa
@@ -36,14 +43,12 @@ class ShareTableViewController: CardapioTableViewController {
         ptsAlmoco.text = ref.pts
         saladaAlmoco.text = ref.salada
     }
-}
-
-extension ShareTableViewController {
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if type == "Jantar" {
-            return "JANTAR"
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if ((section == 0) && !self.screenshotAlmoco) {
+            if let header = view as? UITableViewHeaderFooterView {
+                header.textLabel?.text = "JANTAR"
+            }
         }
-        
-        return "ALMOÇO"
     }
 }
