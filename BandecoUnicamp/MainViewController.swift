@@ -6,6 +6,11 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
+protocol ScreenshotDelegate {
+    
+    func screenshot() -> UIImage
+}
+
 import UIKit
 
 class MainViewController: GAITrackedViewController {
@@ -15,6 +20,7 @@ class MainViewController: GAITrackedViewController {
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
 
+    var screenshotDelegate: ScreenshotDelegate?
     
     func displayAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -104,7 +110,32 @@ class MainViewController: GAITrackedViewController {
         
     }
     
-   
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        let menu = UIAlertController(title: nil, message: "Escolha o cardápio", preferredStyle: .actionSheet)
+        // Descomente a proxima linha para mudar a cor do texto para salmão. Muda também a cor do Cancelar...
+        //menu.view.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
+
+        menu.addAction(UIAlertAction(title: "Almoço", style: .default, handler: printCardapioHandler))
+        menu.addAction(UIAlertAction(title: "Jantar", style: .default, handler: printCardapioHandler))
+        menu.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        
+        self.present(menu, animated: true, completion: nil)
+    }
+    
+    private func printCardapioHandler(selectedOption: UIAlertAction) {
+        screenshotDelegate = (pageViewController.viewControllers?.last as! CardapioTableViewController)
+        
+        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = (selectedOption.title == "Almoço")
+        
+       
+        
+        let screenshot = (screenshotDelegate?.screenshot())!
+        
+        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
     @IBAction func segmentedValueChanged(_ sender: Any) {
         pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
