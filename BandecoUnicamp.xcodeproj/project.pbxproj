@@ -40,6 +40,8 @@
 		4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
+		4DEE3B2F1F83BECF00C31DED /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */; };
+		4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE3B301F83BEDB00C31DED /* Share.storyboard */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */; };
 		9B67CAF81F56FE6A00B85D7B /* Bandex.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B67CAF11F56FE6A00B85D7B /* Bandex.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -123,6 +125,8 @@
 		4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
+		4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
+		4DEE3B301F83BEDB00C31DED /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B67CAF11F56FE6A00B85D7B /* Bandex.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Bandex.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				4D259F771F71691C008E1F07 /* Configuracoes.storyboard */,
 				4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */,
 				4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */,
+				4DEE3B301F83BEDB00C31DED /* Share.storyboard */,
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
 			);
 			name = View;
@@ -261,6 +266,7 @@
 			children = (
 				4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */,
 				4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */,
+				4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */,
 				4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */,
 				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
 			);
@@ -411,6 +417,7 @@
 			files = (
 				4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */,
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
+				4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */,
 				4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
 				4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */,
@@ -519,6 +526,7 @@
 				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
+				4DEE3B2F1F83BECF00C31DED /* ShareTableViewController.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
 				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
@@ -722,7 +730,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -748,7 +756,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

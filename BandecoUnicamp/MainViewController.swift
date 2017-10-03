@@ -111,7 +111,7 @@ class MainViewController: GAITrackedViewController {
     }
     
     @IBAction func share(_ sender: UIBarButtonItem) {
-        let menu = UIAlertController(title: nil, message: "Escolha o cardápio", preferredStyle: .actionSheet)
+        let menu = UIAlertController(title: nil, message: "Escolha o cardápio para compartilhar", preferredStyle: .actionSheet)
         // Descomente a proxima linha para mudar a cor do texto para salmão. Muda também a cor do Cancelar...
         //menu.view.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
 
