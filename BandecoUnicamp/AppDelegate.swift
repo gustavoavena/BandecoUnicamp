@@ -24,6 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
     
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // TODO
+
+        print("Device Token: \(deviceToken.base64EncodedString())")
+        
+        
+    }
+    
+   
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        // TODO
+        
+        print("Failed to register: \(error)")
+    }
+    
     func setupGoogleAnalytics() {
         
         // Configure tracker from GoogleService-Info.plist.
