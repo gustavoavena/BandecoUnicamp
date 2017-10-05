@@ -44,7 +44,7 @@
 		4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE3B301F83BEDB00C31DED /* Share.storyboard */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */; };
-		9B67CAF81F56FE6A00B85D7B /* Bandex.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B67CAF11F56FE6A00B85D7B /* Bandex.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B67CAF81F56FE6A00B85D7B /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B67CAF11F56FE6A00B85D7B /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9B67CAF81F56FE6A00B85D7B /* Bandex.appex in Embed App Extensions */,
+				9B67CAF81F56FE6A00B85D7B /* Stickers.appex in Embed App Extensions */,
 				4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -128,7 +128,7 @@
 		4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		4DEE3B301F83BEDB00C31DED /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B67CAF11F56FE6A00B85D7B /* Bandex.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Bandex.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B67CAF11F56FE6A00B85D7B /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		9B67CAF51F56FE6A00B85D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			children = (
 				4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */,
 				4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */,
-				9B67CAF11F56FE6A00B85D7B /* Bandex.appex */,
+				9B67CAF11F56FE6A00B85D7B /* Stickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,9 +327,9 @@
 			productReference = 4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B67CAF01F56FE6A00B85D7B /* Bandex */ = {
+		9B67CAF01F56FE6A00B85D7B /* Stickers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Bandex" */;
+			buildConfigurationList = 9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Stickers" */;
 			buildPhases = (
 				9B67CAEF1F56FE6A00B85D7B /* Resources */,
 				81CB16712F9FCA26AB53C94A /* Frameworks */,
@@ -338,9 +338,9 @@
 			);
 			dependencies = (
 			);
-			name = Bandex;
+			name = Stickers;
 			productName = Bandex;
-			productReference = 9B67CAF11F56FE6A00B85D7B /* Bandex.appex */;
+			productReference = 9B67CAF11F56FE6A00B85D7B /* Stickers.appex */;
 			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
@@ -396,7 +396,7 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
-				9B67CAF01F56FE6A00B85D7B /* Bandex */,
+				9B67CAF01F56FE6A00B85D7B /* Stickers */,
 			);
 		};
 /* End PBXProject section */
@@ -543,7 +543,7 @@
 		};
 		9B67CAF71F56FE6A00B85D7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9B67CAF01F56FE6A00B85D7B /* Bandex */;
+			target = 9B67CAF01F56FE6A00B85D7B /* Stickers */;
 			targetProxy = 9B67CAF61F56FE6A00B85D7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -843,7 +843,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Bandex" */ = {
+		9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Stickers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B67CAFA1F56FE6A00B85D7B /* Debug */,
