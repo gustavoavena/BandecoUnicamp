@@ -25,6 +25,7 @@ class UnicampServer {
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
     
     private static let tokensURL = "https://bandex.herokuapp.com/tokens"
+//    private static let tokensURL = "http://127.0.0.1:5000/tokens"
     
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com os cardapios disponiveis.
@@ -108,16 +109,67 @@ class UnicampServer {
     
     
     public static func registerDeviceToken(token: String) {
-        let url = URL(string: tokensURL)
+//        let url = URL(string: tokensURL)
         
         
         
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
+        
+        if let url = URL(string: tokensURL) {
+            var request = URLRequest(url: url)
+            
+            let body: [String: Any] = ["token": token, "vegetariano": vegetariano ]
+            
+            let data = try? JSONSerialization.data(withJSONObject: body, options: [])
+            
+            request.httpMethod = "PUT"
+            request.httpBody = data
+            
+            _ = URLSession.shared.sendAsynchronousRequest(request: request) {  (data, response, error) in
+                
+                if error == nil, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    print("Register request completed without errors.")
+                } else {
+                    print("Unregister request unsuccessful.")
+                    print("Error: \(String(describing: error))")
+                }
+            }
+            
+            
+        } else {
+            print("Invalid URL to unregister token")
+        }
+
+        
+        
         // TODO: request
     }
     
     public static func unregisterDeviceToken(token: String) {
+        let removeURL = "\(tokensURL)/\(token)"
+        
+        if let url = URL(string: removeURL) {
+            var request = URLRequest(url: url)
+            
+            request.httpMethod = "DELETE"
+            
+            _ = URLSession.shared.sendAsynchronousRequest(request: request) {  (data, response, error) in
+                
+                
+                if error == nil, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    print("Unregister request completed without errors.")
+                } else {
+                    print("Unregister request unsuccessful.")
+                    print("Error: \(String(describing: error))")
+                }
+            }
+           
+            
+        } else {
+            print("Invalid URL to unregister token")
+        }
+        
         
     }
 }
