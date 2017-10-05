@@ -76,8 +76,13 @@ class ConfiguracoesTableViewController: UITableViewController {
         
         if(sender.isOn) {
             
-            requestNotificationPermission()
+//            requestNotificationPermission()
             
+            if #available(iOS 10.0, *) {
+                registerForPushNotifications()
+            } else {
+                // Fallback on earlier versions
+            }
             
             if #available(iOS 10.0, *) {
                 requestNotification()
@@ -98,6 +103,28 @@ class ConfiguracoesTableViewController: UITableViewController {
         }
         
         tableView.reloadData()
+    }
+    
+    
+    @available(iOS 10.0, *)
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+    }
+    
+    @available(iOS 10.0, *)
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
+        }
     }
     
     
