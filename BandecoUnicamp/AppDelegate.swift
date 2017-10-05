@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let token = tokenParts.joined()
         print("Device Token: \(token)")
+        
+        UserDefaults.standard.set(token, forKey: "deviceToken")
+        
+        CardapioServices.shared.registerDeviceToken(token: token)
     }
     
     func application(_ application: UIApplication,

@@ -33,6 +33,8 @@ public class CardapioServices: NSObject {
     public func getAllCardapios() -> [Cardapio] {
         return UnicampServer.getAllCardapios()
     }
+    
+    
 
 }
 
@@ -108,4 +110,17 @@ extension CardapioServices {
         return (cardapio[tipo], cardapio.data)
     }
 
+}
+
+extension CardapioServices {
+    
+    // MARK: registro de tokens.
+    
+    public func registerDeviceToken(token: String) {
+        UnicampServer.registerDeviceToken(token: token)
+    }
+    
+    public func unregisterDeviceToken(token: String) {
+        UnicampServer.unregisterDeviceToken(token: token)
+    }
 }

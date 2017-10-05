@@ -76,27 +76,20 @@ class ConfiguracoesTableViewController: UITableViewController {
         
         if(sender.isOn) {
             
-//            requestNotificationPermission()
-            
             if #available(iOS 10.0, *) {
                 registerForPushNotifications()
             } else {
                 // Fallback on earlier versions
             }
-            
-            if #available(iOS 10.0, *) {
-                requestNotification()
-            } else {
-                // Fallback on earlier versions
-            }
-
-            // TODO: REMOVE THIS
-            
         } else { // Desabilitar notificacao
             
             if #available(iOS 10.0, *) {
-                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                print("Notificações removidas")
+                if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
+                    CardapioServices.shared.unregisterDeviceToken(token: token)
+                } else {
+                    print("Device token nao encontrado para ser removido")
+                }
+    
             } else {
                 // Fallback on earlier versions
             }
@@ -129,44 +122,10 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     
-    
-    
-    func requestNotificationPermission() {
-        
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            let options: UNAuthorizationOptions = [.alert, .sound]
-            
-            center.requestAuthorization(options: options) {
-                (granted, error) in
-                if !granted {
-                    print("Permissao para notificacoes negada!")
-                }
-            }
-        } else {
-            // TODO: iOS 9
-        }
-        
-    }
-    
+   
   
     
-    /*
-     TODO
-     
-     - Pegar o primeiro cardapio e ver se ele é o dia dia.
-     - Escolher entre tradicional e vegetariano.
-     - So mandar notificacao se tiver cardapio correto.
-     
-     
-     */
     
-    @available(iOS 10.0, *)
-    func requestNotification() {
-     
-        UIApplication.shared.registerForRemoteNotifications()
-        
-    }
     
    
   

@@ -24,6 +24,8 @@ class UnicampServer {
     private static let urlAllCardapiosDevelopment = "http://127.0.0.1:8000/cardapios"
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
     
+    private static let tokensURL = "https://bandex.herokuapp.com/tokens"
+    
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com os cardapios disponiveis.
     ///
@@ -104,6 +106,20 @@ class UnicampServer {
         return cardapios
     }
     
+    
+    public static func registerDeviceToken(token: String) {
+        let url = URL(string: tokensURL)
+        
+        
+        
+        let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        
+        // TODO: request
+    }
+    
+    public static func unregisterDeviceToken(token: String) {
+        
+    }
 }
 
 
