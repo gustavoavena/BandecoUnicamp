@@ -10,10 +10,11 @@ Funcionalidades:
 - Widget extension: permite que o usuário acesse o cardápio da próxima refeição sem desbloquear o celular.
 - Configuração de dieta: essa configuração determina o cardápio que será exibido no Widget e, futuramente, qual cardápio será informado nas notificações.
 - iMessage Stickers
+- Share extension
 
 Funcionalidades em desenvolvimento:
 - Notificações personalizadas
-- Share extension
+- Integração com calendário
 
 
 O Bandex foi desenvolvido em conjunto com um API implementado com Flask, para manter uma arquitetura mais organizada que facilita o desenvolvimento para outras plataformas no futuro. Esse API obtém o cardápio dos Restaurantes diretamente com a Prefeitura da UNICAMP e faz uma "limpeza" das informações ( corrige letras maiúsculas, observações desorganizadas ).
@@ -29,10 +30,12 @@ Features:
 - Widget extension: quickly access the next meal's menu without unlocking your iPhone.
 - Dietary preferences: allows the user to choose which menu will be displayed in the widget and, in the future, in the notifications.
 - iMessage Stickers
+- Share extension
 
 In development:
 - Custom notifications
-- Share extension
+- Calendar integration
+
 
 Bandex was developed along with an API written in Python, to keep an organized architecture that will ease the development for other platforms in the future. This API obtains the available dining halls menus directly from UNICAMP and parses the information (correctly capitalizes text, corrects punctuation)  to make it available to the client app.
 
