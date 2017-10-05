@@ -25,7 +25,13 @@ class UnicampServer {
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
     
     private static let tokensURL = "https://bandex.herokuapp.com/tokens"
-//    private static let tokensURL = "http://127.0.0.1:5000/tokens"
+//    private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
+    
+//    #if RELEASE
+//    private static let tokensURL = "https://bandex.herokuapp.com/tokens"
+//    #else
+//    private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
+//    #endif
     
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com os cardapios disponiveis.
@@ -131,8 +137,9 @@ class UnicampServer {
                 if error == nil, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                     print("Register request completed without errors.")
                 } else {
-                    print("Unregister request unsuccessful.")
+                    print("Register request unsuccessful.")
                     print("Error: \(String(describing: error))")
+                    print("Response status code: \((response as! HTTPURLResponse).statusCode)")
                 }
             }
             
