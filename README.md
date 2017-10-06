@@ -11,9 +11,9 @@ Funcionalidades:
 - Configuração de dieta: essa configuração determina o cardápio que será exibido no Widget e, futuramente, qual cardápio será informado nas notificações.
 - iMessage Stickers
 - Share extension
+- Notificações
 
 Funcionalidades em desenvolvimento:
-- Notificações personalizadas
 - Integração com calendário
 
 
@@ -31,9 +31,9 @@ Features:
 - Dietary preferences: allows the user to choose which menu will be displayed in the widget and, in the future, in the notifications.
 - iMessage Stickers
 - Share extension
+- Push notifications
 
 In development:
-- Custom notifications
 - Calendar integration
 
 

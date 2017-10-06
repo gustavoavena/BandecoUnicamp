@@ -58,7 +58,7 @@ class ConfiguracoesTableViewController: UITableViewController {
         UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: "vegetariano")
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
-            print("\n\nDevice Token: \(token)\n\n\n")
+            print("\nDevice Token: \(token)\n\n")
             
             CardapioServices.shared.registerDeviceToken(token: token)
         }
@@ -70,6 +70,7 @@ class ConfiguracoesTableViewController: UITableViewController {
         
         if indexPath.section == 2 && indexPath.row == 0 {
             UIApplication.shared.openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSekvO0HnnfGnk0-FLTX86mVxAOB5Uajq8MPmB0Sv1pXPuQiCg/viewform")!)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
