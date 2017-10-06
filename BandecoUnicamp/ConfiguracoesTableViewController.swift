@@ -53,8 +53,15 @@ class ConfiguracoesTableViewController: UITableViewController {
         trackScreenView()
     }
     
+    
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
         UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: "vegetariano")
+        
+        if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
+            print("\n\nDevice Token: \(token)\n\n\n")
+            
+            CardapioServices.shared.registerDeviceToken(token: token)
+        }
     }
     
     
@@ -101,7 +108,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     @available(iOS 10.0, *)
     func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
             print("Permission granted: \(granted)")
             
@@ -116,7 +123,11 @@ class ConfiguracoesTableViewController: UITableViewController {
             print("Notification settings: \(settings)")
             
             guard settings.authorizationStatus == .authorized else { return }
-            UIApplication.shared.registerForRemoteNotifications()
+            
+            // Executing is main queue because of warning from XCode 9 thread sanitizer.
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
     
