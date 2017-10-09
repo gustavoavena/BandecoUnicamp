@@ -22,7 +22,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
-                            <tableViewSection headerTitle="PREFERÊNCIA" footerTitle="Sua preferência de cardápio será exibida no Widget do Bandex e aparecerá diretamente no app." id="e0Q-zl-dzx">
+                            <tableViewSection headerTitle="PREFERÊNCIA" footerTitle="Define o cardápio vegetariano como o padrão. O cardápio padrão será exibido no widget e informado nas notificações." id="e0Q-zl-dzx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Ap-nO-W3l">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -57,10 +57,44 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Notificações" footerTitle="Com notificações habilitadas, você receberá o cardápio do almoço às 11h e do jantar às 17h." id="LES-gj-TOe" userLabel="NOTIFICATIONS">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="752-eB-i5M">
+                                        <rect key="frame" x="0.0" y="207" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="752-eB-i5M" id="lc5-aa-gx2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ixU-WF-H9E">
+                                                    <rect key="frame" x="316" y="6" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.95686274509803915" green="0.41960784313725491" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <connections>
+                                                        <action selector="notificationSwitchToggled:" destination="LTB-97-MNb" eventType="valueChanged" id="k2i-lj-Qh2"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-t0-2Lj">
+                                                    <rect key="frame" x="15" y="11" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C5N-t0-2Lj" firstAttribute="leading" secondItem="lc5-aa-gx2" secondAttribute="leading" constant="15" id="TSW-Ow-c3Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="ixU-WF-H9E" secondAttribute="bottom" constant="6" id="YQa-wU-rRV"/>
+                                                <constraint firstAttribute="trailing" secondItem="ixU-WF-H9E" secondAttribute="trailing" constant="10" id="kyT-4i-8RH"/>
+                                                <constraint firstItem="ixU-WF-H9E" firstAttribute="top" secondItem="lc5-aa-gx2" secondAttribute="top" constant="6" id="nh9-tL-Bd4"/>
+                                                <constraint firstItem="C5N-t0-2Lj" firstAttribute="centerY" secondItem="lc5-aa-gx2" secondAttribute="centerY" id="vBB-Nh-CUT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="ASf-z0-aoF" userLabel="SOBRE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dz8-mW-8Ag" userLabel="Feedback">
-                                        <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="315" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dz8-mW-8Ag" id="xJc-V2-itI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -81,7 +115,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="DHs-5W-TP5" userLabel="Sobre">
-                                        <rect key="frame" x="0.0" y="207.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="359" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHs-5W-TP5" id="8na-Cv-08E">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -106,9 +140,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="11d-3b-HxL" userLabel="FEEDBACK E SUGESTÕES">
-                                <cells/>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="LTB-97-MNb" id="88X-Fm-iK5"/>
@@ -119,6 +150,7 @@
                     <navigationItem key="navigationItem" title="Configurações" id="xWc-hC-V39"/>
                     <connections>
                         <outlet property="dietaSwitch" destination="VMb-oX-tuT" id="t6C-Cd-2tJ"/>
+                        <outlet property="notificationSwitch" destination="ixU-WF-H9E" id="rhk-7s-oNV"/>
                         <outlet property="veggieTableViewCell" destination="7Ap-nO-W3l" id="ayP-Kv-BrD"/>
                     </connections>
                 </tableViewController>

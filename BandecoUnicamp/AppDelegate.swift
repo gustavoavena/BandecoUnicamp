@@ -17,10 +17,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 
+        if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
+            print("\n\nDevice Token: \(token)\n\n\n")
+            
+            CardapioServices.shared.registerDeviceToken(token: token)
+        }
+        
+
+        #if RELEASE
         self.setupGoogleAnalytics()
+        #endif
         
 		return true
 	}
+    
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        print("\nDevice Token: \(token)\n")
+        
+        UserDefaults.standard.set(token, forKey: "deviceToken")
+        
+        CardapioServices.shared.registerDeviceToken(token: token)
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications: \(error)")
+    }
     
     func setupGoogleAnalytics() {
         
