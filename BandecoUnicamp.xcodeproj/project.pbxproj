@@ -10,8 +10,6 @@
 		4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
 		4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
 		4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */; };
-		4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; };
-		4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
 		4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D259F771F71691C008E1F07 /* Configuracoes.storyboard */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
@@ -32,11 +30,9 @@
 		4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */; };
 		4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */; };
 		4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4871F268D0600C6F6A7 /* Cache.swift */; };
-		4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
-		4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4DD08E691F2FB65D00AED50C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD08E681F2FB65D00AED50C /* GoogleService-Info.plist */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
@@ -76,18 +72,6 @@
 				4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4DB41A191EEAD7EE00255628 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4D1BD0691F325D4200DFBCFF /* SwiftyJSON.framework in Embed Frameworks */,
-				4DB41A201EEAE62D00255628 /* Gloss.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -149,8 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB41A1C1EEAD8C400255628 /* Gloss.framework in Frameworks */,
-				4D1BD0681F325D4200DFBCFF /* SwiftyJSON.framework in Frameworks */,
 				D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +274,7 @@
 				4D5C6D501ED1E45D009CC3E1 /* Sources */,
 				4D5C6D511ED1E45D009CC3E1 /* Frameworks */,
 				4D5C6D521ED1E45D009CC3E1 /* Resources */,
+				4D0572FD1F8C812C008F5ACC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -309,9 +292,9 @@
 				AA4E98AFAB3FD1CBA88BA20F /* [CP] Check Pods Manifest.lock */,
 				4D9528FB1EC78D2D00219F48 /* Sources */,
 				4D9528FC1EC78D2D00219F48 /* Frameworks */,
+				4D0572FC1F8C8087008F5ACC /* ShellScript */,
 				4D9528FD1EC78D2D00219F48 /* Resources */,
 				4D5C6D651ED1E45D009CC3E1 /* Embed App Extensions */,
-				4DB41A191EEAD7EE00255628 /* Embed Frameworks */,
 				58876C8EDA973846B23342D4 /* [CP] Embed Pods Frameworks */,
 				A5DE2172CA54F778139D7323 /* [CP] Copy Pods Resources */,
 				4D41771A1F30A471007CE9D1 /* ShellScript */,
@@ -440,6 +423,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D0572FC1F8C8087008F5ACC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gloss.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		4D0572FD1F8C812C008F5ACC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gloss.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		4D41771A1F30A471007CE9D1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
