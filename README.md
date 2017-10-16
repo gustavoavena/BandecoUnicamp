@@ -28,7 +28,6 @@ Features:
 - Simple and functional design, based on principles from Apple's Human Interface Guidelines for iOS.
 - Widget extension: quickly access the next meal's menu without unlocking your iPhone.
 - Dietary preferences: allows the user to choose which menu will be displayed in the widget and, in the future, in the notifications.
-- iMessage Stickers
 - Share extension
 - Push notifications
 
