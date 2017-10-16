@@ -42,7 +42,6 @@
 		4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE3B301F83BEDB00C31DED /* Share.storyboard */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */; };
-		9B67CAF81F56FE6A00B85D7B /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B67CAF11F56FE6A00B85D7B /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -54,13 +53,6 @@
 			remoteGlobalIDString = 4D5C6D531ED1E45D009CC3E1;
 			remoteInfo = WidgetCardapio;
 		};
-		9B67CAF61F56FE6A00B85D7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B67CAF01F56FE6A00B85D7B;
-			remoteInfo = Bandex;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,7 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9B67CAF81F56FE6A00B85D7B /* Stickers.appex in Embed App Extensions */,
 				4D5C6D611ED1E45D009CC3E1 /* WidgetCardapio.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -278,7 +269,6 @@
 				4D5C6D501ED1E45D009CC3E1 /* Sources */,
 				4D5C6D511ED1E45D009CC3E1 /* Frameworks */,
 				4D5C6D521ED1E45D009CC3E1 /* Resources */,
-				4D0572FD1F8C812C008F5ACC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -307,7 +297,6 @@
 			);
 			dependencies = (
 				4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */,
-				9B67CAF71F56FE6A00B85D7B /* PBXTargetDependency */,
 			);
 			name = BandecoUnicamp;
 			productName = BandecoUnicamp;
@@ -444,23 +433,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		4D0572FD1F8C812C008F5ACC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gloss.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		4D41771A1F30A471007CE9D1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,11 +536,6 @@
 			isa = PBXTargetDependency;
 			target = 4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */;
 			targetProxy = 4D5C6D5F1ED1E45D009CC3E1 /* PBXContainerItemProxy */;
-		};
-		9B67CAF71F56FE6A00B85D7B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9B67CAF01F56FE6A00B85D7B /* Stickers */;
-			targetProxy = 9B67CAF61F56FE6A00B85D7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

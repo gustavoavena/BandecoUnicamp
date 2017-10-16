@@ -9,7 +9,6 @@ Funcionalidades:
 - Design simples, baseado nos conceitos do Human Interface Guidelines da Apple.
 - Widget extension: permite que o usuário acesse o cardápio da próxima refeição sem desbloquear o celular.
 - Configuração de dieta: essa configuração determina o cardápio que será exibido no Widget e, futuramente, qual cardápio será informado nas notificações.
-- iMessage Stickers
 - Share extension
 - Notificações
 
