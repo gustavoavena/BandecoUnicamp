@@ -12,7 +12,7 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    var cardapios: [Cardapio] = UnicampServer.getAllCardapios()
+    var cardapios: [Cardapio] = CardapioServices.shared.getAllCardapios()
     var vegetariano: Bool = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") {
         didSet {
             vegetarianoChanged()
@@ -56,18 +56,28 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
+    fileprivate func setupAppearance(_ show: Bool) {
+        let appearance = UIPageControl.appearance()
+        appearance.isHidden = !show
+    }
+    
     func loadData() {
-        
+
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
+            setupAppearance(true)
         } else {
             print("Sem cardapios no page view controller")
             alertarErro()
+            setupAppearance(false)
         }
     }
     
-  
+    func reloadCardapios() {
+        self.cardapios = CardapioServices.shared.getAllCardapios()
+        loadData()
+    }
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

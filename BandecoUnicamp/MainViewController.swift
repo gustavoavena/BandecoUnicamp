@@ -92,6 +92,9 @@ class MainViewController: GAITrackedViewController {
         
         dietaMayHaveChanged()
         
+        self.pageViewController.reloadCardapios()
+
+        
         self.screenName = "mainViewController"
         let name = "mainViewController"
         
