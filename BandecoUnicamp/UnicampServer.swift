@@ -20,18 +20,20 @@ import Foundation
 import SwiftyJSON
 
 
+
+    
+
 class UnicampServer {
     private static let urlAllCardapiosDevelopment = "http://127.0.0.1:8000/cardapios"
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
     
+    #if RELEASE
     private static let tokensURL = "https://bandex.herokuapp.com/tokens"
-//    private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
-    
-//    #if RELEASE
-//    private static let tokensURL = "https://bandex.herokuapp.com/tokens"
-//    #else
-//    private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
-//    #endif
+    private static let cardapioURL = URL(string: "https://bandex-c2f82.firebaseio.com/cardapios.json")
+    #else
+    private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
+    private static let cardapioURL = URL(string: "https://bandex-test.firebaseio.com/cardapios.json")
+    #endif
     
     
     /// Responsavel por fazer um GET request sincrono para o app em Python, que retorna um JSON com os cardapios disponiveis.
@@ -39,11 +41,13 @@ class UnicampServer {
     /// - Returns: json no formato [Any]
     private static func getCardapiosJSON() -> JSON {
         //        let url = URL(string: urlAllCardapiosProduction)
-        let url = URL(string: "https://bandex-c2f82.firebaseio.com/cardapios.json")
+        
         var json = JSON.null
         
         
-        URLSession.shared.sendSynchronousRequest(request: url!) {
+        print("Fazendo request para URL:\(cardapioURL?.absoluteString)\n\n")
+        
+        URLSession.shared.sendSynchronousRequest(request: cardapioURL!) {
             (data, response, error) in
             
             guard error == nil, let res = response as? HTTPURLResponse, let data = data else {
@@ -121,6 +125,7 @@ class UnicampServer {
         
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
+        print("Token URL: \(tokensURL)")
         
         if let url = URL(string: tokensURL) {
             var request = URLRequest(url: url)
@@ -155,6 +160,8 @@ class UnicampServer {
     
     public static func unregisterDeviceToken(token: String) {
         let removeURL = "\(tokensURL)/\(token)"
+        
+        print("Token URL: \(tokensURL)")
         
         if let url = URL(string: removeURL) {
             var request = URLRequest(url: url)
