@@ -144,7 +144,6 @@ class UnicampServer {
                 } else {
                     print("Register request unsuccessful.")
                     print("Error: \(String(describing: error))")
-                    print("Response status code: \((response as! HTTPURLResponse).statusCode)")
                 }
             }
             
