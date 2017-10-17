@@ -118,6 +118,9 @@ class UnicampServer {
     }
     
     
+    /// Registra/atualiza token do usuário, para manter o timestamp e a preferência de cardápio atualizados no servidor.
+    ///
+    /// - Parameter token: string do token do usuário para ser armazenado no servidor e usado nas Push Notifications.
     public static func registerDeviceToken(token: String) {
 //        let url = URL(string: tokensURL)
         
@@ -157,6 +160,10 @@ class UnicampServer {
         // TODO: request
     }
     
+    
+    /// Remove o token do usuario do servidor, caso ele decida desabilitar as notificações.
+    ///
+    /// - Parameter token: token a ser removido.
     public static func unregisterDeviceToken(token: String) {
         let removeURL = "\(tokensURL)/\(token)"
         
