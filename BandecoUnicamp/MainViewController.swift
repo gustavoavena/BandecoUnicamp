@@ -22,6 +22,8 @@ class MainViewController: GAITrackedViewController {
 
     var screenshotDelegate: ScreenshotDelegate?
     
+    var lastRefreshed: Date = Date()
+    
     func displayAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         
@@ -86,14 +88,28 @@ class MainViewController: GAITrackedViewController {
     }
     
     
+    
+    /// Checa se passaram 30min desde a ultima atualizacao para evitar requests desnecessarios que deixam o app lento.
+    func checkIfNeedsRefreshing() {
+        let INTERVALO_DE_RELOAD = 30
+        
+        let components = Calendar.current.dateComponents([.second], from: lastRefreshed, to: Date())
+        
+        
+        if let minutes = components.second, minutes > INTERVALO_DE_RELOAD {
+            self.pageViewController.reloadCardapios() // Faz request e atualiza cardapios.
+            self.lastRefreshed = Date()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
         dietaMayHaveChanged()
         
-        self.pageViewController.reloadCardapios()
-
+        
+        checkIfNeedsRefreshing()
         
         self.screenName = "mainViewController"
         let name = "mainViewController"
