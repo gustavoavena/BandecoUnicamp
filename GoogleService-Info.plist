@@ -2,25 +2,41 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>TRACKING_ID</key>
-	<string>UA-103784746-1</string>
+	<string>UA-103296687-1</string>
+	<key>CLIENT_ID</key>
+	<string>702911324022-2vck8c4ne9a5n7ja1pm6ds6569fq4l9v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.702911324022-2vck8c4ne9a5n7ja1pm6ds6569fq4l9v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC9Yb0W2Y6LTDLEl7gp61tO2sVKSdmww0M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>702911324022</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Gustavo.Avena.BandecoUnicamp</string>
+	<string>com.Gustavo.Avena.BandecoUnicamp2.WidgetCardapio</string>
 	<key>PROJECT_ID</key>
 	<string>firebase-bandex</string>
+	<key>STORAGE_BUCKET</key>
+	<string>firebase-bandex.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:702911324022:ios:0e53eae67100b2a2</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-bandex.firebaseio.com</string>
 </dict>
 </plist>
