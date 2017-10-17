@@ -93,10 +93,11 @@ class MainViewController: GAITrackedViewController {
     func checkIfNeedsRefreshing() {
         let INTERVALO_DE_RELOAD = 30
         
-        let components = Calendar.current.dateComponents([.second], from: lastRefreshed, to: Date())
+        let components = Calendar.current.dateComponents([.minute], from: lastRefreshed, to: Date())
         
         
-        if let minutes = components.second, minutes > INTERVALO_DE_RELOAD {
+        if let minutes = components.minute, minutes > INTERVALO_DE_RELOAD || pageViewController.cardapios.count == 0 {
+            print("Atualizando cardapios. Minutos desde ultima atualizacao: \(minutes).")
             self.pageViewController.reloadCardapios() // Faz request e atualiza cardapios.
             self.lastRefreshed = Date()
         }
