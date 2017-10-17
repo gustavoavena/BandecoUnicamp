@@ -41,7 +41,6 @@
 		4DEE3B2F1F83BECF00C31DED /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */; };
 		4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE3B301F83BEDB00C31DED /* Share.storyboard */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
-		9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +104,6 @@
 		4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		4DEE3B301F83BEDB00C31DED /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B67CAF11F56FE6A00B85D7B /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B67CAF31F56FE6A00B85D7B /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		9B67CAF51F56FE6A00B85D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -129,13 +127,6 @@
 				D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */,
 				4D8B83C11F950221005AFEBB /* SwiftyJSON.framework in Frameworks */,
 				4D8B83C21F950221005AFEBB /* Gloss.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		81CB16712F9FCA26AB53C94A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +207,6 @@
 			children = (
 				4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */,
 				4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */,
-				9B67CAF11F56FE6A00B85D7B /* Stickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,22 +293,6 @@
 			productReference = 4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B67CAF01F56FE6A00B85D7B /* Stickers */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Stickers" */;
-			buildPhases = (
-				9B67CAEF1F56FE6A00B85D7B /* Resources */,
-				81CB16712F9FCA26AB53C94A /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Stickers;
-			productName = Bandex;
-			productReference = 9B67CAF11F56FE6A00B85D7B /* Stickers.appex */;
-			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,11 +327,6 @@
 							};
 						};
 					};
-					9B67CAF01F56FE6A00B85D7B = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = X5G89Y4L38;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 4D9528FA1EC78D2D00219F48 /* Build configuration list for PBXProject "BandecoUnicamp" */;
@@ -375,7 +344,6 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
-				9B67CAF01F56FE6A00B85D7B /* Stickers */,
 			);
 		};
 /* End PBXProject section */
@@ -402,14 +370,6 @@
 				4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */,
 				4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */,
 				4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B67CAEF1F56FE6A00B85D7B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B67CAF41F56FE6A00B85D7B /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,41 +730,6 @@
 			};
 			name = Release;
 		};
-		9B67CAFA1F56FE6A00B85D7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
-				INFOPLIST_FILE = Bandex/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.Stickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		9B67CAFB1F56FE6A00B85D7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
-				INFOPLIST_FILE = Bandex/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.Stickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -831,15 +756,6 @@
 			buildConfigurations = (
 				4D9529121EC78D2E00219F48 /* Debug */,
 				4D9529131EC78D2E00219F48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9B67CAF91F56FE6A00B85D7B /* Build configuration list for PBXNativeTarget "Stickers" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B67CAFA1F56FE6A00B85D7B /* Debug */,
-				9B67CAFB1F56FE6A00B85D7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -108,8 +108,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, não foi possível carregar o cardápio." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-eK-UNI">
-                                <rect key="frame" x="9" y="323" width="357" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, não foi possível carregar o cardápio." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-eK-UNI">
+                                <rect key="frame" x="9.5" y="323.5" width="357" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, verifique sua conexão com a internet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="fJr-xp-Mf7">
+                                <rect key="frame" x="9" y="357" width="357" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -117,14 +123,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fJr-xp-Mf7" firstAttribute="centerX" secondItem="d9K-eK-UNI" secondAttribute="centerX" id="ISy-Sr-lKM"/>
+                            <constraint firstItem="fJr-xp-Mf7" firstAttribute="leading" secondItem="d9K-eK-UNI" secondAttribute="leading" id="L30-4h-4dv"/>
+                            <constraint firstItem="fJr-xp-Mf7" firstAttribute="trailing" secondItem="d9K-eK-UNI" secondAttribute="trailing" id="OWl-vG-DIl"/>
+                            <constraint firstItem="fJr-xp-Mf7" firstAttribute="top" secondItem="d9K-eK-UNI" secondAttribute="bottom" constant="13" id="TIn-40-zrr"/>
                             <constraint firstItem="d9K-eK-UNI" firstAttribute="centerY" secondItem="Iln-zL-E4Y" secondAttribute="centerY" id="W0s-aW-4py"/>
                             <constraint firstItem="d9K-eK-UNI" firstAttribute="centerX" secondItem="Iln-zL-E4Y" secondAttribute="centerX" id="eSc-Yq-meR"/>
+                            <constraint firstItem="d9K-eK-UNI" firstAttribute="width" relation="lessThanOrEqual" secondItem="Iln-zL-E4Y" secondAttribute="width" multiplier="0.95" id="n8i-9I-Aa5"/>
+                            <constraint firstItem="fJr-xp-Mf7" firstAttribute="width" secondItem="d9K-eK-UNI" secondAttribute="width" id="nyl-l8-gmh"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjb-Rh-5hH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4118" y="-501"/>
+            <point key="canvasLocation" x="4117.6000000000004" y="-501.49925037481262"/>
         </scene>
         <!--Cardapio Table View Controller-->
         <scene sceneID="lc9-OV-uub">
