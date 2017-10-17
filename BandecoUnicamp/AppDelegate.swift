@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
         
         FIRApp.configure()
+        
+        GAI.sharedInstance().logger.logLevel = GAILogLevel.none
+        
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
             print("\n\nDevice Token: \(token)\n\n\n")
             
