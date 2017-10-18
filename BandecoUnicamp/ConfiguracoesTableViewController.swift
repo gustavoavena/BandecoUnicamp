@@ -200,7 +200,10 @@ class ConfiguracoesTableViewController: UITableViewController {
                 
             } else {
                 // ios 9 only
-                title = ""
+                if section == 1 {
+                    title = ""
+                }
+                
             }
         }
         
@@ -218,7 +221,10 @@ class ConfiguracoesTableViewController: UITableViewController {
                 
             } else {
                 // ios 9 only
-                title = ""
+                if section == 1 {
+                    title = ""
+                }
+                
             }
         }
         return  title
