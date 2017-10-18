@@ -45,7 +45,7 @@ class UnicampServer {
         var json = JSON.null
         
         
-        print("Fazendo request para URL:\(cardapioURL?.absoluteString)\n\n")
+        print("\nFazendo request para URL:\(cardapioURL?.absoluteString)\n")
         
         URLSession.shared.sendSynchronousRequest(request: cardapioURL!) {
             (data, response, error) in
@@ -128,7 +128,7 @@ class UnicampServer {
         
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
-        print("Token URL: \(tokensURL)")
+        print("\nToken URL: \(tokensURL)")
         
         if let url = URL(string: tokensURL) {
             var request = URLRequest(url: url)
@@ -167,7 +167,7 @@ class UnicampServer {
     public static func unregisterDeviceToken(token: String) {
         let removeURL = "\(tokensURL)/\(token)"
         
-        print("Token URL: \(tokensURL)")
+        print("\nToken URL: \(tokensURL)")
         
         if let url = URL(string: removeURL) {
             var request = URLRequest(url: url)

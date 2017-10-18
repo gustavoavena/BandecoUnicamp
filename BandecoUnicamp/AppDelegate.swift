@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
         
-        FIRApp.configure()
         
-        GAI.sharedInstance().logger.logLevel = GAILogLevel.none
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
             print("\n\nDevice Token: \(token)\n\n\n")
@@ -30,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         #if RELEASE
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
         self.setupGoogleAnalytics()
         #endif
         
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let token = tokenParts.joined()
-        print("\nDevice Token: \(token)\n")
+        print("Device Token: \(token)\n")
         
         UserDefaults.standard.set(token, forKey: "deviceToken")
         
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let gai = GAI.sharedInstance() {
             gai.tracker(withTrackingId: ("UA-103784746-1"))
             gai.trackUncaughtExceptions = true  // report uncaught exceptions
-            gai.logger.logLevel = GAILogLevel.none  // TODO: definir isso aqui
+            gai.logger.logLevel = GAILogLevel.none
             gai.defaultTracker.allowIDFACollection = true
             gai.defaultTracker.send(GAIDictionaryBuilder.createEvent(withCategory: "ui_action", action: "app_launched",label:"launch",value:nil).build() as! [AnyHashable : Any]!)
         }
