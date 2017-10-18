@@ -37,6 +37,7 @@ class ConfiguracoesTableViewController: UITableViewController {
         // disable highlight on veggie's cell. its only possible to click on switch
         self.veggieTableViewCell.selectionStyle = .none;
         
+
         
 
         tableView.reloadData()
@@ -130,6 +131,97 @@ class ConfiguracoesTableViewController: UITableViewController {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
+    }
+    
+   
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+            if #available(iOS 10, *)
+            {
+                
+            } else {
+                // ios 9 only
+                if(section == 1){
+                    return 0.01
+                }
+                
+            }
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        if #available(iOS 9, *)
+        {
+            if #available(iOS 10, *)
+            {
+                
+            } else {
+                // ios 9 only
+                if(section == 1){
+                    return 0.01
+                }
+                
+            }
+        }
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+
+        var rows = [1,1,2]
+        
+        if #available(iOS 9, *)
+        {
+            if #available(iOS 10, *)
+            {
+                
+            } else {
+                // ios 9 only
+                if(section == 1){
+                    rows[section] = 0
+                }
+            }
+        }
+        
+        return rows[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        var title = super.tableView(tableView, titleForFooterInSection: section)
+        
+        if #available(iOS 9, *)
+        {
+            if #available(iOS 10, *)
+            {
+                
+            } else {
+                // ios 9 only
+                title = ""
+            }
+        }
+        
+        
+        return  title
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title = super.tableView(tableView, titleForHeaderInSection: section)
+        
+        if #available(iOS 9, *)
+        {
+            if #available(iOS 10, *)
+            {
+                
+            } else {
+                // ios 9 only
+                title = ""
+            }
+        }
+        return  title
     }
     
     
