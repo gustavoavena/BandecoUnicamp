@@ -14,6 +14,7 @@
 		4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D259F771F71691C008E1F07 /* Configuracoes.storyboard */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
 		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
+		4D4BC7D51F97862A00603150 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D4BC7D41F97860500603150 /* GoogleService-Info.plist */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D4E1ED1D371009CC3E1 /* cardapio */; };
 		4D5C6D571ED1E45D009CC3E1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5C6D561ED1E45D009CC3E1 /* NotificationCenter.framework */; };
@@ -35,7 +36,6 @@
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
-		4DD0DBB21F96A66900346A95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD0DBB11F96A5AE00346A95 /* GoogleService-Info.plist */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DEE3B2F1F83BECF00C31DED /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */; };
@@ -77,6 +77,7 @@
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D259F771F71691C008E1F07 /* Configuracoes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Configuracoes.storyboard; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
+		4D4BC7D41F97860500603150 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
 		4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetCardapio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +99,6 @@
 		4DB41A1B1EEAD8C400255628 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
-		4DD0DBB11F96A5AE00346A95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +191,6 @@
 		4D9528F61EC78D2D00219F48 = {
 			isa = PBXGroup;
 			children = (
-				4DD0DBB11F96A5AE00346A95 /* GoogleService-Info.plist */,
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
 				9B67CAF21F56FE6A00B85D7B /* Bandex */,
@@ -216,6 +215,7 @@
 			children = (
 				4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */,
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
+				4D4BC7D41F97860500603150 /* GoogleService-Info.plist */,
 				4D02A3B11F54A54800E9357A /* Model */,
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
@@ -363,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */,
-				4DD0DBB21F96A66900346A95 /* GoogleService-Info.plist in Resources */,
+				4D4BC7D51F97862A00603150 /* GoogleService-Info.plist in Resources */,
 				4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */,
 				4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */,
 				4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */,
