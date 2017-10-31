@@ -164,6 +164,7 @@ extension CardapioTableViewController: ScreenshotDelegate {
         
         
         shareView?.cardapio = cardapio
+        shareView?.vegetariano = vegetariano
         shareView?.screenshotAlmoco = self.screenshotAlmoco
         
         // save superview
