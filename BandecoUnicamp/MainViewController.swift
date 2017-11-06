@@ -91,7 +91,7 @@ class MainViewController: GAITrackedViewController {
     
     /// Checa se passaram 30min desde a ultima atualizacao para evitar requests desnecessarios que deixam o app lento.
     func checkIfNeedsRefreshing() {
-        let INTERVALO_DE_RELOAD = 30
+        let INTERVALO_DE_RELOAD = 5 // em minutos
         
         let components = Calendar.current.dateComponents([.minute], from: lastRefreshed, to: Date())
         
