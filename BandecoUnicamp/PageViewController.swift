@@ -43,6 +43,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             fatalError("Unable to instantiate a ErroViewController.")
         }
         
+        // Colocar mensagem de erro na label de data de todos os view controllers (caso haja cardapios). Caso nao haja cardapios, instanciar ErroViewController.
+        
         setViewControllers([controller], direction: .forward, animated: false, completion: nil)
     }
     

@@ -35,10 +35,14 @@ class WidgetTableViewController: UITableViewController {
     
     
     func displayError() {
-        let errorString = "Desculpe, não foi possível carregar o cardápio."
-        pratoPrincipal.adjustsFontSizeToFitWidth = true
-        pratoPrincipal.textColor = UIColor.red
-        setCardapioValues(refeicao: "", pratoPrincipal: errorString, sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "", data: Date())
+        let errorString = "Sem conexão"
+//        pratoPrincipal.adjustsFontSizeToFitWidth = true
+//        pratoPrincipal.textColor = UIColor.red
+        refeicao.textColor = UIColor.red
+        refeicao.adjustsFontSizeToFitWidth =  true
+        refeicao.text = errorString
+        
+//        setCardapioValues(refeicao: errorString, pratoPrincipal: "", sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "", data: Date())
     }
     
     func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String, data: Date) {
