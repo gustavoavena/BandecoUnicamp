@@ -162,7 +162,7 @@
         <scene sceneID="1pn-9O-ASG">
             <objects>
                 <navigationController id="Bbu-s4-Gua" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" selectedImage="configuracoes-filled" id="Jhq-Nf-0gl"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="configuracoes" selectedImage="configuracoes" id="Jhq-Nf-0gl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pKM-sp-Yvg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -327,7 +327,6 @@
     <resources>
         <image name="bianca" width="304" height="304"/>
         <image name="configuracoes" width="25" height="25"/>
-        <image name="configuracoes-filled" width="25" height="25"/>
         <image name="gio" width="304" height="304"/>
         <image name="guga" width="304" height="304"/>
         <image name="ju" width="304" height="304"/>
