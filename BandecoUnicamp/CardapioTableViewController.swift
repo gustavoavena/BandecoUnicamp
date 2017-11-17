@@ -92,6 +92,16 @@ class CardapioTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return errorUpdating ? UITableViewAutomaticDimension : 0.01
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+    
+
+    
     
     
     
@@ -131,8 +141,8 @@ class CardapioTableViewController: UITableViewController {
 
     //Sorry for the magical number :( 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 30.0
+        if(section == 0) {
+            return errorUpdating ? 30.0 : 2
         } else {
             return 45.0
         }
