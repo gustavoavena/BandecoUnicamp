@@ -46,12 +46,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //abre o aplicativo ao clicar no widget
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         extensionContext?.open(URL(string: "Bandex://")!, completionHandler: { (success) in
@@ -61,18 +55,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         })
     }
 
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        updateWidget() {
-            (success) in
-            if success {
-                print("widget updated succesfully.")
-            } else {
-                print("error updating widget before appearing.")
-            }
-        }
-    }
     
    
     
@@ -112,19 +94,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
+
+        print("performing automatic update!")
         updateWidget() {
             (success) in
-            
+
             if success {
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
             }
-            
         }
-        
+
     }
-    
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

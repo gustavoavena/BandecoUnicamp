@@ -35,28 +35,35 @@ class WidgetTableViewController: UITableViewController {
     
     
     func displayError() {
-        let errorString = "Erro ao atualizar cardápios"
-//        pratoPrincipal.adjustsFontSizeToFitWidth = true
-//        pratoPrincipal.textColor = UIColor.red
-        refeicao.textColor = UIColor.red
-        refeicao.adjustsFontSizeToFitWidth =  true
-        refeicao.text = errorString
+        if let d = UserDefaults.standard.dictionary(forKey: "lastRefeicaoWidget") {
+            setCardapioValues(from: d)
+        }
         
-//        setCardapioValues(refeicao: errorString, pratoPrincipal: "", sobremesa: "", suco: "", guarnicao: "", salada: "", pts: "", data: Date())
+        let errorString = "Erro ao atualizar cardápio"
+        self.refeicao.textColor = UIColor.red
+        self.refeicao.adjustsFontSizeToFitWidth =  true
+        self.refeicao.text = errorString
     }
     
-    func setCardapioValues(refeicao: String, pratoPrincipal: String, sobremesa: String, suco: String, guarnicao: String, salada: String, pts: String, data: Date) {
-        self.refeicao.text = refeicao
-        self.pratoPrincipal.text = pratoPrincipal
-        self.sobremesa.text = sobremesa
-        self.suco.text = suco
-        self.guarnicao.text = guarnicao
-        self.salada.text = salada
-        self.pts.text = pts
-        self.dataLabel.text = formatDateString(data: data)
+
+    func storeDictionary(refeicao: Refeicao, data: Date) {
+        var d = [String: Any]()
+        
+        d["refeicao"] = refeicao.tipo.rawValue
+        d["pratoPrincipal"] = refeicao.pratoPrincipal
+        d["sobremesa"] = refeicao.sobremesa
+        d["suco"] = refeicao.suco
+        d["guarnicao"] = refeicao.guarnicao
+        d["salada"] = refeicao.salada
+        d["pts"] = refeicao.pts
+        d["dataLabel"] = formatDateString(data: data)
+        
+        UserDefaults.standard.set(d, forKey: "lastRefeicaoWidget")
     }
+    
     
     func setCardapioValues(refeicao: Refeicao, data: Date) {
+        self.refeicao.textColor = UIColor.darkGray
         self.refeicao.text = refeicao.tipo.rawValue
         self.pratoPrincipal.text = refeicao.pratoPrincipal
         self.sobremesa.text = refeicao.sobremesa
@@ -65,6 +72,19 @@ class WidgetTableViewController: UITableViewController {
         self.salada.text = refeicao.salada
         self.pts.text = refeicao.pts
         self.dataLabel.text = formatDateString(data: data)
+        
+        storeDictionary(refeicao: refeicao, data: data)
+    }
+    
+    func setCardapioValues(from d: [String: Any]) {
+        
+        self.pratoPrincipal.text = d["pratoPrincipal"] as? String
+        self.sobremesa.text = d["sobremesa"] as? String
+        self.suco.text = d["suco"] as? String
+        self.guarnicao.text = d["guarnicao"] as? String
+        self.salada.text = d["salada"] as? String
+        self.pts.text = d["pts"] as? String
+        self.dataLabel.text = d["dataLabel"] as? String
     }
     
     private func formatDateString(data: Date) -> String {
@@ -89,5 +109,5 @@ class WidgetTableViewController: UITableViewController {
         })
     }
     
-
+    
 }
