@@ -32,7 +32,6 @@ class CardapioTableViewController: UITableViewController {
     var errorUpdating: Bool = false {
         didSet {
             self.tableView.reloadData()
-            print("Reloading tableView in CardapioTableViewController")
         }
     }
     @IBOutlet weak var errorRow: UITableViewCell!

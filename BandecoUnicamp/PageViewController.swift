@@ -55,11 +55,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             for vc in vcs {
                 vc.errorUpdating = true
             }
-            
-//            setViewControllers(vcs, direction: .forward, animated: false, completion: nil)
-            
         } else {
-            
             alertarErro()
         }
     }
@@ -92,17 +88,19 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
     
-    func reloadCardapios() {
+    func reloadCardapios(completionHandler: (Bool)->Void) {
         let newCardapios = CardapioServices.shared.getAllCardapios()
         
         if newCardapios.count > 0 {
             self.cardapios = newCardapios
             self.errorUpdating = false
             loadData()
+            completionHandler(true)
         } else {
             self.errorUpdating = true
             alertarErroNovo()
             print("Cardapios nao atualizados devido a erro.")
+            completionHandler(false)
         }
         
     }

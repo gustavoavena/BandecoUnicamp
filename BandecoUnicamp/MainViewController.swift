@@ -98,8 +98,15 @@ class MainViewController: GAITrackedViewController {
         
         if let minutes = components.minute, minutes > INTERVALO_DE_RELOAD || pageViewController.cardapios.count == 0 {
             print("Atualizando cardapios. Minutos desde ultima atualizacao: \(minutes).")
-            self.pageViewController.reloadCardapios() // Faz request e atualiza cardapios.
-            self.lastRefreshed = Date()
+            // Faz request e atualiza cardapios.
+            self.pageViewController.reloadCardapios() {
+                success in
+                
+                if success {
+                    self.lastRefreshed = Date()
+                }
+            }
+            
         } 
     }
     
