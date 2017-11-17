@@ -35,7 +35,7 @@ class WidgetTableViewController: UITableViewController {
     
     
     func displayError() {
-        let errorString = "Sem conexão"
+        let errorString = "Erro ao atualizar cardápios"
 //        pratoPrincipal.adjustsFontSizeToFitWidth = true
 //        pratoPrincipal.textColor = UIColor.red
         refeicao.textColor = UIColor.red
