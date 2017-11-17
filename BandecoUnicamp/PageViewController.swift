@@ -12,6 +12,7 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
+    var errorUpdating: Bool = false
     var cardapios: [Cardapio] = CardapioServices.shared.getAllCardapios()
     var vegetariano: Bool = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") {
         didSet {
@@ -32,12 +33,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         appearance.pageIndicatorTintColor = UIColor.lightGray
         appearance.currentPageIndicatorTintColor = UIColor.gray
         
-        
         loadData()
     }
     
     
-
     func alertarErro() {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "ErroViewController") else {
             fatalError("Unable to instantiate a ErroViewController.")
@@ -46,6 +45,23 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Colocar mensagem de erro na label de data de todos os view controllers (caso haja cardapios). Caso nao haja cardapios, instanciar ErroViewController.
         
         setViewControllers([controller], direction: .forward, animated: false, completion: nil)
+    }
+    
+
+    func alertarErroNovo() {
+        
+        if let vcs = self.viewControllers as? [CardapioTableViewController], vcs.count > 0 {
+            print("vcs com sucesso!")
+            for vc in vcs {
+                vc.errorUpdating = true
+            }
+            
+//            setViewControllers(vcs, direction: .forward, animated: false, completion: nil)
+            
+        } else {
+            
+            alertarErro()
+        }
     }
     
     func vegetarianoChanged() {
@@ -64,7 +80,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     func loadData() {
-
+        
         if let _ = cardapios.first {
             let vc = cardapioItemViewController(forCardapio: 0)
             self.setViewControllers([vc], direction: .forward, animated: false, completion: nil)
@@ -77,8 +93,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     func reloadCardapios() {
-        self.cardapios = CardapioServices.shared.getAllCardapios()
-        loadData()
+        let newCardapios = CardapioServices.shared.getAllCardapios()
+        
+        if newCardapios.count > 0 {
+            self.cardapios = newCardapios
+            self.errorUpdating = false
+            loadData()
+        } else {
+            self.errorUpdating = true
+            alertarErroNovo()
+            print("Cardapios nao atualizados devido a erro.")
+        }
+        
     }
     
     
@@ -164,6 +190,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         let cardapio = self.cardapios[pageIndex]
         controller.cardapio = cardapio
         controller.vegetariano = self.vegetariano
+        controller.errorUpdating = self.errorUpdating
 
         return controller
     }

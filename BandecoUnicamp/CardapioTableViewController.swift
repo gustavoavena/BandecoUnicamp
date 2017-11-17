@@ -28,7 +28,14 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
-  
+    
+    var errorUpdating: Bool = false {
+        didSet {
+            self.tableView.reloadData()
+            print("Reloading tableView in CardapioTableViewController")
+        }
+    }
+    @IBOutlet weak var errorRow: UITableViewCell!
     
     static let storyboardIdentifier = "CardapioTableView"
     
@@ -67,15 +74,25 @@ class CardapioTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
-        case 0:
-            return cardapio!.almoco.observacoes
         case 1:
+            return cardapio!.almoco.observacoes
+        case 2:
             return cardapio!.jantar.observacoes
         default:
-            print("Problema setando o footer das sections na Table View.")
-            return "Obs: "
+//            print("Problema setando o footer das sections na Table View.")
+            return nil
         }
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0) {
+            return errorUpdating ? 1 : 0
+        } else {
+            return 6
+        }
+    }
+    
+    
     
     
     override func viewDidLoad() {
