@@ -10,6 +10,21 @@
 		4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
 		4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
 		4D02A3C11F54A9AE00E9357A /* Cardapios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */; };
+		4D106DA91FC0FE4B0033CECB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D106DA71FC0FE4B0033CECB /* Interface.storyboard */; };
+		4D106DAB1FC0FE4B0033CECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D106DAA1FC0FE4B0033CECB /* Assets.xcassets */; };
+		4D106DB21FC0FE4C0033CECB /* BandexWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D106DB11FC0FE4C0033CECB /* BandexWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4D106DB71FC0FE4C0033CECB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D106DB61FC0FE4C0033CECB /* InterfaceController.swift */; };
+		4D106DB91FC0FE4C0033CECB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D106DB81FC0FE4C0033CECB /* ExtensionDelegate.swift */; };
+		4D106DBB1FC0FE4C0033CECB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D106DBA1FC0FE4C0033CECB /* NotificationController.swift */; };
+		4D106DBD1FC0FE4C0033CECB /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D106DBC1FC0FE4C0033CECB /* ComplicationController.swift */; };
+		4D106DBF1FC0FE4C0033CECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D106DBE1FC0FE4C0033CECB /* Assets.xcassets */; };
+		4D106DC41FC0FE4C0033CECB /* BandexWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4D106DA51FC0FE4B0033CECB /* BandexWatch.app */; };
+		4D106DCD1FC0FE8A0033CECB /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
+		4D106DCE1FC0FE8C0033CECB /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02A3AE1F54A50B00E9357A /* Refeicao.swift */; };
+		4D106DCF1FC0FE900033CECB /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
+		4D106DD21FC0FEB40033CECB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D106DD01FC0FEB40033CECB /* SwiftyJSON.framework */; };
+		4D106DD31FC0FEB40033CECB /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D106DD11FC0FEB40033CECB /* Gloss.framework */; };
+		4D106DD51FC0FF040033CECB /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D1BD06B1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */; };
 		4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D259F771F71691C008E1F07 /* Configuracoes.storyboard */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
@@ -45,6 +60,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4D106DB31FC0FE4C0033CECB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D106DB01FC0FE4C0033CECB;
+			remoteInfo = "BandexWatch Extension";
+		};
+		4D106DC21FC0FE4C0033CECB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D106DA41FC0FE4B0033CECB;
+			remoteInfo = BandexWatch;
+		};
 		4D5C6D5F1ED1E45D009CC3E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D9528F71EC78D2D00219F48 /* Project object */;
@@ -55,6 +84,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4D106DCA1FC0FE4C0033CECB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4D106DB21FC0FE4C0033CECB /* BandexWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D106DCC1FC0FE4C0033CECB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				4D106DC41FC0FE4C0033CECB /* BandexWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D651ED1E45D009CC3E1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +124,20 @@
 		48D45D363702D7C7B6911B6E /* Pods-BandecoUnicamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BandecoUnicamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BandecoUnicamp/Pods-BandecoUnicamp.release.xcconfig"; sourceTree = "<group>"; };
 		4D02A3AE1F54A50B00E9357A /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
 		4D02A3C01F54A9AE00E9357A /* Cardapios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cardapios.storyboard; sourceTree = "<group>"; };
+		4D106DA51FC0FE4B0033CECB /* BandexWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandexWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D106DA81FC0FE4B0033CECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		4D106DAA1FC0FE4B0033CECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D106DAC1FC0FE4B0033CECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D106DB11FC0FE4C0033CECB /* BandexWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BandexWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D106DB61FC0FE4C0033CECB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		4D106DB81FC0FE4C0033CECB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		4D106DBA1FC0FE4C0033CECB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		4D106DBC1FC0FE4C0033CECB /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		4D106DBE1FC0FE4C0033CECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D106DC01FC0FE4C0033CECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D106DC11FC0FE4C0033CECB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		4D106DD01FC0FEB40033CECB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/watchOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		4D106DD11FC0FEB40033CECB /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/watchOS/Gloss.framework; sourceTree = "<group>"; };
 		4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D259F771F71691C008E1F07 /* Configuracoes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Configuracoes.storyboard; sourceTree = "<group>"; };
@@ -110,6 +175,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4D106DAE1FC0FE4C0033CECB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D106DD21FC0FEB40033CECB /* SwiftyJSON.framework in Frameworks */,
+				4D106DD31FC0FEB40033CECB /* Gloss.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D511ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,9 +238,35 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4D106DA61FC0FE4B0033CECB /* BandexWatch */ = {
+			isa = PBXGroup;
+			children = (
+				4D106DA71FC0FE4B0033CECB /* Interface.storyboard */,
+				4D106DAA1FC0FE4B0033CECB /* Assets.xcassets */,
+				4D106DAC1FC0FE4B0033CECB /* Info.plist */,
+			);
+			path = BandexWatch;
+			sourceTree = "<group>";
+		};
+		4D106DB51FC0FE4C0033CECB /* BandexWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4D106DB61FC0FE4C0033CECB /* InterfaceController.swift */,
+				4D106DB81FC0FE4C0033CECB /* ExtensionDelegate.swift */,
+				4D106DBA1FC0FE4C0033CECB /* NotificationController.swift */,
+				4D106DBC1FC0FE4C0033CECB /* ComplicationController.swift */,
+				4D106DBE1FC0FE4C0033CECB /* Assets.xcassets */,
+				4D106DC01FC0FE4C0033CECB /* Info.plist */,
+				4D106DC11FC0FE4C0033CECB /* PushNotificationPayload.apns */,
+			);
+			path = "BandexWatch Extension";
+			sourceTree = "<group>";
+		};
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D106DD11FC0FEB40033CECB /* Gloss.framework */,
+				4D106DD01FC0FEB40033CECB /* SwiftyJSON.framework */,
 				4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */,
 				4D1BD0671F325D4200DFBCFF /* SwiftyJSON.framework */,
 				4DB41A1B1EEAD8C400255628 /* Gloss.framework */,
@@ -194,6 +294,8 @@
 				4D9529011EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D581ED1E45D009CC3E1 /* WidgetCardapio */,
 				9B67CAF21F56FE6A00B85D7B /* Bandex */,
+				4D106DA61FC0FE4B0033CECB /* BandexWatch */,
+				4D106DB51FC0FE4C0033CECB /* BandexWatch Extension */,
 				4D5C6D551ED1E45D009CC3E1 /* Frameworks */,
 				4D9529001EC78D2D00219F48 /* Products */,
 				4C10C09CB4B0180809A99E3C /* Pods */,
@@ -206,6 +308,8 @@
 			children = (
 				4D9528FF1EC78D2D00219F48 /* BandecoUnicamp.app */,
 				4D5C6D541ED1E45D009CC3E1 /* WidgetCardapio.appex */,
+				4D106DA51FC0FE4B0033CECB /* BandexWatch.app */,
+				4D106DB11FC0FE4C0033CECB /* BandexWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +356,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4D106DA41FC0FE4B0033CECB /* BandexWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D106DCB1FC0FE4C0033CECB /* Build configuration list for PBXNativeTarget "BandexWatch" */;
+			buildPhases = (
+				4D106DA31FC0FE4B0033CECB /* Resources */,
+				4D106DCA1FC0FE4C0033CECB /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D106DB41FC0FE4C0033CECB /* PBXTargetDependency */,
+			);
+			name = BandexWatch;
+			productName = BandexWatch;
+			productReference = 4D106DA51FC0FE4B0033CECB /* BandexWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		4D106DB01FC0FE4C0033CECB /* BandexWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D106DC91FC0FE4C0033CECB /* Build configuration list for PBXNativeTarget "BandexWatch Extension" */;
+			buildPhases = (
+				4D106DAD1FC0FE4C0033CECB /* Sources */,
+				4D106DAE1FC0FE4C0033CECB /* Frameworks */,
+				4D106DAF1FC0FE4C0033CECB /* Resources */,
+				4D106DD41FC0FEC80033CECB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BandexWatch Extension";
+			productName = "BandexWatch Extension";
+			productReference = 4D106DB11FC0FE4C0033CECB /* BandexWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D5C6D621ED1E45D009CC3E1 /* Build configuration list for PBXNativeTarget "WidgetCardapio" */;
@@ -282,11 +421,13 @@
 				58876C8EDA973846B23342D4 /* [CP] Embed Pods Frameworks */,
 				A5DE2172CA54F778139D7323 /* [CP] Copy Pods Resources */,
 				4D41771A1F30A471007CE9D1 /* ShellScript */,
+				4D106DCC1FC0FE4C0033CECB /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */,
+				4D106DC31FC0FE4C0033CECB /* PBXTargetDependency */,
 			);
 			name = BandecoUnicamp;
 			productName = BandecoUnicamp;
@@ -299,10 +440,20 @@
 		4D9528F71EC78D2D00219F48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Gustavo Avena";
 				TargetAttributes = {
+					4D106DA41FC0FE4B0033CECB = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = X5G89Y4L38;
+						ProvisioningStyle = Automatic;
+					};
+					4D106DB01FC0FE4C0033CECB = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = X5G89Y4L38;
+						ProvisioningStyle = Automatic;
+					};
 					4D5C6D531ED1E45D009CC3E1 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = X5G89Y4L38;
@@ -344,11 +495,30 @@
 			targets = (
 				4D9528FE1EC78D2D00219F48 /* BandecoUnicamp */,
 				4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */,
+				4D106DA41FC0FE4B0033CECB /* BandexWatch */,
+				4D106DB01FC0FE4C0033CECB /* BandexWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4D106DA31FC0FE4B0033CECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D106DAB1FC0FE4B0033CECB /* Assets.xcassets in Resources */,
+				4D106DA91FC0FE4B0033CECB /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D106DAF1FC0FE4C0033CECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D106DBF1FC0FE4C0033CECB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D521ED1E45D009CC3E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +554,23 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gloss.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		4D106DD41FC0FEC80033CECB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/Gloss.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gloss.framework",
@@ -457,6 +644,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4D106DAD1FC0FE4C0033CECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D106DBB1FC0FE4C0033CECB /* NotificationController.swift in Sources */,
+				4D106DCE1FC0FE8C0033CECB /* Refeicao.swift in Sources */,
+				4D106DD51FC0FF040033CECB /* UnicampServer.swift in Sources */,
+				4D106DBD1FC0FE4C0033CECB /* ComplicationController.swift in Sources */,
+				4D106DCF1FC0FE900033CECB /* CardapioServices.swift in Sources */,
+				4D106DB91FC0FE4C0033CECB /* ExtensionDelegate.swift in Sources */,
+				4D106DB71FC0FE4C0033CECB /* InterfaceController.swift in Sources */,
+				4D106DCD1FC0FE8A0033CECB /* Cardapio.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D5C6D501ED1E45D009CC3E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,6 +694,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4D106DB41FC0FE4C0033CECB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D106DB01FC0FE4C0033CECB /* BandexWatch Extension */;
+			targetProxy = 4D106DB31FC0FE4C0033CECB /* PBXContainerItemProxy */;
+		};
+		4D106DC31FC0FE4C0033CECB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D106DA41FC0FE4B0033CECB /* BandexWatch */;
+			targetProxy = 4D106DC21FC0FE4C0033CECB /* PBXContainerItemProxy */;
+		};
 		4D5C6D601ED1E45D009CC3E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D5C6D531ED1E45D009CC3E1 /* WidgetCardapio */;
@@ -500,6 +712,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4D106DA71FC0FE4B0033CECB /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D106DA81FC0FE4B0033CECB /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		4D5C6D5B1ED1E45D009CC3E1 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -527,6 +747,128 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4D106DC51FC0FE4C0033CECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = BandexWatch_Extension;
+				INFOPLIST_FILE = BandexWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+			};
+			name = Debug;
+		};
+		4D106DC61FC0FE4C0033CECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = BandexWatch_Extension;
+				INFOPLIST_FILE = BandexWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+			};
+			name = Release;
+		};
+		4D106DC71FC0FE4C0033CECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "BandexWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+			};
+			name = Debug;
+		};
+		4D106DC81FC0FE4C0033CECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "BandexWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
+			};
+			name = Release;
+		};
 		4D5C6D631ED1E45D009CC3E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -733,6 +1075,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4D106DC91FC0FE4C0033CECB /* Build configuration list for PBXNativeTarget "BandexWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D106DC71FC0FE4C0033CECB /* Debug */,
+				4D106DC81FC0FE4C0033CECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D106DCB1FC0FE4C0033CECB /* Build configuration list for PBXNativeTarget "BandexWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D106DC51FC0FE4C0033CECB /* Debug */,
+				4D106DC61FC0FE4C0033CECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4D5C6D621ED1E45D009CC3E1 /* Build configuration list for PBXNativeTarget "WidgetCardapio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
