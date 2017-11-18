@@ -51,7 +51,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func alertarErroNovo() {
         
         if let vcs = self.viewControllers as? [CardapioTableViewController], vcs.count > 0 {
-            print("vcs com sucesso!")
             for vc in vcs {
                 vc.errorUpdating = true
             }

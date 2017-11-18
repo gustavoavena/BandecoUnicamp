@@ -29,11 +29,8 @@ class CardapioTableViewController: UITableViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    var errorUpdating: Bool = false {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var errorUpdating: Bool = false
+    
     @IBOutlet weak var errorRow: UITableViewCell!
     
     static let storyboardIdentifier = "CardapioTableView"
@@ -99,6 +96,12 @@ class CardapioTableViewController: UITableViewController {
         }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.errorUpdating {
+            tableView.reloadData()
+        }
+    }
 
     
     
