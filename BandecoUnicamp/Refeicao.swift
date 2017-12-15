@@ -10,7 +10,7 @@ import UIKit
 import Gloss
 
 
-public struct Refeicao: Gloss.Decodable {
+public struct Refeicao: Gloss.JSONDecodable {
     let tipo: TipoRefeicao
     let arrozFeijao: String
     let pratoPrincipal: String

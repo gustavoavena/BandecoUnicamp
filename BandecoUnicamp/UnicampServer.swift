@@ -45,10 +45,10 @@ class UnicampServer {
         var json = JSON.null
         
         
-        print("\nFazendo request para URL:\(cardapioURL?.absoluteString)\n")
+        print("\nFazendo request para URL:\(String(describing: cardapioURL?.absoluteString))\n")
         
         URLSession.shared.sendSynchronousRequest(request: cardapioURL!) {
-            (data, response, error) in
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
             guard error == nil, let res = response as? HTTPURLResponse, let data = data else {
                 print("Erro no request.")
@@ -62,13 +62,20 @@ class UnicampServer {
             }
             
 
-            json = JSON(data: data)
-            if let dataFromString = json.string?.data(using: .utf8, allowLossyConversion: false) {
-                json = JSON(data: dataFromString)
-            } else {
-                print("Nao conseguiu extrair dados da string do JSON.")
+            do {
+                json = try JSON(data: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                if let dataFromString = json.string?.data(using: .utf8, allowLossyConversion: false) {
+                    do {
+                        json = try JSON(data: dataFromString)
+                    } catch let error {
+                        print("Error parsing JSON from string: \(error)")
+                    }
+                } else {
+                    print("Nao conseguiu extrair dados da string do JSON.")
+                }
+            } catch let error {
+                print("Error parsing JSON data: \(error)")
             }
-
         }
         
         return json
