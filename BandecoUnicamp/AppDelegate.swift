@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(token, forKey: "deviceToken")
         
+        // TODO: setar horario do almoco e/ou jantar (colocando nil quando nao quiser notificacao).
+        
         CardapioServices.shared.registerDeviceToken(token: token)
     }
     

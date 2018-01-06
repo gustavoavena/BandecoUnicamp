@@ -135,12 +135,17 @@ class UnicampServer {
         
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
+//        let hora_almoco = UserDefaults(suiteName: "group.bandex.shared")!.string(forKey: "hora_almoco")
+//        let hora_jantar = UserDefaults(suiteName: "group.bandex.shared")!.string(forKey: "hora_jantar")
+        
         print("\nToken URL: \(tokensURL)")
         
         if let url = URL(string: tokensURL) {
             var request = URLRequest(url: url)
             
-            let body: [String: Any] = ["token": token, "vegetariano": vegetariano ]
+            let body: [String: Any] = ["token": token, "vegetariano": vegetariano]
+            
+            // TODO: setar almoco e jantar.
             
             let data = try? JSONSerialization.data(withJSONObject: body, options: [])
             
