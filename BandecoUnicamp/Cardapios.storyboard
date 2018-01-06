@@ -863,6 +863,8 @@
                         <outlet property="sobremesaJantar" destination="iM3-XT-1Vb" id="iSy-bs-iMb"/>
                         <outlet property="sucoAlmoco" destination="rAJ-N6-QT5" id="F8V-A9-DXN"/>
                         <outlet property="sucoJantar" destination="YAt-Mt-qyG" id="WDU-Nq-fcL"/>
+                        <outlet property="viewAlmoco" destination="E8j-Fe-kgW" id="uMx-pw-vq4"/>
+                        <outlet property="viewJantar" destination="qzA-rf-oKk" id="7R7-rQ-wxR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2n5-Ke-HtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
