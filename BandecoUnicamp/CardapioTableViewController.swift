@@ -83,11 +83,12 @@ class CardapioTableViewController: UITableViewController {
         }
     }
     
+    // CRASH AQUI
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0) {
             return errorUpdating ? 1 : 0
         } else {
-            return 6
+            return 1 // Tava crashando o app.
         }
     }
     

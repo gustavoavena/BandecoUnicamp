@@ -142,7 +142,7 @@
         <!--Table View Controller-->
         <scene sceneID="lc9-OV-uub">
             <objects>
-                <tableViewController storyboardIdentifier="CardapioTableView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xfe-6k-Gw2" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xfe-6k-Gw2" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="43" sectionHeaderHeight="1" sectionFooterHeight="10" id="O5g-Ln-vWI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -581,9 +581,6 @@
                             <outlet property="delegate" destination="xfe-6k-Gw2" id="l4d-bI-yfJ"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="tableView" destination="O5g-Ln-vWI" id="ibr-Mw-BFp"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZL-hK-7m1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -592,7 +589,7 @@
         <!--Cardapio Table View Controller-->
         <scene sceneID="idi-1d-DOt">
             <objects>
-                <tableViewController id="OkP-qf-Jp1" customClass="CardapioTableViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CardapioTableView" id="OkP-qf-Jp1" customClass="CardapioTableViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ivq-Vs-XFT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
