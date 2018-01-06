@@ -35,6 +35,9 @@ class CardapioTableViewController: UITableViewController {
     
     static let storyboardIdentifier = "CardapioTableView"
     
+    @IBOutlet weak var viewAlmoco: UIView!
+    @IBOutlet weak var viewJantar: UIView!
+    
     var cardapio: Cardapio!
     var vegetariano: Bool! = false
     
@@ -115,12 +118,10 @@ class CardapioTableViewController: UITableViewController {
         } else {
             print("Problema carregado view controller!")
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Adicionando cantos arredondados as views de cardapio
+        self.viewAlmoco.layer.cornerRadius = 8.0
+        self.viewJantar.layer.cornerRadius = 8.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
