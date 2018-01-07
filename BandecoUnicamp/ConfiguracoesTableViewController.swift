@@ -23,14 +23,46 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     
-    
+    /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
+    // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
+    func loadNotificationOptions() {
+        notificationSwitch.isOn = UserDefaults.standard.bool(forKey: notificationsUserDefaultsString)
+        
+        
+        // TODO: setar o numero de linhas e as opcoes de notificacoes (ativadas ou nao, horario, etc) baseadp no User Defaults.
+        // e.g. notificacao_almoco = "12:00" e notificacao_jantar = nil
+        
+        // almocoSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared").string(forKey: "notificacao_almoco")
+        // jantarSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared").string(forKey: "notificacao_jantar")
+        
+        //        if let hora_almoco = UserDefaults(suiteName: "group.bandex.shared").string(forKey: "notificacao_almoco") as String? {
+        //            almocoSwitch.isOn =  true
+        //            // Colocar linha do almoco
+        //            // almocoTimeString.text = hora_almoco
+        //        } else {
+        //            almocoSwitch.isOn = false
+        //            // nao colocar linhas a mais na table view...
+        //        }
+        
+        //        if let hora_jantar = UserDefaults(suiteName: "group.bandex.shared").string(forKey: "notificacao_jantar") as String? {
+        //            jantarSwitch.isOn =  true
+        //            // Colocar linha do almoco
+        //            // jantarTimeString.text = hora_jantar
+        //        } else {
+        //            jantarSwitch.isOn = false
+        //            // nao colocar linhas a mais na table view...
+        //        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
-        notificationSwitch.isOn = UserDefaults.standard.bool(forKey: notificationsUserDefaultsString)
+        
+        loadNotificationOptions()
+        
+        
         // back button color
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
         
@@ -95,6 +127,11 @@ class ConfiguracoesTableViewController: UITableViewController {
             if #available(iOS 10.0, *) {
                 if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
                     CardapioServices.shared.unregisterDeviceToken(token: token)
+                    
+                    UserDefaults(suiteName: "group.bandex.shared")?.set(nil, forKey: "notificacao_almoco")
+                    UserDefaults(suiteName: "group.bandex.shared")?.set(nil, forKey: "notificacao_jantar")
+                    self.loadNotificationOptions()
+                    
                 } else {
                     print("Device token nao encontrado para ser removido")
                 }
@@ -129,6 +166,14 @@ class ConfiguracoesTableViewController: UITableViewController {
             // Executing is main queue because of warning from XCode 9 thread sanitizer.
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
+                
+                // TODO: atualizar opcoes de notificacoes no User Defaults.
+                UserDefaults(suiteName: "group.bandex.shared")?.set("11:00", forKey: "notificacao_almoco")
+                UserDefaults(suiteName: "group.bandex.shared")?.set("17:00", forKey: "notificacao_jantar")
+
+                // atualizar UI.
+                self.loadNotificationOptions()
+                
             }
         }
     }
