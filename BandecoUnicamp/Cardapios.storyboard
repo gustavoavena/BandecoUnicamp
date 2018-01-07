@@ -17,17 +17,17 @@
         <!--Main View Controller-->
         <scene sceneID="LLG-Ws-NOs">
             <objects>
-                <viewController id="vle-GY-btq" customClass="MainViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="vle-GY-btq" customClass="MainViewController" customModule="BandecoUnicamp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kh3-QE-0Jn"/>
                         <viewControllerLayoutGuide type="bottom" id="nco-aN-sjL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3FU-jG-E5m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-JY-Eq3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <connections>
                                     <segue destination="HN3-Mo-3zH" kind="embed" identifier="embedPage" id="DMJ-DV-GsZ"/>
                                 </connections>
@@ -62,13 +62,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="typeSegmentedControl" destination="GeU-b1-omu" id="rUR-yK-AUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtG-Vi-9B6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarItem title="Item" selectedImage="cardapio" id="Pqg-nr-WlU"/>
             </objects>
             <point key="canvasLocation" x="1772" y="240"/>
         </scene>
@@ -77,14 +77,11 @@
             <objects>
                 <navigationController storyboardIdentifier="CardapiosNavigationController" title="Cardápio" navigationBarHidden="YES" id="1Vk-aY-YJE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cardápio" image="cardapio" selectedImage="cardapio" id="Yrh-n2-EPe"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="vle-GY-btq" kind="relationship" relationship="rootViewController" id="FNT-TT-4DK"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -684,12 +681,12 @@
                                                     <rect key="frame" x="10" y="0.0" width="355" height="275.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almoço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iet-OY-z2x">
-                                                            <rect key="frame" x="10" y="10" width="52" height="21"/>
+                                                            <rect key="frame" x="10" y="10" width="70" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="1Nl-u4-gh0"/>
-                                                                <constraint firstAttribute="width" constant="52" id="x08-3M-f7C"/>
+                                                                <constraint firstAttribute="width" constant="70" id="x08-3M-f7C"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -698,7 +695,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="46" id="bf8-dc-uJD"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -707,7 +704,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="oRE-dV-m2d"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -730,7 +727,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="OPR-ab-LEc"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -739,7 +736,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="Peh-qJ-Hmb"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -762,7 +759,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="Y93-TB-3Vn"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -771,7 +768,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="5Gd-Mq-LfD"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -844,12 +841,12 @@
                                                     <rect key="frame" x="10" y="0.0" width="355" height="276"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jantar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3U-q9-UY1">
-                                                            <rect key="frame" x="10" y="10" width="58" height="21"/>
+                                                            <rect key="frame" x="10" y="10" width="70" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="58" id="N3Z-aI-upD"/>
+                                                                <constraint firstAttribute="width" constant="70" id="N3Z-aI-upD"/>
                                                                 <constraint firstAttribute="height" constant="21" id="kxa-10-u5b"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -858,7 +855,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="Iax-D7-A21"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -874,7 +871,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="tnv-JI-cqM"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -887,7 +884,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salada" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zd-oO-vao">
                                                             <rect key="frame" x="45" y="154.5" width="300" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -900,7 +897,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobremesa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iM3-XT-1Vb">
                                                             <rect key="frame" x="45" y="187.5" width="300" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -913,7 +910,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suco" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAt-Mt-qyG">
                                                             <rect key="frame" x="45" y="220.5" width="300" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -929,7 +926,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="46" id="Ebx-Kj-3Oy"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1008,7 +1005,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2n5-Ke-HtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4882" y="240"/>
+            <point key="canvasLocation" x="4880.8000000000002" y="239.73013493253376"/>
         </scene>
     </scenes>
     <resources>
