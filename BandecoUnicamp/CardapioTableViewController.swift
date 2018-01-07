@@ -28,6 +28,7 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var diaDaSemanaLabel: UILabel!
     
     var errorUpdating: Bool = false
     
@@ -46,7 +47,8 @@ class CardapioTableViewController: UITableViewController {
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
-        self.dateLabel.text = formatDateString(data: cardapio.data)
+        self.dateLabel.text = formatarData(data: cardapio.data)
+        self.diaDaSemanaLabel.text = formatarDiaDaSemana(data: cardapio.data)
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
@@ -162,17 +164,26 @@ class CardapioTableViewController: UITableViewController {
         trackScreenView()
     }
     
-    func formatDateString(data: Date) -> String {
+    func formatarDiaDaSemana(data: Date) -> String {
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
         
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        return DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]
+    }
+    
+    func formatarData(data: Date) -> String {
+        
+        
         let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
         
         let dia = Calendar.current.component(.day, from: data)
         let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
         
         // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+        return "\(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+//        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
 
     //Sorry for the magical number :( 

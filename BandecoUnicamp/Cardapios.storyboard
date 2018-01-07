@@ -82,6 +82,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yHA-Wa-lzy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="vle-GY-btq" kind="relationship" relationship="rootViewController" id="SK0-te-eD2"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rif-kd-Nbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,7 +612,7 @@
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quinta-feira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qz-tO-h89">
-                                    <rect key="frame" x="8" y="23" width="128" height="23"/>
+                                    <rect key="frame" x="8" y="23" width="190" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                     <nil key="textColor"/>
@@ -986,6 +989,7 @@
                     </tableView>
                     <connections>
                         <outlet property="dateLabel" destination="R8M-GS-ePu" id="YEG-yE-rFy"/>
+                        <outlet property="diaDaSemanaLabel" destination="7qz-tO-h89" id="OtF-M9-21m"/>
                         <outlet property="errorRow" destination="qAS-1f-6uH" id="5af-ga-VtE"/>
                         <outlet property="guarnicaoAlmoco" destination="WWb-tS-qfa" id="NfW-1r-czF"/>
                         <outlet property="guarnicaoJantar" destination="qEj-qU-4i8" id="Yu9-3H-YXb"/>

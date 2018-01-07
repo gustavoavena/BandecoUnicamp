@@ -22,7 +22,7 @@ class ShareTableViewController: CardapioTableViewController {
     
     override func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         self.cardapio = cardapio
-        self.dateLabel.text = formatDateString(data: cardapio.data)
+        self.dateLabel.text = formatarData(data: cardapio.data)
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
