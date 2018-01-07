@@ -83,6 +83,38 @@ class CardapioTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        if let oldViewFrame = tableView.footerView(forSection: section)?.frame {
+//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
+//            returnedView.backgroundColor = UIColor.clear
+//            return returnedView
+//        } else {
+//            print("No footer background view")
+//            return tableView.footerView(forSection: section)
+//        }
+//    }
+//
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if let oldViewFrame = tableView.headerView(forSection: section)?.frame {
+//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
+//            returnedView.backgroundColor = UIColor.clear
+//            return returnedView
+//        } else {
+//            print("No header background view")
+//            return tableView.headerView(forSection: section)
+//        }
+//    }
+    
     // CRASH AQUI
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0) {
