@@ -673,15 +673,15 @@
                             </tableViewSection>
                             <tableViewSection id="V4v-ae-LWa" userLabel="Almoço">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="276" id="fWL-GW-qCr">
-                                        <rect key="frame" x="0.0" y="170" width="375" height="276"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="290" id="fWL-GW-qCr">
+                                        <rect key="frame" x="0.0" y="170" width="375" height="290"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWL-GW-qCr" id="U5c-At-rBH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8j-Fe-kgW">
-                                                    <rect key="frame" x="10" y="0.0" width="355" height="275.5"/>
+                                                    <rect key="frame" x="10" y="14" width="355" height="262"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almoço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iet-OY-z2x">
                                                             <rect key="frame" x="10" y="10" width="70" height="21"/>
@@ -820,11 +820,11 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="E8j-Fe-kgW" firstAttribute="top" secondItem="U5c-At-rBH" secondAttribute="top" id="5ld-DB-RSR"/>
+                                                <constraint firstItem="E8j-Fe-kgW" firstAttribute="top" secondItem="U5c-At-rBH" secondAttribute="top" constant="14" id="5ld-DB-RSR"/>
                                                 <constraint firstItem="E8j-Fe-kgW" firstAttribute="leading" secondItem="U5c-At-rBH" secondAttribute="leading" constant="10" id="MJl-tL-4Hi"/>
                                                 <constraint firstAttribute="trailing" secondItem="WWb-tS-qfa" secondAttribute="trailing" constant="10" id="e2r-y4-r7H"/>
                                                 <constraint firstAttribute="trailing" secondItem="E8j-Fe-kgW" secondAttribute="trailing" constant="10" id="gYm-22-AHl"/>
-                                                <constraint firstAttribute="bottom" secondItem="E8j-Fe-kgW" secondAttribute="bottom" id="lNE-7t-pJv"/>
+                                                <constraint firstAttribute="bottom" secondItem="E8j-Fe-kgW" secondAttribute="bottom" constant="14" id="lNE-7t-pJv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -833,15 +833,15 @@
                             </tableViewSection>
                             <tableViewSection id="vT2-uv-lyZ" userLabel="Jantar">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="276" id="w34-hP-YVz">
-                                        <rect key="frame" x="0.0" y="502" width="375" height="276"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="290" id="w34-hP-YVz">
+                                        <rect key="frame" x="0.0" y="516" width="375" height="290"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w34-hP-YVz" id="7On-nk-hfC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzA-rf-oKk">
-                                                    <rect key="frame" x="10" y="0.0" width="355" height="276"/>
+                                                    <rect key="frame" x="10" y="14" width="355" height="262"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jantar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3U-q9-UY1">
                                                             <rect key="frame" x="10" y="10" width="70" height="21"/>
@@ -971,8 +971,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="qzA-rf-oKk" firstAttribute="top" secondItem="7On-nk-hfC" secondAttribute="top" id="F6f-wN-CWu"/>
-                                                <constraint firstAttribute="bottom" secondItem="qzA-rf-oKk" secondAttribute="bottom" id="Jy1-cg-HR8"/>
+                                                <constraint firstItem="qzA-rf-oKk" firstAttribute="top" secondItem="7On-nk-hfC" secondAttribute="top" constant="14" id="F6f-wN-CWu"/>
+                                                <constraint firstAttribute="bottom" secondItem="qzA-rf-oKk" secondAttribute="bottom" constant="14" id="Jy1-cg-HR8"/>
                                                 <constraint firstAttribute="trailing" secondItem="qzA-rf-oKk" secondAttribute="trailing" constant="10" id="eUD-jC-POK"/>
                                                 <constraint firstItem="qzA-rf-oKk" firstAttribute="leading" secondItem="7On-nk-hfC" secondAttribute="leading" constant="10" id="sF2-9E-pl3"/>
                                             </constraints>

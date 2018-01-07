@@ -154,9 +154,32 @@ class CardapioTableViewController: UITableViewController {
             print("Problema carregado view controller!")
         }
         
-        //Adicionando cantos arredondados as views de cardapio
-        self.viewAlmoco.layer.cornerRadius = 8.0
-        self.viewJantar.layer.cornerRadius = 8.0
+        // Adicionando cantos arredondados as views de cardapio
+        viewAlmoco.layer.cornerRadius = 8.0
+        viewJantar.layer.cornerRadius = 8.0
+        
+        // Adicionando sombras aos cards
+//        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+//        viewAlmoco.layer.shadowOpacity = 1
+//        viewAlmoco.layer.shadowOffset = CGSize.zero
+//        viewAlmoco.layer.shadowRadius = 8.0
+        
+        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+        viewAlmoco.layer.masksToBounds = false
+        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewAlmoco.layer.shadowOpacity = 0.5
+        viewAlmoco.layer.shadowRadius = 8.0
+        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+        
+        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+        viewJantar.layer.masksToBounds = false
+        viewJantar.layer.shadowColor = UIColor.black.cgColor
+        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewJantar.layer.shadowOpacity = 0.5
+        viewJantar.layer.shadowRadius = 8.0
+        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
