@@ -158,8 +158,8 @@ class CardapioTableViewController: UITableViewController {
 //        self.viewAlmoco.layer.cornerRadius = 8.0
 //        self.viewJantar.layer.cornerRadius = 8.0
         // Adicionando cantos arredondados as views de cardapio
-        viewAlmoco.layer.cornerRadius = 8.0
-        viewJantar.layer.cornerRadius = 8.0
+        viewAlmoco.layer.cornerRadius = 20.0
+        viewJantar.layer.cornerRadius = 20.0
         
         // Adicionando sombras aos cards
 //        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
