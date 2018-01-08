@@ -28,6 +28,7 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var saladaJantar: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var diaDaSemanaLabel: UILabel!
     
     var errorUpdating: Bool = false
     
@@ -46,7 +47,8 @@ class CardapioTableViewController: UITableViewController {
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
-        self.dateLabel.text = formatDateString(data: cardapio.data)
+        self.dateLabel.text = formatarData(data: cardapio.data)
+        self.diaDaSemanaLabel.text = formatarDiaDaSemana(data: cardapio.data)
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
@@ -83,11 +85,44 @@ class CardapioTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        if let oldViewFrame = tableView.footerView(forSection: section)?.frame {
+//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
+//            returnedView.backgroundColor = UIColor.clear
+//            return returnedView
+//        } else {
+//            print("No footer background view")
+//            return tableView.footerView(forSection: section)
+//        }
+//    }
+//
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if let oldViewFrame = tableView.headerView(forSection: section)?.frame {
+//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
+//            returnedView.backgroundColor = UIColor.clear
+//            return returnedView
+//        } else {
+//            print("No header background view")
+//            return tableView.headerView(forSection: section)
+//        }
+//    }
+    
+    // CRASH AQUI
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0) {
             return errorUpdating ? 1 : 0
         } else {
-            return 6
+            return 1 // Tava crashando o app.
         }
     }
     
@@ -119,9 +154,35 @@ class CardapioTableViewController: UITableViewController {
             print("Problema carregado view controller!")
         }
         
-        //Adicionando cantos arredondados as views de cardapio
-        self.viewAlmoco.layer.cornerRadius = 8.0
-        self.viewJantar.layer.cornerRadius = 8.0
+//        //Adicionando cantos arredondados as views de cardapio
+//        self.viewAlmoco.layer.cornerRadius = 8.0
+//        self.viewJantar.layer.cornerRadius = 8.0
+        // Adicionando cantos arredondados as views de cardapio
+        viewAlmoco.layer.cornerRadius = 8.0
+        viewJantar.layer.cornerRadius = 8.0
+        
+        // Adicionando sombras aos cards
+//        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+//        viewAlmoco.layer.shadowOpacity = 1
+//        viewAlmoco.layer.shadowOffset = CGSize.zero
+//        viewAlmoco.layer.shadowRadius = 8.0
+        
+        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+        viewAlmoco.layer.masksToBounds = false
+        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewAlmoco.layer.shadowOpacity = 0.5
+        viewAlmoco.layer.shadowRadius = 8.0
+        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+        
+        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+        viewJantar.layer.masksToBounds = false
+        viewJantar.layer.shadowColor = UIColor.black.cgColor
+        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewJantar.layer.shadowOpacity = 0.5
+        viewJantar.layer.shadowRadius = 8.0
+        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -129,17 +190,26 @@ class CardapioTableViewController: UITableViewController {
         trackScreenView()
     }
     
-    func formatDateString(data: Date) -> String {
+    func formatarDiaDaSemana(data: Date) -> String {
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
         
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        return DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]
+    }
+    
+    func formatarData(data: Date) -> String {
+        
+        
         let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
         
         let dia = Calendar.current.component(.day, from: data)
         let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
         
         // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+        return "\(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+//        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
 
     //Sorry for the magical number :( 
