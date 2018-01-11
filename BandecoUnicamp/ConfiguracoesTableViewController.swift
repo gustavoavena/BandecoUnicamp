@@ -17,17 +17,24 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     
   
+    @IBOutlet weak var almocoNotificationCell: UITableViewCell!
+    @IBOutlet weak var jantarNotificationCell: UITableViewCell!
     
     
     let notificationsUserDefaultsString = "notificationsEnabled"
     
     
+    /*
+     
+     Almoco: 07:00-13:59
+     Jantar: 14:00-19:00
+     
+     */
     
     /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
     // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
     func loadNotificationOptions() {
         notificationSwitch.isOn = UserDefaults.standard.bool(forKey: notificationsUserDefaultsString)
-        
         
         // TODO: setar o numero de linhas e as opcoes de notificacoes (ativadas ou nao, horario, etc) baseadp no User Defaults.
         // e.g. notificacao_almoco = "12:00" e notificacao_jantar = nil
@@ -216,7 +223,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
 
-        var rows = [1,1,2]
+        var rows = [1,notificationSwitch.isOn ? 3 : 1,2]
         
         if #available(iOS 9, *)
         {
