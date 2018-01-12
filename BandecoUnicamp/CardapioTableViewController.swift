@@ -34,6 +34,7 @@ class CardapioTableViewController: UITableViewController {
     
     @IBOutlet weak var errorRow: UITableViewCell!
     
+    
     static let storyboardIdentifier = "CardapioTableView"
     
     @IBOutlet weak var viewAlmoco: UIView!
@@ -225,6 +226,7 @@ class CardapioTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
 
 extension UIViewController {

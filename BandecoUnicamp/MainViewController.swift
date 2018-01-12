@@ -167,6 +167,11 @@ class MainViewController: GAITrackedViewController {
         pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
     
+    @IBAction func modoVegetariano(_ sender: Any) {
+        pageViewController.vegetariano = !(pageViewController.vegetariano)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
