@@ -56,9 +56,6 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="ZCA-V0-0Oj">
                             <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="share:" destination="vle-GY-btq" id="ciq-ay-jSY"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -576,10 +573,6 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="xfe-6k-Gw2" id="NKO-ef-8Or"/>
-                            <outlet property="delegate" destination="xfe-6k-Gw2" id="l4d-bI-yfJ"/>
-                        </connections>
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZL-hK-7m1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,6 +623,11 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pDA-wv-koY">
+                            <rect key="frame" x="0.0" y="815" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <sections>
                             <tableViewSection id="DZe-78-IwE" userLabel="Erro">
@@ -782,6 +780,9 @@
                                                             <rect key="frame" x="288" y="5" width="46" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="shareAlmoco:" destination="OkP-qf-Jp1" eventType="touchUpInside" id="QcW-jb-icC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -817,6 +818,12 @@
                                                         <constraint firstItem="IaX-KD-xSE" firstAttribute="leading" secondItem="3cP-pB-SPA" secondAttribute="leading" id="ybS-VN-BmK"/>
                                                         <constraint firstItem="jeS-eq-PWN" firstAttribute="leading" secondItem="AxG-Wx-yLR" secondAttribute="leading" id="ytw-cx-bgi"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -941,6 +948,9 @@
                                                             <rect key="frame" x="291" y="8" width="46" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" title="Button"/>
+                                                            <connections>
+                                                                <action selector="shareJantar:" destination="OkP-qf-Jp1" eventType="touchUpInside" id="RJ8-60-OiJ"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -976,6 +986,12 @@
                                                         <constraint firstItem="YAt-Mt-qyG" firstAttribute="leading" secondItem="eah-Hy-ZzQ" secondAttribute="trailing" constant="10" id="uhU-GZ-dRW"/>
                                                         <constraint firstItem="hlF-SB-nnq" firstAttribute="centerY" secondItem="2DQ-cG-3Ia" secondAttribute="centerY" id="xku-C6-cZN"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1013,7 +1029,7 @@
                         <outlet property="sucoAlmoco" destination="rAJ-N6-QT5" id="F8V-A9-DXN"/>
                         <outlet property="sucoJantar" destination="YAt-Mt-qyG" id="WDU-Nq-fcL"/>
                         <outlet property="vegetarianoButton" destination="mxB-xL-CD6" id="K9l-cW-XlE"/>
-                        <outlet property="viewAlmoco" destination="E8j-Fe-kgW" id="uMx-pw-vq4"/>
+                        <outlet property="viewAlmoco" destination="E8j-Fe-kgW" id="BL4-e7-HVs"/>
                         <outlet property="viewJantar" destination="qzA-rf-oKk" id="7R7-rQ-wxR"/>
                     </connections>
                 </tableViewController>

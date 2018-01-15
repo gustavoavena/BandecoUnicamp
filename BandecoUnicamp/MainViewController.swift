@@ -137,24 +137,22 @@ class MainViewController: GAITrackedViewController {
         
     }
     
-    @IBAction func share(_ sender: UIBarButtonItem) {
-        let menu = UIAlertController(title: nil, message: "Escolha o cardápio para compartilhar", preferredStyle: .actionSheet)
-        // Descomente a proxima linha para mudar a cor do texto para salmão. Muda também a cor do Cancelar...
-        //menu.view.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
-
-        menu.addAction(UIAlertAction(title: "Almoço", style: .default, handler: printCardapioHandler))
-        menu.addAction(UIAlertAction(title: "Jantar", style: .default, handler: printCardapioHandler))
-        menu.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        
-        self.present(menu, animated: true, completion: nil)
-    }
+//    @IBAction func share(_ sender: UIBarButtonItem) {
+//        let menu = UIAlertController(title: nil, message: "Escolha o cardápio para compartilhar", preferredStyle: .actionSheet)
+//        // Descomente a proxima linha para mudar a cor do texto para salmão. Muda também a cor do Cancelar...
+//        //menu.view.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
+//
+//        menu.addAction(UIAlertAction(title: "Almoço", style: .default, handler: printCardapioHandler))
+//        menu.addAction(UIAlertAction(title: "Jantar", style: .default, handler: printCardapioHandler))
+//        menu.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+//
+//        self.present(menu, animated: true, completion: nil)
+//    }
     
     private func printCardapioHandler(selectedOption: UIAlertAction) {
         screenshotDelegate = (pageViewController.viewControllers?.last as! CardapioTableViewController)
         
         (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = (selectedOption.title == "Almoço")
-        
-       
         
         let screenshot = (screenshotDelegate?.screenshot())!
         
@@ -166,11 +164,6 @@ class MainViewController: GAITrackedViewController {
     @IBAction func segmentedValueChanged(_ sender: Any) {
         pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
     }
-    
-    @IBAction func modoVegetariano(_ sender: Any) {
-        pageViewController.vegetariano = !(pageViewController.vegetariano)
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

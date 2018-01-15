@@ -51,6 +51,8 @@ class CardapioTableViewController: UITableViewController {
 
     var parentPageViewController:PageViewController!
     
+    var screenshotDelegate: ScreenshotDelegate?
+    
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
@@ -86,6 +88,25 @@ class CardapioTableViewController: UITableViewController {
         } else {
             self.vegetarianoButton.setImage(#imageLiteral(resourceName: "leafIconDisabled"), for: .normal)
         }
+    }
+    
+    @IBAction func shareAlmoco(_ sender: Any) {
+        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = true
+        let screenshot = (screenshotDelegate?.screenshot())!
+        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+
+    @IBAction func shareJantar(_ sender: Any) {
+        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = false
+        let screenshot = (screenshotDelegate?.screenshot())!
+        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     
@@ -166,44 +187,40 @@ class CardapioTableViewController: UITableViewController {
         
         if cardapio != nil && vegetariano != nil {
             setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
+            tableView.reloadData()
         } else {
             print("Problema carregado view controller!")
         }
         
-//        //Adicionando cantos arredondados as views de cardapio
-//        self.viewAlmoco.layer.cornerRadius = 8.0
-//        self.viewJantar.layer.cornerRadius = 8.0
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
         // Adicionando cantos arredondados as views de cardapio
-        viewAlmoco.layer.cornerRadius = 20.0
-        viewJantar.layer.cornerRadius = 20.0
+//        viewAlmoco.layer.cornerRadius = 20.0
+//        viewJantar.layer.cornerRadius = 20.0
         
-        // Adicionando sombras aos cards
+//        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+//        viewAlmoco.layer.masksToBounds = false
 //        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
-//        viewAlmoco.layer.shadowOpacity = 1
-//        viewAlmoco.layer.shadowOffset = CGSize.zero
+//        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+//        viewAlmoco.layer.shadowOpacity = 0.5
 //        viewAlmoco.layer.shadowRadius = 8.0
-        
-        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
-        viewAlmoco.layer.masksToBounds = false
-        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
-        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewAlmoco.layer.shadowOpacity = 0.5
-        viewAlmoco.layer.shadowRadius = 8.0
-        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
-        
-        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
-        viewJantar.layer.masksToBounds = false
-        viewJantar.layer.shadowColor = UIColor.black.cgColor
-        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewJantar.layer.shadowOpacity = 0.5
-        viewJantar.layer.shadowRadius = 8.0
-        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+//        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+//
+//        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+//        viewJantar.layer.masksToBounds = false
+//        viewJantar.layer.shadowColor = UIColor.black.cgColor
+//        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+//        viewJantar.layer.shadowOpacity = 0.5
+//        viewJantar.layer.shadowRadius = 8.0
+//        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         trackScreenView()
+        
     }
     
     func formatarDiaDaSemana(data: Date) -> String {
@@ -254,73 +271,90 @@ extension UIViewController {
 }
 
 extension CardapioTableViewController: ScreenshotDelegate {
+//    func screenshot() -> UIImage{
+//        var image = UIImage();
+//        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
+//
+//        // save initial values
+//        let savedContentOffset = self.tableView.contentOffset;
+//        let savedFrame = self.tableView.frame;
+//        let savedBackgroundColor = self.tableView.backgroundColor
+//
+//        // reset offset to top left point
+//        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
+//        // set frame to content size
+//        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
+//        // remove background
+//        self.tableView.backgroundColor = UIColor.clear
+//
+//        // make temp view with scroll view content size
+//        // a workaround for issue when image on ipad was drawn incorrectly
+//        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
+//
+//        let cardapioStoryBoard = UIStoryboard.init(name: "Share", bundle: nil)
+//
+//        // instancia a view de Share
+//        let shareView = cardapioStoryBoard.instantiateViewController(withIdentifier: "ShareViewController") as? ShareTableViewController
+//
+//
+//        shareView?.cardapio = cardapio
+//        shareView?.vegetariano = vegetariano
+//        shareView?.screenshotAlmoco = self.screenshotAlmoco
+//
+//        // save superview
+//        let tempSuperView = self.tableView.superview
+//        // remove scrollView from old superview
+//        self.tableView.removeFromSuperview()
+//        // and add to tempView
+//        tempView.addSubview(self.tableView)
+////        tempView.addSubview((shareView?.view)!)
+//
+//
+//        // render view
+//        // drawViewHierarchyInRect not working correctly
+//        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
+//        // and get image
+//        image = UIGraphicsGetImageFromCurrentImageContext()!;
+//
+//        // and return everything back
+//        tempView.subviews[0].removeFromSuperview()
+//        tempSuperView?.addSubview(self.tableView)
+//
+//        // restore saved settings
+//        self.tableView.contentOffset = savedContentOffset;
+//        self.tableView.frame = savedFrame;
+//        self.tableView.backgroundColor = savedBackgroundColor
+//
+//        var sizeToCrop = CGSize.zero
+//
+//        if let footer = shareView!.footer
+//        {
+//            sizeToCrop = CGSize(width: footer.frame.width, height: footer.frame.origin.y)
+//        }
+//
+//
+//        UIGraphicsEndImageContext();
+//
+//        let scale = UIScreen.main.scale
+//
+//        /// PROTEGER O CÓDIGO. SEM FORCE UNWRAP
+//        image = UIImage(cgImage:(image.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: sizeToCrop.width * scale , height: sizeToCrop.height * scale))!)!)
+//
+//        return image
+//    }
+    
     func screenshot() -> UIImage{
-        var image = UIImage();
-        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
+        var image:UIImage = UIImage()
         
-        // save initial values
-        let savedContentOffset = self.tableView.contentOffset;
-        let savedFrame = self.tableView.frame;
-        let savedBackgroundColor = self.tableView.backgroundColor
+        var cellAlmoco = UITableViewCell()
+        cellAlmoco = self.tableView.visibleCells[0]
         
-        // reset offset to top left point
-        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
-        // set frame to content size
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
-        // remove background
-        self.tableView.backgroundColor = UIColor.clear
-        
-        // make temp view with scroll view content size
-        // a workaround for issue when image on ipad was drawn incorrectly
-        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
-        
-        let cardapioStoryBoard = UIStoryboard.init(name: "Share", bundle: nil)
-        
-        // instancia a view de Share
-        let shareView = cardapioStoryBoard.instantiateViewController(withIdentifier: "ShareViewController") as? ShareTableViewController
-        
-        
-        shareView?.cardapio = cardapio
-        shareView?.vegetariano = vegetariano
-        shareView?.screenshotAlmoco = self.screenshotAlmoco
-        
-        // save superview
-        let tempSuperView = self.tableView.superview
-        // remove scrollView from old superview
-        self.tableView.removeFromSuperview()
-        // and add to tempView
-        //tempView.addSubview(self.tableView)
-        tempView.addSubview((shareView?.view)!)
-        
-        // render view
-        // drawViewHierarchyInRect not working correctly
-        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        // and get image
-        image = UIGraphicsGetImageFromCurrentImageContext()!;
-        
-        // and return everything back
-        tempView.subviews[0].removeFromSuperview()
-        tempSuperView?.addSubview(self.tableView)
-        
-        // restore saved settings
-        self.tableView.contentOffset = savedContentOffset;
-        self.tableView.frame = savedFrame;
-        self.tableView.backgroundColor = savedBackgroundColor
-        
-        var sizeToCrop = CGSize.zero
-
-        if let footer = shareView!.footer
-        {
-            sizeToCrop = CGSize(width: footer.frame.width, height: footer.frame.origin.y)
+        UIGraphicsBeginImageContextWithOptions(cellAlmoco.bounds.size, cellAlmoco.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if let context = UIGraphicsGetCurrentContext() {
+            cellAlmoco.layer.render(in: context)
+            image = UIGraphicsGetImageFromCurrentImageContext()!
         }
-        
-        
-        UIGraphicsEndImageContext();
-        
-        let scale = UIScreen.main.scale
-        
-        /// PROTEGER O CÓDIGO. SEM FORCE UNWRAP
-        image = UIImage(cgImage:(image.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: sizeToCrop.width * scale , height: sizeToCrop.height * scale))!)!)
         
         return image
     }

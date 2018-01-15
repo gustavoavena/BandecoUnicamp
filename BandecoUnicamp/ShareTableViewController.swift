@@ -32,7 +32,7 @@ class ShareTableViewController: CardapioTableViewController {
         if (!self.screenshotAlmoco) {
             self.tableView.headerView(forSection: 0)?.textLabel?.text = "JANTAR"
             
-                print("Não quero mudar!!!")
+            print("Não quero mudar!!!")
             print(self.tableView.headerView(forSection: 0)?.textLabel?.text)
         }
 
@@ -42,6 +42,7 @@ class ShareTableViewController: CardapioTableViewController {
         guarnicaoAlmoco.text = ref.guarnicao
         ptsAlmoco.text = ref.pts
         saladaAlmoco.text = ref.salada
+        
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
