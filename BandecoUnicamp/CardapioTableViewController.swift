@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DietaChanged{
+    func tipoDeDietaChanged()
+}
+
 class CardapioTableViewController: UITableViewController {
 
     // - MARK: outlets almoco
@@ -34,16 +38,18 @@ class CardapioTableViewController: UITableViewController {
     
     @IBOutlet weak var errorRow: UITableViewCell!
     
-    
     static let storyboardIdentifier = "CardapioTableView"
     
     @IBOutlet weak var viewAlmoco: UIView!
     @IBOutlet weak var viewJantar: UIView!
     
+    @IBOutlet weak var vegetarianoButton: UIButton!
     var cardapio: Cardapio!
     var vegetariano: Bool! = false
     
     var screenshotAlmoco: Bool = true
+
+    var parentPageViewController:PageViewController!
     
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
@@ -72,7 +78,16 @@ class CardapioTableViewController: UITableViewController {
         
     }
     
-  
+    @IBAction func vegetarianoChanged(_ sender: Any) {
+        self.parentPageViewController.vegetariano = !(self.parentPageViewController.vegetariano)
+        
+        if self.parentPageViewController.vegetariano {
+            //Vegetariano
+        } else {
+            //Tradicional
+        }
+    }
+    
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
