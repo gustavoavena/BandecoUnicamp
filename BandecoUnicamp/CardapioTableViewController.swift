@@ -82,9 +82,9 @@ class CardapioTableViewController: UITableViewController {
         self.parentPageViewController.vegetariano = !(self.parentPageViewController.vegetariano)
         
         if self.parentPageViewController.vegetariano {
-            //Vegetariano
+            self.vegetarianoButton.setImage(#imageLiteral(resourceName: "leafIconEnabled"), for: .normal)
         } else {
-            //Tradicional
+            self.vegetarianoButton.setImage(#imageLiteral(resourceName: "leafIconDisabled"), for: .normal)
         }
     }
     

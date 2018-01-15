@@ -618,12 +618,14 @@
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-xL-CD6">
-                                    <rect key="frame" x="278" y="37" width="83" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-xL-CD6">
+                                    <rect key="frame" x="300" y="32" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Vegetariano"/>
+                                    <state key="normal" image="leafIconDisabled"/>
+                                    <state key="selected" image="leafIconDisabled"/>
+                                    <state key="highlighted" image="leafIconDisabled"/>
                                     <connections>
-                                        <action selector="vegetarianoChanged:" destination="OkP-qf-Jp1" eventType="touchUpInside" id="oS7-mo-VAm"/>
+                                        <action selector="vegetarianoChanged:" destination="OkP-qf-Jp1" eventType="touchUpInside" id="EJL-65-GZH"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1010,7 +1012,7 @@
                         <outlet property="sobremesaJantar" destination="iM3-XT-1Vb" id="iSy-bs-iMb"/>
                         <outlet property="sucoAlmoco" destination="rAJ-N6-QT5" id="F8V-A9-DXN"/>
                         <outlet property="sucoJantar" destination="YAt-Mt-qyG" id="WDU-Nq-fcL"/>
-                        <outlet property="vegetarianoButton" destination="mxB-xL-CD6" id="L8p-Dx-GLd"/>
+                        <outlet property="vegetarianoButton" destination="mxB-xL-CD6" id="K9l-cW-XlE"/>
                         <outlet property="viewAlmoco" destination="E8j-Fe-kgW" id="uMx-pw-vq4"/>
                         <outlet property="viewJantar" destination="qzA-rf-oKk" id="7R7-rQ-wxR"/>
                     </connections>
@@ -1023,6 +1025,7 @@
     <resources>
         <image name="cardapio" width="25" height="25"/>
         <image name="guarnicao" width="96" height="96"/>
+        <image name="leafIconDisabled" width="40" height="40"/>
         <image name="pts" width="128" height="138"/>
         <image name="salada" width="96" height="96"/>
         <image name="sobremesa1" width="246" height="221"/>
