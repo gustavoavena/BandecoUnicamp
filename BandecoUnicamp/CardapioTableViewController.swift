@@ -195,25 +195,25 @@ class CardapioTableViewController: UITableViewController {
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
-        // Adicionando cantos arredondados as views de cardapio
-//        viewAlmoco.layer.cornerRadius = 20.0
-//        viewJantar.layer.cornerRadius = 20.0
+//         Adicionando cantos arredondados as views de cardapio
+        viewAlmoco.layer.cornerRadius = 20.0
+        viewJantar.layer.cornerRadius = 20.0
         
-//        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
-//        viewAlmoco.layer.masksToBounds = false
-//        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
-//        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-//        viewAlmoco.layer.shadowOpacity = 0.5
-//        viewAlmoco.layer.shadowRadius = 8.0
-//        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
-//
-//        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
-//        viewJantar.layer.masksToBounds = false
-//        viewJantar.layer.shadowColor = UIColor.black.cgColor
-//        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-//        viewJantar.layer.shadowOpacity = 0.5
-//        viewJantar.layer.shadowRadius = 8.0
-//        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+        viewAlmoco.layer.masksToBounds = false
+        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewAlmoco.layer.shadowOpacity = 0.5
+        viewAlmoco.layer.shadowRadius = 8.0
+        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+
+        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+        viewJantar.layer.masksToBounds = false
+        viewJantar.layer.shadowColor = UIColor.black.cgColor
+        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewJantar.layer.shadowOpacity = 0.5
+        viewJantar.layer.shadowRadius = 8.0
+        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
         
     }
     
