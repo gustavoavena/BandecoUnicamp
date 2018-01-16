@@ -22,14 +22,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     let notificationsUserDefaultsString = "notificationsEnabled"
-    
-    
-    /*
-     
-     Almoco: 07:00-13:59
-     Jantar: 14:00-19:00
-     
-     */
+
     
     /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
     // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
@@ -181,6 +174,20 @@ class ConfiguracoesTableViewController: UITableViewController {
                 // atualizar UI.
                 self.loadNotificationOptions()
                 
+            }
+        }
+    }
+    
+    // MARK: Time of notifications
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destiny = segue.destination as? NotificationTimeViewController {
+            if segue.identifier == "SegueAlmocoTime" {
+                destiny.refeicao = TipoRefeicao.almoco
+            }
+            
+            if segue.identifier == "SegueJantarTime" {
+                destiny.refeicao = TipoRefeicao.jantar
             }
         }
     }

@@ -41,6 +41,7 @@
 		4DEE3B2F1F83BECF00C31DED /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */; };
 		4DEE3B311F83BEDB00C31DED /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE3B301F83BEDB00C31DED /* Share.storyboard */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
+		B11B68112007C3B20022BCEA /* NotificationTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B68102007C3B20022BCEA /* NotificationTimeViewController.swift */; };
 		D828CECC624A48D4816E8D65 /* libPods-BandecoUnicamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		4DEE3B301F83BEDB00C31DED /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11B68102007C3B20022BCEA /* NotificationTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeViewController.swift; sourceTree = "<group>"; };
 		B74397581F291144003603BD /* BandecoUnicamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BandecoUnicamp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 				4DEE3B2E1F83BECF00C31DED /* ShareTableViewController.swift */,
 				4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */,
 				4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */,
+				B11B68102007C3B20022BCEA /* NotificationTimeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -293,7 +296,7 @@
 				TargetAttributes = {
 					4D5C6D531ED1E45D009CC3E1 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 32P3VH37WD;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -303,7 +306,7 @@
 					};
 					4D9528FE1EC78D2D00219F48 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 32P3VH37WD;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -467,6 +470,7 @@
 				4D02A3AF1F54A50B00E9357A /* Refeicao.swift in Sources */,
 				4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */,
 				4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */,
+				B11B68112007C3B20022BCEA /* NotificationTimeViewController.swift in Sources */,
 				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
@@ -521,7 +525,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 32P3VH37WD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -530,7 +534,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ju.BandecoUnicamp.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -545,7 +549,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetCardapio/WidgetCardapio.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 32P3VH37WD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Gloss/**",
@@ -554,7 +558,7 @@
 				INFOPLIST_FILE = WidgetCardapio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ju.BandecoUnicamp.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -671,7 +675,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 32P3VH37WD;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +684,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ju.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BandecoUnicamp-Bridging-Header.h";
@@ -701,7 +705,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X5G89Y4L38;
+				DEVELOPMENT_TEAM = 32P3VH37WD;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -710,7 +714,7 @@
 				INFOPLIST_FILE = BandecoUnicamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Gustavo.Avena.BandecoUnicamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ju.BandecoUnicamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
