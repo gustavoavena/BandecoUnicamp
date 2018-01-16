@@ -12,7 +12,10 @@ class NotificationTimeViewController: UIViewController {
     
     var refeicao: TipoRefeicao!
     
-    var selectedTime: String = "Nenhum"
+    var selectedTime: String!
+    
+    let almocoNotificationTimeString = "notificacao_almoco"
+    let jantarNotificationTimeString = "notificacao_jantar"
     
     /*
      Almoco: 07:00-13:59
@@ -42,12 +45,14 @@ class NotificationTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (self.refeicao == TipoRefeicao.almoco) {
+        if (self.refeicao == .almoco) {
             self.navigationItem.title = "Horário almoço"
         }
         else {
             self.navigationItem.title = "Horário jantar"
         }
+        
+        self.pickerView.sele
         
         print("Recebi cardapio \(self.refeicao.rawValue)")
     
@@ -59,13 +64,16 @@ class NotificationTimeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         print("Usuário definiu horário \(selectedTime)")
+        
+        UserDefaults.standard.set(self.selectedTime == "Nenhum" ? nil : self.selectedTime, forKey: self.refeicao == .almoco ? almocoNotificationTimeString : jantarNotificationTimeString)
+
     }
 
 }
 
 extension NotificationTimeViewController: UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if (self.refeicao == TipoRefeicao.almoco) {
+        if (self.refeicao == .almoco) {
             return self.pickerTimeAlmoco.count
         }
         
@@ -77,7 +85,7 @@ extension NotificationTimeViewController: UIPickerViewDelegate {
         var componentData: [String]
         
         // recupera os valores da coluna "component"
-        if (self.refeicao == TipoRefeicao.almoco) {
+        if (self.refeicao == .almoco) {
             componentData = self.pickerTimeAlmoco[component]
         }
         else {
@@ -90,7 +98,7 @@ extension NotificationTimeViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        if (self.refeicao == TipoRefeicao.almoco) {
+        if (self.refeicao == .almoco) {
             return self.pickerTimeAlmoco[component][row]
         }
         
@@ -102,7 +110,7 @@ extension NotificationTimeViewController: UIPickerViewDelegate {
 extension NotificationTimeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if (self.refeicao == TipoRefeicao.almoco) {
+        if (self.refeicao == .almoco) {
             self.selectedTime = self.pickerTimeAlmoco[component][row]
         }
         else {
