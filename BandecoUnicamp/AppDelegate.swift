@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
         
         
+        let launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+        
+        UserDefaults.standard.set(launchCount+1, forKey: "launchCount")
+//        UserDefaults.standard.set(5, forKey: "launchCount")
+        
+        print("launchCount = \(launchCount+1)")
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
             print("\n\nDevice Token: \(token)\n\n\n")

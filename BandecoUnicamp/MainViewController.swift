@@ -12,6 +12,7 @@ protocol ScreenshotDelegate {
 }
 
 import UIKit
+import StoreKit
 
 class MainViewController: GAITrackedViewController {
     
@@ -59,12 +60,24 @@ class MainViewController: GAITrackedViewController {
         
     }
 
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
+    @available(iOS 10.3, *)
+    fileprivate func askForReview() {
+        
+        let launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+        let didAskForReview = UserDefaults.standard.bool(forKey: "didAskForReview")
+        
+        if launchCount >= 5 && !didAskForReview {
+            print("Asking for review...")
+            
+            // Ask for review
+            SKStoreReviewController.requestReview()
+           
+            
+            UserDefaults.standard.set(true, forKey: "didAskForReview")
+        } else {
+            print("Not asking for review")
+        }
+        
         let firstLaunchKeyString = "FirstLaunchHappened"
         
         
@@ -74,6 +87,19 @@ class MainViewController: GAITrackedViewController {
             UserDefaults.standard.set(true, forKey: firstLaunchKeyString)
         }
 
+        
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Loading MainViewController...")
+        
+        if #available(iOS 10.3, *) {
+            askForReview()
+        }
+       
         // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
         typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
     }
