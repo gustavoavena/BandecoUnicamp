@@ -78,16 +78,14 @@ class CardapioTableViewController: UITableViewController {
         ptsJantar.text = jantar.pts
         saladaJantar.text = jantar.salada
         
+        // Seta o icone de vegetariano
+        let image = vegetariano ? UIImage(named: "leafIconEnabled") : UIImage(named: "leafIconDisabled")
+        vegetarianoButton.setImage(image, for: .normal)
+        
     }
     
     @IBAction func vegetarianoChanged(_ sender: Any) {
         self.parentPageViewController.vegetariano = !(self.parentPageViewController.vegetariano)
-        
-        if self.parentPageViewController.vegetariano {
-            self.vegetarianoButton.setImage(#imageLiteral(resourceName: "leafIconEnabled"), for: .normal)
-        } else {
-            self.vegetarianoButton.setImage(#imageLiteral(resourceName: "leafIconDisabled"), for: .normal)
-        }
     }
     
     @IBAction func shareAlmoco(_ sender: Any) {
