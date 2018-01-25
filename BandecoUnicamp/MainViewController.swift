@@ -17,7 +17,7 @@ class MainViewController: GAITrackedViewController {
     
     let errorString = "Desculpe, não foi possível carregar o cardápio."
 
-    @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
+//    @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     weak var pageViewController: PageViewController!
 
     var screenshotDelegate: ScreenshotDelegate?
@@ -41,14 +41,14 @@ class MainViewController: GAITrackedViewController {
         let action1 = UIAlertAction(title: "Tradicional", style: .default, handler: { (action) -> Void in
             
             UserDefaults(suiteName: "group.bandex.shared")!.set(false, forKey: "vegetariano")
-            self.typeSegmentedControl.selectedSegmentIndex = 0
+//            self.typeSegmentedControl.selectedSegmentIndex = 0
             self.dietaMayHaveChanged()
         })
         
         // Vegetariano
         let action2 = UIAlertAction(title: "Vegetariano", style: .default, handler: { (action) -> Void in
             UserDefaults(suiteName: "group.bandex.shared")!.set(true, forKey: "vegetariano")
-            self.typeSegmentedControl.selectedSegmentIndex = 1
+//            self.typeSegmentedControl.selectedSegmentIndex = 1
             self.dietaMayHaveChanged()
         })
         
@@ -59,12 +59,17 @@ class MainViewController: GAITrackedViewController {
         
     }
 
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        // Increases the height of the status bar.
+//        if #available(iOS 11.0, *) {
+//            self.additionalSafeAreaInsets.top = 15
+//        }
+        
+        
         let firstLaunchKeyString = "FirstLaunchHappened"
         
         
@@ -75,16 +80,18 @@ class MainViewController: GAITrackedViewController {
         }
 
         // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
-        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        // TODO: setar botao de vegetariano do mesmo jeito.
+//        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
     }
     
     func dietaMayHaveChanged() {
         // Coloquei um if para ele so setar vegetariano se o valor for diferente, porque toda vez que ele eh
         // setado, ele da reload no pageviewcontroller. Nao quero fazer isso sem necessidade toda vez que a view
         // for aparecer.
-        if pageViewController.vegetariano != (typeSegmentedControl.selectedSegmentIndex == 1) {
-            pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
-        }
+        
+//        if pageViewController.vegetariano != (typeSegmentedControl.selectedSegmentIndex == 1) {
+//            pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
+//        }
     }
     
     
@@ -112,7 +119,8 @@ class MainViewController: GAITrackedViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        
+//        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
         
         dietaMayHaveChanged()
         
@@ -161,9 +169,9 @@ class MainViewController: GAITrackedViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
-    @IBAction func segmentedValueChanged(_ sender: Any) {
-        pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
-    }
+//    @IBAction func segmentedValueChanged(_ sender: Any) {
+//        pageViewController.vegetariano = (typeSegmentedControl.selectedSegmentIndex == 1)
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

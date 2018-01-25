@@ -32,7 +32,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="iPf-JY-Eq3" secondAttribute="trailing" id="20x-O9-VTi"/>
                             <constraint firstItem="iPf-JY-Eq3" firstAttribute="top" secondItem="Kh3-QE-0Jn" secondAttribute="bottom" id="PI4-pP-mjJ"/>
@@ -42,26 +42,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ryT-7O-grL">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GeU-b1-omu">
-                            <rect key="frame" x="19" y="7.5" width="304" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Tradicional"/>
-                                <segment title="Vegetariano"/>
-                            </segments>
-                            <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="segmentedValueChanged:" destination="vle-GY-btq" eventType="valueChanged" id="9Gb-HK-GcU"/>
-                            </connections>
-                        </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ZCA-V0-0Oj">
-                            <color key="tintColor" red="0.95686274510000002" green="0.41960784309999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="typeSegmentedControl" destination="GeU-b1-omu" id="rUR-yK-AUB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtG-Vi-9B6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarItem title="Item" selectedImage="cardapio" id="Pqg-nr-WlU"/>
