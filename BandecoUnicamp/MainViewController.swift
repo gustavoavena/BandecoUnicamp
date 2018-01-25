@@ -81,6 +81,8 @@ class MainViewController: GAITrackedViewController {
 
         // carrega a view com o segmentedControl correto para sua dieta. Pela primeira vez, isso comeca como false.
         // TODO: setar botao de vegetariano do mesmo jeito.
+        
+        pageViewController.vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
 //        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
     }
     
@@ -121,6 +123,10 @@ class MainViewController: GAITrackedViewController {
         super.viewWillAppear(true)
         
 //        typeSegmentedControl.selectedSegmentIndex = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? 1 : 0
+        if(UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") != pageViewController.vegetariano) {
+            pageViewController.vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        }
+        
         
         dietaMayHaveChanged()
         
