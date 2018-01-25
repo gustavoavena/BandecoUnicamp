@@ -52,6 +52,7 @@ class CardapioTableViewController: UITableViewController {
     var parentPageViewController:PageViewController!
     
     var screenshotDelegate: ScreenshotDelegate?
+    @IBOutlet weak var almocoShareButton: UIButton!
     
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
@@ -212,6 +213,8 @@ class CardapioTableViewController: UITableViewController {
         viewJantar.layer.shadowOpacity = 0.5
         viewJantar.layer.shadowRadius = 8.0
         viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        
+//        almocoShareButton.setImage(UIImage(named: "actionIcon"), for: .normal)
         
     }
     
