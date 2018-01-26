@@ -46,6 +46,9 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var vegetarianoButton: UIButton!
     var cardapio: Cardapio!
     var vegetariano: Bool! = false
+    @IBOutlet weak var almocoLabel: UILabel!
+    @IBOutlet weak var jantarLabel: UILabel!
+    
     
     var screenshotAlmoco: Bool = true
 
@@ -53,6 +56,61 @@ class CardapioTableViewController: UITableViewController {
     
     var screenshotDelegate: ScreenshotDelegate?
     @IBOutlet weak var almocoShareButton: UIButton!
+    
+    
+    // MARK: metodos de View Controller.
+    override func viewWillAppear(_ animated: Bool) {
+        if self.errorUpdating {
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if cardapio != nil && vegetariano != nil {
+            setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
+            tableView.reloadData()
+        } else {
+            print("Problema carregado view controller!")
+        }
+        
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
+        //         Adicionando cantos arredondados as views de cardapio
+        viewAlmoco.layer.cornerRadius = 20.0
+        viewJantar.layer.cornerRadius = 20.0
+        
+        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+        viewAlmoco.layer.masksToBounds = false
+        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewAlmoco.layer.shadowOpacity = 0.5
+        viewAlmoco.layer.shadowRadius = 8.0
+        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+        
+        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+        viewJantar.layer.masksToBounds = false
+        viewJantar.layer.shadowColor = UIColor.black.cgColor
+        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewJantar.layer.shadowOpacity = 0.5
+        viewJantar.layer.shadowRadius = 8.0
+        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        
+        //        almocoShareButton.setImage(UIImage(named: "actionIcon"), for: .normal)
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        trackScreenView()
+        
+    }
+    
+    // MARK: metodos relacionados a conteudo e do cardapio.
+    
     
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
@@ -83,6 +141,11 @@ class CardapioTableViewController: UITableViewController {
         let image = vegetariano ? UIImage(named: "leafIconEnabled") : UIImage(named: "leafIconDisabled")
         vegetarianoButton.setImage(image, for: .normal)
         
+        almocoLabel.text =  vegetariano ? "Almoço Vegetariano" : "Almoço"
+        
+        jantarLabel.text =  vegetariano ? "Jantar Vegetariano" : "Jantar"
+        
+        
     }
     
     @IBAction func vegetarianoChanged(_ sender: Any) {
@@ -108,121 +171,10 @@ class CardapioTableViewController: UITableViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return cardapio!.almoco.observacoes
-        case 2:
-            return cardapio!.jantar.observacoes
-        default:
-//            print("Problema setando o footer das sections na Table View.")
-            return nil
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
-    }
+   
     
     
-    
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        if let oldViewFrame = tableView.footerView(forSection: section)?.frame {
-//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
-//            returnedView.backgroundColor = UIColor.clear
-//            return returnedView
-//        } else {
-//            print("No footer background view")
-//            return tableView.footerView(forSection: section)
-//        }
-//    }
-//
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if let oldViewFrame = tableView.headerView(forSection: section)?.frame {
-//            let returnedView = UIView(frame: CGRect(origin: oldViewFrame.origin, size: oldViewFrame.size))
-//            returnedView.backgroundColor = UIColor.clear
-//            return returnedView
-//        } else {
-//            print("No header background view")
-//            return tableView.headerView(forSection: section)
-//        }
-//    }
-    
-    // CRASH AQUI
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0) {
-            return errorUpdating ? 1 : 0
-        } else {
-            return 1 // Tava crashando o app.
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if(section == 0) {
-            return errorUpdating ? UITableViewAutomaticDimension : 0.01
-        } else {
-            return UITableViewAutomaticDimension
-        }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if self.errorUpdating {
-            tableView.reloadData()
-        }
-    }
-
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if cardapio != nil && vegetariano != nil {
-            setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
-            tableView.reloadData()
-        } else {
-            print("Problema carregado view controller!")
-        }
-        
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
-        
-//         Adicionando cantos arredondados as views de cardapio
-        viewAlmoco.layer.cornerRadius = 20.0
-        viewJantar.layer.cornerRadius = 20.0
-        
-        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
-        viewAlmoco.layer.masksToBounds = false
-        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
-        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewAlmoco.layer.shadowOpacity = 0.5
-        viewAlmoco.layer.shadowRadius = 8.0
-        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
-
-        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
-        viewJantar.layer.masksToBounds = false
-        viewJantar.layer.shadowColor = UIColor.black.cgColor
-        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewJantar.layer.shadowOpacity = 0.5
-        viewJantar.layer.shadowRadius = 8.0
-        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
-        
-//        almocoShareButton.setImage(UIImage(named: "actionIcon"), for: .normal)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        trackScreenView()
-        
-    }
+  
     
     func formatarDiaDaSemana(data: Date) -> String {
         let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
@@ -243,8 +195,9 @@ class CardapioTableViewController: UITableViewController {
         
         // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
         return "\(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
-//        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
+    
+    // MARK: metodos da TableView.
 
     //Sorry for the magical number :( 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -254,11 +207,48 @@ class CardapioTableViewController: UITableViewController {
             return 45.0
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return cardapio!.almoco.observacoes
+        case 2:
+            return cardapio!.jantar.observacoes
+        default:
+            //            print("Problema setando o footer das sections na Table View.")
+            return nil
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    
+    
+    // CRASH AQUI
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0) {
+            return errorUpdating ? 1 : 0
+        } else {
+            return 1 // Tava crashando o app.
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return errorUpdating ? UITableViewAutomaticDimension : 0.01
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+    
+    
     
 }
 

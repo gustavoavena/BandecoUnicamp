@@ -664,10 +664,10 @@
                                                     <rect key="frame" x="10" y="14" width="355" height="270"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almoço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iet-OY-z2x">
-                                                            <rect key="frame" x="10" y="10" width="70" height="21"/>
+                                                            <rect key="frame" x="10" y="10" width="150" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="1Nl-u4-gh0"/>
-                                                                <constraint firstAttribute="width" constant="70" id="x08-3M-f7C"/>
+                                                                <constraint firstAttribute="width" constant="150" id="x08-3M-f7C"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -848,9 +848,9 @@
                                                     <rect key="frame" x="10" y="14" width="355" height="270"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jantar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3U-q9-UY1">
-                                                            <rect key="frame" x="10" y="10" width="70" height="21"/>
+                                                            <rect key="frame" x="10" y="10" width="150" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="70" id="N3Z-aI-upD"/>
+                                                                <constraint firstAttribute="width" constant="150" id="N3Z-aI-upD"/>
                                                                 <constraint firstAttribute="height" constant="21" id="kxa-10-u5b"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -1011,12 +1011,14 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="almocoLabel" destination="iet-OY-z2x" id="Om0-OZ-bHo"/>
                         <outlet property="almocoShareButton" destination="RzJ-dh-3cr" id="Oax-YJ-D9Q"/>
                         <outlet property="dateLabel" destination="R8M-GS-ePu" id="YEG-yE-rFy"/>
                         <outlet property="diaDaSemanaLabel" destination="7qz-tO-h89" id="OtF-M9-21m"/>
                         <outlet property="errorRow" destination="qCW-Em-Odv" id="GJq-Lx-9bu"/>
                         <outlet property="guarnicaoAlmoco" destination="WWb-tS-qfa" id="NfW-1r-czF"/>
                         <outlet property="guarnicaoJantar" destination="qEj-qU-4i8" id="Yu9-3H-YXb"/>
+                        <outlet property="jantarLabel" destination="B3U-q9-UY1" id="lkc-vt-MOw"/>
                         <outlet property="pratoPrincipalAlmoco" destination="ejP-aJ-HBv" id="wL7-OX-7wb"/>
                         <outlet property="pratoPrincipalJantar" destination="V8z-y7-Cz3" id="LyR-ah-IAY"/>
                         <outlet property="ptsAlmoco" destination="AxG-Wx-yLR" id="TIV-8Y-kFy"/>
