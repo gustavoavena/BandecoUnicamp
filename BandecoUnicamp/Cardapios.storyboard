@@ -577,25 +577,26 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23 de Novembro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-GS-ePu">
-                                    <rect key="frame" x="8" y="9" width="128" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 de Novembro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8M-GS-ePu">
+                                    <rect key="frame" x="15" y="9" width="121" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quinta-feira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qz-tO-h89">
-                                    <rect key="frame" x="8" y="32" width="190" height="23"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quinta-feira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qz-tO-h89">
+                                    <rect key="frame" x="15" y="32" width="120.5" height="26.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-xL-CD6">
-                                    <rect key="frame" x="300" y="32" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-xL-CD6">
+                                    <rect key="frame" x="320" y="9" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="mxB-xL-CD6" secondAttribute="height" multiplier="1:1" id="zkx-1P-KmR"/>
+                                        <constraint firstAttribute="height" constant="40" id="zvv-QT-7WI"/>
+                                    </constraints>
                                     <state key="normal" image="leafIconDisabled"/>
                                     <state key="selected" image="leafIconDisabled"/>
                                     <state key="highlighted" image="leafIconDisabled"/>
@@ -605,11 +606,14 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="pDA-wv-koY">
-                            <rect key="frame" x="0.0" y="831" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="R8M-GS-ePu" firstAttribute="leading" secondItem="Zi4-6I-aSC" secondAttribute="leading" constant="15" id="DWY-Qt-Kwv"/>
+                                <constraint firstItem="7qz-tO-h89" firstAttribute="leading" secondItem="R8M-GS-ePu" secondAttribute="leading" id="LKo-fd-wC7"/>
+                                <constraint firstAttribute="trailing" secondItem="mxB-xL-CD6" secondAttribute="trailing" constant="15" id="LxT-cE-W4M"/>
+                                <constraint firstItem="mxB-xL-CD6" firstAttribute="top" secondItem="R8M-GS-ePu" secondAttribute="top" id="Tzv-W8-hob"/>
+                                <constraint firstItem="R8M-GS-ePu" firstAttribute="top" secondItem="Zi4-6I-aSC" secondAttribute="top" constant="9" id="uSY-py-o5Z"/>
+                                <constraint firstItem="7qz-tO-h89" firstAttribute="top" secondItem="R8M-GS-ePu" secondAttribute="bottom" constant="2" id="xlf-cr-pRS"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="DZe-78-IwE" userLabel="Erro">
