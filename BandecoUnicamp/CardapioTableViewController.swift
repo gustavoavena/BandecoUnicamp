@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DietaChanged{
+    func tipoDeDietaChanged()
+}
+
 class CardapioTableViewController: UITableViewController {
 
     // - MARK: outlets almoco
@@ -17,6 +21,8 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var guarnicaoAlmoco: UILabel!
     @IBOutlet weak var ptsAlmoco: UILabel!
     @IBOutlet weak var saladaAlmoco: UILabel!
+    @IBOutlet weak var viewAlmoco: UIView!
+    @IBOutlet weak var almocoLabel: UILabel!
     
     
     // - MARK: outlets jantar
@@ -26,24 +32,85 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var guarnicaoJantar: UILabel!
     @IBOutlet weak var ptsJantar: UILabel!
     @IBOutlet weak var saladaJantar: UILabel!
+    @IBOutlet weak var viewJantar: UIView!
+    @IBOutlet weak var jantarLabel: UILabel!
     
+    // - MARK: outros outlets
     @IBOutlet weak var dateLabel: UILabel!
-    
-    var errorUpdating: Bool = false
-    
+    @IBOutlet weak var diaDaSemanaLabel: UILabel!
+    @IBOutlet weak var vegetarianoButton: UIButton!
     @IBOutlet weak var errorRow: UITableViewCell!
     
-    static let storyboardIdentifier = "CardapioTableView"
-    
+    // - MARK: outras variaveis e constantes
+    var errorUpdating: Bool = false
     var cardapio: Cardapio!
     var vegetariano: Bool! = false
+    var parentPageViewController:PageViewController!
+    static let storyboardIdentifier = "CardapioTableView"
     
-    var screenshotAlmoco: Bool = true
+    
+    
+    
+    // MARK: metodos de View Controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.errorUpdating {
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if cardapio != nil && vegetariano != nil {
+            setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
+            tableView.reloadData()
+        } else {
+            print("Problema carregado view controller!")
+        }
+        
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
+        //         Adicionando cantos arredondados as views de cardapio
+        viewAlmoco.layer.cornerRadius = 20.0
+        viewJantar.layer.cornerRadius = 20.0
+        
+        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
+        viewAlmoco.layer.masksToBounds = false
+        viewAlmoco.layer.shadowColor = UIColor.black.cgColor
+        viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewAlmoco.layer.shadowOpacity = 0.5
+        viewAlmoco.layer.shadowRadius = 8.0
+        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+        
+        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
+        viewJantar.layer.masksToBounds = false
+        viewJantar.layer.shadowColor = UIColor.black.cgColor
+        viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        viewJantar.layer.shadowOpacity = 0.5
+        viewJantar.layer.shadowRadius = 8.0
+        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        
+        //        almocoShareButton.setImage(UIImage(named: "actionIcon"), for: .normal)
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        trackScreenView()
+        
+    }
+    
+    // MARK: metodos relacionados a conteudo e do cardapio.
+    
     
     func setCardapio(cardapio: Cardapio, vegetariano: Bool) {
         
         self.cardapio = cardapio
-        self.dateLabel.text = formatDateString(data: cardapio.data)
+        self.dateLabel.text = formatarData(data: cardapio.data)
+        self.diaDaSemanaLabel.text = formatarDiaDaSemana(data: cardapio.data)
         
         let almoco = vegetariano ? cardapio.almocoVegetariano : cardapio.almoco
         let jantar = vegetariano ? cardapio.jantarVegetariano : cardapio.jantar
@@ -64,82 +131,58 @@ class CardapioTableViewController: UITableViewController {
         ptsJantar.text = jantar.pts
         saladaJantar.text = jantar.salada
         
-    }
-    
-  
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return cardapio!.almoco.observacoes
-        case 2:
-            return cardapio!.jantar.observacoes
-        default:
-//            print("Problema setando o footer das sections na Table View.")
-            return nil
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0) {
-            return errorUpdating ? 1 : 0
-        } else {
-            return 6
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if(section == 0) {
-            return errorUpdating ? UITableViewAutomaticDimension : 0.01
-        } else {
-            return UITableViewAutomaticDimension
-        }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if self.errorUpdating {
-            tableView.reloadData()
-        }
-    }
-
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        // Seta o icone de vegetariano
+        let image = vegetariano ? UIImage(named: "leafIconEnabled") : UIImage(named: "leafIconDisabled")
+        vegetarianoButton.setImage(image, for: .normal)
         
-        if cardapio != nil && vegetariano != nil {
-            setCardapio(cardapio: self.cardapio, vegetariano: self.vegetariano)
-        } else {
-            print("Problema carregado view controller!")
-        }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        almocoLabel.text =  vegetariano ? "Almoço Vegetariano" : "Almoço"
+        jantarLabel.text =  vegetariano ? "Jantar Vegetariano" : "Jantar"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        trackScreenView()
+    @IBAction func vegetarianoChanged(_ sender: Any) {
+        self.parentPageViewController.vegetariano = !(self.parentPageViewController.vegetariano)
     }
     
-    func formatDateString(data: Date) -> String {
+    fileprivate func presentActivityExtension(_ screenshot: UIImage) {
+        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareAlmoco(_ sender: Any) {
+        let screenshot = self.takeScreenshot(almoco: true)
+        presentActivityExtension(screenshot)
+    }
+    
+
+    @IBAction func shareJantar(_ sender: Any) {
+        let screenshot = self.takeScreenshot(almoco: false)
+        presentActivityExtension(screenshot)
+    }
+    
+
+    func formatarDiaDaSemana(data: Date) -> String {
+        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
         
-        let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
+        return DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]
+    }
+    
+    func formatarData(data: Date) -> String {
+        
+        
         let MESES: [String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
         
         let dia = Calendar.current.component(.day, from: data)
         let mes = Calendar.current.component(.month, from: data)
-        let diaDiaSemana = Calendar.current.component(.weekday, from: data)
+        
         
         // TODO: consertar isso! Muita gambiarra aqui... Usar dateFormatter e Locale.
-        return "\(DIAS_DA_SEMANA[diaDiaSemana > 0 ? diaDiaSemana-1 : 6]), \(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
+        return "\(dia) de \(MESES[mes > 0 ? mes-1 : 11])"
     }
+    
+    // MARK: metodos da TableView.
 
     //Sorry for the magical number :( 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -149,10 +192,45 @@ class CardapioTableViewController: UITableViewController {
             return 45.0
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return cardapio!.almoco.observacoes
+        case 2:
+            return cardapio!.jantar.observacoes
+        default:
+            //            print("Problema setando o footer das sections na Table View.")
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    
+    
+    // CRASH AQUI
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0) {
+            return errorUpdating ? 1 : 0
+        } else {
+            return 1 // Tava crashando o app.
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return errorUpdating ? UITableViewAutomaticDimension : 0.01
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
 }
 
@@ -165,74 +243,32 @@ extension UIViewController {
     }
 }
 
-extension CardapioTableViewController: ScreenshotDelegate {
-    func screenshot() -> UIImage{
-        var image = UIImage();
-        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
-        
-        // save initial values
-        let savedContentOffset = self.tableView.contentOffset;
-        let savedFrame = self.tableView.frame;
-        let savedBackgroundColor = self.tableView.backgroundColor
-        
-        // reset offset to top left point
-        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
-        // set frame to content size
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
-        // remove background
-        self.tableView.backgroundColor = UIColor.clear
-        
-        // make temp view with scroll view content size
-        // a workaround for issue when image on ipad was drawn incorrectly
-        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
-        
-        let cardapioStoryBoard = UIStoryboard.init(name: "Share", bundle: nil)
-        
-        // instancia a view de Share
-        let shareView = cardapioStoryBoard.instantiateViewController(withIdentifier: "ShareViewController") as? ShareTableViewController
-        
-        
-        shareView?.cardapio = cardapio
-        shareView?.vegetariano = vegetariano
-        shareView?.screenshotAlmoco = self.screenshotAlmoco
-        
-        // save superview
-        let tempSuperView = self.tableView.superview
-        // remove scrollView from old superview
-        self.tableView.removeFromSuperview()
-        // and add to tempView
-        //tempView.addSubview(self.tableView)
-        tempView.addSubview((shareView?.view)!)
-        
-        // render view
-        // drawViewHierarchyInRect not working correctly
-        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        // and get image
-        image = UIGraphicsGetImageFromCurrentImageContext()!;
-        
-        // and return everything back
-        tempView.subviews[0].removeFromSuperview()
-        tempSuperView?.addSubview(self.tableView)
-        
-        // restore saved settings
-        self.tableView.contentOffset = savedContentOffset;
-        self.tableView.frame = savedFrame;
-        self.tableView.backgroundColor = savedBackgroundColor
-        
-        var sizeToCrop = CGSize.zero
+// - MARK: metodos para o screenshot
+extension CardapioTableViewController {
 
-        if let footer = shareView!.footer
-        {
-            sizeToCrop = CGSize(width: footer.frame.width, height: footer.frame.origin.y)
+    func takeScreenshot(almoco: Bool) -> UIImage {
+        var image:UIImage = UIImage()
+        
+        // Almoco é section 1 e jantar é section 2.
+        
+
+        let indexPath = IndexPath(row: 0, section: almoco ? 1 : 2)
+        
+//        print("Section = \(section)")
+        if self.tableView.cellForRow(at: indexPath) == nil {
+            print("Couldn't get table view cell for share extension!")
         }
         
+        let cell = self.tableView.cellForRow(at: indexPath) ?? tableView.visibleCells[0]
         
-        UIGraphicsEndImageContext();
-        
-        let scale = UIScreen.main.scale
-        
-        /// PROTEGER O CÓDIGO. SEM FORCE UNWRAP
-        image = UIImage(cgImage:(image.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: sizeToCrop.width * scale , height: sizeToCrop.height * scale))!)!)
+        UIGraphicsBeginImageContextWithOptions(cell.bounds.size, cell.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if let context = UIGraphicsGetCurrentContext() {
+            cell.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
+            cell.layer.render(in: context)
+            
+            image = UIGraphicsGetImageFromCurrentImageContext()!
+        }
         
         return image
     }
