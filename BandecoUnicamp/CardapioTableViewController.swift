@@ -153,9 +153,10 @@ class CardapioTableViewController: UITableViewController {
     }
     
     @IBAction func shareAlmoco(_ sender: Any) {
-        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+//        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+        screenshotDelegate = self
         (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = true
-        let screenshot = (screenshotDelegate?.screenshot())!
+        let screenshot = (screenshotDelegate?.screenshot(almoco: true))!
         let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
@@ -163,9 +164,10 @@ class CardapioTableViewController: UITableViewController {
     
 
     @IBAction func shareJantar(_ sender: Any) {
-        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+//        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
+        screenshotDelegate = self
         (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = false
-        let screenshot = (screenshotDelegate?.screenshot())!
+        let screenshot = (screenshotDelegate?.screenshot(almoco: false))!
         let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
@@ -334,16 +336,18 @@ extension CardapioTableViewController: ScreenshotDelegate {
 //        return image
 //    }
     
-    func screenshot() -> UIImage{
+    func screenshot(almoco: Bool) -> UIImage{
         var image:UIImage = UIImage()
         
-        var cellAlmoco = UITableViewCell()
-        cellAlmoco = self.tableView.visibleCells[0]
+//        var cellAlmoco = UITableViewCell()
+        let cell = almoco ? self.tableView.visibleCells[0] : self.tableView.visibleCells[1]
         
-        UIGraphicsBeginImageContextWithOptions(cellAlmoco.bounds.size, cellAlmoco.isOpaque, 0.0)
+        UIGraphicsBeginImageContextWithOptions(cell.bounds.size, cell.isOpaque, 0.0)
         defer { UIGraphicsEndImageContext() }
         if let context = UIGraphicsGetCurrentContext() {
-            cellAlmoco.layer.render(in: context)
+            cell.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
+            cell.layer.render(in: context)
+            
             image = UIGraphicsGetImageFromCurrentImageContext()!
         }
         

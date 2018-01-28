@@ -112,7 +112,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
-            print("Permission granted: \(granted)")
+//            print("Permission granted: \(granted)")
             
             guard granted else { return }
             self.getNotificationSettings()
@@ -122,7 +122,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     @available(iOS 10.0, *)
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
+//            print("Notification settings: \(settings)")
             
             guard settings.authorizationStatus == .authorized else { return }
             

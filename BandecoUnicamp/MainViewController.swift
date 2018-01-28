@@ -8,7 +8,7 @@
 
 protocol ScreenshotDelegate {
     
-    func screenshot() -> UIImage
+    func screenshot(almoco: Bool) -> UIImage
 }
 
 import UIKit
@@ -153,11 +153,11 @@ class MainViewController: GAITrackedViewController {
         
         (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = (selectedOption.title == "Almoço")
         
-        let screenshot = (screenshotDelegate?.screenshot())!
+//        let screenshot = (screenshotDelegate?.screenshot())!
         
-        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+//        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+//        activityVC.popoverPresentationController?.sourceView = self.view
+//        self.present(activityVC, animated: true, completion: nil)
     }
 
     
