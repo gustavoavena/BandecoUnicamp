@@ -150,7 +150,7 @@ class CardapioTableViewController: UITableViewController {
     }
     
     @IBAction func shareAlmoco(_ sender: Any) {
-        let screenshot = self.takeScreenshot(almoco: false)
+        let screenshot = self.takeScreenshot(almoco: true)
         presentActivityExtension(screenshot)
     }
     
@@ -243,12 +243,23 @@ extension UIViewController {
     }
 }
 
-extension CardapioTableViewController: ScreenshotDelegate {
+// - MARK: metodos para o screenshot
+extension CardapioTableViewController {
 
-    func takeScreenshot(almoco: Bool) -> UIImage{
+    func takeScreenshot(almoco: Bool) -> UIImage {
         var image:UIImage = UIImage()
         
-        let cell = almoco ? self.tableView.visibleCells[0] : self.tableView.visibleCells[1]
+        // Almoco é section 1 e jantar é section 2.
+        
+
+        let indexPath = IndexPath(row: 0, section: almoco ? 1 : 2)
+        
+//        print("Section = \(section)")
+        if self.tableView.cellForRow(at: indexPath) == nil {
+            print("Couldn't get table view cell for share extension!")
+        }
+        
+        let cell = self.tableView.cellForRow(at: indexPath) ?? tableView.visibleCells[0]
         
         UIGraphicsBeginImageContextWithOptions(cell.bounds.size, cell.isOpaque, 0.0)
         defer { UIGraphicsEndImageContext() }
