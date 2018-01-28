@@ -6,10 +6,6 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-protocol ScreenshotDelegate {
-    
-    func screenshot(almoco: Bool) -> UIImage
-}
 
 import UIKit
 
@@ -18,9 +14,6 @@ class MainViewController: GAITrackedViewController {
     let errorString = "Desculpe, não foi possível carregar o cardápio."
 
     weak var pageViewController: PageViewController!
-
-    var screenshotDelegate: ScreenshotDelegate?
-    
     var lastRefreshed: Date = Date()
     
     func displayAlert() {
@@ -136,30 +129,6 @@ class MainViewController: GAITrackedViewController {
         
     }
     
-//    @IBAction func share(_ sender: UIBarButtonItem) {
-//        let menu = UIAlertController(title: nil, message: "Escolha o cardápio para compartilhar", preferredStyle: .actionSheet)
-//        // Descomente a proxima linha para mudar a cor do texto para salmão. Muda também a cor do Cancelar...
-//        //menu.view.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
-//
-//        menu.addAction(UIAlertAction(title: "Almoço", style: .default, handler: printCardapioHandler))
-//        menu.addAction(UIAlertAction(title: "Jantar", style: .default, handler: printCardapioHandler))
-//        menu.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-//
-//        self.present(menu, animated: true, completion: nil)
-//    }
-    
-    private func printCardapioHandler(selectedOption: UIAlertAction) {
-        screenshotDelegate = (pageViewController.viewControllers?.last as! CardapioTableViewController)
-        
-        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = (selectedOption.title == "Almoço")
-        
-//        let screenshot = (screenshotDelegate?.screenshot())!
-        
-//        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
-//        activityVC.popoverPresentationController?.sourceView = self.view
-//        self.present(activityVC, animated: true, completion: nil)
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

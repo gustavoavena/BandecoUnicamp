@@ -1012,7 +1012,6 @@
                     </tableView>
                     <connections>
                         <outlet property="almocoLabel" destination="iet-OY-z2x" id="Om0-OZ-bHo"/>
-                        <outlet property="almocoShareButton" destination="RzJ-dh-3cr" id="Oax-YJ-D9Q"/>
                         <outlet property="dateLabel" destination="R8M-GS-ePu" id="YEG-yE-rFy"/>
                         <outlet property="diaDaSemanaLabel" destination="7qz-tO-h89" id="OtF-M9-21m"/>
                         <outlet property="errorRow" destination="qCW-Em-Odv" id="GJq-Lx-9bu"/>

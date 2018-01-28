@@ -21,6 +21,8 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var guarnicaoAlmoco: UILabel!
     @IBOutlet weak var ptsAlmoco: UILabel!
     @IBOutlet weak var saladaAlmoco: UILabel!
+    @IBOutlet weak var viewAlmoco: UIView!
+    @IBOutlet weak var almocoLabel: UILabel!
     
     
     // - MARK: outlets jantar
@@ -30,35 +32,27 @@ class CardapioTableViewController: UITableViewController {
     @IBOutlet weak var guarnicaoJantar: UILabel!
     @IBOutlet weak var ptsJantar: UILabel!
     @IBOutlet weak var saladaJantar: UILabel!
-    
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var diaDaSemanaLabel: UILabel!
-    
-    var errorUpdating: Bool = false
-    
-    @IBOutlet weak var errorRow: UITableViewCell!
-    
-    static let storyboardIdentifier = "CardapioTableView"
-    
-    @IBOutlet weak var viewAlmoco: UIView!
     @IBOutlet weak var viewJantar: UIView!
-    
-    @IBOutlet weak var vegetarianoButton: UIButton!
-    var cardapio: Cardapio!
-    var vegetariano: Bool! = false
-    @IBOutlet weak var almocoLabel: UILabel!
     @IBOutlet weak var jantarLabel: UILabel!
     
+    // - MARK: outros outlets
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var diaDaSemanaLabel: UILabel!
+    @IBOutlet weak var vegetarianoButton: UIButton!
+    @IBOutlet weak var errorRow: UITableViewCell!
     
-    var screenshotAlmoco: Bool = true
-
+    // - MARK: outras variaveis e constantes
+    var errorUpdating: Bool = false
+    var cardapio: Cardapio!
+    var vegetariano: Bool! = false
     var parentPageViewController:PageViewController!
+    static let storyboardIdentifier = "CardapioTableView"
     
-    var screenshotDelegate: ScreenshotDelegate?
-    @IBOutlet weak var almocoShareButton: UIButton!
+    
     
     
     // MARK: metodos de View Controller.
+    
     override func viewWillAppear(_ animated: Bool) {
         if self.errorUpdating {
             tableView.reloadData()
@@ -142,42 +136,31 @@ class CardapioTableViewController: UITableViewController {
         vegetarianoButton.setImage(image, for: .normal)
         
         almocoLabel.text =  vegetariano ? "Almoço Vegetariano" : "Almoço"
-        
         jantarLabel.text =  vegetariano ? "Jantar Vegetariano" : "Jantar"
-        
-        
     }
     
     @IBAction func vegetarianoChanged(_ sender: Any) {
         self.parentPageViewController.vegetariano = !(self.parentPageViewController.vegetariano)
     }
     
-    @IBAction func shareAlmoco(_ sender: Any) {
-//        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
-        screenshotDelegate = self
-        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = true
-        let screenshot = (screenshotDelegate?.screenshot(almoco: true))!
+    fileprivate func presentActivityExtension(_ screenshot: UIImage) {
         let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareAlmoco(_ sender: Any) {
+        let screenshot = self.takeScreenshot(almoco: false)
+        presentActivityExtension(screenshot)
     }
     
 
     @IBAction func shareJantar(_ sender: Any) {
-//        screenshotDelegate = (parentPageViewController.viewControllers?.last as! CardapioTableViewController)
-        screenshotDelegate = self
-        (screenshotDelegate as! CardapioTableViewController).screenshotAlmoco = false
-        let screenshot = (screenshotDelegate?.screenshot(almoco: false))!
-        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+        let screenshot = self.takeScreenshot(almoco: false)
+        presentActivityExtension(screenshot)
     }
     
-   
-    
-    
-  
-    
+
     func formatarDiaDaSemana(data: Date) -> String {
         let DIAS_DA_SEMANA: [String] = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
         
@@ -249,9 +232,6 @@ class CardapioTableViewController: UITableViewController {
             return UITableViewAutomaticDimension
         }
     }
-    
-    
-    
 }
 
 extension UIViewController {
@@ -264,82 +244,10 @@ extension UIViewController {
 }
 
 extension CardapioTableViewController: ScreenshotDelegate {
-//    func screenshot() -> UIImage{
-//        var image = UIImage();
-//        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
-//
-//        // save initial values
-//        let savedContentOffset = self.tableView.contentOffset;
-//        let savedFrame = self.tableView.frame;
-//        let savedBackgroundColor = self.tableView.backgroundColor
-//
-//        // reset offset to top left point
-//        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
-//        // set frame to content size
-//        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
-//        // remove background
-//        self.tableView.backgroundColor = UIColor.clear
-//
-//        // make temp view with scroll view content size
-//        // a workaround for issue when image on ipad was drawn incorrectly
-//        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
-//
-//        let cardapioStoryBoard = UIStoryboard.init(name: "Share", bundle: nil)
-//
-//        // instancia a view de Share
-//        let shareView = cardapioStoryBoard.instantiateViewController(withIdentifier: "ShareViewController") as? ShareTableViewController
-//
-//
-//        shareView?.cardapio = cardapio
-//        shareView?.vegetariano = vegetariano
-//        shareView?.screenshotAlmoco = self.screenshotAlmoco
-//
-//        // save superview
-//        let tempSuperView = self.tableView.superview
-//        // remove scrollView from old superview
-//        self.tableView.removeFromSuperview()
-//        // and add to tempView
-//        tempView.addSubview(self.tableView)
-////        tempView.addSubview((shareView?.view)!)
-//
-//
-//        // render view
-//        // drawViewHierarchyInRect not working correctly
-//        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
-//        // and get image
-//        image = UIGraphicsGetImageFromCurrentImageContext()!;
-//
-//        // and return everything back
-//        tempView.subviews[0].removeFromSuperview()
-//        tempSuperView?.addSubview(self.tableView)
-//
-//        // restore saved settings
-//        self.tableView.contentOffset = savedContentOffset;
-//        self.tableView.frame = savedFrame;
-//        self.tableView.backgroundColor = savedBackgroundColor
-//
-//        var sizeToCrop = CGSize.zero
-//
-//        if let footer = shareView!.footer
-//        {
-//            sizeToCrop = CGSize(width: footer.frame.width, height: footer.frame.origin.y)
-//        }
-//
-//
-//        UIGraphicsEndImageContext();
-//
-//        let scale = UIScreen.main.scale
-//
-//        /// PROTEGER O CÓDIGO. SEM FORCE UNWRAP
-//        image = UIImage(cgImage:(image.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: sizeToCrop.width * scale , height: sizeToCrop.height * scale))!)!)
-//
-//        return image
-//    }
-    
-    func screenshot(almoco: Bool) -> UIImage{
+
+    func takeScreenshot(almoco: Bool) -> UIImage{
         var image:UIImage = UIImage()
         
-//        var cellAlmoco = UITableViewCell()
         let cell = almoco ? self.tableView.visibleCells[0] : self.tableView.visibleCells[1]
         
         UIGraphicsBeginImageContextWithOptions(cell.bounds.size, cell.isOpaque, 0.0)
