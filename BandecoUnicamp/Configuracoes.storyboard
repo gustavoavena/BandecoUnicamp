@@ -240,6 +240,9 @@
                             <constraint firstItem="4pG-Dv-dCP" firstAttribute="top" secondItem="63u-v0-Xw8" secondAttribute="bottom" id="XyG-eF-c3b"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="63u-v0-Xw8" id="sjs-ht-784"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9N-w7-Bs4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

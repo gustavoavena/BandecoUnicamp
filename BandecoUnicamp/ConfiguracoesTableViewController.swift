@@ -20,10 +20,9 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var almocoNotificationCell: UITableViewCell!
     @IBOutlet weak var jantarNotificationCell: UITableViewCell!
     
-    let notificationsUserDefaultsString = "notificationsEnabled"
+    
 
-    let almocoNotificationTimeString = "notificacao_almoco"
-    let jantarNotificationTimeString = "notificacao_jantar"
+  
     
     /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
     // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
@@ -33,47 +32,38 @@ class ConfiguracoesTableViewController: UITableViewController {
         // TODO: setar o numero de linhas e as opcoes de notificacoes (ativadas ou nao, horario, etc) baseadp no User Defaults.
         // e.g. notificacao_almoco = "12:00" e notificacao_jantar = nil
         
-        // almocoSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared").string(forKey: almocoNotificationTimeString)
-        // jantarSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared").string(forKey: jantarNotificationTimeString)
         
-        //        if let hora_almoco = UserDefaults(suiteName: "group.bandex.shared").string(forKey: almocoNotificationTimeString) as String? {
-        //            almocoSwitch.isOn =  true
-        //            // Colocar linha do almoco
-        //            // almocoTimeString.text = hora_almoco
-        //        } else {
-        //            almocoSwitch.isOn = false
-        //            // nao colocar linhas a mais na table view...
-        //        }
-        
-        //        if let hora_jantar = UserDefaults(suiteName: "group.bandex.shared").string(forKey: jantarNotificationTimeString) as String? {
-        //            jantarSwitch.isOn =  true
-        //            // Colocar linha do almoco
-        //            // jantarTimeString.text = hora_jantar
-        //        } else {
-        //            jantarSwitch.isOn = false
-        //            // nao colocar linhas a mais na table view...
-        //        }
+        if let hora_almoco = UserDefaults.standard.string(forKey: almocoNotificationTimeString) {
+            print("Setando horario da notificacao do almoco: \(hora_almoco)")
+            almocoNotificationCell.detailTextLabel?.text = hora_almoco
+        } else {
+            print("Horario pra notificacao do almoco nao encontrado.")
+            // nao colocar linhas a mais na table view...
+        }
+
+        if let hora_jantar = UserDefaults.standard.string(forKey: jantarNotificationTimeString) {
+            print("Setando horario da notificacao do jantar: \(hora_jantar)")
+            jantarNotificationCell.detailTextLabel?.text = hora_jantar
+        } else {
+            // nao colocar linhas a mais na table view...
+            print("Horario pra notificacao do jantar nao encontrado.")
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
-        
-        loadNotificationOptions()
-        
+        dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: vegetarianoUserDefaultsString)
         
         // back button color
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
         
         // disable highlight on veggie's cell. its only possible to click on switch
         self.veggieTableViewCell.selectionStyle = .none;
-        
-
-        
 
         tableView.reloadData()
+        loadNotificationOptions()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -89,7 +79,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
-        UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: "vegetariano")
+        UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: vegetarianoUserDefaultsString)
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
             print("\nDevice Token: \(token)\n\n")
@@ -129,8 +119,8 @@ class ConfiguracoesTableViewController: UITableViewController {
                 if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
                     CardapioServices.shared.unregisterDeviceToken(token: token)
                     
-                    UserDefaults(suiteName: "group.bandex.shared")?.set(nil, forKey: almocoNotificationTimeString)
-                    UserDefaults(suiteName: "group.bandex.shared")?.set(nil, forKey: jantarNotificationTimeString)
+                    UserDefaults.standard.set(nil, forKey: almocoNotificationTimeString)
+                    UserDefaults.standard.set(nil, forKey: jantarNotificationTimeString)
                     self.loadNotificationOptions()
                     
                 } else {
@@ -169,8 +159,14 @@ class ConfiguracoesTableViewController: UITableViewController {
                 UIApplication.shared.registerForRemoteNotifications()
                 
                 // TODO: atualizar opcoes de notificacoes no User Defaults.
-                UserDefaults(suiteName: "group.bandex.shared")?.set("11:00", forKey: self.almocoNotificationTimeString)
-                UserDefaults(suiteName: "group.bandex.shared")?.set("17:00", forKey: self.jantarNotificationTimeString)
+                if UserDefaults.standard.string(forKey: almocoNotificationTimeString) != nil {
+                    UserDefaults.standard.set("11:00", forKey: almocoNotificationTimeString)
+                }
+                
+                
+                if UserDefaults.standard.string(forKey: jantarNotificationTimeString) != nil{
+                    UserDefaults.standard.set("17:00", forKey: jantarNotificationTimeString)
+                }
 
                 // atualizar UI.
                 self.loadNotificationOptions()
@@ -183,13 +179,17 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destiny = segue.destination as? NotificationTimeViewController {
+            destiny.notificationTimeDisplayDelegate = self
+            
             if segue.identifier == "SegueAlmocoTime" {
                 destiny.refeicao = TipoRefeicao.almoco
-                destiny.selectedTime =
+                destiny.pickerTimeOptions = destiny.ALMOCO_TIME_OPTIONS
+                //destiny.selectedTime =
             }
             
             if segue.identifier == "SegueJantarTime" {
                 destiny.refeicao = TipoRefeicao.jantar
+                destiny.pickerTimeOptions = destiny.JANTAR_TIME_OPTIONS
             }
         }
     }
@@ -290,7 +290,14 @@ class ConfiguracoesTableViewController: UITableViewController {
         }
         return  title
     }
-   
-  
+}
+
+extension ConfiguracoesTableViewController: NotificationTimeDisplayDelegate {
+    func updateTimeString(time: String, refeicao: TipoRefeicao) {
+        let cell = refeicao == .almoco ? almocoNotificationCell : jantarNotificationCell
+        cell?.detailTextLabel?.text = time
+    }
+    
+    
 }
 
