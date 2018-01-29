@@ -15,4 +15,6 @@ let VEGETARIANO_KEY_STRING = "vegetariano"
 let ALMOCO_TIME_KEY_STRING = "notificacao_almoco"
 let JANTAR_TIME_KEY_STRING = "notificacao_jantar"
 
+let NENHUMA_NOTIFICACAO_STRING = "Nenhuma"
+
 

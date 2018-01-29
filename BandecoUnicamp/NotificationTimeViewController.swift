@@ -27,7 +27,7 @@ class NotificationTimeViewController: UIViewController {
     */
     
     let ALMOCO_TIME_OPTIONS = [
-        "Nenhum", "7:00", "7:30",
+        NENHUMA_NOTIFICACAO_STRING, "7:00", "7:30",
          "8:00", "8:30",
          "9:00", "9:30",
          "10:00", "10:30",
@@ -38,7 +38,7 @@ class NotificationTimeViewController: UIViewController {
     ]
     
     let JANTAR_TIME_OPTIONS = [
-        "Nenhum", "14:00", "14:30",
+        NENHUMA_NOTIFICACAO_STRING, "14:00", "14:30",
          "15:00", "15:30",
          "16:00", "16:30",
          "17:00", "17:30",
@@ -57,6 +57,8 @@ class NotificationTimeViewController: UIViewController {
         
         if let currentTime = currentNotificationTime, let row = pickerTimeOptions!.index(of: currentTime) {
             self.pickerView.selectRow(row, inComponent: 0, animated: true)
+        } else {
+            self.pickerView.selectRow(0, inComponent: 0, animated: true)
         }
         
         print("Recebi cardapio \(self.refeicao.rawValue)")
@@ -72,7 +74,7 @@ class NotificationTimeViewController: UIViewController {
         // so salva quando o usuario realmente terminar de escolher e o VC for desaparecer.
         
         OperationQueue.main.addOperation {
-            UserDefaults.standard.set(self.selectedTime == "Nenhum" ? nil : self.selectedTime, forKey: self.refeicao == .almoco ? ALMOCO_TIME_KEY_STRING : JANTAR_TIME_KEY_STRING)
+            UserDefaults.standard.set(self.selectedTime, forKey: self.refeicao == .almoco ? ALMOCO_TIME_KEY_STRING : JANTAR_TIME_KEY_STRING)
             CardapioServices.shared.registerDeviceToken()
         }
         

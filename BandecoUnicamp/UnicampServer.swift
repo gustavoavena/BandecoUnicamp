@@ -140,13 +140,13 @@ class UnicampServer {
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
         
         
+        let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) == NENHUMA_NOTIFICACAO_STRING ? nil : UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING)
+        let hora_jantar = UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) == NENHUMA_NOTIFICACAO_STRING ? nil : UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING)
         
         
         print("\nToken URL: \(tokensURL)")
         
-        if let url = URL(string: tokensURL),
-            let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING),
-            let hora_jantar = UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) {
+        if let url = URL(string: tokensURL) {
             var request = URLRequest(url: url)
             
             let body: [String: Any] = ["token": token, "vegetariano": vegetariano, ALMOCO_TIME_KEY_STRING: hora_almoco, JANTAR_TIME_KEY_STRING: hora_jantar]
