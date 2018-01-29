@@ -188,6 +188,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         controller.cardapio = cardapio
         controller.vegetariano = self.vegetariano
         controller.errorUpdating = self.errorUpdating
+        controller.parentPageViewController = self
 
         return controller
     }
