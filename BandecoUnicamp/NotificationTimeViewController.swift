@@ -88,18 +88,16 @@ extension NotificationTimeViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
         return pickerTimeOptions.count
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return self.pickerTimeOptions[row]
     }
 }
 
 extension NotificationTimeViewController: UIPickerViewDataSource {
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         self.selectedTime = self.pickerTimeOptions[row]

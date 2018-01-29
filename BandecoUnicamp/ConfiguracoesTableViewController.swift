@@ -293,6 +293,7 @@ class ConfiguracoesTableViewController: UITableViewController {
 }
 
 extension ConfiguracoesTableViewController: NotificationTimeDisplayDelegate {
+    
     func updateTimeString(time: String, refeicao: TipoRefeicao) {
         let cell = refeicao == .almoco ? almocoNotificationCell : jantarNotificationCell
         cell?.detailTextLabel?.text = time
