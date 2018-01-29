@@ -36,7 +36,8 @@
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
-		4DC33403201F5979003DE8C0 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC33402201F5979003DE8C0 /* GlobalConstants.swift */; };
+		4DC33403201F5979003DE8C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC33402201F5979003DE8C0 /* Constants.swift */; };
+		4DC33404201F6E1C003DE8C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC33402201F5979003DE8C0 /* Constants.swift */; };
 		4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
 		4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD99A111ED20A97007D0038 /* CardapioServices.swift */; };
@@ -99,7 +100,7 @@
 		4DB41A1B1EEAD8C400255628 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
-		4DC33402201F5979003DE8C0 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		4DC33402201F5979003DE8C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4DD99A111ED20A97007D0038 /* CardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioServices.swift; sourceTree = "<group>"; };
 		4DE2732C1EC9289D008F78BC /* Cardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardapio.swift; sourceTree = "<group>"; };
 		6AE1A33D5AFA1E28F0B47247 /* libPods-BandecoUnicamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BandecoUnicamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +217,7 @@
 				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
 				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
 				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
-				4DC33402201F5979003DE8C0 /* GlobalConstants.swift */,
+				4DC33402201F5979003DE8C0 /* Constants.swift */,
 				4D02A3B21F54A56100E9357A /* View */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
@@ -455,6 +456,7 @@
 				4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */,
 				4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */,
 				4D5C6D5A1ED1E45D009CC3E1 /* TodayViewController.swift in Sources */,
+				4DC33404201F6E1C003DE8C0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +474,7 @@
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
 				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
-				4DC33403201F5979003DE8C0 /* GlobalConstants.swift in Sources */,
+				4DC33403201F5979003DE8C0 /* Constants.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
             print("\n\nDevice Token: \(token)\n\n\n")
             
-            CardapioServices.shared.registerDeviceToken(token: token)
+            CardapioServices.shared.registerDeviceToken()
         }
         
 
@@ -48,9 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(token, forKey: "deviceToken")
         
-        // TODO: setar horario do almoco e/ou jantar (colocando nil quando nao quiser notificacao).
-        
-        CardapioServices.shared.registerDeviceToken(token: token)
+        CardapioServices.shared.registerDeviceToken()
     }
     
     func application(_ application: UIApplication,

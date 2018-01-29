@@ -16,8 +16,6 @@ class NotificationTimeViewController: UIViewController {
     var refeicao: TipoRefeicao!
     var selectedTime: String!
     
-//    let almocoNotificationTimeString = "notificacao_almoco"
-//    let jantarNotificationTimeString = "notificacao_jantar"
     
     var notificationTimeDisplayDelegate: NotificationTimeDisplayDelegate?
     
@@ -54,7 +52,7 @@ class NotificationTimeViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let currentNotificationTime: String? = UserDefaults.standard.object(forKey: refeicao == .almoco ? almocoNotificationTimeString : jantarNotificationTimeString) as? String
+        let currentNotificationTime: String? = UserDefaults.standard.object(forKey: refeicao == .almoco ? ALMOCO_TIME_KEY_STRING : JANTAR_TIME_KEY_STRING) as? String
         
         
         if let currentTime = currentNotificationTime, let row = pickerTimeOptions!.index(of: currentTime) {
@@ -73,9 +71,12 @@ class NotificationTimeViewController: UIViewController {
         
         // so salva quando o usuario realmente terminar de escolher e o VC for desaparecer.
         
-        UserDefaults.standard.set(self.selectedTime == "Nenhum" ? nil : self.selectedTime, forKey: self.refeicao == .almoco ? almocoNotificationTimeString : jantarNotificationTimeString)
+        OperationQueue.main.addOperation {
+            UserDefaults.standard.set(self.selectedTime == "Nenhum" ? nil : self.selectedTime, forKey: self.refeicao == .almoco ? ALMOCO_TIME_KEY_STRING : JANTAR_TIME_KEY_STRING)
+            CardapioServices.shared.registerDeviceToken()
+        }
+        
     }
-
 }
 
 extension NotificationTimeViewController: UIPickerViewDelegate {

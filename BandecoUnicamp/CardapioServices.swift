@@ -116,8 +116,8 @@ extension CardapioServices {
     
     // MARK: registro de tokens.
     
-    public func registerDeviceToken(token: String) {
-        UnicampServer.registerDeviceToken(token: token)
+    public func registerDeviceToken() {
+        UnicampServer.registerDeviceToken()
     }
     
     public func unregisterDeviceToken(token: String) {
