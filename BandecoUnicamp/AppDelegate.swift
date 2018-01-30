@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
-            print("\n\nDevice Token: \(token)\n\n\n")
+            #if DEBUG
+            print("\nDEVELOPMENT MODE")
+            #endif
+            print("Device Token: \(token)\n\n\n")
             
             CardapioServices.shared.registerDeviceToken()
         }
