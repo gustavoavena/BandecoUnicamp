@@ -146,6 +146,10 @@ class CardapioTableViewController: UITableViewController {
     fileprivate func presentActivityExtension(_ screenshot: UIImage) {
         let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
+        
+        // exclui opcao de "save image"
+        activityVC.excludedActivityTypes = [UIActivityType.saveToCameraRoll]
+        
         self.present(activityVC, animated: true, completion: nil)
     }
     
