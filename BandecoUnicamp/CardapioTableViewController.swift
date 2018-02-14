@@ -243,6 +243,9 @@ extension UIViewController {
     }
 }
 
+
+// TODO: resolver crash que ocorre quando o usuario tenta SALVAR o screenshot.
+
 // - MARK: metodos para o screenshot
 extension CardapioTableViewController {
 

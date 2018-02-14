@@ -27,9 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("launchCount = \(launchCount+1)")
         
         if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
-            print("\n\nDevice Token: \(token)\n\n\n")
+            #if DEBUG
+            print("\nDEVELOPMENT MODE")
+            #endif
+            print("Device Token: \(token)\n\n\n")
             
-            CardapioServices.shared.registerDeviceToken(token: token)
+            CardapioServices.shared.registerDeviceToken()
         }
         
 
@@ -54,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(token, forKey: "deviceToken")
         
-        CardapioServices.shared.registerDeviceToken(token: token)
+        CardapioServices.shared.registerDeviceToken()
     }
     
     func application(_ application: UIApplication,

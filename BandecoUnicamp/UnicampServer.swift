@@ -128,19 +128,30 @@ class UnicampServer {
     /// Registra/atualiza token do usuário, para manter o timestamp e a preferência de cardápio atualizados no servidor.
     ///
     /// - Parameter token: string do token do usuário para ser armazenado no servidor e usado nas Push Notifications.
-    public static func registerDeviceToken(token: String) {
+    public static func registerDeviceToken() {
 //        let url = URL(string: tokensURL)
         
         
+        guard let token = UserDefaults.standard.object(forKey: "deviceToken") as? String else {
+            print("No device token found to be registered!")
+            return
+        }
         
         let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        
+        
+        let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) == NENHUMA_NOTIFICACAO_STRING ? nil : UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING)
+        let hora_jantar = UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) == NENHUMA_NOTIFICACAO_STRING ? nil : UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING)
+        
         
         print("\nToken URL: \(tokensURL)")
         
         if let url = URL(string: tokensURL) {
             var request = URLRequest(url: url)
             
-            let body: [String: Any] = ["token": token, "vegetariano": vegetariano ]
+            let body: [String: Any] = ["token": token, "vegetariano": vegetariano, ALMOCO_TIME_KEY_STRING: hora_almoco, JANTAR_TIME_KEY_STRING: hora_jantar]
+            
+            // TODO: setar almoco e jantar.
             
             let data = try? JSONSerialization.data(withJSONObject: body, options: [])
             
@@ -154,12 +165,14 @@ class UnicampServer {
                 } else {
                     print("Register request unsuccessful.")
                     print("Error: \(String(describing: error))")
+                    let httpResponse = response as? HTTPURLResponse
+                    print("Response: \(httpResponse)")
                 }
             }
             
             
         } else {
-            print("Invalid URL to unregister token")
+            print("Error registering token: invalid URL or hora_almoco and hora_jantar not found.")
         }
 
         
