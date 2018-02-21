@@ -76,21 +76,17 @@ class CardapioTableViewController: UITableViewController {
         viewAlmoco.layer.cornerRadius = 20.0
         viewJantar.layer.cornerRadius = 20.0
         
-        let almocoShadowPath = UIBezierPath(rect: viewAlmoco.bounds)
         viewAlmoco.layer.masksToBounds = false
         viewAlmoco.layer.shadowColor = UIColor.black.cgColor
         viewAlmoco.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         viewAlmoco.layer.shadowOpacity = 0.2
-        viewAlmoco.layer.shadowRadius = 6.0
-        viewAlmoco.layer.shadowPath = almocoShadowPath.cgPath
+        viewAlmoco.layer.shadowRadius = 7.0
         
-        let jantarShadowPath = UIBezierPath(rect: viewJantar.bounds)
         viewJantar.layer.masksToBounds = false
         viewJantar.layer.shadowColor = UIColor.black.cgColor
         viewJantar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         viewJantar.layer.shadowOpacity = 0.2
-        viewJantar.layer.shadowRadius = 6.0
-        viewJantar.layer.shadowPath = jantarShadowPath.cgPath
+        viewJantar.layer.shadowRadius = 7.0
         
         //        almocoShareButton.setImage(UIImage(named: "actionIcon"), for: .normal)
         
