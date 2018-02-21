@@ -28,7 +28,7 @@ class UnicampServer {
     private static let urlAllCardapiosProduction = "https://bandex.herokuapp.com/cardapios"
     
     #if RELEASE
-    private static let tokensURL = "https://bandex.herokuapp.com/tokens"
+    private static let tokensURL = "https://bandex-prod.herokuapp.com/tokens"
     private static let cardapioURL = URL(string: "https://bandex-c2f82.firebaseio.com/cardapios.json")
     #else
     private static let tokensURL = "https://bandex-test.herokuapp.com/tokens"
