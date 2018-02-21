@@ -1,20 +1,20 @@
 PODS:
-  - Firebase (4.4.0):
-    - Firebase/Core (= 4.4.0)
-  - Firebase/Analytics (4.4.0):
+  - Firebase (4.9.0):
+    - Firebase/Core (= 4.9.0)
+  - Firebase/Analytics (4.9.0):
     - Firebase/Core
-  - Firebase/Core (4.4.0):
-    - FirebaseAnalytics (= 4.0.4)
-    - FirebaseCore (= 4.0.9)
-  - FirebaseAnalytics (4.0.4):
+  - Firebase/Core (4.9.0):
+    - FirebaseAnalytics (= 4.0.9)
+    - FirebaseCore (= 4.0.15)
+  - FirebaseAnalytics (4.0.9):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseCore (4.0.9):
+  - FirebaseCore (4.0.15):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseInstanceID (2.0.5)
+  - FirebaseInstanceID (2.0.9):
+    - FirebaseCore (~> 4.0)
   - Google/Analytics (2.0.4):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -47,10 +47,10 @@ DEPENDENCIES:
   - Google/Analytics
 
 SPEC CHECKSUMS:
-  Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
-  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
-  FirebaseCore: ebe73f64302705e693b1de9919a76edbdd17a19d
-  FirebaseInstanceID: f2b688c66b972f30d7fa9f5f9f91455454a03b47
+  Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
+  FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
+  FirebaseCore: 3bd047463058fa6b5d312c97502c52e45401cdfb
+  FirebaseInstanceID: d2058a35e9bebda1b6dd42486b84917bde552a9d
   Google: d536877ec602555b755cc28ce6fed104825c693c
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
