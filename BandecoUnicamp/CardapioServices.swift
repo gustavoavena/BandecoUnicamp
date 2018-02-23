@@ -53,7 +53,7 @@ extension CardapioServices {
         let (almoco, jantar): (TipoRefeicao,TipoRefeicao) = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? (.almocoVegetariano, .jantarVegetariano) : (.almoco, .jantar)
         
         if (2...6).contains(diaDaSemanaAtual) {
-            if (14...20).contains(horaAtual) {
+            if (14...19).contains(horaAtual) {
                 return jantar
             } else {
                 return almoco
