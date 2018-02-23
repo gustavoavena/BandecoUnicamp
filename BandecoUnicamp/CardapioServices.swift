@@ -33,12 +33,9 @@ public class CardapioServices: NSObject {
     public func getAllCardapios() -> [Cardapio] {
         return UnicampServer.getAllCardapios()
     }
-    
-    
-
 }
 
-// MARK: Metodos para o Widget.
+// MARK: Metodos para o Widget
 extension CardapioServices {
     
     
@@ -109,18 +106,5 @@ extension CardapioServices {
         let tipo = getTipoRefeicaoParaExibir(dataCardapio: cardapio.data)
         return (cardapio[tipo], cardapio.data)
     }
-
 }
 
-extension CardapioServices {
-    
-    // MARK: registro de tokens.
-    
-    public func registerDeviceToken() {
-        UnicampServer.registerDeviceToken()
-    }
-    
-    public func unregisterDeviceToken(token: String) {
-        UnicampServer.unregisterDeviceToken(token: token)
-    }
-}

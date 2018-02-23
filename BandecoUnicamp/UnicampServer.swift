@@ -132,12 +132,12 @@ class UnicampServer {
 //        let url = URL(string: tokensURL)
         
         
-        guard let token = UserDefaults.standard.object(forKey: "deviceToken") as? String else {
+        guard let token = UserDefaults.standard.object(forKey: DEVICE_TOKEN_STRING) as? String else {
             print("No device token found to be registered!")
             return
         }
         
-        let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")
+        let vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: VEGETARIANO_KEY_STRING)
         
         
         let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) == NENHUMA_NOTIFICACAO_STRING ? nil : UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING)

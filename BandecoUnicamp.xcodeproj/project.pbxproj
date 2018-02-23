@@ -14,6 +14,7 @@
 		4D259F781F71691C008E1F07 /* Configuracoes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D259F771F71691C008E1F07 /* Configuracoes.storyboard */; };
 		4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */; };
 		4D35FFCC1F2AB41C00FA2A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
+		4D48614B20407FE600A5A617 /* ConfiguracoesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48614A20407FE600A5A617 /* ConfiguracoesServices.swift */; };
 		4D4BC7D51F97862A00603150 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D4BC7D41F97860500603150 /* GoogleService-Info.plist */; };
 		4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
 		4D5C6D4F1ED1D371009CC3E1 /* cardapio in Resources */ = {isa = PBXBuildFile; fileRef = 4D5C6D4E1ED1D371009CC3E1 /* cardapio */; };
@@ -78,6 +79,7 @@
 		4D1BD06A1F325D4A00DFBCFF /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		4D259F771F71691C008E1F07 /* Configuracoes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Configuracoes.storyboard; sourceTree = "<group>"; };
 		4D35FFCA1F2AB1CC00FA2A98 /* WidgetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewController.swift; sourceTree = "<group>"; };
+		4D48614A20407FE600A5A617 /* ConfiguracoesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesServices.swift; sourceTree = "<group>"; };
 		4D4BC7D41F97860500603150 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicampServer.swift; sourceTree = "<group>"; };
 		4D5C6D4E1ED1D371009CC3E1 /* cardapio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardapio; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		4D02A3B11F54A54800E9357A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4DC33402201F5979003DE8C0 /* Constants.swift */,
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
 				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4D02A3AE1F54A50B00E9357A /* Refeicao.swift */,
@@ -160,6 +163,33 @@
 				4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		4D48614720407F6700A5A617 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
+				4D02A3B21F54A56100E9357A /* View */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		4D48614820407F8100A5A617 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
+				4D48614A20407FE600A5A617 /* ConfiguracoesServices.swift */,
+			);
+			name = "Business Logic";
+			sourceTree = "<group>";
+		};
+		4D48614920407F9700A5A617 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				4D02A3B11F54A54800E9357A /* Model */,
+				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
+			);
+			name = Persistence;
 			sourceTree = "<group>";
 		};
 		4D5C6D551ED1E45D009CC3E1 /* Frameworks */ = {
@@ -213,12 +243,9 @@
 				4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */,
 				4D9529021EC78D2D00219F48 /* AppDelegate.swift */,
 				4D4BC7D41F97860500603150 /* GoogleService-Info.plist */,
-				4D02A3B11F54A54800E9357A /* Model */,
-				4DA8F50E1EECA53D00FE99AE /* View Controllers */,
-				4DD99A111ED20A97007D0038 /* CardapioServices.swift */,
-				4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */,
-				4DC33402201F5979003DE8C0 /* Constants.swift */,
-				4D02A3B21F54A56100E9357A /* View */,
+				4D48614920407F9700A5A617 /* Persistence */,
+				4D48614820407F8100A5A617 /* Business Logic */,
+				4D48614720407F6700A5A617 /* User Interface */,
 				4D5C6D4E1ED1D371009CC3E1 /* cardapio */,
 				4D9529091EC78D2E00219F48 /* Assets.xcassets */,
 				4D95290E1EC78D2E00219F48 /* Info.plist */,
@@ -469,6 +496,7 @@
 				4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */,
 				4DD99A121ED20A97007D0038 /* CardapioServices.swift in Sources */,
 				B11B68112007C3B20022BCEA /* NotificationTimeViewController.swift in Sources */,
+				4D48614B20407FE600A5A617 /* ConfiguracoesServices.swift in Sources */,
 				4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */,
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,

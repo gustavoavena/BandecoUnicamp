@@ -19,37 +19,7 @@ class ConfiguracoesTableViewController: UITableViewController {
   
     @IBOutlet weak var almocoNotificationCell: UITableViewCell!
     @IBOutlet weak var jantarNotificationCell: UITableViewCell!
-    
-    
 
-  
-    
-    /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
-    // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
-    func loadNotificationOptions() {
-        notificationSwitch.isOn = UserDefaults.standard.bool(forKey: NOTIFICATION_KEY_STRING)
-        
-        // TODO: setar o numero de linhas e as opcoes de notificacoes (ativadas ou nao, horario, etc) baseadp no User Defaults.
-        // e.g. notificacao_almoco = "12:00" e notificacao_jantar = nil
-        
-        
-        if let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) {
-            print("Setando horario da notificacao do almoco: \(hora_almoco)")
-            almocoNotificationCell.detailTextLabel?.text = hora_almoco
-        } else {
-            print("Horario pra notificacao do almoco nao encontrado.")
-            // nao colocar linhas a mais na table view...
-        }
-
-        if let hora_jantar = UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) {
-            print("Setando horario da notificacao do jantar: \(hora_jantar)")
-            jantarNotificationCell.detailTextLabel?.text = hora_jantar
-        } else {
-            // nao colocar linhas a mais na table view...
-            print("Horario pra notificacao do jantar nao encontrado.")
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,53 +49,48 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
-        UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: VEGETARIANO_KEY_STRING)
-        
-        CardapioServices.shared.registerDeviceToken()
-        
+        ConfiguracoesServices.shared.setDietaValue(sender.isOn)
     }
     
     
-    // Abre o feedback form no Safari
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // - MARK: Notificacoes
+    
+    /// Responsavel por atualizar todo o UI relacionado as notificacoes. Toda vez que alguma opcao de notificacao for alterada, esse metodo deve ser chamado para
+    // garantir que os textos dos horarios estejamo corretos e as linhas das notificacoes das refeicoes aparecam somente se ativadas.
+    func loadNotificationOptions() {
+        notificationSwitch.isOn = UserDefaults.standard.bool(forKey: NOTIFICATION_KEY_STRING)
         
-        if indexPath.section == 2 && indexPath.row == 0 {
-            UIApplication.shared.openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSekvO0HnnfGnk0-FLTX86mVxAOB5Uajq8MPmB0Sv1pXPuQiCg/viewform")!)
-            tableView.deselectRow(at: indexPath, animated: true)
+        // TODO: setar o numero de linhas e as opcoes de notificacoes (ativadas ou nao, horario, etc) baseadp no User Defaults.
+        // e.g. notificacao_almoco = "12:00" e notificacao_jantar = nil
+        
+        
+        if let hora_almoco = UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) {
+            print("Setando horario da notificacao do almoco: \(hora_almoco)")
+            almocoNotificationCell.detailTextLabel?.text = hora_almoco
+        } else {
+            print("Horario pra notificacao do almoco nao encontrado.")
+            // nao colocar linhas a mais na table view...
+        }
+        
+        if let hora_jantar = UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) {
+            print("Setando horario da notificacao do jantar: \(hora_jantar)")
+            jantarNotificationCell.detailTextLabel?.text = hora_jantar
+        } else {
+            // nao colocar linhas a mais na table view...
+            print("Horario pra notificacao do jantar nao encontrado.")
         }
     }
     
-   
-    
-    // - MARK: notifications
-    
     
     @IBAction func notificationSwitchToggled(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: NOTIFICATION_KEY_STRING)
-        
-        if(sender.isOn) {
-            
-            if #available(iOS 10.0, *) {
+
+        if #available(iOS 10.0, *) {
+            if(sender.isOn) {
                 registerForPushNotifications()
-            } else {
-                // Fallback on earlier versions
-            }
-        } else { // Desabilitar notificacao
-            
-            if #available(iOS 10.0, *) {
-                if let token = UserDefaults.standard.object(forKey: "deviceToken") as? String {
-                    CardapioServices.shared.unregisterDeviceToken(token: token)
-                    
-                    UserDefaults.standard.set(nil, forKey: ALMOCO_TIME_KEY_STRING)
-                    UserDefaults.standard.set(nil, forKey: JANTAR_TIME_KEY_STRING)
+            } else { // Desabilitar notificacao
+                ConfiguracoesServices.shared.disableNotifications() {
                     self.loadNotificationOptions()
-                    
-                } else {
-                    print("Device token nao encontrado para ser removido")
                 }
-    
-            } else {
-                // Fallback on earlier versions
             }
         }
         
@@ -137,44 +102,13 @@ class ConfiguracoesTableViewController: UITableViewController {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
-//            print("Permission granted: \(granted)")
             
             guard granted else { return }
-            self.getNotificationSettings()
-        }
-    }
-    
-    @available(iOS 10.0, *)
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-//            print("Notification settings: \(settings)")
-            
-            guard settings.authorizationStatus == .authorized else { return }
-            
-            // Executing is main queue because of warning from XCode 9 thread sanitizer.
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-                
-                // TODO: atualizar opcoes de notificacoes no User Defaults.
-                if UserDefaults.standard.string(forKey: ALMOCO_TIME_KEY_STRING) == nil {
-                    print("Configurando horario para notificacao do almoco pela primeira vez")
-                    UserDefaults.standard.set("11:00", forKey: ALMOCO_TIME_KEY_STRING)
-                }
-                
-                
-                if UserDefaults.standard.string(forKey: JANTAR_TIME_KEY_STRING) == nil{
-                    print("Configurando horario para notificacao do jantar pela primeira vez")
-                    UserDefaults.standard.set("17:00", forKey: JANTAR_TIME_KEY_STRING)
-                }
-
-                // atualizar UI.
+            ConfiguracoesServices.shared.enableNotifications() {
                 self.loadNotificationOptions()
-                
             }
         }
     }
-    
-    // MARK: Time of notifications
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destiny = segue.destination as? NotificationTimeViewController {
@@ -190,6 +124,18 @@ class ConfiguracoesTableViewController: UITableViewController {
                 destiny.refeicao = TipoRefeicao.jantar
                 destiny.pickerTimeOptions = destiny.JANTAR_TIME_OPTIONS
             }
+        }
+    }
+    
+    
+    // MARK: - Table view methods
+    
+    // Abre o feedback form no Safari
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 2 && indexPath.row == 0 {
+            UIApplication.shared.openURL(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSekvO0HnnfGnk0-FLTX86mVxAOB5Uajq8MPmB0Sv1pXPuQiCg/viewform")!)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     

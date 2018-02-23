@@ -17,4 +17,6 @@ let JANTAR_TIME_KEY_STRING = "notificacao_jantar"
 
 let NENHUMA_NOTIFICACAO_STRING = "Nenhuma"
 
+let DEVICE_TOKEN_STRING = "deviceToken"
+
 
