@@ -119,6 +119,9 @@ class MainViewController: GAITrackedViewController {
     }
     
     func dietaMayHaveChanged() {
+        
+        // TODO: armazenar opcao de vegetariano comente no ConfiguracoesServices.
+        
         // Coloquei esse if para ele nao ficar setando o atributo pageViewController.vegetariano sem necessidade, ja que esse atributo chama um metodo para reinstanciar todos os view controllers.
         if(UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") != pageViewController.vegetariano) {
             pageViewController.vegetariano = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano")

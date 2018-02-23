@@ -27,13 +27,11 @@
 		4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9529021EC78D2D00219F48 /* AppDelegate.swift */; };
 		4D95290A1EC78D2E00219F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9529091EC78D2E00219F48 /* Assets.xcassets */; };
 		4D95290D1EC78D2E00219F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D95290B1EC78D2E00219F48 /* LaunchScreen.storyboard */; };
-		4D9724081F279E7900F588B8 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4871F268D0600C6F6A7 /* Cache.swift */; };
 		4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8F50F1EECA62900FE99AE /* ConfiguracoesTableViewController.swift */; };
 		4DB3A4801F265DBB00C6F6A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DB3A47E1F265DBB00C6F6A7 /* Main.storyboard */; };
 		4DB3A4821F266F4300C6F6A7 /* CardapioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */; };
 		4DB3A4841F267DAA00C6F6A7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */; };
 		4DB3A4861F2683C500C6F6A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */; };
-		4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3A4871F268D0600C6F6A7 /* Cache.swift */; };
 		4DB41A1D1EEAD8C400255628 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB41A1B1EEAD8C400255628 /* Gloss.framework */; };
 		4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2732C1EC9289D008F78BC /* Cardapio.swift */; };
 		4DB41A1F1EEAE44500255628 /* UnicampServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D87DC1EE05DFC001C13FA /* UnicampServer.swift */; };
@@ -98,7 +96,6 @@
 		4DB3A4811F266F4300C6F6A7 /* CardapioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardapioTableViewController.swift; sourceTree = "<group>"; };
 		4DB3A4831F267DAA00C6F6A7 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		4DB3A4851F2683C500C6F6A7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		4DB3A4871F268D0600C6F6A7 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		4DB41A1B1EEAD8C400255628 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		4DB41A211EEC77D000255628 /* BandecoUnicamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BandecoUnicamp.entitlements; sourceTree = "<group>"; };
 		4DB41A221EEC77F100255628 /* WidgetCardapio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetCardapio.entitlements; sourceTree = "<group>"; };
@@ -148,7 +145,6 @@
 			children = (
 				4DC33402201F5979003DE8C0 /* Constants.swift */,
 				4DE2732C1EC9289D008F78BC /* Cardapio.swift */,
-				4DB3A4871F268D0600C6F6A7 /* Cache.swift */,
 				4D02A3AE1F54A50B00E9357A /* Refeicao.swift */,
 			);
 			name = Model;
@@ -477,7 +473,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB41A1E1EEAD8DE00255628 /* Cardapio.swift in Sources */,
-				4D9724081F279E7900F588B8 /* Cache.swift in Sources */,
 				4DF1D2301EDEFE0E006A016E /* CardapioServices.swift in Sources */,
 				4D02A3B01F54A52400E9357A /* Refeicao.swift in Sources */,
 				4D35FFCB1F2AB1CC00FA2A98 /* WidgetTableViewController.swift in Sources */,
@@ -501,7 +496,6 @@
 				4DE2732D1EC9289D008F78BC /* Cardapio.swift in Sources */,
 				4D9529031EC78D2D00219F48 /* AppDelegate.swift in Sources */,
 				4DA8F5101EECA62900FE99AE /* ConfiguracoesTableViewController.swift in Sources */,
-				4DB3A4881F268D0600C6F6A7 /* Cache.swift in Sources */,
 				4DC33403201F5979003DE8C0 /* Constants.swift in Sources */,
 				4D4D87DD1EE05DFC001C13FA /* UnicampServer.swift in Sources */,
 			);
