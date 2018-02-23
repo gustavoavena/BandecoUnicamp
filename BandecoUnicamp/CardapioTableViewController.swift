@@ -189,7 +189,7 @@ class CardapioTableViewController: UITableViewController {
         if(section == 0) {
             return errorUpdating ? 30.0 : 2
         } else {
-            return 45.0
+            return 15.0
         }
     }
     
