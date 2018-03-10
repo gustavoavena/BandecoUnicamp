@@ -22,7 +22,10 @@ import UIKit
 
 public class CardapioServices: NSObject {
     
+    var defaults =  UserDefaults(suiteName: "group.bandex.shared")!
+    
     public static let shared: CardapioServices = CardapioServices()
+    
     
 
     private override init() {}
@@ -46,11 +49,13 @@ extension CardapioServices {
     ///
     /// - Parameter dataCardapio: data do cardapio a ser exibido.
     /// - Returns: valor do tipo TipoRefeicao, que informa qual a refeicao que deve ser exibida.
-    private func getTipoRefeicaoParaExibir(dataCardapio: Date) -> TipoRefeicao {
-        let horaAtual = Calendar.current.component(.hour, from: Date())
-        let diaDaSemanaAtual = Calendar.current.component(.weekday, from: Date())
+    func getTipoRefeicaoParaExibir(dataCardapio: Date, _ simulatedDate: Date? = nil) -> TipoRefeicao {
+        let today = simulatedDate ?? Date()
+        let horaAtual = Calendar.current.component(.hour, from: today)
+        let diaDaSemanaAtual = Calendar.current.component(.weekday, from: today)
         
-        let (almoco, jantar): (TipoRefeicao,TipoRefeicao) = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: "vegetariano") ? (.almocoVegetariano, .jantarVegetariano) : (.almoco, .jantar)
+//        print("hora = \(horaAtual)")
+        let (almoco, jantar): (TipoRefeicao,TipoRefeicao) = defaults.bool(forKey: "vegetariano") ? (.almocoVegetariano, .jantarVegetariano) : (.almoco, .jantar)
         
         if (2...6).contains(diaDaSemanaAtual) {
             if (14...19).contains(horaAtual) {
@@ -67,11 +72,13 @@ extension CardapioServices {
     /// Metodo que informa se o cardapio a ser exibido deve ser do proximo dia util. Utilizado para mostrar o cardapio do proximo dia quando já tiver passado o jantar do dia atual.
     ///
     /// - Returns: true se for para usar o cardapio do proximo dia util.
-    private func usarCardapioDoProximoDia() -> Bool {
-        let hora = Calendar.current.component(.hour, from: Date())
-        let weekday = Calendar.current.component(.weekday, from: Date())
+    func usarCardapioDoProximoDia(_ simulatedDate: Date? = nil) -> Bool {
+        let today = simulatedDate ?? Date()
+        let hora = Calendar.current.component(.hour, from: today)
+        let weekday = Calendar.current.component(.weekday, from: today)
         
-        return (hora > 19) && (2...6).contains(weekday) ? true : false
+//        print("hora: ", hora)
+        return ((hora > 19) && (2...6).contains(weekday)) || !(2...6).contains(weekday) ? true : false
     }
     
     
