@@ -20,6 +20,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     @IBOutlet weak var almocoNotificationCell: UITableViewCell!
     @IBOutlet weak var jantarNotificationCell: UITableViewCell!
     
+    var defaults = UserDefaults(suiteName: "group.bandex.shared")!
     
 
   
@@ -54,7 +55,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dietaSwitch.isOn = UserDefaults(suiteName: "group.bandex.shared")!.bool(forKey: VEGETARIANO_KEY_STRING)
+        dietaSwitch.isOn = defaults.bool(forKey: VEGETARIANO_KEY_STRING)
         
         // back button color
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
@@ -79,7 +80,7 @@ class ConfiguracoesTableViewController: UITableViewController {
     
     
     @IBAction func dietaValueChanged(_ sender: UISwitch) {
-        UserDefaults(suiteName: "group.bandex.shared")!.set(sender.isOn, forKey: VEGETARIANO_KEY_STRING)
+        defaults.set(sender.isOn, forKey: VEGETARIANO_KEY_STRING)
         
         CardapioServices.shared.registerDeviceToken()
         
